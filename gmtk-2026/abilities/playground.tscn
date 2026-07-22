@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://cf7pkprq1d773"]
+
+[sub_resource type="GDScript" id="GDScript_hksgv"]
+script/source = "extends Node2D
+
+var _test_ability: Ability
+
+func _ready() -> void:
+	_test_ability = ConjureWeapon.new(self)
+
+func _process(delta: float) -> void:
+	_test_ability.process(delta)
+
+func _input(event: InputEvent) -> void:
+	if event is InputEventKey and event.pressed and not event.echo and event.keycode == KEY_E:
+		_test_ability.activate_ability()
+"
+
+[node name="Node2D" type="Node2D" unique_id=1672422744]
+script = SubResource("GDScript_hksgv")

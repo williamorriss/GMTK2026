@@ -1,5 +1,5 @@
 class_name ThrowableWeapon
-extends Node2D
+extends Area2D
 
 @export_group("References")
 @export var sprite: Sprite2D

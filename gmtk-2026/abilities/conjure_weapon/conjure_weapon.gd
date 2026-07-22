@@ -6,9 +6,7 @@ extends Ability
 
 signal on_weapon_thrown
 
-var _player: Node2D 
 var _weapon_data: WeaponData
-
 var _can_attack: bool = true
 
 func activate_ability() -> void:

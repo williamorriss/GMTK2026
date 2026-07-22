@@ -8,7 +8,7 @@ script/source = "extends Node2D
 var _test_ability: Ability
 
 func _ready() -> void:
-	_test_ability = ConjureWeapon.new(self, preload(\"res://abilities/conjure_weapon/weapons_data/sword.tres\"))
+	_test_ability = ChromaticOrb.new(self)
 
 func _process(delta: float) -> void:
 	rotation = (get_global_mouse_position() - global_position).angle() + deg_to_rad(90)
@@ -19,6 +19,10 @@ func _input(event: InputEvent) -> void:
 		_test_ability.activate_ability()
 "
 
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_ln4xa"]
+a = Vector2(2.999878, -2237)
+b = Vector2(11.000122, 2470)
+
 [node name="Playground" type="Node2D" unique_id=1672422744]
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=2142181668]
@@ -28,3 +32,30 @@ zoom = Vector2(0.25, 0.25)
 scale = Vector2(2, 2)
 texture = ExtResource("1_k4xrk")
 script = SubResource("GDScript_k4xrk")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=297826922]
+position = Vector2(2087, 22)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=405052133]
+shape = SubResource("SegmentShape2D_ln4xa")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=1713220499]
+position = Vector2(-4, 1254)
+rotation = 1.5707964
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=818934784]
+shape = SubResource("SegmentShape2D_ln4xa")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="." unique_id=534719589]
+position = Vector2(-59, -1233)
+rotation = 1.5707964
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3" unique_id=699289835]
+shape = SubResource("SegmentShape2D_ln4xa")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="." unique_id=64077432]
+position = Vector2(-2238, 273)
+rotation = -0.015024003
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4" unique_id=825684144]
+shape = SubResource("SegmentShape2D_ln4xa")

@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://bxcfpluv5hbsb"]
+
+[ext_resource type="Texture2D" uid="uid://dhcwybhoxgwhe" path="res://icon.svg" id="1_46quf"]
+[ext_resource type="Script" uid="uid://3gslje7u8p11" path="res://abilities/conjure_weapon/swingable_weapon/swingable_weapon.gd" id="1_jg18m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ln4xa"]
+size = Vector2(66, 259)
+
+[sub_resource type="Animation" id="Animation_jg18m"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Weapon:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.5707964]
+}
+
+[sub_resource type="Animation" id="Animation_ouymb"]
+resource_name = "swing"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Weapon:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.5707964, -1.5707964]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rx7yb"]
+_data = {
+&"RESET": SubResource("Animation_jg18m"),
+&"swing": SubResource("Animation_ouymb")
+}
+
+[node name="SwingableSword" type="Node2D" unique_id=1424723420 node_paths=PackedStringArray("collider", "animator", "sprite")]
+script = ExtResource("1_jg18m")
+collider = NodePath("Weapon/Pivot/Area2D")
+animator = NodePath("AnimationPlayer")
+sprite = NodePath("Weapon/Pivot/Sprite2D")
+swing_time = 0.25
+swing_delay = 0.25
+
+[node name="Weapon" type="Node2D" parent="." unique_id=406609725]
+rotation = 1.5707964
+
+[node name="Pivot" type="Node2D" parent="Weapon" unique_id=456249681]
+position = Vector2(5.638769e-06, -129)
+
+[node name="Area2D" type="Area2D" parent="Weapon/Pivot" unique_id=421166945]
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Weapon/Pivot/Area2D" unique_id=128063949]
+position = Vector2(6.82121e-13, -0.5)
+shape = SubResource("RectangleShape2D_ln4xa")
+
+[node name="Sprite2D" type="Sprite2D" parent="Weapon/Pivot" unique_id=1610427032]
+scale = Vector2(0.5, 2)
+texture = ExtResource("1_46quf")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=631951576]
+libraries/ = SubResource("AnimationLibrary_rx7yb")

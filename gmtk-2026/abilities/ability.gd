@@ -1,12 +1,14 @@
 class_name Ability
 extends RefCounted
 
-var _cost: int = -1
+var _ability_data: AbilityData
 
 func get_cost() -> float:
-	if _cost == -1:
-		push_warning("Cost not set")
-	return _cost
+	if not _ability_data:
+		push_warning("Data not set")
+		return 0
+	
+	return _ability_data.cost
 
 func activate_ability() -> void:
 	pass

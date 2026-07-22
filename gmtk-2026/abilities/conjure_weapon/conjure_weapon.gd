@@ -31,7 +31,7 @@ func process(_delta: float) -> void:
 func _init(player: Node2D, weapon_data: WeaponData) -> void:
 	_player = player
 	_weapon_data = weapon_data
-	_cost = 2
+	_ability_data = preload("res://abilities/conjure_weapon/conjure_data.tres")
 
 func _attack() -> void:
 	print("attack")

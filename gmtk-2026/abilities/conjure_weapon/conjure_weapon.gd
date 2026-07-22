@@ -5,6 +5,7 @@ extends Ability
 # [TODO] Have cost when timer is setup
 
 signal on_weapon_generated
+signal on_weapon_thrown
 
 var _player: Node2D 
 var _weapon_data: WeaponData
@@ -36,8 +37,15 @@ func _attack() -> void:
 	print("attack")
 
 func _throw() -> void:
+	on_weapon_thrown.emit()
 	_has_weapon = false
-	print("throw")
+	
+	var instance: ThrowableWeapon = _weapon_data.throwable.instantiate()
+	_player.get_tree().current_scene.add_child(instance)
+	instance.position = _player.position
+	
+	var direction: Vector2 = (_player.get_global_mouse_position() - _player.global_position).normalized()
+	instance.set_direction(direction)
 
 func _generate_weapon() -> void:
 	print("generating")

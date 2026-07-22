@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://cf7pkprq1d773"]
 
-[sub_resource type="GDScript" id="GDScript_hksgv"]
+[ext_resource type="Texture2D" uid="uid://dhcwybhoxgwhe" path="res://icon.svg" id="1_k4xrk"]
+
+[sub_resource type="GDScript" id="GDScript_k4xrk"]
 script/source = "extends Node2D
 
 var _test_ability: Ability
@@ -16,5 +18,12 @@ func _input(event: InputEvent) -> void:
 		_test_ability.activate_ability()
 "
 
-[node name="Node2D" type="Node2D" unique_id=1672422744]
-script = SubResource("GDScript_hksgv")
+[node name="Playground" type="Node2D" unique_id=1672422744]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=2142181668]
+zoom = Vector2(0.25, 0.25)
+
+[node name="Player" type="Sprite2D" parent="." unique_id=78335692]
+scale = Vector2(2, 2)
+texture = ExtResource("1_k4xrk")
+script = SubResource("GDScript_k4xrk")

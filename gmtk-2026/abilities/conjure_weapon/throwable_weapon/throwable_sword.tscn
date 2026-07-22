@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://bopnagloil2hi"]
+
+[ext_resource type="Texture2D" uid="uid://dhcwybhoxgwhe" path="res://icon.svg" id="1_hjpcg"]
+[ext_resource type="Script" uid="uid://ctjqo4067nacl" path="res://abilities/conjure_weapon/throwable_weapon/throwable_weapon.gd" id="1_qaqm5"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ln4xa"]
+radius = 90.088844
+
+[node name="ThrowableSword" type="Area2D" unique_id=1045993088 node_paths=PackedStringArray("sprite", "collider")]
+script = ExtResource("1_qaqm5")
+sprite = NodePath("Sprite2D")
+collider = NodePath("CollisionShape2D")
+throw_speed = 2500.0
+spin_speed = 360.0
+life_span = 3.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=433471155]
+shape = SubResource("CircleShape2D_ln4xa")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=122687348]
+texture = ExtResource("1_hjpcg")

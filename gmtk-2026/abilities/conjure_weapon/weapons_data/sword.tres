@@ -1,10 +1,11 @@
 [gd_resource type="Resource" script_class="WeaponData" format=3 uid="uid://bbll1opty84nl"]
 
-[ext_resource type="Script" uid="uid://dcpfkcthf4n7g" path="res://abilities/conjure_weapon/weapons_data/weapon_data.gd" id="1_si8k1"]
-[ext_resource type="PackedScene" uid="uid://bopnagloil2hi" path="res://abilities/conjure_weapon/throwable_weapon/throwable_sword.tscn" id="2_20a6t"]
+[ext_resource type="Script" uid="uid://dcpfkcthf4n7g" path="res://abilities/conjure_weapon/weapons_data/weapon_data.gd" id="1_o8fiv"]
+[ext_resource type="PackedScene" uid="uid://bxcfpluv5hbsb" path="res://abilities/conjure_weapon/swingable_weapon/swingable_sword.tscn" id="2_1143o"]
+[ext_resource type="PackedScene" uid="uid://bopnagloil2hi" path="res://abilities/conjure_weapon/throwable_weapon/throwable_sword.tscn" id="2_ryvah"]
 
 [resource]
-script = ExtResource("1_si8k1")
-name = "Sword"
-throwable = ExtResource("2_20a6t")
+script = ExtResource("1_o8fiv")
+swingable = ExtResource("2_1143o")
+throwable = ExtResource("2_ryvah")
 metadata/_custom_type_script = "uid://dcpfkcthf4n7g"

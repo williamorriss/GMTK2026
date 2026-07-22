@@ -7,8 +7,8 @@ extends Ability
 signal on_weapon_generated
 
 var _player: Node2D 
+var _weapon_data: WeaponData
 
-var _attack_delay: float = 0.5
 var _has_weapon: bool = false
 var _can_attack: bool = true
 
@@ -24,11 +24,12 @@ func process(_delta: float) -> void:
 		
 		_attack()
 		
-		await _player.get_tree().create_timer(_attack_delay).timeout
+		await _player.get_tree().create_timer(_weapon_data.attack_delay).timeout
 		_can_attack = true
 
-func _init(player: Node2D) -> void:
+func _init(player: Node2D, weapon_data: WeaponData) -> void:
 	_player = player
+	_weapon_data = weapon_data
 	_cost = 2
 
 func _attack() -> void:
@@ -39,6 +40,7 @@ func _throw() -> void:
 	print("throw")
 
 func _generate_weapon() -> void:
+	print("generating")
 	_has_weapon = true
 	_can_attack = true
 	

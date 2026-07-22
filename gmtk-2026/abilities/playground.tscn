@@ -6,7 +6,7 @@ script/source = "extends Node2D
 var _test_ability: Ability
 
 func _ready() -> void:
-	_test_ability = ConjureWeapon.new(self)
+	_test_ability = ConjureWeapon.new(self, preload(\"res://abilities/conjure_weapon/weapons/sword.tres\"))
 
 func _process(delta: float) -> void:
 	_test_ability.process(delta)

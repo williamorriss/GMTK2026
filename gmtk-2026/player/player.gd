@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+@export var max_health: float = 100.0
+
 @export var speed: float = 300.0
 @export var acceleration: float = 2000.0
 @export var friction: float = 2000.0
@@ -7,6 +9,8 @@ extends CharacterBody2D
 @export var dash_speed: float = 900.0
 @export var dash_duration: float = 0.15
 @export var dash_cooldown: float = 0.6
+
+@onready var health_component: Health = Health.new(max_health)
 
 var weapon: Ability = null
 var spells: Array[Ability] = [null, null, null, null] # 4 entries always
@@ -72,4 +76,3 @@ func move(delta: float) -> void:
 			velocity = velocity.move_toward(Vector2.ZERO, friction * delta)
 
 	move_and_slide()
-	 

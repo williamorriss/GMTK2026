@@ -12,8 +12,8 @@ func _ready():
 
 	astar.update()
 	
-func _process(delta: float) -> void:
-	var path = astar.get_point_path(current_cell, target_cell)
+func return_path():
+	return astar.get_point_path(current_cell, target_cell)
 	
 
 

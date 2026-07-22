@@ -1,13 +1,9 @@
 [gd_scene format=3 uid="uid://dreqr6x7m6bqr"]
 
 [ext_resource type="Script" uid="uid://yqd857ntvhu" path="res://melee_movement.gd" id="1_vgvdu"]
-[ext_resource type="Script" uid="uid://bdhlpesw7w0s8" path="res://grunt.gd" id="2_na774"]
 
 [node name="melee_movement" type="Node2D" unique_id=20365568]
 script = ExtResource("1_vgvdu")
 
 [node name="test_node" type="Node2D" parent="." unique_id=1091756172]
 position = Vector2(221, 85)
-
-[node name="grunt" type="Node2D" parent="." unique_id=1938833924]
-script = ExtResource("2_na774")

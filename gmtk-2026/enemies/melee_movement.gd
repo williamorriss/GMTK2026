@@ -3,7 +3,7 @@ extends Node2D
 
 var astar = AStarGrid2D.new()
 var current_cell = Vector2i(self.global_position / astar.cell_size)
-var target_cell = Vector2i($test_node.global_position / astar.cell_size)
+var target_cell = Vector2i()
 func _ready():
 
 	astar.region = Rect2i(0,0,10,10) #using arbitrary values here
@@ -11,6 +11,9 @@ func _ready():
 	astar.diagonal_mode = astar.DIAGONAL_MODE_ALWAYS
 
 	astar.update()
+
+func _process(delta):
+	target_cell = Vector2i($test_node.global_position / astar.cell_size)
 	
 func return_path():
 	return astar.get_point_path(current_cell, target_cell)

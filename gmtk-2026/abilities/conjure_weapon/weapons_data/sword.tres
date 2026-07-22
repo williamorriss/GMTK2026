@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="WeaponData" format=3 uid="uid://bbll1opty84nl"]
 
-[ext_resource type="Script" uid="uid://dcpfkcthf4n7g" path="res://abilities/conjure_weapon/weapons/weapon_data.gd" id="1_si8k1"]
+[ext_resource type="Script" uid="uid://dcpfkcthf4n7g" path="res://abilities/conjure_weapon/weapons_data/weapon_data.gd" id="1_si8k1"]
 [ext_resource type="PackedScene" uid="uid://bopnagloil2hi" path="res://abilities/conjure_weapon/throwable_weapon/throwable_sword.tscn" id="2_20a6t"]
 
 [resource]

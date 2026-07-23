@@ -31,7 +31,6 @@ func _use_ability() -> void:
 			weapon.activate_ability()
 	
 	if Input.is_action_just_pressed("MAGIC_1"):
-		print(spells[0])
 		if spells[0]:
 			spells[0].activate_ability()
 			

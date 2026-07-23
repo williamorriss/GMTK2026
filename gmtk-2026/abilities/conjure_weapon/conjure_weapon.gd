@@ -19,7 +19,7 @@ func _init(player: Node2D, weapon_data: WeaponData) -> void:
 
 func process(_delta: float) -> void:
 	if Input.is_action_just_pressed("ATTACK") and _can_attack:
-		_attack()
+		await _attack()
 
 func _attack() -> void:
 	_can_attack = false

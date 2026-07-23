@@ -21,7 +21,8 @@ var _dash_direction: Vector2 = Vector2.ZERO
 
 func _ready() -> void:
 	add_to_group("players")
-	health.on_dead.connect(_die)
+	var _x: int = health.on_dead.connect(_die)
+	
 
 func _physics_process(delta: float) -> void:
 	_move(delta)
@@ -55,7 +56,7 @@ func _move(delta: float) -> void:
 		else:
 			velocity = velocity.move_toward(Vector2.ZERO, friction * delta)
 	
-	move_and_slide()
+	var _x: bool = move_and_slide()
 
 func _die() -> void:
 	queue_free()

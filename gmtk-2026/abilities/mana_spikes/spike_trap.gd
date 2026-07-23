@@ -32,7 +32,7 @@ func _move(delta: float) -> void:
 	position += _direction * _speed * delta
 
 func _generate_spikes() -> void:
-	for i in range(spike_amount):
+	for i: int in range(spike_amount):
 		var pos: Vector2 = _generate_position()
 		while not _can_see(pos):
 			pos = _generate_position()

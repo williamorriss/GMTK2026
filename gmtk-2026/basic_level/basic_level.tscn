@@ -150,12 +150,8 @@ acceleration = 5000.0
 friction = 5000.0
 dash_speed = 2500.0
 
-[node name="grunt" parent="." unique_id=1002393870 node_paths=PackedStringArray("player") instance=ExtResource("3_a00k7")]
-position = Vector2(586, 696)
-player = NodePath("../Player")
-
-[node name="ranged_grunt" parent="." unique_id=2039192104 node_paths=PackedStringArray("player") instance=ExtResource("4_t8npg")]
-position = Vector2(-613, -286)
+[node name="BeamEnemy" parent="." unique_id=1624300625 node_paths=PackedStringArray("player") instance=ExtResource("3_a00k7")]
+position = Vector2(449, 707)
 player = NodePath("../Player")
 
 [node name="room_manager" type="Area2D" parent="." unique_id=524887874]

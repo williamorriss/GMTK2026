@@ -1,6 +1,9 @@
 class_name Player
 extends CharacterBody2D
 
+@export_group("References")
+@export var health: Health
+
 @export_group("Movement")
 @export var speed: float = 300.0
 @export var acceleration: float = 2000.0
@@ -16,11 +19,14 @@ var _dash_timer: float = 0.0
 var _dash_cooldown_timer: float = 0.0
 var _dash_direction: Vector2 = Vector2.ZERO
 
+func _ready() -> void:
+	health.on_dead.connect(_die)
+
 func _physics_process(delta: float) -> void:
-	move(delta)
+	_move(delta)
 
 
-func move(delta: float) -> void:
+func _move(delta: float) -> void:
 	var input_dir: Vector2 = Vector2(
 		Input.get_axis("LEFT", "RIGHT"),
 		Input.get_axis("UP", "DOWN")
@@ -49,4 +55,6 @@ func move(delta: float) -> void:
 			velocity = velocity.move_toward(Vector2.ZERO, friction * delta)
 	
 	move_and_slide()
-	
+
+func _die() -> void:
+	queue_free()

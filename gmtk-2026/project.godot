@@ -11,8 +11,8 @@ config_version=5
 [application]
 
 config/name="GMTK2026"
-run/main_scene="uid://t56vengwy4r0"
-config/features=PackedStringArray("4.7", "GL Compatibility")
+run/main_scene="uid://dreqr6x7m6bqr"
+config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 
 [debug]

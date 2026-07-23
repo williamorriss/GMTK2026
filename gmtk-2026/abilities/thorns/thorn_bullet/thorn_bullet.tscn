@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://bqt1fcjcs8pm2"]
+
+[ext_resource type="Script" uid="uid://cw6obwbec6vib" path="res://abilities/thorns/thorn_bullet/thorn_bullet.gd" id="1_s4ktf"]
+[ext_resource type="Texture2D" uid="uid://dhcwybhoxgwhe" path="res://icon.svg" id="2_0nddd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ln4xa"]
+size = Vector2(32, 32)
+
+[node name="ThornBullet" type="Area2D" unique_id=470132796]
+collision_layer = 8
+collision_mask = 6
+script = ExtResource("1_s4ktf")
+speed = 5000.0
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2064587554]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_0nddd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=571729409]
+shape = SubResource("RectangleShape2D_ln4xa")

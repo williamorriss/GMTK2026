@@ -1,4 +1,4 @@
-class_name Bullet
+class_name ThornBullet
 extends Area2D
 
 @export var speed: float
@@ -6,8 +6,8 @@ extends Area2D
 
 var _direction: Vector2
 
-static func create_bullet(pos: Vector2, direction: Vector2) -> Bullet:
-	var instance: Bullet = preload("res://abilities/sentry/bullet/bullet.tscn").instantiate()
+static func create_bullet(pos: Vector2, direction: Vector2) -> ThornBullet:
+	var instance: ThornBullet = preload("res://abilities/thorns/thorn_bullet/thorn_bullet.tscn").instantiate()
 	instance._direction = direction
 	instance.position = pos
 	return instance

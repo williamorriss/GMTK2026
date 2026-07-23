@@ -12,7 +12,7 @@ func _ready() -> void:
 	add_ability(0, first_spell)
 	var second: Ability = ChromaticOrb.new(player)
 	add_ability(1, second)
-	var third: Ability = SlowTime.new(player)
+	var third: Ability = Thorns.new(player)
 	add_ability(2, third)
 
 func add_ability(pos: int, ability: Ability) -> void:

@@ -1,9 +1,6 @@
 class_name Player
 extends CharacterBody2D
 
-@export_group("Health")
-@export var max_health: float = 100.0
-
 @export_group("Movement")
 @export var speed: float = 300.0
 @export var acceleration: float = 2000.0
@@ -13,8 +10,6 @@ extends CharacterBody2D
 @export var dash_speed: float = 900.0
 @export var dash_duration: float = 0.15
 @export var dash_cooldown: float = 0.6
-
-@onready var health_component: Health = Health.new(max_health)
 
 var _dashing: bool = false
 var _dash_timer: float = 0.0

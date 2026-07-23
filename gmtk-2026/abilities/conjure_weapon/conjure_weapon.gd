@@ -12,10 +12,6 @@ var _can_attack: bool = true
 func activate_ability() -> void:
 	_throw()
 
-func process(_delta: float) -> void:
-	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and _can_attack:
-		_attack()
-
 func _init(player: Node2D, weapon_data: WeaponData) -> void:
 	_player = player
 	_weapon_data = weapon_data

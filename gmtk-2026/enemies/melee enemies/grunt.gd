@@ -1,4 +1,3 @@
-class_name Grunt
 extends CharacterBody2D
 
 @export_group("References")
@@ -28,6 +27,7 @@ func _ready() -> void:
 func _physics_process(_delta: float) -> void:
 	attack()
 	
+	look_at(player.position)
 	agent.target_position = player.position + _offset
 	
 	if agent.is_navigation_finished() or position.distance_to(player.position) < max_distance:

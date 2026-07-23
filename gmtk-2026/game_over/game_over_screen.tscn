@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://comfb4xtpo4g2"]
+
+[ext_resource type="Script" uid="uid://f4b0l3oi2ai" path="res://game_over/game_over_screen.gd" id="1_wogij"]
+[ext_resource type="FontFile" uid="uid://qvjbjulrm5fs" path="res://UI/Fonts/upheaval/upheavtt.ttf" id="2_d4tce"]
+
+[node name="GameOverScreen" type="CanvasLayer" unique_id=1825362919]
+script = ExtResource("1_wogij")
+
+[node name="Control" type="Control" parent="." unique_id=403304541]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.3039856
+offset_right = 0.3039856
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Retry" type="Button" parent="Control" unique_id=445157244]
+layout_mode = 0
+offset_left = -300.69604
+offset_top = -155.0
+offset_right = -130.69604
+offset_bottom = -92.0
+theme_override_fonts/font = ExtResource("2_d4tce")
+text = "Climb once more"
+
+[node name="Quit" type="Button" parent="Control" unique_id=1403800164]
+layout_mode = 0
+offset_left = 123.303955
+offset_top = -158.0
+offset_right = 318.30396
+offset_bottom = -98.0
+theme_override_fonts/font = ExtResource("2_d4tce")
+text = "Succumb to fate"
+
+[node name="game_over_text" type="Label" parent="Control" unique_id=675731281]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.38000003
+anchor_top = 0.37300003
+anchor_right = 0.38000003
+anchor_bottom = 0.37300003
+offset_left = -252.92705
+offset_top = -273.0
+offset_right = 273.07288
+offset_bottom = -186.0
+theme_override_fonts/font = ExtResource("2_d4tce")
+text = "Your time has run out and your life has come to an end."
+horizontal_alignment = 1
+
+[connection signal="pressed" from="Control/Retry" to="." method="_on_retry_pressed"]
+[connection signal="pressed" from="Control/Quit" to="." method="_on_quit_pressed"]

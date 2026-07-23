@@ -9,7 +9,8 @@ radius = 175.28548
 [sub_resource type="CircleShape2D" id="CircleShape2D_tmfgs"]
 
 [node name="ChromaticBody" type="RigidBody2D" unique_id=1390675684 node_paths=PackedStringArray("shape", "component")]
-collision_layer = 2
+collision_layer = 8
+collision_mask = 6
 gravity_scale = 0.0
 script = ExtResource("1_f7q3n")
 shape = NodePath("CollisionShape2D")

@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://t56vengwy4r0"]
+
+[ext_resource type="PackedScene" uid="uid://ciyk3l7p2kfjx" path="res://player/player.tscn" id="1_syuel"]
+[ext_resource type="Script" uid="uid://b8tg31ljylfa8" path="res://test/give_weapon.gd" id="2_8a8pi"]
+[ext_resource type="Texture2D" uid="uid://dhcwybhoxgwhe" path="res://icon.svg" id="3_65205"]
+
+[node name="Test" type="Node2D" unique_id=1830393188]
+
+[node name="Player" parent="." unique_id=133342377 instance=ExtResource("1_syuel")]
+
+[node name="Button" type="Button" parent="." unique_id=1085069610 node_paths=PackedStringArray("player")]
+offset_right = 8.0
+offset_bottom = 8.0
+icon = ExtResource("3_65205")
+script = ExtResource("2_8a8pi")
+player = NodePath("../Player")
+
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]

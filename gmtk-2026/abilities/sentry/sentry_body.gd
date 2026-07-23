@@ -22,7 +22,7 @@ func _process(_delta: float) -> void:
 		_can_shoot = true
 
 func _get_closest() -> Node2D:
-	var enemies: Array[Node] = get_tree().get_nodes_in_group("damageable")
+	var enemies: Array[Node] = get_tree().get_nodes_in_group("enemies")
 	var distance: float = INF
 	var closest: Node = null
 	for enemy: Node2D in enemies:

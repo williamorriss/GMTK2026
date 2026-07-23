@@ -44,4 +44,4 @@ func _destroy(_name: StringName) -> void:
 func _on_body_entered(body: Node2D) -> void:
 	var health = body.get_node_or_null("Health") as Health
 	if health:
-		health.take_damage(damage)
+		health.damage(damage)

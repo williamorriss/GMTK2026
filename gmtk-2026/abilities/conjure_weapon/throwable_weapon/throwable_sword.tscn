@@ -10,6 +10,7 @@ radius = 138.17743
 script = ExtResource("1_qaqm5")
 sprite = NodePath("Sprite2D")
 collider = NodePath("CollisionShape2D")
+throw_damage = null
 throw_speed = 2500.0
 spin_speed = 360.0
 life_span = 3.0

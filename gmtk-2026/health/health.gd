@@ -1,9 +1,23 @@
 class_name Health
-extends Node
+extends Node2D
+
 signal damage_taken(value: float, new_hp: float)
 signal dead
 
+@export var max_health: float = 100
+
 var _hp: float = 0.0 
+
+static func get_health(target: Node) -> Health:
+	var healths: Array = []
+	for child: Node in target.get_children():
+		if child is Health:
+			healths.append(child)
+	
+	if healths.size() > 1:
+		push_warning("Multiple health in a node when searching")
+	
+	return healths.front()
 
 func damage(points: float) -> void:
 	if points > 0:
@@ -27,7 +41,7 @@ func set_hp(hp: float) -> void:
 	if _hp < 0:
 		dead.emit()
 
-func _init(hp: float) -> void:
-	_hp = hp
+func _ready() -> void:
+	_hp = max_health
 	if _hp < 0:
 		dead.emit()

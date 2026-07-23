@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://brhh1agsaou48"]
+
+[ext_resource type="Script" uid="uid://cwvgm7sjtsa2f" path="res://abilities/mana_spikes/spike.gd" id="1_5a5iw"]
+[ext_resource type="Texture2D" uid="uid://dhcwybhoxgwhe" path="res://icon.svg" id="2_0s26o"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ln4xa"]
+radius = 36.124783
+
+[node name="Spike" type="Area2D" unique_id=834360476]
+collision_layer = 8
+collision_mask = 2
+script = ExtResource("1_5a5iw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=657105916]
+shape = SubResource("CircleShape2D_ln4xa")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=318948516]
+modulate = Color(0.89719176, 0, 0.07325766, 1)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_0s26o")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

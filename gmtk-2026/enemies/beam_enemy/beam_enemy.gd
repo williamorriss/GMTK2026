@@ -1,4 +1,4 @@
-class_name Grunt
+class_name BeamEnemy
 extends CharacterBody2D
 
 @export_group("References")
@@ -12,11 +12,12 @@ extends CharacterBody2D
 @export var offset_distance: float = 100
 
 @export_group("Attack")
-@export var atk: float = 10.0
 @export var attack_cooldown: float = 0.5
+@export var beam_offset: float = 100
 
 var _offset: Vector2 = Vector2.ZERO
 var _can_attack: bool = true
+var _shooting: bool = false
 
 func _ready() -> void:
 	add_to_group("enemies")
@@ -42,13 +43,14 @@ func _physics_process(_delta: float) -> void:
 	move_and_slide()
 
 func attack() -> void:
-	if position.distance_to(player.position) > max_distance or not _can_attack:
+	if not _can_attack:
 		return
 	_can_attack = false
 	
-	var health_player: Health = Health.get_health(player)
-	if health_player:
-		health_player.damage(atk)
+	var dir: Vector2 = position.direction_to(player.position)
+	var pos: Vector2 = position + dir * beam_offset
+	var beam: Beam = Beam.create_beam(dir, pos)
+	get_tree().current_scene.add_child(beam)
 	
 	await get_tree().create_timer(attack_cooldown).timeout
 	_can_attack = true

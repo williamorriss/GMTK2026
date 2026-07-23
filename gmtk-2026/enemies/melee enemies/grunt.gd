@@ -1,3 +1,4 @@
+class_name Grunt
 extends CharacterBody2D
 
 @export_group("References")

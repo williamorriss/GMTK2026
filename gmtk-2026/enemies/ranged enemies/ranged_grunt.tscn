@@ -2,12 +2,20 @@
 
 [ext_resource type="Script" uid="uid://c3r27pxwlare7" path="res://enemies/ranged enemies/ranged_grunt.gd" id="1_6nd18"]
 [ext_resource type="Texture2D" uid="uid://dhcwybhoxgwhe" path="res://icon.svg" id="2_oubo3"]
+[ext_resource type="PackedScene" uid="uid://b84onmi6p6dgu" path="res://health/health.tscn" id="3_oubo3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ny2g4"]
 size = Vector2(136, 133)
 
-[node name="ranged_grunt" type="CharacterBody2D" unique_id=2039192104]
+[node name="ranged_grunt" type="CharacterBody2D" unique_id=2039192104 node_paths=PackedStringArray("agent", "health")]
+collision_layer = 2
+collision_mask = 5
 script = ExtResource("1_6nd18")
+agent = NodePath("NavigationAgent2D")
+health = NodePath("Health")
+speed = 500.0
+max_distance = 1000.0
+attack_cooldown = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1477722998]
 position = Vector2(1, 0.5)
@@ -18,3 +26,5 @@ shape = SubResource("RectangleShape2D_ny2g4")
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1416140732]
 position = Vector2(0, 2)
 texture = ExtResource("2_oubo3")
+
+[node name="Health" parent="." unique_id=2054087400 instance=ExtResource("3_oubo3")]

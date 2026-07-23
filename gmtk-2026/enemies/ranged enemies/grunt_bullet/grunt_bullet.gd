@@ -1,4 +1,4 @@
-class_name Bullet
+class_name GruntBullet
 extends Area2D
 
 @export var speed: float
@@ -6,14 +6,14 @@ extends Area2D
 
 var _direction: Vector2
 
-static func create_bullet(pos: Vector2, direction: Vector2) -> Bullet:
-	var instance: Bullet = preload("res://abilities/sentry/bullet/bullet.tscn").instantiate()
+static func create_bullet(pos: Vector2, direction: Vector2) -> GruntBullet:
+	var instance: GruntBullet = preload("res://enemies/ranged enemies/grunt_bullet/grunt_bullet.tscn").instantiate()
 	instance._direction = direction
 	instance.position = pos
 	return instance
 
 func _ready() -> void:
-	area_entered.connect(_on_area_entered)
+	body_entered.connect(_on_area_entered)
 
 func _process(delta: float) -> void:
 	position += _direction * speed * delta
@@ -22,5 +22,5 @@ func _on_area_entered(body: Node2D) -> void:
 	var health: Health = Health.get_health(body)
 	if health:
 		health.damage(damage)
-
+	
 	queue_free()

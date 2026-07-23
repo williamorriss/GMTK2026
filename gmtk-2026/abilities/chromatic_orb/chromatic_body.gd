@@ -11,6 +11,7 @@ extends RigidBody2D
 @export var speed_range: Vector2
 @export var max_bounces: int
 @export var size_multiplier: float
+@export var damage: float
 
 var _player: Node2D
 var _current_bounces: int = 0
@@ -48,3 +49,9 @@ func _change_properties() -> void:
 	component.scale *= size_multiplier
 	
 	_current_speed = speed_range.x + ((speed_range.y - speed_range.x) / (max_bounces - 1)) * _current_bounces
+
+
+func _on_body_entered(body: Node2D) -> void:
+	var health = body.get_node_or_null("Health") as Health
+	if health:
+		health.take_damage(damage)

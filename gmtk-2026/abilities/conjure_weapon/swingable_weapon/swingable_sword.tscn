@@ -47,8 +47,10 @@ script = ExtResource("1_jg18m")
 collider = NodePath("Weapon/Pivot/Area2D")
 animator = NodePath("AnimationPlayer")
 sprite = NodePath("Weapon/Pivot/Sprite2D")
+damage = null
 swing_time = 0.25
 swing_delay = 0.25
+swing_distance = null
 
 [node name="Weapon" type="Node2D" parent="." unique_id=406609725]
 rotation = 1.5707964
@@ -69,3 +71,5 @@ texture = ExtResource("1_46quf")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=631951576]
 libraries/ = SubResource("AnimationLibrary_rx7yb")
+
+[connection signal="body_entered" from="Weapon/Pivot/Area2D" to="." method="_on_body_entered"]

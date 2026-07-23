@@ -6,6 +6,8 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_ln4xa"]
 radius = 175.28548
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_tmfgs"]
+
 [node name="ChromaticBody" type="RigidBody2D" unique_id=1390675684 node_paths=PackedStringArray("shape", "component")]
 collision_layer = 2
 gravity_scale = 0.0
@@ -24,3 +26,10 @@ shape = SubResource("CircleShape2D_ln4xa")
 [node name="Sprite2D" type="Sprite2D" parent="Components" unique_id=226522278]
 scale = Vector2(4, 4)
 texture = ExtResource("1_j8gav")
+
+[node name="Area2D" type="Area2D" parent="Components" unique_id=2048804611]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Components/Area2D" unique_id=1349438377]
+shape = SubResource("CircleShape2D_tmfgs")
+
+[connection signal="body_entered" from="Components/Area2D" to="." method="_on_area_2d_body_entered"]

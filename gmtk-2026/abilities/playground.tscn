@@ -8,7 +8,7 @@ script/source = "extends Node2D
 var _test_ability: Ability
 
 func _ready() -> void:
-	_test_ability = ChromaticOrb.new(self)
+	_test_ability = ConjureWeapon.new(self, preload(\"res://abilities/conjure_weapon/weapons_data/sword.tres\"))
 
 func _process(delta: float) -> void:
 	rotation = (get_global_mouse_position() - global_position).angle() + deg_to_rad(90)
@@ -22,6 +22,20 @@ func _input(event: InputEvent) -> void:
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_ln4xa"]
 a = Vector2(2.999878, -2237)
 b = Vector2(11.000122, 2470)
+
+[sub_resource type="GDScript" id="GDScript_ln4xa"]
+script/source = "extends Sprite2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	add_to_group(\"damageable\")
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
 
 [node name="Playground" type="Node2D" unique_id=1672422744]
 
@@ -59,3 +73,8 @@ rotation = -0.015024003
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4" unique_id=825684144]
 shape = SubResource("SegmentShape2D_ln4xa")
+
+[node name="Enemy" type="Sprite2D" parent="." unique_id=774890115]
+position = Vector2(1136, 735)
+texture = ExtResource("1_k4xrk")
+script = SubResource("GDScript_ln4xa")

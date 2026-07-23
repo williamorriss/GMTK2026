@@ -12,10 +12,10 @@ static func create_bullet(pos: Vector2, direction: Vector2) -> Bullet:
 	return instance
 
 func _ready() -> void:
-	body_entered.connect(_on_body_entered)
+	area_entered.connect(_on_area_entered)
 
 func _process(delta: float) -> void:
 	position += _direction * speed * delta
 
-func _on_body_entered(body: Node2D) -> void:
+func _on_area_entered(body: Node2D) -> void:
 	queue_free()

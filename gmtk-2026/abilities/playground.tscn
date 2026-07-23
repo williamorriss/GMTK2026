@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dhcwybhoxgwhe" path="res://icon.svg" id="1_k4xrk"]
 [ext_resource type="PackedScene" uid="uid://ciyk3l7p2kfjx" path="res://player/player.tscn" id="2_sln71"]
+[ext_resource type="PackedScene" uid="uid://dreqr6x7m6bqr" path="res://abilities/grunt.tscn" id="3_n80re"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_ln4xa"]
 a = Vector2(2.999878, -2237)
@@ -65,16 +66,3 @@ scale = Vector2(2, 2)
 speed = 1000.0
 acceleration = 5000.0
 friction = 5000.0
-dash_speed = 2500.0
-
-[node name="Enemy2" type="StaticBody2D" parent="." unique_id=1293037674]
-position = Vector2(1185, 760)
-collision_layer = 2
-collision_mask = 5
-script = SubResource("GDScript_e3avo")
-
-[node name="Enemy" type="Sprite2D" parent="Enemy2" unique_id=774890115]
-texture = ExtResource("1_k4xrk")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy2" unique_id=1198356421]
-shape = SubResource("CircleShape2D_ln4xa")

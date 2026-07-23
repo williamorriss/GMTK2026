@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dreqr6x7m6bqr"]
 
-[ext_resource type="Script" uid="uid://h2ip3k01but3" path="res://enemies/melee enemies/grunt.gd" id="1_bhmnf"]
+[ext_resource type="Script" uid="uid://b3kpcfjm3tikb" path="res://enemies/melee enemies/grunt.gd" id="1_bhmnf"]
 [ext_resource type="Texture2D" uid="uid://dhcwybhoxgwhe" path="res://icon.svg" id="2_1rwn8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ny2g4"]

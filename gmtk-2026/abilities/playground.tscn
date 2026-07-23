@@ -1,24 +1,11 @@
 [gd_scene format=3 uid="uid://cf7pkprq1d773"]
 
-[ext_resource type="Texture2D" uid="uid://dhcwybhoxgwhe" path="res://icon.svg" id="1_k4xrk"]
 [ext_resource type="PackedScene" uid="uid://ciyk3l7p2kfjx" path="res://player/player.tscn" id="2_sln71"]
 [ext_resource type="PackedScene" uid="uid://dreqr6x7m6bqr" path="res://abilities/grunt.tscn" id="3_n80re"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_ln4xa"]
 a = Vector2(2.999878, -2237)
 b = Vector2(11.000122, 2470)
-
-[sub_resource type="GDScript" id="GDScript_e3avo"]
-script/source = "extends StaticBody2D
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	add_to_group(\"enemies\")
-"
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_ln4xa"]
-radius = 71.568146
 
 [node name="Playground" type="Node2D" unique_id=1672422744]
 
@@ -59,6 +46,10 @@ collision_mask = 11
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4" unique_id=825684144]
 shape = SubResource("SegmentShape2D_ln4xa")
+
+[node name="grunt" parent="." unique_id=1002393870 instance=ExtResource("3_n80re")]
+position = Vector2(643.7771, 262.60986)
+scale = Vector2(2, 2)
 
 [node name="CharacterBody2D" parent="." unique_id=133342377 instance=ExtResource("2_sln71")]
 position = Vector2(4, -4)

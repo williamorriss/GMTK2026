@@ -5,7 +5,9 @@ var door_opened: bool = true
 var current_enemies = []
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	print("ready called")
 	body_entered.connect(_on_body_entered)
+	
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -13,6 +15,7 @@ func _process(delta: float) -> void:
 	pass
 
 func _on_body_entered(body):
+	print("body entered:" + body.name)
 	%tile_map.set_cell(Vector2i(-1,-4),0,Vector2i(4,3))
 	%tile_map.set_cell(Vector2i(0,-4),0,Vector2i(4,3))
 	%tile_map.set_cell(Vector2i(-1,-5),0,Vector2i(2,2))

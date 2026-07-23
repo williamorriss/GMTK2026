@@ -20,6 +20,7 @@ var _dash_cooldown_timer: float = 0.0
 var _dash_direction: Vector2 = Vector2.ZERO
 
 func _ready() -> void:
+
 	add_to_group("players")
 	health.on_dead.connect(_die)
 

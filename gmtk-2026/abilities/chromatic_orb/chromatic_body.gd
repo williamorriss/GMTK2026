@@ -50,11 +50,10 @@ func _change_properties() -> void:
 	
 	_current_speed = speed_range.x + ((speed_range.y - speed_range.x) / (max_bounces - 1)) * _current_bounces
 
-
-func _on_body_entered(body: Node2D) -> void:
+func _on_area_2d_body_entered(body: Node2D) -> void:
 	if not body.is_in_group("enemies"):
 		return
-	
+	print(body.name)
 	var health: Health = Health.get_health(body)
 	if health:
 		health.damage(damage)

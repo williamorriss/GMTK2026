@@ -18,6 +18,7 @@ component = NodePath("Components")
 speed_range = Vector2(1000, 5000)
 max_bounces = 6
 size_multiplier = 0.75
+damage = 3.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1599691071]
 shape = SubResource("CircleShape2D_ln4xa")

@@ -25,7 +25,6 @@ func damage(points: float) -> void:
 		
 	_hp -= points
 	if _hp < 0:
-		print("dead")
 		on_dead.emit()
 	
 func get_hp() -> float:

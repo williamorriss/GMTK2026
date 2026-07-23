@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://dreqr6x7m6bqr"]
+
+[ext_resource type="Script" uid="uid://b3kpcfjm3tikb" path="res://enemies/melee enemies/grunt.gd" id="1_bhmnf"]
+[ext_resource type="Texture2D" uid="uid://dhcwybhoxgwhe" path="res://icon.svg" id="2_1rwn8"]
+[ext_resource type="PackedScene" uid="uid://b84onmi6p6dgu" path="res://health/health.tscn" id="3_1rwn8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ny2g4"]
+size = Vector2(106, 106)
+
+[node name="grunt" type="CharacterBody2D" unique_id=1002393870 node_paths=PackedStringArray("agent", "health")]
+collision_layer = 2
+collision_mask = 5
+script = ExtResource("1_bhmnf")
+agent = NodePath("NavigationAgent2D")
+health = NodePath("Health")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1056552632]
+position = Vector2(0, 2.5000076)
+shape = SubResource("RectangleShape2D_ny2g4")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1699502473]
+position = Vector2(0, 2.499998)
+texture = ExtResource("2_1rwn8")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=388887617]
+
+[node name="Health" parent="." unique_id=2054087400 instance=ExtResource("3_1rwn8")]
+max_health = 1.0

@@ -1,8 +1,8 @@
 class_name Health
 extends Node2D
 
-signal damage_taken(value: float, new_hp: float)
-signal dead
+signal on_damage_taken(value: float, new_hp: float)
+signal on_dead
 
 @export var max_health: float = 100
 
@@ -20,12 +20,12 @@ static func get_health(target: Node) -> Health:
 	return healths.front()
 
 func damage(points: float) -> void:
-	if points > 0:
-		push_error("To heal damage use heal/ set_hp >:(")
+	if points < 0:
+		push_error("To heal damage use heal/ set_hp >:( no negatives")
 		
 	_hp -= points
 	if _hp < 0:
-		dead.emit()
+		on_dead.emit()
 	
 func get_hp() -> float:
 	return _hp
@@ -39,9 +39,9 @@ func heal(points: float) -> void:
 func set_hp(hp: float) -> void:
 	_hp = hp
 	if _hp < 0:
-		dead.emit()
+		on_dead.emit()
 
 func _ready() -> void:
 	_hp = max_health
 	if _hp < 0:
-		dead.emit()
+		on_dead.emit()

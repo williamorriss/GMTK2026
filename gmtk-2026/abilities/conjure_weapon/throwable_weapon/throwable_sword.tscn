@@ -7,6 +7,8 @@
 radius = 138.17743
 
 [node name="ThrowableSword" type="Area2D" unique_id=1045993088 node_paths=PackedStringArray("sprite", "collider")]
+collision_layer = 8
+collision_mask = 2
 script = ExtResource("1_qaqm5")
 sprite = NodePath("Sprite2D")
 collider = NodePath("CollisionShape2D")

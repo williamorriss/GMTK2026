@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://cyjprb0bssmfa"]
+
+[ext_resource type="Script" uid="uid://b4mf2r54r5iu0" path="res://abilities/magic_missile/missile/missile.gd" id="1_t3kqa"]
+[ext_resource type="Texture2D" uid="uid://dhcwybhoxgwhe" path="res://icon.svg" id="2_s53gk"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ln4xa"]
+radius = 66.27216
+
+[node name="Missile" type="Area2D" unique_id=1634506148]
+collision_layer = 8
+collision_mask = 2
+script = ExtResource("1_t3kqa")
+damage_rotating = 0.5
+damage_fire = 2.0
+rotation_speed = 5.0
+rotation_distance = 250.0
+rotation_time = 3.0
+speed = 1000.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2004804997]
+shape = SubResource("CircleShape2D_ln4xa")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1780088821]
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("2_s53gk")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

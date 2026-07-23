@@ -1,5 +1,5 @@
 class_name Health
-
+extends Node
 signal damage_taken(value: float, new_hp: float)
 signal dead
 

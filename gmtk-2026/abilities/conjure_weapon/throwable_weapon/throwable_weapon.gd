@@ -27,6 +27,9 @@ func _destroy() -> void:
 	queue_free()
 
 func _on_body_entered(body: Node2D) -> void:
-	var health = body.get_node_or_null("Health") as Health
+	if not body.is_in_group("enemies"):
+		return
+	
+	var health: Health = Health.get_health(body)
 	if health:
-		health.damage(throw_damage)
+		health.damage(damage)

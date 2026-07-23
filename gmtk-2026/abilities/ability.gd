@@ -5,7 +5,7 @@ var _player: Node2D
 var _ability_data: AbilityData
 
 func _init(player: Node2D) -> void:
-	push_error("func `set_player` not set")
+	_player = player
 
 func get_cost() -> float:
 	if not _ability_data:
@@ -15,7 +15,7 @@ func get_cost() -> float:
 	return _ability_data.cost
 
 func activate_ability() -> void:
-	push_error("func `activate_ability` not set")
+	pass
 
 func process(_delta: float) -> void:
-	push_error("func `procss` not set")
+	pass

@@ -54,8 +54,4 @@ func move(delta: float) -> void:
 			velocity = velocity.move_toward(Vector2.ZERO, friction * delta)
 	
 	move_and_slide()
-
-
-func set_ability(i: int, ability: Ability):
-	abilities[i] = ability 
 	

@@ -1,8 +1,11 @@
 extends CharacterBody2D
 
 
-var speed = 20.0
+@export var speed = 50.0
+@export var atk = 10.0
 @onready var parent = self.get_parent()
+@onready var player = self.get_parent().get_child(0)
+
 var index = 0
 
 
@@ -21,3 +24,7 @@ func _physics_process(delta: float) -> void:
 	
 	if global_position.distance_to(target) <= 4.0:
 		index += 1
+
+func attack():
+	if global_position.distance_to(player.global_position) <= 4.0:
+		player.health -= atk

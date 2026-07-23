@@ -66,6 +66,7 @@ texture = ExtResource("1_kka1c")
 3:3/0 = 0
 3:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 4:3/0 = 0
+4:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 5:3/0 = 0
 5:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 6:3/0 = 0
@@ -88,6 +89,7 @@ texture = ExtResource("1_kka1c")
 0:5/0 = 0
 0:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, -8, 8, -8, 8, 8, 0.35971832, 8)
 7:5/0 = 0
+7:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -0.43525887, -8, -0.60936165, 8, -8, 8)
 8:5/0 = 0
 15:5/0 = 0
 0:6/0 = 0
@@ -157,7 +159,6 @@ player = NodePath("../Player")
 
 [node name="room_manager" type="Area2D" parent="." unique_id=524887874]
 collision_layer = 16
-script = ExtResource("4_t8npg")
 
 [node name="room_shape" type="CollisionShape2D" parent="room_manager" unique_id=448735589]
 position = Vector2(81, 277.5)

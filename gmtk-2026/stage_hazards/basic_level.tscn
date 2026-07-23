@@ -1,7 +1,8 @@
 [gd_scene format=4 uid="uid://bab5h45msbvq0"]
 
-[ext_resource type="Texture2D" uid="uid://c4psplbijwkk0" path="res://basic_level/placeholder_art/dungeon-tileset.png" id="1_kka1c"]
-[ext_resource type="PackedScene" uid="uid://ciyk3l7p2kfjx" path="res://player/player.tscn" id="2_a00k7"]
+[ext_resource type="Texture2D" uid="uid://c4psplbijwkk0" path="res://basic_level/placeholder_art/dungeon-tileset.png" id="1_w50f4"]
+[ext_resource type="PackedScene" uid="uid://ciyk3l7p2kfjx" path="res://player/player.tscn" id="2_mk17j"]
+[ext_resource type="PackedScene" uid="uid://dw220nn5hf68u" path="res://stage_hazards/spike.tscn" id="3_mk17j"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_kka1c"]
 vertices = PackedVector2Array(950, 950, -790, 950, -790, -470, 950, -470, 1191.8984, -778.1172, 1173.0938, 1217.9063, 1052.0391, 1048.6563, 1049.7734, 950, 1050.2266, 790, 970, 1046.5234, -1028.6797, 1199.0781, 810, 1046.5234, 970, 1045.0391, 1046.6406, 950, 1046.6406, 790, 1050.2266, 630, 1046.6406, 630, 1050.2266, 470, 1046.6406, 470, 1050.2266, 310, 1046.6406, 310, 1050.2266, 150, 1046.6406, 150, 1050.2266, -10, 1046.6406, -10, 1050.2266, -170, 1046.6406, -170, 1050.2266, -330, 1046.6406, -330, 1050.2266, -490, 1046.6406, -490, 1050.2266, -650, -890.22656, -650, -886.6406, -490, -890.22656, -490, -964.3203, -804.8672, -886.6406, -330, -890.22656, -330, -886.6406, -170, -890.22656, -170, -886.6406, -10, -890.22656, -10, -886.6406, 150, -890.22656, 150, -886.6406, 310, -890.22656, 310, -886.6406, 470, -890.22656, 470, -886.6406, 630, -890.22656, 630, -886.6406, 790, -890.22656, 790, -886.6406, 950, -890.22656, 950, -790, 1048.2031, -790, 1044.7109, -630, 1046.5234, -630, 1044.7109, -470, 1046.5234, -470, 1044.7109, -310, 1046.5234, -310, 1044.7109, -150, 1046.5234, -150, 1044.7109, 10, 1046.5234, 10, 1044.7109, 170, 1046.5234, 170, 1044.7109, 330, 1046.5234, 330, 1044.7109, 490, 1046.5234, 490, 1044.7109, 650, 1046.5234, 650, 1044.7109, 810, 1044.7109, -887.96875, 1048.2031, 1046.4063, -650, 1046.4063, -724.1406, 960.2422, -728.2031, -790, -728.2031, -790, -732.03125, -888.2031, -729.77344, -888.2031, -650)
@@ -9,7 +10,7 @@ polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Arr
 outlines = Array[PackedVector2Array]([PackedVector2Array(-974, -815, 1202, -788, 1183, 1228, -1039, 1209)])
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t8npg"]
-texture = ExtResource("1_kka1c")
+texture = ExtResource("1_w50f4")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -19,7 +20,9 @@ texture = ExtResource("1_kka1c")
 6:0/0 = 0
 7:0/0 = 0
 11:0/0 = 0
+12:0/next_alternative_id = 2
 12:0/0 = 0
+13:0/next_alternative_id = 2
 13:0/0 = 0
 14:0/0 = 0
 0:1/0 = 0
@@ -138,7 +141,7 @@ tile_set = SubResource("TileSet_ln4xa")
 position = Vector2(61, 206)
 zoom = Vector2(0.3, 0.3)
 
-[node name="Player" parent="." unique_id=133342377 instance=ExtResource("2_a00k7")]
+[node name="Player" parent="." unique_id=133342377 instance=ExtResource("2_mk17j")]
 position = Vector2(-5, 23)
 scale = Vector2(2, 2)
 collision_mask = 6
@@ -153,3 +156,8 @@ collision_layer = 16
 [node name="room_shape" type="CollisionShape2D" parent="room_manager" unique_id=448735589]
 position = Vector2(81, 277.5)
 shape = SubResource("RectangleShape2D_ny2g4")
+
+[node name="Spikes" parent="." unique_id=1629306272 instance=ExtResource("3_mk17j")]
+position = Vector2(-4, -602.00006)
+scale = Vector2(9.699293, 9.874793)
+deployed = true

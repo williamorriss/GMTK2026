@@ -8,7 +8,7 @@ extends CharacterBody2D
 
 @export_group("Movement")
 @export var speed: float = 750.0
-@export var max_distance: float = 250
+@export var max_distance: float = 1000
 @export var offset_distance: float = 100
 
 @export_group("Attack")
@@ -31,7 +31,7 @@ func _physics_process(_delta: float) -> void:
 	
 	agent.target_position = player.position + _offset
 	
-	if agent.is_navigation_finished() or position.distance_to(player.position) < max_distance:
+	if agent.is_navigation_finished() or position.distance_to(player.position) < max_distance or _shooting:
 		velocity = Vector2.ZERO
 		move_and_slide()
 		return
@@ -51,6 +51,10 @@ func attack() -> void:
 	var pos: Vector2 = position + dir * beam_offset
 	var beam: Beam = Beam.create_beam(dir, pos)
 	get_tree().current_scene.add_child(beam)
+	
+	_shooting = true
+	await beam.on_finish
+	_shooting = false
 	
 	await get_tree().create_timer(attack_cooldown).timeout
 	_can_attack = true

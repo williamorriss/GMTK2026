@@ -20,7 +20,7 @@ func stop_timer() -> void:
 	_is_counting = false
 
 func _ready() -> void:
-	get_tree().scene_changed.connect(_on_change_scene)
+	var _x: int = get_tree().scene_changed.connect(_on_change_scene)
 	label.visible = false
 	
 	await _countdown()

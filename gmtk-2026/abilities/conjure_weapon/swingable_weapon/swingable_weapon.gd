@@ -29,7 +29,7 @@ func _ready() -> void:
 	animator.speed_scale = (1 / swing_time)
 	animator.play("swing")
 	
-	animator.animation_finished.connect(_destroy)
+	var _x: int = animator.animation_finished.connect(_destroy)
 
 func _process(_delta: float) -> void:
 	position = _player.position + (Vector2.from_angle(rotation - deg_to_rad(90)) * swing_distance)

@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://gu8cs4u2qib1"]
+
+[ext_resource type="Script" uid="uid://1oslc7a3mopb" path="res://stage_hazards/barrel.gd" id="1_0hnmm"]
+[ext_resource type="Texture2D" uid="uid://dhcwybhoxgwhe" path="res://icon.svg" id="2_c2sde"]
+[ext_resource type="Script" uid="uid://cy400prbqdwwd" path="res://health/health.gd" id="3_2aolp"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mcs6s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_c2sde")
+}],
+"loop": 1,
+"name": &"explode",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_c2sde")
+}],
+"loop": 1,
+"name": &"rest",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tmfgs"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fnfqw"]
+
+[node name="Barrel" type="RigidBody2D" unique_id=799897172]
+script = ExtResource("1_0hnmm")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=6614822]
+sprite_frames = SubResource("SpriteFrames_mcs6s")
+animation = &"explode"
+frame_progress = 0.21230789
+
+[node name="Health" type="Node2D" parent="." unique_id=1771372074]
+script = ExtResource("3_2aolp")
+metadata/_custom_type_script = "uid://cy400prbqdwwd"
+
+[node name="Explosion" type="Area2D" parent="." unique_id=872373432]
+scale = Vector2(40, 40.120125)
+collision_layer = 2
+collision_mask = 15
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Explosion" unique_id=604799169]
+shape = SubResource("CircleShape2D_tmfgs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1386173667]
+shape = SubResource("CircleShape2D_fnfqw")
+
+[connection signal="on_dead" from="Health" to="." method="_on_health_on_dead"]

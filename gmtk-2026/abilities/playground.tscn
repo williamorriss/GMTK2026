@@ -1,23 +1,7 @@
 [gd_scene format=3 uid="uid://cf7pkprq1d773"]
 
 [ext_resource type="Texture2D" uid="uid://dhcwybhoxgwhe" path="res://icon.svg" id="1_k4xrk"]
-
-[sub_resource type="GDScript" id="GDScript_k4xrk"]
-script/source = "extends Node2D
-
-var _test_ability: Ability
-
-func _ready() -> void:
-	_test_ability = ConjureWeapon.new(self, preload(\"res://abilities/conjure_weapon/weapons_data/sword.tres\"))
-
-func _process(delta: float) -> void:
-	rotation = (get_global_mouse_position() - global_position).angle() + deg_to_rad(90)
-	_test_ability.process(delta)
-
-func _input(event: InputEvent) -> void:
-	if event is InputEventKey and event.pressed and not event.echo and event.keycode == KEY_E:
-		_test_ability.activate_ability()
-"
+[ext_resource type="PackedScene" uid="uid://ciyk3l7p2kfjx" path="res://player/player.tscn" id="2_sln71"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_ln4xa"]
 a = Vector2(2.999878, -2237)
@@ -41,11 +25,6 @@ func _process(delta: float) -> void:
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=2142181668]
 zoom = Vector2(0.25, 0.25)
-
-[node name="Player" type="Sprite2D" parent="." unique_id=78335692]
-scale = Vector2(2, 2)
-texture = ExtResource("1_k4xrk")
-script = SubResource("GDScript_k4xrk")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=297826922]
 position = Vector2(2087, 22)
@@ -78,3 +57,6 @@ shape = SubResource("SegmentShape2D_ln4xa")
 position = Vector2(1136, 735)
 texture = ExtResource("1_k4xrk")
 script = SubResource("GDScript_ln4xa")
+
+[node name="CharacterBody2D" parent="." unique_id=133342377 instance=ExtResource("2_sln71")]
+position = Vector2(4, -4)

@@ -17,6 +17,10 @@ func _init(player: Node2D, weapon_data: WeaponData) -> void:
 	_weapon_data = weapon_data
 	_ability_data = preload("res://abilities/conjure_weapon/conjure_data.tres")
 
+func process(_delta: float) -> void:
+	if Input.is_action_just_pressed("ATTACK") and _can_attack:
+		_attack()
+
 func _attack() -> void:
 	_can_attack = false
 	

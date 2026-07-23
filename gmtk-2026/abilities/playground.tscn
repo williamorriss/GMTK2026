@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dhcwybhoxgwhe" path="res://icon.svg" id="1_k4xrk"]
 [ext_resource type="PackedScene" uid="uid://ciyk3l7p2kfjx" path="res://player/player.tscn" id="2_sln71"]
+[ext_resource type="PackedScene" uid="uid://dreqr6x7m6bqr" path="res://abilities/grunt.tscn" id="3_n80re"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_ln4xa"]
 a = Vector2(2.999878, -2237)
@@ -64,3 +65,6 @@ scale = Vector2(2, 2)
 speed = 1000.0
 acceleration = 5000.0
 friction = 5000.0
+
+[node name="grunt" parent="." unique_id=1002393870 instance=ExtResource("3_n80re")]
+position = Vector2(49, 631)

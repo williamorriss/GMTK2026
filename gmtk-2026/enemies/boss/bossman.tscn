@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://dd6iqsqio5ngg"]
+
+[ext_resource type="Script" uid="uid://o71jxruevuex" path="res://enemies/boss/bossman.gd" id="1_ffqgd"]
+[ext_resource type="Texture2D" uid="uid://dhcwybhoxgwhe" path="res://icon.svg" id="1_u7xko"]
+[ext_resource type="Script" uid="uid://cy400prbqdwwd" path="res://health/health.gd" id="3_ovdkq"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tmfgs"]
+
+[node name="Bossman" type="CharacterBody2D" unique_id=1097241245 node_paths=PackedStringArray("agent", "health")]
+script = ExtResource("1_ffqgd")
+agent = NodePath("NavigationAgent2D")
+health = NodePath("Health")
+acceleration = 1000.0
+dash_speed = 1500.0
+dash_duration = 0.3
+dash_cooldown = 0.6
+friction = 4.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=89483849]
+shape = SubResource("CircleShape2D_tmfgs")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1662749459]
+texture = ExtResource("1_u7xko")
+
+[node name="Health" type="Node2D" parent="." unique_id=146421011]
+script = ExtResource("3_ovdkq")
+metadata/_custom_type_script = "uid://cy400prbqdwwd"
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=996508716]

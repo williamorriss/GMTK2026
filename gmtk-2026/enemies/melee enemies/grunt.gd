@@ -1,8 +1,7 @@
 class_name Grunt
-extends CharacterBody2D
+extends Enemy
 
 @export_group("References")
-@export var player: Node2D
 @export var agent: NavigationAgent2D
 @export var health: Health
 
@@ -15,38 +14,49 @@ extends CharacterBody2D
 @export var atk: float = 10.0
 @export var attack_cooldown: float = 0.5
 
+
+
 var _offset: Vector2 = Vector2.ZERO
 var _can_attack: bool = true
 
 func _ready() -> void:
+	super._ready()
 	add_to_group("enemies")
-	health.on_dead.connect(_on_dead)
+	var _x: int = health.on_dead.connect(_on_dead)
 	
 	var rot: float = randf_range(0, 2 * PI)
 	_offset = Vector2(cos(rot), sin(rot)) * offset_distance
 
 func _physics_process(_delta: float) -> void:
-	attack()
+	if not _closest_player:
+		calc_closest_player()
+		return 
+		
+		
+	await attack()
 	
-	agent.target_position = player.position + _offset
+	agent.target_position = _closest_player.position + _offset
 	
-	if agent.is_navigation_finished() or position.distance_to(player.position) < max_distance:
+	if agent.is_navigation_finished() or position.distance_to(_closest_player.position) < max_distance:
 		velocity = Vector2.ZERO
-		move_and_slide()
+		var _x: bool = move_and_slide()
 		return
 	
 	var next_point: Vector2 = agent.get_next_path_position()
 	var direction: Vector2 = global_position.direction_to(next_point)
 	
 	velocity = direction * speed
-	move_and_slide()
+	var _y: bool = move_and_slide()
 
 func attack() -> void:
-	if position.distance_to(player.position) > max_distance or not _can_attack:
+	if not _closest_player:
+		return
+		
+	if position.distance_to(_closest_player.position) > max_distance or not _can_attack:
 		return
 	_can_attack = false
 	
-	var health_player: Health = Health.get_health(player)
+	var health_player: Health = Health.get_health(_closest_player)
 	if health_player:
 		health_player.damage(atk)
 	

@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://cionebxme6iea"]
+
+[ext_resource type="Script" uid="uid://d0c1w3st6i6g" path="res://enemies/osty/osty.gd" id="1_b137n"]
+[ext_resource type="Texture2D" uid="uid://dhcwybhoxgwhe" path="res://icon.svg" id="2_5d0rp"]
+[ext_resource type="Script" uid="uid://cy400prbqdwwd" path="res://health/health.gd" id="3_qfktp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tmfgs"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_b137n"]
+animations = [{
+"frames": [],
+"loop": 1,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[node name="Osty" type="CharacterBody2D" unique_id=1157317542 node_paths=PackedStringArray("agent", "health")]
+script = ExtResource("1_b137n")
+agent = NodePath("NavigationAgent2D")
+health = NodePath("Health")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=52068734]
+shape = SubResource("CircleShape2D_tmfgs")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1698314155]
+sprite_frames = SubResource("SpriteFrames_b137n")
+animation = &"walk"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=738019034]
+texture = ExtResource("2_5d0rp")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=196303420]
+debug_enabled = true
+debug_path_custom_color = Color(0.92229784, 0.4352588, 0.74717754, 1)
+
+[node name="Health" type="Node2D" parent="." unique_id=473679279]
+script = ExtResource("3_qfktp")
+metadata/_custom_type_script = "uid://cy400prbqdwwd"

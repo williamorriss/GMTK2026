@@ -23,6 +23,8 @@ position = Vector2(0, 2.499998)
 texture = ExtResource("2_1rwn8")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=388887617]
+debug_enabled = true
+debug_path_custom_color = Color(0.8521696, 0.0010696579, 0.9234679, 1)
 
 [node name="Health" parent="." unique_id=2054087400 instance=ExtResource("3_1rwn8")]
 max_health = 1.0

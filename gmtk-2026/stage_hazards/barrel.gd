@@ -15,7 +15,7 @@ func _on_health_on_dead() -> void:
 	_animation.play("explode")
 	for body: Node2D in _explosion.get_overlapping_bodies():
 		var space_state: PhysicsDirectSpaceState2D = get_world_2d().direct_space_state
-		var query := PhysicsRayQueryParameters2D.create(
+		var query: PhysicsRayQueryParameters2D = PhysicsRayQueryParameters2D.create(
 		_explosion.global_position,
 			body.global_position
 		)
@@ -24,7 +24,7 @@ func _on_health_on_dead() -> void:
 		
 		query.exclude = [_explosion]
 		
-		var result := space_state.intersect_ray(query)
+		var result: Dictionary = space_state.intersect_ray(query)
 		
 		if result:
 			# Line of sight

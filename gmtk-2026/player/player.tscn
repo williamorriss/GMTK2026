@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://ciyk3l7p2kfjx"]
+
+[ext_resource type="Script" uid="uid://fr0yinnattdn" path="res://player/player.gd" id="1_4flbx"]
+[ext_resource type="Texture2D" uid="uid://dhcwybhoxgwhe" path="res://icon.svg" id="2_onrkg"]
+[ext_resource type="Script" uid="uid://lycjpc02pyfa" path="res://player/ability_user.gd" id="3_g1dw6"]
+[ext_resource type="PackedScene" uid="uid://b84onmi6p6dgu" path="res://health/health.tscn" id="4_yw30f"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tmfgs"]
+
+[node name="Player" type="CharacterBody2D" unique_id=133342377]
+script = ExtResource("1_4flbx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1392926206]
+shape = SubResource("CircleShape2D_tmfgs")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1370794813]
+texture = ExtResource("2_onrkg")
+
+[node name="AbilityUser" type="Node2D" parent="." unique_id=1044070561 node_paths=PackedStringArray("player")]
+script = ExtResource("3_g1dw6")
+player = NodePath("..")
+
+[node name="Health" parent="." unique_id=2054087400 instance=ExtResource("4_yw30f")]

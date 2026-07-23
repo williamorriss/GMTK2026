@@ -69,3 +69,5 @@ texture = ExtResource("1_46quf")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=631951576]
 libraries/ = SubResource("AnimationLibrary_rx7yb")
+
+[connection signal="body_entered" from="Weapon/Pivot/Area2D" to="." method="_on_body_entered"]

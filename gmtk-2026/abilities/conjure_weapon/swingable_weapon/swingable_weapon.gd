@@ -40,3 +40,8 @@ func _destroy(_name: StringName) -> void:
 	await get_tree().create_timer(swing_delay).timeout
 	on_finished.emit()
 	queue_free()
+
+func _on_body_entered(body: Node2D) -> void:
+	var health = body.get_node_or_null("Health") as Health
+	if health:
+		health.damage(damage)

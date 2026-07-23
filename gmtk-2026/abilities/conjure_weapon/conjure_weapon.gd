@@ -6,22 +6,20 @@ extends Ability
 
 signal on_weapon_thrown
 
-var _player: Node2D 
 var _weapon_data: WeaponData
-
 var _can_attack: bool = true
 
 func activate_ability() -> void:
 	_throw()
 
-func process(_delta: float) -> void:
-	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and _can_attack:
-		_attack()
-
 func _init(player: Node2D, weapon_data: WeaponData) -> void:
 	_player = player
 	_weapon_data = weapon_data
 	_ability_data = preload("res://abilities/conjure_weapon/conjure_data.tres")
+
+func process(_delta: float) -> void:
+	if Input.is_action_just_pressed("ATTACK") and _can_attack:
+		_attack()
 
 func _attack() -> void:
 	_can_attack = false

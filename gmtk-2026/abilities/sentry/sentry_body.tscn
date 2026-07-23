@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://b8dinlvqj86dm"]
+
+[ext_resource type="Texture2D" uid="uid://dhcwybhoxgwhe" path="res://icon.svg" id="1_1l6od"]
+[ext_resource type="Script" uid="uid://ydljdxlb0vxu" path="res://abilities/sentry/sentry_body.gd" id="1_ln04t"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ln4xa"]
+size = Vector2(128, 129)
+
+[node name="SentryBody" type="Node2D" unique_id=110357330]
+script = ExtResource("1_ln04t")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2143772662]
+texture = ExtResource("1_1l6od")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=438814614]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1086301004]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_ln4xa")

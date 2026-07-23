@@ -15,6 +15,10 @@ run/main_scene="uid://bab5h45msbvq0"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+HealthTimer="*uid://cc4pr1bd7vtg6"
+
 [debug]
 
 gdscript/warnings/untyped_declaration=1

@@ -24,7 +24,7 @@ func damage(points: float) -> void:
 		push_error("To heal damage use heal/ set_hp >:( no negatives")
 		
 	_hp -= points
-	if _hp < 0:
+	if _hp <= 0:
 		on_dead.emit()
 	
 func get_hp() -> float:
@@ -38,10 +38,10 @@ func heal(points: float) -> void:
 
 func set_hp(hp: float) -> void:
 	_hp = hp
-	if _hp < 0:
+	if _hp <= 0:
 		on_dead.emit()
 
 func _ready() -> void:
 	_hp = max_health
-	if _hp < 0:
+	if _hp <= 0:
 		on_dead.emit()

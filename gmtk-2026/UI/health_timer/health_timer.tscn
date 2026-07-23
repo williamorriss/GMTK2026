@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://cc4pr1bd7vtg6"]
+
+[ext_resource type="Script" uid="uid://b8k5ml2lo5qou" path="res://UI/health_timer/health_timer.gd" id="1_1523m"]
+[ext_resource type="FontFile" uid="uid://qvjbjulrm5fs" path="res://UI/Fonts/upheaval/upheavtt.ttf" id="2_fjph4"]
+
+[node name="HealthTimer" type="CanvasLayer" unique_id=240449515 node_paths=PackedStringArray("label")]
+script = ExtResource("1_1523m")
+initial_time = 100.0
+label = NodePath("RichTextLabel")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1667187169]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -38.0
+offset_right = 38.0
+offset_bottom = 40.0
+grow_horizontal = 2
+theme_override_fonts/normal_font = ExtResource("2_fjph4")
+theme_override_fonts/bold_font = ExtResource("2_fjph4")
+theme_override_font_sizes/bold_font_size = 25
+bbcode_enabled = true
+text = "[b]10:00[/b]"
+horizontal_alignment = 1
+vertical_alignment = 1

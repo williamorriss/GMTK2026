@@ -12,8 +12,7 @@ extends CharacterBody2D
 
 @onready var health_component: Health = Health.new(max_health)
 
-var weapon: Ability = null
-var spells: Array[Ability] = [null, null, null, null] # 4 entries always
+var abilities: Array[Ability] = [null, null, null, null, null] # 4 entries always
 
 var _dashing: bool = false
 var _dash_timer: float = 0.0
@@ -27,24 +26,26 @@ func _physics_process(delta: float) -> void:
 
 func attack() -> void:
 	if Input.is_action_just_pressed("ATTACK"):
-		if weapon: 
-			weapon.activate_ability()
+		if abilities[0]: 
+			abilities[0].activate_ability()
+			print("Ability 0 activated")
+			
 	
 	if Input.is_action_just_pressed("MAGIC_1"):
-		if spells[0]:
-			spells[0].activate_ability()
+		if abilities[0]:
+			abilities[0].activate_ability()
 			
 	if Input.is_action_just_pressed("MAGIC_2"):
-		if spells[1]:
-			spells[1].activate_ability()
+		if abilities[1]:
+			abilities[1].activate_ability()
 	
 	if Input.is_action_just_pressed("MAGIC_3"):
-		if spells[2]:
-			spells[2].activate_ability()
+		if abilities[2]:
+			abilities[2].activate_ability()
 			
 	if Input.is_action_just_pressed("MAGIC_4"):
-		if spells[3]:
-			spells[3].activate_ability()
+		if abilities[3]:
+			abilities[3].activate_ability()
 	
 	
 func move(delta: float) -> void:
@@ -76,3 +77,8 @@ func move(delta: float) -> void:
 			velocity = velocity.move_toward(Vector2.ZERO, friction * delta)
 
 	move_and_slide()
+
+
+func set_ability(i: int, ability: Ability):
+	abilities[i] = ability 
+	

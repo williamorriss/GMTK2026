@@ -20,8 +20,8 @@ static func get_health(target: Node) -> Health:
 	return healths.front()
 
 func damage(points: float) -> void:
-	if points > 0:
-		push_error("To heal damage use heal/ set_hp >:(")
+	if points < 0:
+		push_error("To heal damage use heal/ set_hp >:( no negatives")
 		
 	_hp -= points
 	if _hp < 0:

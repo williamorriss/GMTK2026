@@ -28,6 +28,8 @@ zoom = Vector2(0.25, 0.25)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=297826922]
 position = Vector2(2087, 22)
+collision_layer = 4
+collision_mask = 11
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=405052133]
 shape = SubResource("SegmentShape2D_ln4xa")
@@ -35,6 +37,8 @@ shape = SubResource("SegmentShape2D_ln4xa")
 [node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=1713220499]
 position = Vector2(-4, 1254)
 rotation = 1.5707964
+collision_layer = 4
+collision_mask = 11
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=818934784]
 shape = SubResource("SegmentShape2D_ln4xa")
@@ -42,6 +46,8 @@ shape = SubResource("SegmentShape2D_ln4xa")
 [node name="StaticBody2D3" type="StaticBody2D" parent="." unique_id=534719589]
 position = Vector2(-59, -1233)
 rotation = 1.5707964
+collision_layer = 4
+collision_mask = 11
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3" unique_id=699289835]
 shape = SubResource("SegmentShape2D_ln4xa")
@@ -49,6 +55,8 @@ shape = SubResource("SegmentShape2D_ln4xa")
 [node name="StaticBody2D4" type="StaticBody2D" parent="." unique_id=64077432]
 position = Vector2(-2238, 273)
 rotation = -0.015024003
+collision_layer = 4
+collision_mask = 11
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4" unique_id=825684144]
 shape = SubResource("SegmentShape2D_ln4xa")

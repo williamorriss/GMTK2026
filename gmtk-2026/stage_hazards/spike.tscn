@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://dw220nn5hf68u"]
+
+[ext_resource type="Script" uid="uid://bxvpo2o8jixpd" path="res://stage_hazards/spike.gd" id="1_gcpfk"]
+[ext_resource type="Texture2D" uid="uid://burfs62gikkjy" path="res://stage_hazards/dungeon-tileset.png" id="2_ujydc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tmfgs"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t7e1u"]
+atlas = ExtResource("2_ujydc")
+region = Rect2(192, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kxqvp"]
+atlas = ExtResource("2_ujydc")
+region = Rect2(208, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tmfgs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t7e1u")
+}],
+"loop": 1,
+"name": &"down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kxqvp")
+}],
+"loop": 1,
+"name": &"up",
+"speed": 5.0
+}]
+
+[node name="Spikes" type="Area2D" unique_id=1629306272]
+collision_layer = 4
+collision_mask = 7
+script = ExtResource("1_gcpfk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1500242788]
+shape = SubResource("RectangleShape2D_tmfgs")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=866210180]
+sprite_frames = SubResource("SpriteFrames_tmfgs")
+animation = &"up"

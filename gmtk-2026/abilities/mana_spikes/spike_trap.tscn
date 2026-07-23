@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://cjd5u65ul331a"]
+
+[ext_resource type="Script" uid="uid://6166fdpbw8i0" path="res://abilities/mana_spikes/spike_trap.gd" id="1_ae6pu"]
+[ext_resource type="Texture2D" uid="uid://dhcwybhoxgwhe" path="res://icon.svg" id="1_husgc"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ln4xa"]
+radius = 85.146935
+
+[node name="SpikeTrap" type="Area2D" unique_id=1879253546]
+collision_layer = 8
+collision_mask = 6
+script = ExtResource("1_ae6pu")
+spike_distance = 150.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=365215646]
+shape = SubResource("CircleShape2D_ln4xa")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2077830847]
+texture = ExtResource("1_husgc")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

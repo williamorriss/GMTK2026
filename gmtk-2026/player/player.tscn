@@ -17,8 +17,9 @@ shape = SubResource("CircleShape2D_tmfgs")
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1370794813]
 texture = ExtResource("2_onrkg")
 
-[node name="AbilityUser" type="Node2D" parent="." unique_id=1044070561 node_paths=PackedStringArray("player")]
+[node name="AbilityUser" type="Node2D" parent="." unique_id=1044070561 node_paths=PackedStringArray("player", "health")]
 script = ExtResource("3_g1dw6")
 player = NodePath("..")
+health = NodePath("../Health")
 
 [node name="Health" parent="." unique_id=2054087400 instance=ExtResource("4_yw30f")]

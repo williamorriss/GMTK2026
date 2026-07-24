@@ -2,6 +2,7 @@ class_name AbilityUser
 extends Node2D
 
 @export var player: Player
+@export var health: Health
 
 var weapon: Ability = null
 var spells: Array[Ability] = [null, null, null, null] # 4 entries always
@@ -35,18 +36,22 @@ func _use_ability() -> void:
 	if Input.is_action_just_pressed("MAGIC_1"):
 		if spells[0]:
 			spells[0].activate_ability()
+			health.damage(spells[0].get_cost())
 			
 	if Input.is_action_just_pressed("MAGIC_2"):
 		if spells[1]:
 			spells[1].activate_ability()
+			health.damage(spells[1].get_cost())
 	
 	if Input.is_action_just_pressed("MAGIC_3"):
 		if spells[2]:
 			spells[2].activate_ability()
+			health.damage(spells[2].get_cost())
 			
 	if Input.is_action_just_pressed("MAGIC_4"):
 		if spells[3]:
 			spells[3].activate_ability()
+			health.damage(spells[3].get_cost())
 
 func _process_ability(delta: float) -> void:
 	for spell: Ability in spells:

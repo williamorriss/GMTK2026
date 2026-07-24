@@ -7,10 +7,12 @@ var _current_time: float
 
 var _current_player: Player = null
 var _is_counting: bool = false
+var _is_finding: bool = false
 
 func start_timer() -> void:
 	_is_counting = true
 	label.visible = true
+	await get_tree().process_frame
 	_current_player = _find_player()
 	_current_time = initial_time
 	_set_health_player()
@@ -22,10 +24,15 @@ func stop_timer() -> void:
 func _ready() -> void:
 	var _x: int = get_tree().scene_changed.connect(_on_change_scene)
 	label.visible = false
-	
+	await start_timer()
 	await _countdown()
 
 func _process(_delta: float) -> void:
+	if _current_player and not _is_finding:
+		var health: Health = Health.get_health(_current_player)
+		if health:
+			_current_time = health.get_hp()
+	
 	_modify_label()
 
 func _countdown() -> void:
@@ -51,7 +58,6 @@ func _modify_health() -> void:
 		var health: Health = Health.get_health(_current_player)
 		if health:
 			health.damage(1.0)
-		_current_time = health.get_hp()
 	else:
 		_current_time -= 1.0
 
@@ -59,9 +65,12 @@ func _on_change_scene() -> void:
 	if not _is_counting:
 		return
 	
+	await get_tree().process_frame
 	_set_health_player()
 
 func _set_health_player() -> void:
+	_is_finding = true
+	
 	_current_player = _find_player()
 	if not _current_player:
 		return
@@ -69,6 +78,8 @@ func _set_health_player() -> void:
 	var health: Health = Health.get_health(_current_player)
 	if health:
 		health.set_hp(_current_time)
+		
+	_is_finding = false
 
 func _find_player() -> Player:
 	var players: Array[Node] = get_tree().get_nodes_in_group("players")

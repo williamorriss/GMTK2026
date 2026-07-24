@@ -1,6 +1,4 @@
 extends Control
-## Keybinding menu: click a button to rebind its action, then press any key/mouse/joypad button.
-## Attach this script to a Control node and assign the Button nodes in the Inspector.
 
 @export var up_button: Button
 @export var down_button: Button
@@ -13,8 +11,6 @@ extends Control
 @export var spell3_button: Button
 @export var spell4_button: Button
 
-# Maps each Button to the InputMap action name it controls.
-# Change the action names on the right to match your Project Settings > Input Map.
 var action_map: Dictionary = {}
 
 var listening_button: Button = null
@@ -45,7 +41,7 @@ func _ready() -> void:
 
 func _on_bind_button_pressed(button: Button, action_name: String) -> void:
 	if listening_button != null:
-		return # Already waiting on another button; ignore extra clicks.
+		return 
 
 	listening_button = button
 	listening_action = action_name
@@ -55,7 +51,6 @@ func _input(event: InputEvent) -> void:
 	if listening_button == null:
 		return
 
-	# Let Escape cancel the rebind without setting a new key.
 	if event is InputEventKey and event.pressed and event.keycode == KEY_ESCAPE:
 		_cancel_listening()
 		get_viewport().set_input_as_handled()

@@ -2,6 +2,7 @@
 
 [ext_resource type="FontFile" uid="uid://qvjbjulrm5fs" path="res://UI/Fonts/upheaval/upheavtt.ttf" id="1_1xyc7"]
 [ext_resource type="Script" uid="uid://cjdyntviqr8nx" path="res://UI/menu/menu.gd" id="1_qlbuq"]
+[ext_resource type="AudioStream" uid="uid://beu000mllpqaq" path="res://audio/raw/sfx/blipSelect.wav" id="2_5xle5"]
 [ext_resource type="Texture2D" uid="uid://d0oy3xmhr6tnq" path="res://UI/menu/profile_pics/NotAHuman.png" id="3_2gq1s"]
 [ext_resource type="Script" uid="uid://dy0v5l1hqtv2r" path="res://UI/menu/option_menu.gd" id="3_7jt6j"]
 [ext_resource type="Texture2D" uid="uid://dv8a5bjlp20ak" path="res://UI/menu/profile_pics/Cashew.png" id="4_papuc"]
@@ -47,6 +48,7 @@ next_scene = "uid://bebwesl65sg0b"
 menuControl = NodePath("MainMenu")
 optionsControl = NodePath("OptionsMenu")
 creditsControl = NodePath("Credits")
+select_audio = ExtResource("2_5xle5")
 
 [node name="Panel" type="Panel" parent="." unique_id=477391393]
 modulate = Color(0, 0, 0, 1)
@@ -123,6 +125,7 @@ bind_button = NodePath("SelectionsMargin/Selections/Choice/BindButton")
 audio_button = NodePath("SelectionsMargin/Selections/Choice/AudioButton")
 audio_control = NodePath("Options/Audio")
 bind_control = NodePath("Options/Keybinding")
+select_audio = ExtResource("2_5xle5")
 
 [node name="Options" type="Control" parent="OptionsMenu" unique_id=269365414]
 custom_minimum_size = Vector2(0, 400)
@@ -177,7 +180,7 @@ layout_mode = 2
 theme_override_fonts/normal_font = ExtResource("1_1xyc7")
 theme_override_fonts/bold_font = ExtResource("1_1xyc7")
 theme_override_font_sizes/normal_font_size = 35
-text = "Master"
+text = "SFX"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -205,7 +208,7 @@ layout_mode = 2
 theme_override_fonts/normal_font = ExtResource("1_1xyc7")
 theme_override_fonts/bold_font = ExtResource("1_1xyc7")
 theme_override_font_sizes/normal_font_size = 35
-text = "Master"
+text = "Music"
 horizontal_alignment = 1
 vertical_alignment = 1
 

@@ -8,6 +8,9 @@ extends Node
 @export var audio_control: Control
 @export var bind_control: Control
 
+@export_group("Audio")
+@export var select_audio: AudioStream
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	_set_audio_visibility(true)
@@ -22,9 +25,11 @@ func _set_binding_visibility(value: bool) -> void:
 	bind_control.visible = value
 
 func _on_bind_button_pressed() -> void:
+	AudioManager.play_sfx(select_audio)
 	_set_audio_visibility(false)
 	_set_binding_visibility(true)
 
 func _on_audio_button_pressed() -> void:
+	AudioManager.play_sfx(select_audio)
 	_set_audio_visibility(true)
 	_set_binding_visibility(false)

@@ -10,6 +10,9 @@ extends CanvasLayer
 @export_group("Parameters")
 @export var typing_delay: float
 
+@export_group("Audio")
+@export var select_audio: AudioStream
+
 @export_group("Slides")
 @export var cutscenes: Array[CutsceneData]
 
@@ -31,6 +34,7 @@ func _input(event: InputEvent) -> void:
 
 func _next() -> void:
 	if _is_typing:
+		AudioManager.play_sfx(select_audio)
 		_is_typing = false
 		return
 	
@@ -40,6 +44,7 @@ func _next() -> void:
 		_change_scene()
 		return
 	
+	AudioManager.play_sfx(select_audio)
 	_present_scene(_current_slide)
 
 func _present_scene(slide_num: int) -> void:
@@ -61,4 +66,5 @@ func _type(text: String) -> void:
 	_is_typing = false
 
 func _change_scene() -> void:
+	AudioManager.play_sfx(select_audio)
 	await SceneTransition.change_scene(next_scene)

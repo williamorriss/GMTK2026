@@ -1,0 +1,125 @@
+[gd_scene format=3 uid="uid://bebwesl65sg0b"]
+
+[ext_resource type="FontFile" uid="uid://qvjbjulrm5fs" path="res://UI/Fonts/upheaval/upheavtt.ttf" id="1_abrgl"]
+[ext_resource type="Script" uid="uid://cbsylliq42bj6" path="res://UI/cutscenes/cutscene_manager.gd" id="1_got86"]
+[ext_resource type="Script" uid="uid://b01xvucl3mvta" path="res://UI/cutscenes/cutscene_data.gd" id="2_3yu11"]
+[ext_resource type="AudioStream" uid="uid://beu000mllpqaq" path="res://audio/raw/sfx/blipSelect.wav" id="2_wxb4a"]
+
+[sub_resource type="Resource" id="Resource_got86"]
+script = ExtResource("2_3yu11")
+speaker = "Narrator"
+body = "This is the story of a man named Stanley. Stanley worked for a company in a big building where he was employee #427. Employee #427’s job was simple: he sat at his desk in room 427 and he pushed buttons on a keyboard. Orders came to him through a monitor on his desk, telling him what buttons to push, how long to push them, and in what order. "
+metadata/_custom_type_script = "uid://b01xvucl3mvta"
+
+[sub_resource type="Resource" id="Resource_wxb4a"]
+script = ExtResource("2_3yu11")
+speaker = "Narrator"
+body = "This is what Employee #427 did every day of every month of every year, and although others might have considered it soul rending, Stanley relished every moment that the orders came in, as though he had been made exactly for this job. And Stanley was happy."
+metadata/_custom_type_script = "uid://b01xvucl3mvta"
+
+[sub_resource type="Resource" id="Resource_6oyhc"]
+script = ExtResource("2_3yu11")
+speaker = "Narrator"
+body = "And then one day, something very peculiar happened, something that would forever change Stanley, something he would never quite forget. He had been at his desk for nearly an hour when he realized that not one, single order had arrived on the monitor for him to follow."
+metadata/_custom_type_script = "uid://b01xvucl3mvta"
+
+[sub_resource type="Resource" id="Resource_tu1um"]
+script = ExtResource("2_3yu11")
+speaker = "Narrator"
+body = "No one had shown up to give him instructions, call a meeting, or even say hi. Never in all his years at the company had this happened, this complete isolation. Something was very clearly wrong. Shocked, frozen solid, Stanley found himself unable to move for the longest time, but as he came to his wits and regained his senses, he got up from his desk and stepped out of his office."
+metadata/_custom_type_script = "uid://b01xvucl3mvta"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ln4xa"]
+bg_color = Color(0.10747976, 0.10747973, 0.10747973, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rt2ho"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e3avo"]
+bg_color = Color(1, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="StartingCutscene" type="CanvasLayer" unique_id=540931744 node_paths=PackedStringArray("skip_button", "speaker_label", "body_label", "image")]
+script = ExtResource("1_got86")
+next_scene = "uid://cl06dcn5crx38"
+skip_button = NodePath("TextPanel/MarginContainer/VBoxContainer/HBoxContainer/SkipButton")
+speaker_label = NodePath("TextPanel/MarginContainer/VBoxContainer/SpeakerLabel")
+body_label = NodePath("TextPanel/MarginContainer/VBoxContainer/BodyLabel")
+image = NodePath("MarginContainer/TextureRect")
+typing_delay = 0.001
+select_audio = ExtResource("2_wxb4a")
+cutscenes = Array[ExtResource("2_3yu11")]([SubResource("Resource_got86"), SubResource("Resource_wxb4a"), SubResource("Resource_6oyhc"), SubResource("Resource_tu1um")])
+
+[node name="Background" type="Panel" parent="." unique_id=94816429]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ln4xa")
+
+[node name="TextPanel" type="Panel" parent="." unique_id=1550450275]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -260.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_rt2ho")
+
+[node name="MarginContainer" type="MarginContainer" parent="TextPanel" unique_id=454985778]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TextPanel/MarginContainer" unique_id=1547998815]
+layout_mode = 2
+
+[node name="SpeakerLabel" type="RichTextLabel" parent="TextPanel/MarginContainer/VBoxContainer" unique_id=1409506716]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("1_abrgl")
+theme_override_font_sizes/normal_font_size = 35
+text = "Narrator"
+vertical_alignment = 1
+
+[node name="BodyLabel" type="RichTextLabel" parent="TextPanel/MarginContainer/VBoxContainer" unique_id=1566539888]
+custom_minimum_size = Vector2(0, 160)
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("1_abrgl")
+theme_override_font_sizes/normal_font_size = 25
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TextPanel/MarginContainer/VBoxContainer" unique_id=509147339]
+custom_minimum_size = Vector2(0, 35)
+layout_mode = 2
+alignment = 2
+
+[node name="SkipButton" type="Button" parent="TextPanel/MarginContainer/VBoxContainer/HBoxContainer" unique_id=215188569]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_abrgl")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_e3avo")
+text = "Skip"
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1029334139]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 391.0
+grow_horizontal = 2
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer" unique_id=2114927603]
+layout_mode = 2
+expand_mode = 5

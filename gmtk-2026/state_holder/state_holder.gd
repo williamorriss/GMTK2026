@@ -4,9 +4,13 @@ var _current_abilities: Array[Ability] = [null, null, null, null]
 
 # [NOTE] this is a test for now initial abilities will change
 func _init() -> void:
+	set_default_abilities()
+
+func set_default_abilities() -> void:
 	_current_abilities[0] = ConjureWeapon.new(null, preload("res://abilities/conjure_weapon/weapons_data/sword.tres"))
 	_current_abilities[1] = ChromaticOrb.new(null)
 	_current_abilities[2] = Thorns.new(null)
+	_current_abilities[3] = null
 
 func set_current_abilities(pos: int, ability: Ability) -> void:
 	if pos < 0 or pos > 4:

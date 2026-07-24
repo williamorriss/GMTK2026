@@ -7,6 +7,9 @@ var _ability_data: AbilityData
 func _init(player: Node2D) -> void:
 	_player = player
 
+func set_player(player: Node2D) -> void:
+	_player = player
+
 func get_cost() -> float:
 	if not _ability_data:
 		push_warning("Data not set")

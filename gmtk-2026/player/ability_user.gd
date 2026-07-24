@@ -9,12 +9,9 @@ var spells: Array[Ability] = [null, null, null, null] # 4 entries always
 
 #test
 func _ready() -> void:
-	var first_spell: Ability = ConjureWeapon.new(player, preload("res://abilities/conjure_weapon/weapons_data/sword.tres"))
-	add_ability(0, first_spell)
-	var second: Ability = ChromaticOrb.new(player)
-	add_ability(1, second)
-	var third: Ability = Thorns.new(player)
-	add_ability(2, third)
+	for i: int in range(spells.size()):
+		var ability: Ability = StateHolder.get_current_abilities(i, player)
+		add_ability(i, ability)
 
 func add_ability(pos: int, ability: Ability) -> void:
 	spells[pos] = ability

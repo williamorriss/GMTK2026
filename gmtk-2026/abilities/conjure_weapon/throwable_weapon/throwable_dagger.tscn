@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://lqobf6clra8e"]
+
+[ext_resource type="Script" uid="uid://ctjqo4067nacl" path="res://abilities/conjure_weapon/throwable_weapon/throwable_weapon.gd" id="1_w67js"]
+[ext_resource type="Texture2D" uid="uid://dhcwybhoxgwhe" path="res://icon.svg" id="2_u4wfx"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ln4xa"]
+radius = 138.17743
+
+[node name="ThrowableDagger" type="Area2D" unique_id=1045993088 node_paths=PackedStringArray("sprite", "collider")]
+collision_layer = 8
+collision_mask = 2
+script = ExtResource("1_w67js")
+sprite = NodePath("Sprite2D")
+collider = NodePath("CollisionShape2D")
+throw_damage = 0.5
+throw_speed = 3500.0
+spin_speed = 720.0
+life_span = 10.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=433471155]
+shape = SubResource("CircleShape2D_ln4xa")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=98011789]
+scale = Vector2(0.5, 2)
+texture = ExtResource("2_u4wfx")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

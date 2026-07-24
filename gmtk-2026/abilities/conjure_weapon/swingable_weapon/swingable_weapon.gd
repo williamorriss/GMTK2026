@@ -7,7 +7,7 @@ extends Node2D
 @export var sprite: Sprite2D
 
 @export_group("Parameters")
-@export var damage: int = 1
+@export var damage: float = 1
 @export var swing_time: float = 0.5
 @export var swing_delay: float = 0.1
 @export var swing_distance: float = 300

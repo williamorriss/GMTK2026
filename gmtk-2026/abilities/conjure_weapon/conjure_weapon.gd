@@ -17,6 +17,16 @@ func _init(player: Node2D, weapon_data: WeaponData) -> void:
 	_weapon_data = weapon_data
 	_ability_data = preload("res://abilities/conjure_weapon/conjure_data.tres")
 
+func get_cost() -> float:
+	if not _ability_data:
+		push_warning("Data not set")
+		return 0
+	
+	if not _weapon_data:
+		return _ability_data.cost
+	
+	return _ability_data.cost + _weapon_data.extra_cost
+
 func process(_delta: float) -> void:
 	if Input.is_action_just_pressed("ATTACK") and _can_attack:
 		await _attack()

@@ -38,7 +38,7 @@ texture = ExtResource("1_yv86f")
 [node name="Phase1" type="Node2D" parent="Phases" unique_id=731236335 node_paths=PackedStringArray("starting_action", "actions")]
 script = ExtResource("4_xteoq")
 starting_action = NodePath("Charge")
-actions = [NodePath("Run"), NodePath("Charge"), NodePath("Teleport")]
+actions = [NodePath("Run"), NodePath("Charge"), NodePath("Teleport"), NodePath("Stroll"), NodePath("Shoot")]
 
 [node name="Run" type="Node2D" parent="Phases/Phase1" unique_id=2125979796]
 script = ExtResource("5_1x24s")

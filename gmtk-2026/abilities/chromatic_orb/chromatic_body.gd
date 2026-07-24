@@ -4,6 +4,7 @@ extends RigidBody2D
 # [TODO] Change layer when dungeon is created
 
 @export_group("References")
+@export var area: Area2D
 @export var shape: CollisionShape2D
 @export var component: Node2D
 
@@ -19,17 +20,26 @@ var _current_bounces: int = 0
 var _direction: Vector2 = Vector2.ZERO
 var _current_speed: float = 0
 
-static func create_orb(player: Node2D) -> ChromaticBody:
+var _is_evil: bool = false
+var _target: Vector2 = Vector2.ZERO
+
+static func create_orb(player: Node2D, is_evil: bool, target: Vector2) -> ChromaticBody:
 	var instance: ChromaticBody = preload("res://abilities/chromatic_orb/chromatic_body.tscn").instantiate()
 	instance._player = player
+	instance._target = target
 	return instance
 
 func _ready() -> void:
 	position = _player.position
 	
-	_current_speed = speed_range.x
+	if _is_evil:
+		_direction = _player.global_position.direction_to(_target)
+		area.set_collision_mask_value(2, false)
+		area.set_collision_mask_value(1, true)
+	else:
+		_direction = position.direction_to(_player.get_global_mouse_position())
 	
-	_direction = (get_global_mouse_position() - global_position).normalized()
+	_current_speed = speed_range.x
 
 func _physics_process(delta: float) -> void:
 	var collision: KinematicCollision2D = move_and_collide(_direction * _current_speed * delta)
@@ -51,7 +61,7 @@ func _change_properties() -> void:
 	_current_speed = speed_range.x + ((speed_range.y - speed_range.x) / (max_bounces - 1)) * _current_bounces
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	if not body.is_in_group("enemies"):
+	if not body.is_in_group("enemies") and not body.is_in_group("players"):
 		return
 	print(body.name)
 	var health: Health = Health.get_health(body)

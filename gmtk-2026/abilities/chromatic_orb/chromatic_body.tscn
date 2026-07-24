@@ -8,11 +8,12 @@ radius = 175.28548
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tmfgs"]
 
-[node name="ChromaticBody" type="RigidBody2D" unique_id=1390675684 node_paths=PackedStringArray("shape", "component")]
+[node name="ChromaticBody" type="RigidBody2D" unique_id=1390675684 node_paths=PackedStringArray("area", "shape", "component")]
 collision_layer = 8
 collision_mask = 4
 gravity_scale = 0.0
 script = ExtResource("1_f7q3n")
+area = NodePath("Components/Area2D")
 shape = NodePath("CollisionShape2D")
 component = NodePath("Components")
 speed_range = Vector2(1000, 5000)

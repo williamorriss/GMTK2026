@@ -16,7 +16,7 @@ func activate_ability() -> void:
 	var looksie: Array[Missile] = []
 	
 	for amt: int in range(missile_amount):
-		var instance: Missile = Missile.create_missile(_player)
+		var instance: Missile = Missile.create_missile(_player, _is_evil)
 		_player.get_tree().current_scene.add_child(instance)
 		looksie.append(instance)
 	

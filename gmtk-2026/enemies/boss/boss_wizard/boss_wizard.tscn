@@ -15,11 +15,12 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_ln4xa"]
 radius = 93.43447
 
-[node name="BossWizard" type="CharacterBody2D" unique_id=1921532289 node_paths=PackedStringArray("agent", "phase1")]
+[node name="BossWizard" type="CharacterBody2D" unique_id=1921532289 node_paths=PackedStringArray("agent", "health", "phase1")]
 collision_layer = 2
 collision_mask = 13
 script = ExtResource("1_gvpvq")
 agent = NodePath("NavigationAgent2D")
+health = NodePath("Health")
 phase1 = NodePath("Phases/Phase1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1445703991]

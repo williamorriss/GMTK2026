@@ -11,13 +11,20 @@ var _direction: Vector2
 var _speed: float
 var _acceleration: float
 
-static func create_trap(starting_pos: Vector2, dir: Vector2) -> SpikeTrap:
+var _is_evil: bool
+
+static func create_trap(starting_pos: Vector2, dir: Vector2, is_evil: bool) -> SpikeTrap:
 	var instance: SpikeTrap = preload("res://abilities/mana_spikes/spike_trap.tscn").instantiate()
 	instance.position = starting_pos
 	instance._direction = dir
+	instance._is_evil = is_evil
 	return instance
 
 func _ready() -> void:
+	if _is_evil:
+		set_collision_mask_value(2, false)
+		set_collision_mask_value(1, true)
+	
 	_speed = initial_velocity
 	_acceleration = -(initial_velocity ** 2) / (2 * throw_distance)
 
@@ -37,8 +44,9 @@ func _generate_spikes() -> void:
 		while not _can_see(pos):
 			pos = _generate_position()
 		
-		var instance: Node2D = preload("res://abilities/mana_spikes/spike.tscn").instantiate()
+		var instance: Spike = preload("res://abilities/mana_spikes/spike.tscn").instantiate()
 		instance.position = pos
+		instance.set_evil(_is_evil)
 		get_tree().current_scene.call_deferred("add_child", instance)
 
 func _generate_position() -> Vector2:
@@ -61,7 +69,7 @@ func _can_see(target: Vector2) -> bool:
 	return result.is_empty()
 
 func _on_body_entered(body: Node2D) -> void:
-	if body.is_in_group("enemies"):
+	if body.is_in_group("enemies") and not _is_evil or body.is_in_group("players") and _is_evil:
 		_generate_spikes()
 		queue_free()
 	

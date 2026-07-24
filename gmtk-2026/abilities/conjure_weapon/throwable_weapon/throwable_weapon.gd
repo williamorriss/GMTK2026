@@ -13,6 +13,10 @@ extends Area2D
 
 var _direction: Vector2
 
+func set_evil() -> void:
+	set_collision_mask_value(2, false)
+	set_collision_mask_value(1, true)
+
 func set_direction(direction: Vector2) -> void:
 	_direction = direction
 
@@ -27,7 +31,7 @@ func _destroy() -> void:
 	queue_free()
 
 func _on_body_entered(body: Node2D) -> void:
-	if not body.is_in_group("enemies"):
+	if not body.is_in_group("enemies") and not not body.is_in_group("players"):
 		return
 	
 	var health: Health = Health.get_health(body)

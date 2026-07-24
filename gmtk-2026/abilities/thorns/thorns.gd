@@ -11,5 +11,5 @@ func activate_ability() -> void:
 	for i: int in range(amount):
 		var rot: float = (2 * PI) * (float(i) / float(amount))
 		var dir: Vector2 = Vector2(cos(rot), sin(rot))
-		var instance: ThornBullet = ThornBullet.create_bullet(_player.position, dir)
+		var instance: ThornBullet = ThornBullet.create_bullet(_player.position, dir, _is_evil)
 		_player.get_tree().current_scene.add_child(instance)

@@ -39,6 +39,13 @@ func _attack() -> void:
 	
 	var instance: SwingableWeapon = _weapon_data.swingable.instantiate()
 	instance.set_player(_player)
+	
+	if _is_evil:
+		instance.set_angle((_target - _player.global_position).angle())
+		instance.set_evil()
+	else:
+		instance.set_angle((_player.get_global_mouse_position() - _player.global_position).angle())
+	
 	_player.get_tree().current_scene.add_child(instance)
 	await instance.on_finished
 	

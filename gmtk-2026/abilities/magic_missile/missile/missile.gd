@@ -12,14 +12,21 @@ var _player: Node2D
 var _is_rotating: bool = true
 var _current_rotation: float = 0
 
+var _is_evil: bool = false
+
 signal on_finish_rotating
 
-static func create_missile(player: Node2D) -> Missile:
+static func create_missile(player: Node2D, is_evil: bool) -> Missile:
 	var instance: Missile = preload("res://abilities/magic_missile/missile/missile.tscn").instantiate()
 	instance._player = player
+	instance._is_evil = is_evil
 	return instance
 
 func _ready() -> void:
+	if _is_evil:
+		set_collision_mask_value(2, false)
+		set_collision_mask_value(1, true)
+	
 	_is_rotating = true
 	_current_rotation = randf_range(0, 2 * PI)
 	await get_tree().create_timer(rotation_time).timeout
@@ -47,7 +54,13 @@ func _rotating(delta: float) -> void:
 	position = _player.position + Vector2(cos(_current_rotation), sin(_current_rotation)) * rotation_distance
 
 func _get_closest() -> Node2D:
-	var enemies: Array[Node] = get_tree().get_nodes_in_group("enemies")
+	var enemies: Array[Node] = []
+	
+	if not _is_evil:
+		enemies = get_tree().get_nodes_in_group("enemies")
+	else:
+		enemies = get_tree().get_nodes_in_group("players")
+	
 	var distance: float = INF
 	var closest: Node = null
 	for enemy: Node2D in enemies:
@@ -58,7 +71,7 @@ func _get_closest() -> Node2D:
 	return closest
 
 func _on_body_entered(body: Node2D) -> void:
-	if not body.is_in_group("enemies"):
+	if not body.is_in_group("enemies") and not body.is_in_group("players"):
 		return
 	
 	var health: Health = Health.get_health(body)

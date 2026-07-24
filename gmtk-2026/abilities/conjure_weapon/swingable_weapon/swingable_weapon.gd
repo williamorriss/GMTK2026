@@ -13,17 +13,24 @@ extends Node2D
 @export var swing_distance: float = 300
 
 var _player: Node2D
+var _angle: float
 
 signal on_finished
 
 func set_player(player: Node2D) -> void:
 	_player = player
 
+func set_angle(value: float) -> void:
+	_angle = value
+func set_evil() -> void:
+	collider.set_collision_mask_value(2, false)
+	collider.set_collision_mask_value(1, true)
+
 func _ready() -> void:
 	if not _player:
 		push_warning("Player not set")
 	
-	rotation = (get_global_mouse_position() - _player.global_position).angle() + deg_to_rad(90)
+	rotation = _angle + deg_to_rad(90)
 	position = _player.position + (Vector2.from_angle(rotation - deg_to_rad(90)) * swing_distance)
 	
 	animator.speed_scale = (1 / swing_time)
@@ -42,7 +49,7 @@ func _destroy(_name: StringName) -> void:
 	queue_free()
 
 func _on_body_entered(body: Node2D) -> void:
-	if not body.is_in_group("enemies"):
+	if not body.is_in_group("enemies") and not body.is_in_group("players"):
 		return
 	
 	var health: Health = Health.get_health(body)

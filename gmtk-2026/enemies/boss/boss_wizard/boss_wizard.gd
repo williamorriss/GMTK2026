@@ -4,6 +4,10 @@ extends Enemy
 @export_group("References")
 @export var play_area: Polygon2D
 @export var agent: NavigationAgent2D
+@export var health: Health
+
+@export_group("Phase")
+@export var phase_split: float = 0.5
 @export var phase1: Phase
 @export var phase2: Phase
 
@@ -19,16 +23,6 @@ var _target_position: Vector2
 var _is_dashing: bool 
 
 var _current_phase: Phase
-
-func _ready() -> void:
-	_switch_phase(phase1)
-	await _dash_wait()
-
-func _process(_delta: float) -> void:
-	_current_phase.process(_delta)
-	
-	if not _closest_player:
-		calc_closest_player()
 
 func get_closet_player() -> Node2D:
 	return _closest_player
@@ -64,6 +58,19 @@ func get_random_point() -> Vector2:
 		if Geometry2D.is_point_in_polygon(random_point, points):
 			return play_area.to_global(random_point)
 	return Vector2.ZERO
+
+func _ready() -> void:
+	_switch_phase(phase1)
+	await _dash_wait()
+
+func _process(_delta: float) -> void:
+	if _current_phase == phase1 and health.get_hp() <= health.max_health * phase_split:
+		_switch_phase(phase2)
+	
+	_current_phase.process(_delta)
+	
+	if not _closest_player:
+		calc_closest_player()
 
 func _physics_process(delta: float) -> void:
 	_move(delta)

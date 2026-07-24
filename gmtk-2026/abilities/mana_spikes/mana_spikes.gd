@@ -7,5 +7,5 @@ func _init(player: Node2D) -> void:
 
 func activate_ability() -> void:
 	var direction: Vector2 = (_player.get_global_mouse_position() - _player.position).normalized()
-	var instance: SpikeTrap = SpikeTrap.create_trap(_player.position, direction)
+	var instance: SpikeTrap = SpikeTrap.create_trap(_player.position, direction, _is_evil)
 	_player.get_tree().current_scene.add_child(instance)

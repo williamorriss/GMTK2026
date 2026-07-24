@@ -6,10 +6,13 @@ extends Area2D
 
 var _direction: Vector2
 
-static func create_bullet(pos: Vector2, direction: Vector2) -> ThornBullet:
+var _is_evil: bool = false
+
+static func create_bullet(pos: Vector2, direction: Vector2, is_evil: bool) -> ThornBullet:
 	var instance: ThornBullet = preload("res://abilities/thorns/thorn_bullet/thorn_bullet.tscn").instantiate()
 	instance._direction = direction
 	instance.position = pos
+	instance._is_evil = is_evil
 	return instance
 
 func _ready() -> void:
@@ -19,7 +22,10 @@ func _process(delta: float) -> void:
 	position += _direction * speed * delta
 
 func _on_body_entered(body: Node2D) -> void:
-	if body.is_in_group("enemies"):
+	if body.is_in_group("enemies") and _is_evil or body.is_in_group("players") and not _is_evil:
+		return
+	
+	if body.is_in_group("enemies") or body.is_in_group("players"):
 		var health: Health = Health.get_health(body)
 		if health:
 			health.damage(damage)

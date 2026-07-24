@@ -7,10 +7,11 @@ var _ability_data: AbilityData
 var _is_evil: bool = false
 var _target: Vector2
 
-func _init(player: Node2D, is_evil: bool = false) -> void:
+func _init(player: Node2D) -> void:
 	_player = player
-	_is_evil = is_evil
 
+func set_evil(value: bool) -> void:
+	_is_evil = value
 func set_target(value: Vector2) -> void:
 	_target = value
 

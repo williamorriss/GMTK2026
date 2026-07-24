@@ -9,13 +9,15 @@ func ready(boss: BossWizard, phase: Phase) -> void:
 	super(boss, phase)
 	
 	_ability = ChromaticOrb.new(_boss)
+	_ability.set_evil(true)
 	await _spell_casting()
 
 func _spell_casting() -> void:
 	while true:
 		await get_tree().create_timer(randf_range(cooldown.x, cooldown.y)).timeout
-		if not _boss.get_closet_player():
+		var player: Node2D = _boss.get_closet_player()
+		if not player:
 			continue
 		
-		_ability.set_target(_boss.get_closet_player().global_position)
+		_ability.set_target(player.global_position)
 		_ability.activate_ability()

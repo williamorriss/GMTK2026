@@ -34,7 +34,7 @@ func _ready() -> void:
 	position = _player.position
 	
 	if _is_evil:
-		_direction = _player.global_position.direction_to(_target)
+		_direction = position.direction_to(_target)
 		area.set_collision_mask_value(2, false)
 		area.set_collision_mask_value(1, true)
 	else:
@@ -62,9 +62,11 @@ func _change_properties() -> void:
 	_current_speed = speed_range.x + ((speed_range.y - speed_range.x) / (max_bounces - 1)) * _current_bounces
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
+	print("hit")
+	
 	if not body.is_in_group("enemies") and not body.is_in_group("players"):
 		return
-	print(body.name)
+	
 	var health: Health = Health.get_health(body)
 	if health:
 		health.damage(damage)

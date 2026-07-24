@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://cfeqtos6sscp5" path="res://sprites/run.jpg" id="8_2ieo8"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tmfgs"]
+radius = 98.4124
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_a00k7"]
 animations = [{
@@ -47,7 +48,7 @@ animations = [{
 }]
 
 [node name="Player" type="CharacterBody2D" unique_id=133342377 node_paths=PackedStringArray("health")]
-collision_mask = 4
+collision_mask = 6
 script = ExtResource("1_4flbx")
 death_screen = "uid://comfb4xtpo4g2"
 health = NodePath("Health")

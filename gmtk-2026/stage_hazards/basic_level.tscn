@@ -1,4 +1,4 @@
-[gd_scene format=4 uid="uid://bab5h45msbvq0"]
+[gd_scene format=4 uid="uid://hbysplr6cu5"]
 
 [ext_resource type="Texture2D" uid="uid://c4psplbijwkk0" path="res://basic_level/placeholder_art/dungeon-tileset.png" id="1_w50f4"]
 [ext_resource type="PackedScene" uid="uid://ciyk3l7p2kfjx" path="res://player/player.tscn" id="2_mk17j"]

@@ -149,6 +149,7 @@ dash_speed = 2500.0
 
 [node name="room_manager" type="Area2D" parent="." unique_id=524887874]
 collision_layer = 16
+script = ExtResource("3_a00k7")
 
 [node name="room_shape" type="CollisionShape2D" parent="room_manager" unique_id=448735589]
 position = Vector2(81, 277.5)

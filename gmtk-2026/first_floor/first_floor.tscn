@@ -168,5 +168,18 @@ position = Vector2(2496, -304)
 script = ExtResource("4_be2cm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="first_room" unique_id=1240069807]
-position = Vector2(552.5, 146.5)
+position = Vector2(484, 83)
 shape = SubResource("RectangleShape2D_vbklt")
+
+[node name="spawn_points" type="Node2D" parent="first_room" unique_id=1495568116]
+
+[node name="spawn1" type="Marker2D" parent="first_room/spawn_points" unique_id=1486515427]
+position = Vector2(-592, -309)
+
+[node name="spawn2" type="Marker2D" parent="first_room/spawn_points" unique_id=1687751121]
+position = Vector2(360, 379)
+
+[node name="spawn3" type="Marker2D" parent="first_room/spawn_points" unique_id=386912785]
+position = Vector2(-11, -268)
+
+[node name="spawn4" type="Marker2D" parent="first_room/spawn_points" unique_id=1639109038]

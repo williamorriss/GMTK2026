@@ -16,3 +16,7 @@ func calc_closest_player() -> void:
 			_closest_player = player
 	print(_closest_player)
 	
+static func force_recalc(tree: SceneTree) -> void:
+	var enemies: Array[Node] = tree.get_nodes_in_group("enemies")
+	for enemy: Enemy in enemies:
+		enemy.calc_closest_player()

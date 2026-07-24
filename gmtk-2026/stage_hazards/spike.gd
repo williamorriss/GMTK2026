@@ -34,8 +34,6 @@ func _ready() -> void:
 		
 
 	
-
-
 func _on_spike_timer_timeout() -> void:
 	deployed = not deployed
 	if deployed:

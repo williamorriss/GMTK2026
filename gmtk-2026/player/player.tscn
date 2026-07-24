@@ -12,6 +12,7 @@ collision_mask = 7
 script = ExtResource("1_4flbx")
 death_screen = "uid://comfb4xtpo4g2"
 health = NodePath("Health")
+speed = 500.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1392926206]
 shape = SubResource("CircleShape2D_tmfgs")

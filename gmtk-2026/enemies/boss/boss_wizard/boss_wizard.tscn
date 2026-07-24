@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://5s5kn2qjjw8f"]
+
+[ext_resource type="Script" uid="uid://dinr6tglnnfth" path="res://enemies/boss/boss_wizard/boss_wizard.gd" id="1_gvpvq"]
+[ext_resource type="Texture2D" uid="uid://rjymeesnokfa" path="res://UI/menu/profile_pics/Horse.png" id="1_yv86f"]
+[ext_resource type="PackedScene" uid="uid://b84onmi6p6dgu" path="res://health/health.tscn" id="3_7r24g"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ln4xa"]
+radius = 93.43447
+
+[node name="BossWizard" type="CharacterBody2D" unique_id=1921532289 node_paths=PackedStringArray("agent")]
+collision_layer = 2
+collision_mask = 13
+script = ExtResource("1_gvpvq")
+agent = NodePath("NavigationAgent2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1445703991]
+shape = SubResource("CircleShape2D_ln4xa")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1517297487]
+scale = Vector2(0.18, 0.18)
+texture = ExtResource("1_yv86f")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=18353008]
+
+[node name="Health" parent="." unique_id=2054087400 instance=ExtResource("3_7r24g")]
+
+[node name="Phases" type="Node2D" parent="." unique_id=2007382499]
+
+[node name="Phase1" type="Node2D" parent="Phases" unique_id=731236335]

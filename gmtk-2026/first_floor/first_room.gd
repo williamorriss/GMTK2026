@@ -8,7 +8,7 @@ var ranged_grunt_scene = preload("res://enemies/ranged enemies/ranged_grunt.tscn
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	body_entered.connect(_on_body_entered)
-	spawn_enemies()
+
 	
 
 
@@ -23,6 +23,8 @@ func _on_body_entered(body):
 			%tile_map.set_cell(door,-1,Vector2i(4,3)) #change this to an open and close door scenario
 	
 	doors_closed = true
+	await get_tree().create_timer(0.5)
+	spawn_enemies()
 
 func find_doors(area : Area2D, tilemap : TileMapLayer):
 	var door_tiles : Array[Vector2i]= []
@@ -46,13 +48,15 @@ func spawn_enemies():
 	var spawn_positions = $spawn_points.get_children()
 	for i in range(3):
 		var grunt = grunt_scene.instantiate()
-		add_child(grunt)
 		grunt.global_position = spawn_positions[i].global_position
+		call_deferred("add_child",grunt)
+		
 		enemies.append(grunt)
 	
 	var ranged_grunt = ranged_grunt_scene.instantiate()
-	add_child(ranged_grunt)
 	ranged_grunt.global_position = spawn_positions[3].global_position
+	call_deferred("add_child",ranged_grunt)
+
 	enemies.append(ranged_grunt)
 	
 

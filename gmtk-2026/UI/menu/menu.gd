@@ -15,7 +15,7 @@ func _ready() -> void:
 	creditsControl.visible = false
 
 func _on_start_button_pressed() -> void:
-	get_tree().change_scene_to_file(next_scene)
+	await SceneTransition.change_scene(next_scene)
 
 func _on_options_button_pressed() -> void:
 	menuControl.visible = false

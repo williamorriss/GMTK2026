@@ -61,4 +61,4 @@ func _type(text: String) -> void:
 	_is_typing = false
 
 func _change_scene() -> void:
-	get_tree().change_scene_to_file(next_scene)
+	await SceneTransition.change_scene(next_scene)

@@ -1,8 +1,7 @@
 class_name RangedGrunt
-extends CharacterBody2D
+extends Enemy
 
 @export_group("References")
-@export var player: Node2D
 @export var agent: NavigationAgent2D
 @export var health: Health
 
@@ -25,11 +24,14 @@ func _ready() -> void:
 	_offset = Vector2(cos(rot), sin(rot)) * offset_distance
 
 func _physics_process(_delta: float) -> void:
+	if not _closest_player:
+		return
+		
 	attack()
 	
-	agent.target_position = player.position + _offset
+	agent.target_position = _closest_player.position + _offset
 	
-	if agent.is_navigation_finished() or position.distance_to(player.position) < max_distance:
+	if agent.is_navigation_finished() or position.distance_to(_closest_player.position) < max_distance:
 		velocity = Vector2.ZERO
 		move_and_slide()
 		return
@@ -41,11 +43,14 @@ func _physics_process(_delta: float) -> void:
 	move_and_slide()
 
 func attack() -> void:
-	if not _can_attack or not _can_see(player.position):
+	if not _closest_player:
+		return
+		
+	if not _can_attack or not _can_see(_closest_player.position):
 		return
 	_can_attack = false
 	
-	var bullet: GruntBullet = GruntBullet.create_bullet(position, position.direction_to(player.position))
+	var bullet: GruntBullet = GruntBullet.create_bullet(position, position.direction_to(_closest_player.position))
 	get_tree().current_scene.add_child(bullet)
 	
 	await get_tree().create_timer(attack_cooldown).timeout

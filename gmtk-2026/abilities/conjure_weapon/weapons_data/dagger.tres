@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="WeaponData" format=3 uid="uid://b1x3jnshfo2b6"]
+
+[ext_resource type="Script" uid="uid://dcpfkcthf4n7g" path="res://abilities/conjure_weapon/weapons_data/weapon_data.gd" id="1_vdxmg"]
+[ext_resource type="PackedScene" uid="uid://wyx7nxyitu7b" path="res://abilities/conjure_weapon/swingable_weapon/swingable_dagger.tscn" id="2_w4o62"]
+[ext_resource type="PackedScene" uid="uid://lqobf6clra8e" path="res://abilities/conjure_weapon/throwable_weapon/throwable_dagger.tscn" id="3_thwym"]
+
+[resource]
+script = ExtResource("1_vdxmg")
+swingable = ExtResource("2_w4o62")
+throwable = ExtResource("3_thwym")
+metadata/_custom_type_script = "uid://dcpfkcthf4n7g"

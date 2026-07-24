@@ -1,0 +1,73 @@
+[gd_scene format=3 uid="uid://comfb4xtpo4g2"]
+
+[ext_resource type="Script" uid="uid://f4b0l3oi2ai" path="res://UI/game_over/game_over_screen.gd" id="1_qflxa"]
+[ext_resource type="AudioStream" uid="uid://beu000mllpqaq" path="res://audio/sfx/blipSelect.wav" id="2_vhr0d"]
+[ext_resource type="FontFile" uid="uid://qvjbjulrm5fs" path="res://UI/Fonts/upheaval/upheavtt.ttf" id="3_flghv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ln4xa"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d4tce"]
+bg_color = Color(0.5568013, 0.15226546, 4.813075e-08, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="GameOverScreen" type="CanvasLayer" unique_id=1825362919]
+script = ExtResource("1_qflxa")
+next_scene = "uid://cl06dcn5crx38"
+select_audio = ExtResource("2_vhr0d")
+
+[node name="Panel" type="Panel" parent="." unique_id=587270407]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ln4xa")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1382438001]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=42284696]
+layout_mode = 2
+theme_override_constants/separation = 25
+alignment = 1
+
+[node name="Title" type="RichTextLabel" parent="MarginContainer/VBoxContainer" unique_id=2130613582]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("3_flghv")
+theme_override_font_sizes/normal_font_size = 50
+text = "Your time has ran out and your life has come to an end."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Choices" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=937811269]
+layout_mode = 2
+theme_override_constants/separation = 25
+alignment = 1
+
+[node name="Retry" type="Button" parent="MarginContainer/VBoxContainer/Choices" unique_id=450659032]
+custom_minimum_size = Vector2(400, 75)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_flghv")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_d4tce")
+text = "Climb once more"
+
+[node name="Quit" type="Button" parent="MarginContainer/VBoxContainer/Choices" unique_id=1452609167]
+custom_minimum_size = Vector2(400, 75)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_flghv")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_d4tce")
+text = "Succumb to fate"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Choices/Retry" to="." method="_on_retry_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Choices/Quit" to="." method="_on_quit_pressed"]

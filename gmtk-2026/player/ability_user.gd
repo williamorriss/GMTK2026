@@ -2,18 +2,16 @@ class_name AbilityUser
 extends Node2D
 
 @export var player: Player
+@export var health: Health
 
 var weapon: Ability = null
 var spells: Array[Ability] = [null, null, null, null] # 4 entries always
 
 #test
 func _ready() -> void:
-	var first_spell: Ability = ConjureWeapon.new(player, preload("res://abilities/conjure_weapon/weapons_data/sword.tres"))
-	add_ability(0, first_spell)
-	var second: Ability = ChromaticOrb.new(player)
-	add_ability(1, second)
-	var third: Ability = Thorns.new(player)
-	add_ability(2, third)
+	for i: int in range(spells.size()):
+		var ability: Ability = StateHolder.get_current_ability(i, player)
+		add_ability(i, ability)
 
 func add_ability(pos: int, ability: Ability) -> void:
 	spells[pos] = ability
@@ -35,18 +33,22 @@ func _use_ability() -> void:
 	if Input.is_action_just_pressed("MAGIC_1"):
 		if spells[0]:
 			spells[0].activate_ability()
+			health.damage(spells[0].get_cost())
 			
 	if Input.is_action_just_pressed("MAGIC_2"):
 		if spells[1]:
 			spells[1].activate_ability()
+			health.damage(spells[1].get_cost())
 	
 	if Input.is_action_just_pressed("MAGIC_3"):
 		if spells[2]:
 			spells[2].activate_ability()
+			health.damage(spells[2].get_cost())
 			
 	if Input.is_action_just_pressed("MAGIC_4"):
 		if spells[3]:
 			spells[3].activate_ability()
+			health.damage(spells[3].get_cost())
 
 func _process_ability(delta: float) -> void:
 	for spell: Ability in spells:

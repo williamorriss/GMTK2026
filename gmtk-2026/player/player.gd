@@ -2,6 +2,7 @@ class_name Player
 extends CharacterBody2D
 
 @export_group("References")
+@export_file("*.tscn") var death_screen: String
 @export var health: Health
 
 @export_group("Movement")
@@ -44,11 +45,15 @@ func _move(delta: float) -> void:
 		_dash_direction = input_dir
 	
 	if _dashing:
+		_i_frames(true)
+		
 		velocity = _dash_direction * dash_speed
 		_dash_timer -= delta
 		if _dash_timer <= 0.0:
 			_dashing = false
 	else:
+		_i_frames(false)
+		
 		var target_velocity: Vector2 = input_dir * speed
 	
 		if input_dir != Vector2.ZERO:
@@ -58,5 +63,11 @@ func _move(delta: float) -> void:
 	
 	var _x: bool = move_and_slide()
 
-func _die() -> void:
+# [NOTE] bullet can still get destoryed when hitting but wont deal damage
+func _i_frames(value: bool) -> void:
+		health.set_immunity(value)
+
+func _die() -> void: # should play death anim here
+	HealthTimer.stop_timer()
+	await SceneTransition.change_scene(death_screen)
 	queue_free()

@@ -6,6 +6,7 @@
 
 [resource]
 script = ExtResource("1_o8fiv")
+extra_cost = 1
 swingable = ExtResource("2_1143o")
 throwable = ExtResource("2_ryvah")
 metadata/_custom_type_script = "uid://dcpfkcthf4n7g"

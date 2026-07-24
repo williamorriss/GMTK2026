@@ -6,7 +6,7 @@ extends Area2D
 @export var collider: CollisionShape2D
 
 @export_group("Parameters")
-@export var throw_damage: int = 1
+@export var throw_damage: float = 1
 @export var throw_speed: float = 200
 @export var spin_speed: float = 10
 @export var life_span: float = 2

@@ -24,6 +24,7 @@ buses/default_bus_layout="uid://ct33mw21k8ao4"
 HealthTimer="*uid://cc4pr1bd7vtg6"
 SceneTransition="*uid://cq3e4x5ihpf86"
 AudioManager="*uid://bo65buegl80n7"
+StateHolder="*uid://ct3gh8yu6fpjp"
 
 [debug]
 

@@ -7,6 +7,7 @@ signal on_dead
 @export var max_health: float = 100
 
 var _hp: float = 0.0 
+var _is_immune: bool = false
 
 static func get_health(target: Node) -> Health:
 	var healths: Array = []
@@ -19,10 +20,15 @@ static func get_health(target: Node) -> Health:
 	
 	return healths.front()
 
-func damage(points: float) -> void:
+func set_immunity(value: bool) -> void:
+	_is_immune = value
+
+func damage(points: float, forced: bool = false) -> void:
 	if points < 0:
 		push_error("To heal damage use heal/ set_hp >:( no negatives")
-			
+	if _is_immune and not forced:
+		return
+	
 	_hp -= points
 	if _hp <= 0:
 		on_dead.emit()

@@ -1,40 +1,15 @@
 [gd_scene format=3 uid="uid://boj0gebdcokjf"]
 
 [ext_resource type="Script" uid="uid://o8nr873qftjg" path="res://enemies/beam_enemy/beam.gd" id="1_4ehef"]
-[ext_resource type="Texture2D" uid="uid://dhcwybhoxgwhe" path="res://icon.svg" id="1_p6ibq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ln4xa"]
-size = Vector2(3870, 52)
+size = Vector2(10, 26)
 
 [sub_resource type="Animation" id="Animation_4ehef"]
 length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 0, 1)]
-}
 
 [sub_resource type="Animation" id="Animation_xuldq"]
 resource_name = "charging"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:modulate")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.25, 0.5, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 0, 0), Color(1, 1, 0, 0.25), Color(1, 1, 0, 0), Color(1, 1, 0, 1)]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8kkwt"]
 _data = {
@@ -42,24 +17,29 @@ _data = {
 &"charging": SubResource("Animation_xuldq")
 }
 
+[sub_resource type="Gradient" id="Gradient_p6ibq"]
+offsets = PackedFloat32Array(0.0028409092, 0.5738636)
+colors = PackedColorArray(0.26973972, 0.6935427, 0.35076928, 1, 0, 0, 0, 1)
+
 [node name="Beam" type="Area2D" unique_id=2147251531 node_paths=PackedStringArray("animator")]
+collision_layer = 8
+collision_mask = 15
 script = ExtResource("1_4ehef")
 animator = NodePath("AnimationPlayer")
-damage = 3.0
+damage = 50.0
 charging_time = 2.0
 lifetime = 2.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=246777872]
-position = Vector2(1936, 0)
 shape = SubResource("RectangleShape2D_ln4xa")
-
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1038932306]
-modulate = Color(1, 1, 0, 1)
-position = Vector2(1932.9999, 0)
-scale = Vector2(30.203123, 0.383)
-texture = ExtResource("1_p6ibq")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2052149251]
 libraries/ = SubResource("AnimationLibrary_8kkwt")
+
+[node name="Line2D" type="Line2D" parent="." unique_id=1421345686]
+visible = false
+points = PackedVector2Array(0, 0, 100, 0)
+width = 100.0
+gradient = SubResource("Gradient_p6ibq")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

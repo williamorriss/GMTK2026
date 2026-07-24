@@ -14,6 +14,8 @@ extends Enemy
 @export var atk: float = 10.0
 @export var attack_cooldown: float = 0.5
 
+signal died
+
 
 
 var _offset: Vector2 = Vector2.ZERO
@@ -64,4 +66,5 @@ func attack() -> void:
 	_can_attack = true
 
 func _on_dead() -> void:
+	died.emit()
 	queue_free()

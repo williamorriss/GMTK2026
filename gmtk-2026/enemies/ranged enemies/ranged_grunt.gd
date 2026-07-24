@@ -13,6 +13,8 @@ extends Enemy
 @export_group("Attack")
 @export var attack_cooldown: float = 0.5
 
+signal died
+
 var _offset: Vector2 = Vector2.ZERO
 var _can_attack: bool = true
 
@@ -70,4 +72,5 @@ func _can_see(target: Vector2) -> bool:
 	return result.is_empty()
 
 func _on_dead() -> void:
+	died.emit()
 	queue_free()

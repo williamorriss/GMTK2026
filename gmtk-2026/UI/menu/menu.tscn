@@ -5,6 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://beu000mllpqaq" path="res://audio/raw/sfx/blipSelect.wav" id="2_5xle5"]
 [ext_resource type="Texture2D" uid="uid://d0oy3xmhr6tnq" path="res://UI/menu/profile_pics/NotAHuman.png" id="3_2gq1s"]
 [ext_resource type="Script" uid="uid://dy0v5l1hqtv2r" path="res://UI/menu/option_menu.gd" id="3_7jt6j"]
+[ext_resource type="Script" uid="uid://fdlc3xgxt11x" path="res://UI/menu/audio_menu.gd" id="4_0poe0"]
 [ext_resource type="Texture2D" uid="uid://dv8a5bjlp20ak" path="res://UI/menu/profile_pics/Cashew.png" id="4_papuc"]
 [ext_resource type="Script" uid="uid://7yoy1vsbq6gt" path="res://UI/menu/keybinds.gd" id="5_5xle5"]
 [ext_resource type="Texture2D" uid="uid://rjymeesnokfa" path="res://UI/menu/profile_pics/Horse.png" id="5_7jt6j"]
@@ -140,6 +141,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
+script = ExtResource("4_0poe0")
 
 [node name="Master" type="HBoxContainer" parent="OptionsMenu/Options/Audio" unique_id=1766069205]
 custom_minimum_size = Vector2(0, 75)
@@ -168,6 +170,7 @@ theme_override_styles/grabber_area = SubResource("StyleBoxFlat_oo15n")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_ijto3")
 min_value = -72.0
 max_value = 6.0
+step = 0.1
 
 [node name="SFX" type="HBoxContainer" parent="OptionsMenu/Options/Audio" unique_id=354054754]
 custom_minimum_size = Vector2(0, 75)
@@ -196,6 +199,7 @@ theme_override_styles/grabber_area = SubResource("StyleBoxFlat_oo15n")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_ijto3")
 min_value = -72.0
 max_value = 6.0
+step = 0.1
 
 [node name="Music" type="HBoxContainer" parent="OptionsMenu/Options/Audio" unique_id=139751690]
 custom_minimum_size = Vector2(0, 75)
@@ -224,6 +228,7 @@ theme_override_styles/grabber_area = SubResource("StyleBoxFlat_oo15n")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_ijto3")
 min_value = -72.0
 max_value = 6.0
+step = 0.1
 
 [node name="Keybinding" type="HBoxContainer" parent="OptionsMenu/Options" unique_id=130047715 node_paths=PackedStringArray("up_button", "down_button", "left_button", "right_button", "attack_button", "dash_button", "spell1_button", "spell2_button", "spell3_button", "spell4_button")]
 layout_mode = 1
@@ -645,6 +650,9 @@ text = "Back"
 [connection signal="pressed" from="MainMenu/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="MainMenu/OptionsButton" to="." method="_on_options_button_pressed"]
 [connection signal="pressed" from="MainMenu/Credits" to="." method="_on_credits_pressed"]
+[connection signal="value_changed" from="OptionsMenu/Options/Audio/Master/MasterSlider" to="OptionsMenu/Options/Audio" method="_on_master_slider_value_changed"]
+[connection signal="value_changed" from="OptionsMenu/Options/Audio/SFX/SFXSlider" to="OptionsMenu/Options/Audio" method="_on_sfx_slider_value_changed"]
+[connection signal="value_changed" from="OptionsMenu/Options/Audio/Music/MusicSlider" to="OptionsMenu/Options/Audio" method="_on_music_slider_value_changed"]
 [connection signal="pressed" from="OptionsMenu/SelectionsMargin/Selections/BackButton" to="." method="_on_back_button_pressed"]
 [connection signal="pressed" from="OptionsMenu/SelectionsMargin/Selections/Choice/BindButton" to="OptionsMenu" method="_on_bind_button_pressed"]
 [connection signal="pressed" from="OptionsMenu/SelectionsMargin/Selections/Choice/AudioButton" to="OptionsMenu" method="_on_audio_button_pressed"]

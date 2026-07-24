@@ -4,7 +4,6 @@
 [ext_resource type="Script" uid="uid://cjdyntviqr8nx" path="res://UI/menu/menu.gd" id="1_qlbuq"]
 [ext_resource type="Texture2D" uid="uid://d0oy3xmhr6tnq" path="res://UI/menu/profile_pics/NotAHuman.png" id="3_2gq1s"]
 [ext_resource type="Script" uid="uid://dy0v5l1hqtv2r" path="res://UI/menu/option_menu.gd" id="3_7jt6j"]
-[ext_resource type="Script" uid="uid://fdlc3xgxt11x" path="res://UI/menu/audio_menu.gd" id="4_0poe0"]
 [ext_resource type="Texture2D" uid="uid://dv8a5bjlp20ak" path="res://UI/menu/profile_pics/Cashew.png" id="4_papuc"]
 [ext_resource type="Script" uid="uid://7yoy1vsbq6gt" path="res://UI/menu/keybinds.gd" id="5_5xle5"]
 [ext_resource type="Texture2D" uid="uid://rjymeesnokfa" path="res://UI/menu/profile_pics/Horse.png" id="5_7jt6j"]
@@ -18,14 +17,21 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
+[sub_resource type="DPITexture" id="DPITexture_66jq7"]
+
+[sub_resource type="DPITexture" id="DPITexture_kh5io"]
+
+[sub_resource type="DPITexture" id="DPITexture_eb5f5"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rxpqy"]
-content_margin_top = 10.0
+content_margin_top = 20.0
 bg_color = Color(1, 1, 1, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oo15n"]
 bg_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ijto3"]
+content_margin_top = 10.0
 bg_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ow18j"]
@@ -40,7 +46,7 @@ script = ExtResource("1_qlbuq")
 next_scene = "uid://bebwesl65sg0b"
 menuControl = NodePath("MainMenu")
 optionsControl = NodePath("OptionsMenu")
-creditsControl = NodePath("CreditsMenu")
+creditsControl = NodePath("Credits")
 
 [node name="Panel" type="Panel" parent="." unique_id=477391393]
 modulate = Color(0, 0, 0, 1)
@@ -66,276 +72,161 @@ text = "Game Name Pending"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="MainMenu" type="Control" parent="." unique_id=107772799]
-layout_mode = 3
+[node name="MainMenu" type="VBoxContainer" parent="." unique_id=53451501]
+visible = false
 anchors_preset = 9
 anchor_bottom = 1.0
+offset_left = 19.0
+offset_top = 168.0
+offset_right = 391.0
 grow_vertical = 2
+theme_override_constants/separation = 15
+alignment = 1
 
 [node name="StartButton" type="Button" parent="MainMenu" unique_id=1573509625]
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 56.0
-offset_top = -94.0
-offset_right = 393.0
-offset_bottom = 1.0
-grow_vertical = 2
+custom_minimum_size = Vector2(0, 75)
+layout_mode = 2
 theme_override_fonts/font = ExtResource("1_1xyc7")
 theme_override_font_sizes/font_size = 50
 theme_override_styles/normal = SubResource("StyleBoxFlat_qlbuq")
 text = "Start"
 
 [node name="OptionsButton" type="Button" parent="MainMenu" unique_id=1041485910]
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 56.0
-offset_top = 19.0
-offset_right = 393.0
-offset_bottom = 114.0
-grow_vertical = 2
+custom_minimum_size = Vector2(0, 75)
+layout_mode = 2
 theme_override_fonts/font = ExtResource("1_1xyc7")
 theme_override_font_sizes/font_size = 50
 theme_override_styles/normal = SubResource("StyleBoxFlat_qlbuq")
 text = "Options"
 
 [node name="Credits" type="Button" parent="MainMenu" unique_id=848844432]
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 58.0
-offset_top = 132.0
-offset_right = 395.0
-offset_bottom = 227.0
-grow_vertical = 2
+custom_minimum_size = Vector2(0, 75)
+layout_mode = 2
 theme_override_fonts/font = ExtResource("1_1xyc7")
 theme_override_font_sizes/font_size = 60
 theme_override_styles/normal = SubResource("StyleBoxFlat_qlbuq")
 text = "Credits
 "
 
-[node name="OptionsMenu" type="Control" parent="." unique_id=312590579 node_paths=PackedStringArray("bind_button", "audio_button", "audio_control", "bind_control")]
-visible = false
-layout_mode = 3
+[node name="OptionsMenu" type="VBoxContainer" parent="." unique_id=63981455 node_paths=PackedStringArray("bind_button", "audio_button", "audio_control", "bind_control")]
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -468.0
+offset_top = -485.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_constants/separation = 3
+alignment = 2
 script = ExtResource("3_7jt6j")
-bind_button = NodePath("BindButton")
-audio_button = NodePath("AudioButton")
-audio_control = NodePath("Audio")
-bind_control = NodePath("Keybinding")
+bind_button = NodePath("SelectionsMargin/Selections/Choice/BindButton")
+audio_button = NodePath("SelectionsMargin/Selections/Choice/AudioButton")
+audio_control = NodePath("Options/Audio")
+bind_control = NodePath("Options/Keybinding")
 
-[node name="BackButton" type="Button" parent="OptionsMenu" unique_id=914792580]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 42.0
-offset_top = -84.0
-offset_right = 269.0
-offset_bottom = -23.0
-grow_vertical = 0
-theme_override_fonts/font = ExtResource("1_1xyc7")
-theme_override_font_sizes/font_size = 50
-theme_override_styles/normal = SubResource("StyleBoxFlat_qlbuq")
-text = "Back"
+[node name="Options" type="Control" parent="OptionsMenu" unique_id=269365414]
+custom_minimum_size = Vector2(0, 400)
+layout_mode = 2
 
-[node name="Audio" type="Control" parent="OptionsMenu" unique_id=1104760929]
+[node name="Audio" type="VBoxContainer" parent="OptionsMenu/Options" unique_id=1232840908]
 visible = false
 layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -430.0
-offset_bottom = -204.0
 grow_horizontal = 2
-grow_vertical = 0
-script = ExtResource("4_0poe0")
-
-[node name="MasterControl" type="Control" parent="OptionsMenu/Audio" unique_id=103475155]
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 255.0
-offset_top = -130.0
-offset_right = 748.6
-offset_bottom = -36.0
 grow_vertical = 2
-scale = Vector2(1.25, 1.25)
+alignment = 1
 
-[node name="MasterLabel" type="RichTextLabel" parent="OptionsMenu/Audio/MasterControl" unique_id=1609568833]
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_top = -18.5
-offset_right = 104.0
-offset_bottom = 18.5
-grow_vertical = 2
+[node name="Master" type="HBoxContainer" parent="OptionsMenu/Options/Audio" unique_id=1766069205]
+custom_minimum_size = Vector2(0, 75)
+layout_mode = 2
+alignment = 1
+
+[node name="MasterLabel" type="RichTextLabel" parent="OptionsMenu/Options/Audio/Master" unique_id=1609568833]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
 theme_override_fonts/normal_font = ExtResource("1_1xyc7")
 theme_override_fonts/bold_font = ExtResource("1_1xyc7")
-theme_override_font_sizes/normal_font_size = 25
+theme_override_font_sizes/normal_font_size = 35
 text = "Master"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="MasterSlider" type="HSlider" parent="OptionsMenu/Audio/MasterControl" unique_id=898001574]
-layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = 101.0
-offset_top = -8.0
-offset_bottom = 8.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="MasterSlider" type="HSlider" parent="OptionsMenu/Options/Audio/Master" unique_id=898001574]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_icons/grabber = SubResource("DPITexture_66jq7")
+theme_override_icons/grabber_highlight = SubResource("DPITexture_kh5io")
+theme_override_icons/grabber_disabled = SubResource("DPITexture_eb5f5")
 theme_override_styles/slider = SubResource("StyleBoxFlat_rxpqy")
 theme_override_styles/grabber_area = SubResource("StyleBoxFlat_oo15n")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_ijto3")
 min_value = -72.0
 max_value = 6.0
 
-[node name="SFXSlider" type="Control" parent="OptionsMenu/Audio" unique_id=1071123880]
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 255.00009
-offset_top = -66.00003
-offset_right = 748.6001
-offset_bottom = 27.99997
-grow_vertical = 2
-scale = Vector2(1.25, 1.25)
+[node name="SFX" type="HBoxContainer" parent="OptionsMenu/Options/Audio" unique_id=354054754]
+custom_minimum_size = Vector2(0, 75)
+layout_mode = 2
+alignment = 1
 
-[node name="SFXLabel" type="RichTextLabel" parent="OptionsMenu/Audio/SFXSlider" unique_id=1275833142]
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_top = -18.5
-offset_right = 104.0
-offset_bottom = 18.5
-grow_vertical = 2
+[node name="SFXLabel" type="RichTextLabel" parent="OptionsMenu/Options/Audio/SFX" unique_id=987489124]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
 theme_override_fonts/normal_font = ExtResource("1_1xyc7")
 theme_override_fonts/bold_font = ExtResource("1_1xyc7")
-theme_override_font_sizes/normal_font_size = 25
-text = "SFX"
+theme_override_font_sizes/normal_font_size = 35
+text = "Master"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="SFXSlider" type="HSlider" parent="OptionsMenu/Audio/SFXSlider" unique_id=1757608794]
-layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = 101.0
-offset_top = -8.0
-offset_bottom = 8.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="SFXSlider" type="HSlider" parent="OptionsMenu/Options/Audio/SFX" unique_id=1639547892]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_icons/grabber = SubResource("DPITexture_66jq7")
+theme_override_icons/grabber_highlight = SubResource("DPITexture_kh5io")
+theme_override_icons/grabber_disabled = SubResource("DPITexture_eb5f5")
 theme_override_styles/slider = SubResource("StyleBoxFlat_rxpqy")
 theme_override_styles/grabber_area = SubResource("StyleBoxFlat_oo15n")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_ijto3")
 min_value = -72.0
 max_value = 6.0
 
-[node name="MusicControl" type="Control" parent="OptionsMenu/Audio" unique_id=558095201]
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 255.0
-offset_right = 748.6
-offset_bottom = 94.0
-grow_vertical = 2
-scale = Vector2(1.25, 1.25)
+[node name="Music" type="HBoxContainer" parent="OptionsMenu/Options/Audio" unique_id=139751690]
+custom_minimum_size = Vector2(0, 75)
+layout_mode = 2
+alignment = 1
 
-[node name="MusicLabel" type="RichTextLabel" parent="OptionsMenu/Audio/MusicControl" unique_id=1145846960]
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_top = -18.5
-offset_right = 104.0
-offset_bottom = 18.5
-grow_vertical = 2
+[node name="MusicLabel" type="RichTextLabel" parent="OptionsMenu/Options/Audio/Music" unique_id=1125687112]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
 theme_override_fonts/normal_font = ExtResource("1_1xyc7")
 theme_override_fonts/bold_font = ExtResource("1_1xyc7")
-theme_override_font_sizes/normal_font_size = 25
-text = "Music"
+theme_override_font_sizes/normal_font_size = 35
+text = "Master"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="MusicSlider" type="HSlider" parent="OptionsMenu/Audio/MusicControl" unique_id=590847079]
-layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = 101.0
-offset_top = -8.0
-offset_bottom = 8.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="MusicSlider" type="HSlider" parent="OptionsMenu/Options/Audio/Music" unique_id=309601929]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_icons/grabber = SubResource("DPITexture_66jq7")
+theme_override_icons/grabber_highlight = SubResource("DPITexture_kh5io")
+theme_override_icons/grabber_disabled = SubResource("DPITexture_eb5f5")
 theme_override_styles/slider = SubResource("StyleBoxFlat_rxpqy")
 theme_override_styles/grabber_area = SubResource("StyleBoxFlat_oo15n")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_ijto3")
 min_value = -72.0
 max_value = 6.0
 
-[node name="BindButton" type="Button" parent="OptionsMenu" unique_id=1827468582]
-visible = false
+[node name="Keybinding" type="HBoxContainer" parent="OptionsMenu/Options" unique_id=130047715 node_paths=PackedStringArray("up_button", "down_button", "left_button", "right_button", "attack_button", "dash_button", "spell1_button", "spell2_button", "spell3_button", "spell4_button")]
 layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 290.0
-offset_top = -85.0
-offset_right = 517.0
-offset_bottom = -24.0
-grow_vertical = 0
-theme_override_fonts/font = ExtResource("1_1xyc7")
-theme_override_font_sizes/font_size = 35
-theme_override_styles/normal = SubResource("StyleBoxFlat_qlbuq")
-text = "Keybinds"
-
-[node name="AudioButton" type="Button" parent="OptionsMenu" unique_id=1027250846]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 290.0
-offset_top = -85.0
-offset_right = 517.0
-offset_bottom = -24.0
-grow_vertical = 0
-theme_override_fonts/font = ExtResource("1_1xyc7")
-theme_override_font_sizes/font_size = 35
-theme_override_styles/normal = SubResource("StyleBoxFlat_qlbuq")
-text = "Audio
-"
-
-[node name="Keybinding" type="HBoxContainer" parent="OptionsMenu" unique_id=1593793150 node_paths=PackedStringArray("up_button", "down_button", "left_button", "right_button", "attack_button", "dash_button", "spell1_button", "spell2_button", "spell3_button", "spell4_button")]
-layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
+anchors_preset = 15
 anchor_right = 1.0
-anchor_bottom = 0.5
-offset_top = -238.0
-offset_bottom = 133.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 100
@@ -352,14 +243,15 @@ spell2_button = NodePath("Side2/Spell2/Spell2Button")
 spell3_button = NodePath("Side2/Spell3/Spell3Button")
 spell4_button = NodePath("Side2/Spell4/Spell4Button")
 
-[node name="Side1" type="VBoxContainer" parent="OptionsMenu/Keybinding" unique_id=2084925520]
-layout_mode = 2
-
-[node name="Up" type="HBoxContainer" parent="OptionsMenu/Keybinding/Side1" unique_id=880827402]
+[node name="Side1" type="VBoxContainer" parent="OptionsMenu/Options/Keybinding" unique_id=1883310591]
 layout_mode = 2
 alignment = 1
 
-[node name="UpLabel" type="RichTextLabel" parent="OptionsMenu/Keybinding/Side1/Up" unique_id=1066489810]
+[node name="Up" type="HBoxContainer" parent="OptionsMenu/Options/Keybinding/Side1" unique_id=1070420540]
+layout_mode = 2
+alignment = 1
+
+[node name="UpLabel" type="RichTextLabel" parent="OptionsMenu/Options/Keybinding/Side1/Up" unique_id=966982944]
 custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
 theme_override_fonts/normal_font = ExtResource("1_1xyc7")
@@ -368,7 +260,7 @@ text = "up"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="UpButton" type="Button" parent="OptionsMenu/Keybinding/Side1/Up" unique_id=648047561]
+[node name="UpButton" type="Button" parent="OptionsMenu/Options/Keybinding/Side1/Up" unique_id=1763134638]
 custom_minimum_size = Vector2(160, 0)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_1xyc7")
@@ -376,11 +268,11 @@ theme_override_font_sizes/font_size = 15
 theme_override_styles/normal = SubResource("StyleBoxFlat_ow18j")
 text = "Press Key..."
 
-[node name="Down" type="HBoxContainer" parent="OptionsMenu/Keybinding/Side1" unique_id=1219688299]
+[node name="Down" type="HBoxContainer" parent="OptionsMenu/Options/Keybinding/Side1" unique_id=1695010954]
 layout_mode = 2
 alignment = 1
 
-[node name="DownLabel" type="RichTextLabel" parent="OptionsMenu/Keybinding/Side1/Down" unique_id=635470841]
+[node name="DownLabel" type="RichTextLabel" parent="OptionsMenu/Options/Keybinding/Side1/Down" unique_id=1648977069]
 custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
 theme_override_fonts/normal_font = ExtResource("1_1xyc7")
@@ -389,7 +281,7 @@ text = "Down"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="DownButton" type="Button" parent="OptionsMenu/Keybinding/Side1/Down" unique_id=1479286160]
+[node name="DownButton" type="Button" parent="OptionsMenu/Options/Keybinding/Side1/Down" unique_id=316989906]
 custom_minimum_size = Vector2(160, 0)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_1xyc7")
@@ -397,11 +289,11 @@ theme_override_font_sizes/font_size = 15
 theme_override_styles/normal = SubResource("StyleBoxFlat_ow18j")
 text = "Press Key..."
 
-[node name="Left" type="HBoxContainer" parent="OptionsMenu/Keybinding/Side1" unique_id=159821809]
+[node name="Left" type="HBoxContainer" parent="OptionsMenu/Options/Keybinding/Side1" unique_id=341193658]
 layout_mode = 2
 alignment = 1
 
-[node name="LeftLabel" type="RichTextLabel" parent="OptionsMenu/Keybinding/Side1/Left" unique_id=720711130]
+[node name="LeftLabel" type="RichTextLabel" parent="OptionsMenu/Options/Keybinding/Side1/Left" unique_id=356183645]
 custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
 theme_override_fonts/normal_font = ExtResource("1_1xyc7")
@@ -410,7 +302,7 @@ text = "up"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="LeftButton" type="Button" parent="OptionsMenu/Keybinding/Side1/Left" unique_id=626993213]
+[node name="LeftButton" type="Button" parent="OptionsMenu/Options/Keybinding/Side1/Left" unique_id=12319406]
 custom_minimum_size = Vector2(160, 0)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_1xyc7")
@@ -418,11 +310,11 @@ theme_override_font_sizes/font_size = 15
 theme_override_styles/normal = SubResource("StyleBoxFlat_ow18j")
 text = "Press Key..."
 
-[node name="Right" type="HBoxContainer" parent="OptionsMenu/Keybinding/Side1" unique_id=983059267]
+[node name="Right" type="HBoxContainer" parent="OptionsMenu/Options/Keybinding/Side1" unique_id=1463517037]
 layout_mode = 2
 alignment = 1
 
-[node name="RightLabel" type="RichTextLabel" parent="OptionsMenu/Keybinding/Side1/Right" unique_id=1136181070]
+[node name="RightLabel" type="RichTextLabel" parent="OptionsMenu/Options/Keybinding/Side1/Right" unique_id=1697405703]
 custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
 theme_override_fonts/normal_font = ExtResource("1_1xyc7")
@@ -431,7 +323,7 @@ text = "Down"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="RightButton" type="Button" parent="OptionsMenu/Keybinding/Side1/Right" unique_id=1984097960]
+[node name="RightButton" type="Button" parent="OptionsMenu/Options/Keybinding/Side1/Right" unique_id=1437585763]
 custom_minimum_size = Vector2(160, 0)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_1xyc7")
@@ -439,11 +331,11 @@ theme_override_font_sizes/font_size = 15
 theme_override_styles/normal = SubResource("StyleBoxFlat_ow18j")
 text = "Press Key..."
 
-[node name="Attack" type="HBoxContainer" parent="OptionsMenu/Keybinding/Side1" unique_id=474852420]
+[node name="Attack" type="HBoxContainer" parent="OptionsMenu/Options/Keybinding/Side1" unique_id=142328728]
 layout_mode = 2
 alignment = 1
 
-[node name="AttackLabel" type="RichTextLabel" parent="OptionsMenu/Keybinding/Side1/Attack" unique_id=742243377]
+[node name="AttackLabel" type="RichTextLabel" parent="OptionsMenu/Options/Keybinding/Side1/Attack" unique_id=653348756]
 custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
 theme_override_fonts/normal_font = ExtResource("1_1xyc7")
@@ -452,7 +344,7 @@ text = "Attack"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="AttackButton" type="Button" parent="OptionsMenu/Keybinding/Side1/Attack" unique_id=1814713750]
+[node name="AttackButton" type="Button" parent="OptionsMenu/Options/Keybinding/Side1/Attack" unique_id=844679196]
 custom_minimum_size = Vector2(160, 0)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_1xyc7")
@@ -460,14 +352,15 @@ theme_override_font_sizes/font_size = 15
 theme_override_styles/normal = SubResource("StyleBoxFlat_ow18j")
 text = "Press Key..."
 
-[node name="Side2" type="VBoxContainer" parent="OptionsMenu/Keybinding" unique_id=1889981747]
-layout_mode = 2
-
-[node name="Dash" type="HBoxContainer" parent="OptionsMenu/Keybinding/Side2" unique_id=24882234]
+[node name="Side2" type="VBoxContainer" parent="OptionsMenu/Options/Keybinding" unique_id=1661869158]
 layout_mode = 2
 alignment = 1
 
-[node name="DashLabel" type="RichTextLabel" parent="OptionsMenu/Keybinding/Side2/Dash" unique_id=1752326193]
+[node name="Dash" type="HBoxContainer" parent="OptionsMenu/Options/Keybinding/Side2" unique_id=110372979]
+layout_mode = 2
+alignment = 1
+
+[node name="DashLabel" type="RichTextLabel" parent="OptionsMenu/Options/Keybinding/Side2/Dash" unique_id=1028970230]
 custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
 theme_override_fonts/normal_font = ExtResource("1_1xyc7")
@@ -476,7 +369,7 @@ text = "Dash"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="DashButton" type="Button" parent="OptionsMenu/Keybinding/Side2/Dash" unique_id=1829123453]
+[node name="DashButton" type="Button" parent="OptionsMenu/Options/Keybinding/Side2/Dash" unique_id=250589494]
 custom_minimum_size = Vector2(160, 0)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_1xyc7")
@@ -484,11 +377,11 @@ theme_override_font_sizes/font_size = 15
 theme_override_styles/normal = SubResource("StyleBoxFlat_ow18j")
 text = "Press Key..."
 
-[node name="Spell1" type="HBoxContainer" parent="OptionsMenu/Keybinding/Side2" unique_id=571455594]
+[node name="Spell1" type="HBoxContainer" parent="OptionsMenu/Options/Keybinding/Side2" unique_id=2060196937]
 layout_mode = 2
 alignment = 1
 
-[node name="Spell1Label" type="RichTextLabel" parent="OptionsMenu/Keybinding/Side2/Spell1" unique_id=1251122807]
+[node name="Spell1Label" type="RichTextLabel" parent="OptionsMenu/Options/Keybinding/Side2/Spell1" unique_id=567368876]
 custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
 theme_override_fonts/normal_font = ExtResource("1_1xyc7")
@@ -497,7 +390,7 @@ text = "Spell 1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Spell1Button" type="Button" parent="OptionsMenu/Keybinding/Side2/Spell1" unique_id=1107409501]
+[node name="Spell1Button" type="Button" parent="OptionsMenu/Options/Keybinding/Side2/Spell1" unique_id=1076447186]
 custom_minimum_size = Vector2(160, 0)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_1xyc7")
@@ -505,11 +398,11 @@ theme_override_font_sizes/font_size = 15
 theme_override_styles/normal = SubResource("StyleBoxFlat_ow18j")
 text = "Press Key..."
 
-[node name="Spell2" type="HBoxContainer" parent="OptionsMenu/Keybinding/Side2" unique_id=1505036621]
+[node name="Spell2" type="HBoxContainer" parent="OptionsMenu/Options/Keybinding/Side2" unique_id=168687602]
 layout_mode = 2
 alignment = 1
 
-[node name="Spell2Label" type="RichTextLabel" parent="OptionsMenu/Keybinding/Side2/Spell2" unique_id=1843394928]
+[node name="Spell2Label" type="RichTextLabel" parent="OptionsMenu/Options/Keybinding/Side2/Spell2" unique_id=1470984983]
 custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
 theme_override_fonts/normal_font = ExtResource("1_1xyc7")
@@ -518,7 +411,7 @@ text = "Spell 2"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Spell2Button" type="Button" parent="OptionsMenu/Keybinding/Side2/Spell2" unique_id=1008538233]
+[node name="Spell2Button" type="Button" parent="OptionsMenu/Options/Keybinding/Side2/Spell2" unique_id=1158573968]
 custom_minimum_size = Vector2(160, 0)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_1xyc7")
@@ -526,11 +419,11 @@ theme_override_font_sizes/font_size = 15
 theme_override_styles/normal = SubResource("StyleBoxFlat_ow18j")
 text = "Press Key..."
 
-[node name="Spell3" type="HBoxContainer" parent="OptionsMenu/Keybinding/Side2" unique_id=834591872]
+[node name="Spell3" type="HBoxContainer" parent="OptionsMenu/Options/Keybinding/Side2" unique_id=2050118974]
 layout_mode = 2
 alignment = 1
 
-[node name="Spell3Label" type="RichTextLabel" parent="OptionsMenu/Keybinding/Side2/Spell3" unique_id=286661400]
+[node name="Spell3Label" type="RichTextLabel" parent="OptionsMenu/Options/Keybinding/Side2/Spell3" unique_id=119051493]
 custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
 theme_override_fonts/normal_font = ExtResource("1_1xyc7")
@@ -539,7 +432,7 @@ text = "Spell 3"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Spell3Button" type="Button" parent="OptionsMenu/Keybinding/Side2/Spell3" unique_id=1131913633]
+[node name="Spell3Button" type="Button" parent="OptionsMenu/Options/Keybinding/Side2/Spell3" unique_id=1437788842]
 custom_minimum_size = Vector2(160, 0)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_1xyc7")
@@ -547,11 +440,11 @@ theme_override_font_sizes/font_size = 15
 theme_override_styles/normal = SubResource("StyleBoxFlat_ow18j")
 text = "Press Key..."
 
-[node name="Spell4" type="HBoxContainer" parent="OptionsMenu/Keybinding/Side2" unique_id=826143913]
+[node name="Spell4" type="HBoxContainer" parent="OptionsMenu/Options/Keybinding/Side2" unique_id=67150289]
 layout_mode = 2
 alignment = 1
 
-[node name="Spell4Label" type="RichTextLabel" parent="OptionsMenu/Keybinding/Side2/Spell4" unique_id=797276268]
+[node name="Spell4Label" type="RichTextLabel" parent="OptionsMenu/Options/Keybinding/Side2/Spell4" unique_id=1231343968]
 custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
 theme_override_fonts/normal_font = ExtResource("1_1xyc7")
@@ -560,7 +453,7 @@ text = "Spell 4"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Spell4Button" type="Button" parent="OptionsMenu/Keybinding/Side2/Spell4" unique_id=735371842]
+[node name="Spell4Button" type="Button" parent="OptionsMenu/Options/Keybinding/Side2/Spell4" unique_id=922037139]
 custom_minimum_size = Vector2(160, 0)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_1xyc7")
@@ -568,284 +461,188 @@ theme_override_font_sizes/font_size = 15
 theme_override_styles/normal = SubResource("StyleBoxFlat_ow18j")
 text = "Press Key..."
 
-[node name="CreditsMenu" type="Control" parent="." unique_id=1456915173]
-visible = false
-layout_mode = 3
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -467.0
-grow_horizontal = 2
-grow_vertical = 0
+[node name="SelectionsMargin" type="MarginContainer" parent="OptionsMenu" unique_id=1728169649]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_bottom = 10
 
-[node name="BackButton" type="Button" parent="CreditsMenu" unique_id=1772940144]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 42.0
-offset_top = -83.0
-offset_right = 269.0
-offset_bottom = -22.0
-grow_vertical = 0
+[node name="Selections" type="HBoxContainer" parent="OptionsMenu/SelectionsMargin" unique_id=1743299801]
+custom_minimum_size = Vector2(0, 75)
+layout_mode = 2
+
+[node name="BackButton" type="Button" parent="OptionsMenu/SelectionsMargin/Selections" unique_id=914792580]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
 theme_override_fonts/font = ExtResource("1_1xyc7")
 theme_override_font_sizes/font_size = 50
 theme_override_styles/normal = SubResource("StyleBoxFlat_qlbuq")
 text = "Back"
 
-[node name="Profiles" type="Control" parent="CreditsMenu" unique_id=266444075]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -232.0
-offset_top = -474.0
-offset_right = 274.0
-offset_bottom = -152.0
-grow_horizontal = 2
-grow_vertical = 0
+[node name="Choice" type="Control" parent="OptionsMenu/SelectionsMargin/Selections" unique_id=2002364763]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
 
-[node name="NotAHuman" type="Control" parent="CreditsMenu/Profiles" unique_id=799039346]
+[node name="BindButton" type="Button" parent="OptionsMenu/SelectionsMargin/Selections/Choice" unique_id=1827468582]
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -242.0
-offset_top = -323.0
-offset_right = 383.0
-offset_bottom = -219.0
-grow_horizontal = 2
-grow_vertical = 0
-scale = Vector2(0.75, 0.75)
-
-[node name="TextureRect" type="TextureRect" parent="CreditsMenu/Profiles/NotAHuman" unique_id=901393858]
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_top = -32.08889
-offset_right = 64.0
-offset_bottom = 32.08889
-grow_vertical = 2
-texture = ExtResource("3_2gq1s")
-expand_mode = 1
-
-[node name="RichTextLabel" type="RichTextLabel" parent="CreditsMenu/Profiles/NotAHuman" unique_id=2004327220]
-layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
+anchors_preset = 15
 anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = 74.0
-offset_top = -32.0
-offset_bottom = 34.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_1xyc7")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxFlat_qlbuq")
+text = "Keybinds"
+
+[node name="AudioButton" type="Button" parent="OptionsMenu/SelectionsMargin/Selections/Choice" unique_id=1027250846]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_1xyc7")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxFlat_qlbuq")
+text = "Audio
+"
+
+[node name="Credits" type="VBoxContainer" parent="." unique_id=207946831]
+visible = false
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -474.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 50
+alignment = 2
+
+[node name="ProfileMargin" type="MarginContainer" parent="Credits" unique_id=1505544594]
+layout_mode = 2
+theme_override_constants/margin_left = 25
+
+[node name="Profiles" type="VBoxContainer" parent="Credits/ProfileMargin" unique_id=710749987]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+
+[node name="NotAHuman" type="HBoxContainer" parent="Credits/ProfileMargin/Profiles" unique_id=1711267702]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Credits/ProfileMargin/Profiles/NotAHuman" unique_id=901393858]
+layout_mode = 2
+texture = ExtResource("3_2gq1s")
+expand_mode = 3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Credits/ProfileMargin/Profiles/NotAHuman" unique_id=2004327220]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
 theme_override_fonts/normal_font = ExtResource("1_1xyc7")
 theme_override_fonts/bold_italics_font = ExtResource("1_1xyc7")
 theme_override_font_sizes/normal_font_size = 30
 text = "NotAHuman (Programmer)"
 vertical_alignment = 1
 
-[node name="Cashew" type="Control" parent="CreditsMenu/Profiles" unique_id=711083672]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -242.0
-offset_top = -260.0
-offset_right = 383.0
-offset_bottom = -156.00006
-grow_horizontal = 2
-grow_vertical = 0
-scale = Vector2(0.75, 0.75)
+[node name="Cashew" type="HBoxContainer" parent="Credits/ProfileMargin/Profiles" unique_id=447143044]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="CreditsMenu/Profiles/Cashew" unique_id=688993248]
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_top = -32.08889
-offset_right = 64.0
-offset_bottom = 32.08889
-grow_vertical = 2
+[node name="TextureRect" type="TextureRect" parent="Credits/ProfileMargin/Profiles/Cashew" unique_id=736836965]
+layout_mode = 2
 texture = ExtResource("4_papuc")
-expand_mode = 1
+expand_mode = 3
 
-[node name="RichTextLabel" type="RichTextLabel" parent="CreditsMenu/Profiles/Cashew" unique_id=1986137101]
-layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = 74.0
-offset_top = -32.0
-offset_bottom = 34.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="RichTextLabel" type="RichTextLabel" parent="Credits/ProfileMargin/Profiles/Cashew" unique_id=1150969733]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
 theme_override_fonts/normal_font = ExtResource("1_1xyc7")
 theme_override_fonts/bold_italics_font = ExtResource("1_1xyc7")
 theme_override_font_sizes/normal_font_size = 30
 text = "Cashew (Programmer)"
 vertical_alignment = 1
 
-[node name="Horse" type="Control" parent="CreditsMenu/Profiles" unique_id=333803413]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -242.0
-offset_top = -198.0
-offset_right = 383.0
-offset_bottom = -94.0
-grow_horizontal = 2
-grow_vertical = 0
-scale = Vector2(0.75, 0.75)
+[node name="NotAHuman3" type="HBoxContainer" parent="Credits/ProfileMargin/Profiles" unique_id=594637423]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="CreditsMenu/Profiles/Horse" unique_id=170785658]
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_top = -32.08889
-offset_right = 64.0
-offset_bottom = 32.08889
-grow_vertical = 2
+[node name="TextureRect" type="TextureRect" parent="Credits/ProfileMargin/Profiles/NotAHuman3" unique_id=1412702370]
+layout_mode = 2
 texture = ExtResource("5_7jt6j")
-expand_mode = 1
+expand_mode = 3
 
-[node name="RichTextLabel" type="RichTextLabel" parent="CreditsMenu/Profiles/Horse" unique_id=1493491706]
-layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = 74.0
-offset_top = -32.0
-offset_bottom = 34.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="RichTextLabel" type="RichTextLabel" parent="Credits/ProfileMargin/Profiles/NotAHuman3" unique_id=1640038643]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
 theme_override_fonts/normal_font = ExtResource("1_1xyc7")
 theme_override_fonts/bold_italics_font = ExtResource("1_1xyc7")
 theme_override_font_sizes/normal_font_size = 30
 text = "Horse (Programmer)"
 vertical_alignment = 1
 
-[node name="Crackenyu" type="Control" parent="CreditsMenu/Profiles" unique_id=1888132196]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -242.0
-offset_top = -134.0
-offset_right = 383.0
-offset_bottom = -30.000061
-grow_horizontal = 2
-grow_vertical = 0
-scale = Vector2(0.75, 0.75)
+[node name="NotAHuman4" type="HBoxContainer" parent="Credits/ProfileMargin/Profiles" unique_id=1400402644]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="CreditsMenu/Profiles/Crackenyu" unique_id=968393289]
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_top = -32.08889
-offset_right = 64.0
-offset_bottom = 32.08889
-grow_vertical = 2
+[node name="TextureRect" type="TextureRect" parent="Credits/ProfileMargin/Profiles/NotAHuman4" unique_id=734415448]
+layout_mode = 2
 texture = ExtResource("6_0poe0")
-expand_mode = 1
+expand_mode = 3
 
-[node name="RichTextLabel" type="RichTextLabel" parent="CreditsMenu/Profiles/Crackenyu" unique_id=1991833187]
-layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = 74.0
-offset_top = -32.0
-offset_bottom = 34.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="RichTextLabel" type="RichTextLabel" parent="Credits/ProfileMargin/Profiles/NotAHuman4" unique_id=1695566020]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
 theme_override_fonts/normal_font = ExtResource("1_1xyc7")
 theme_override_fonts/bold_italics_font = ExtResource("1_1xyc7")
 theme_override_font_sizes/normal_font_size = 30
-text = "Crackenyu (Artist)"
+text = "Crackenyu (Artisit)"
 vertical_alignment = 1
 
-[node name="LeoMcfaydenProduction" type="Control" parent="CreditsMenu/Profiles" unique_id=1078404766]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -242.0
-offset_top = -70.0
-offset_right = 420.66663
-offset_bottom = 33.99994
-grow_horizontal = 2
-grow_vertical = 0
-scale = Vector2(0.75, 0.75)
+[node name="NotAHuman5" type="HBoxContainer" parent="Credits/ProfileMargin/Profiles" unique_id=194311369]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="CreditsMenu/Profiles/LeoMcfaydenProduction" unique_id=1744872703]
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_top = -32.08889
-offset_right = 64.0
-offset_bottom = 32.08889
-grow_vertical = 2
+[node name="TextureRect" type="TextureRect" parent="Credits/ProfileMargin/Profiles/NotAHuman5" unique_id=1239162527]
+layout_mode = 2
 texture = ExtResource("7_5xle5")
-expand_mode = 1
+expand_mode = 3
 
-[node name="RichTextLabel" type="RichTextLabel" parent="CreditsMenu/Profiles/LeoMcfaydenProduction" unique_id=847099006]
-layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = 74.0
-offset_top = -32.0
-offset_bottom = 34.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="RichTextLabel" type="RichTextLabel" parent="Credits/ProfileMargin/Profiles/NotAHuman5" unique_id=419331227]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
 theme_override_fonts/normal_font = ExtResource("1_1xyc7")
 theme_override_fonts/bold_italics_font = ExtResource("1_1xyc7")
 theme_override_font_sizes/normal_font_size = 30
 text = "Leo Mcfayden Production (Musician)"
 vertical_alignment = 1
 
-[node name="KeybindsMenu" type="Control" parent="." unique_id=1340221291]
-visible = false
-layout_mode = 3
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -391.0
-grow_horizontal = 2
-grow_vertical = 0
+[node name="BackMargin" type="MarginContainer" parent="Credits" unique_id=687542465]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Credits/BackMargin" unique_id=1560657003]
+custom_minimum_size = Vector2(0, 75)
+layout_mode = 2
+
+[node name="BackButton" type="Button" parent="Credits/BackMargin/HBoxContainer" unique_id=1772940144]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_1xyc7")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_qlbuq")
+text = "Back"
 
 [connection signal="pressed" from="MainMenu/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="MainMenu/OptionsButton" to="." method="_on_options_button_pressed"]
 [connection signal="pressed" from="MainMenu/Credits" to="." method="_on_credits_pressed"]
-[connection signal="pressed" from="OptionsMenu/BackButton" to="." method="_on_back_button_pressed"]
-[connection signal="value_changed" from="OptionsMenu/Audio/MasterControl/MasterSlider" to="OptionsMenu/Audio" method="_on_master_slider_value_changed"]
-[connection signal="value_changed" from="OptionsMenu/Audio/SFXSlider/SFXSlider" to="OptionsMenu/Audio" method="_on_sfx_slider_value_changed"]
-[connection signal="value_changed" from="OptionsMenu/Audio/MusicControl/MusicSlider" to="OptionsMenu/Audio" method="_on_music_slider_value_changed"]
-[connection signal="pressed" from="OptionsMenu/BindButton" to="OptionsMenu" method="_on_bind_button_pressed"]
-[connection signal="pressed" from="OptionsMenu/AudioButton" to="OptionsMenu" method="_on_audio_button_pressed"]
-[connection signal="pressed" from="CreditsMenu/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="OptionsMenu/SelectionsMargin/Selections/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="OptionsMenu/SelectionsMargin/Selections/Choice/BindButton" to="OptionsMenu" method="_on_bind_button_pressed"]
+[connection signal="pressed" from="OptionsMenu/SelectionsMargin/Selections/Choice/AudioButton" to="OptionsMenu" method="_on_audio_button_pressed"]
+[connection signal="pressed" from="Credits/BackMargin/HBoxContainer/BackButton" to="." method="_on_back_button_pressed"]

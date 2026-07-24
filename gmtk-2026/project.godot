@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="GMTK2026"
-run/main_scene="uid://bab5h45msbvq0"
+run/main_scene="uid://cl06dcn5crx38"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
+
+[audio]
+
+buses/default_bus_layout="uid://ct33mw21k8ao4"
 
 [autoload]
 

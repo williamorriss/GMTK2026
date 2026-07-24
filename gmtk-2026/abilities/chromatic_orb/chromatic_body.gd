@@ -40,7 +40,7 @@ func _physics_process(delta: float) -> void:
 		if _current_bounces >= max_bounces:
 			queue_free()
 		
-		_change_properties()
+		await _change_properties()
 
 func _change_properties() -> void:
 	await get_tree().create_timer(0.01).timeout

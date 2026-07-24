@@ -9,6 +9,7 @@ signal on_dead
 var _hp: float = 0.0 
 var _is_immune: bool = false
 
+# what is this -_-
 static func get_health(target: Node) -> Health:
 	var healths: Array = []
 	for child: Node in target.get_children():
@@ -18,7 +19,10 @@ static func get_health(target: Node) -> Health:
 	if healths.size() > 1:
 		push_warning("Multiple health in a node when searching")
 	
-	return healths.front()
+	if healths.size() == 1:
+		return healths.front()
+	
+	return null
 
 func set_immunity(value: bool) -> void:
 	_is_immune = value
@@ -30,6 +34,7 @@ func damage(points: float, forced: bool = false) -> void:
 		return
 	
 	_hp -= points
+	on_damage_taken.emit(points, _hp)
 	if _hp <= 0:
 		on_dead.emit()
 	

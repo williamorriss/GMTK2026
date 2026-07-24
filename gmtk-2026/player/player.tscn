@@ -4,11 +4,50 @@
 [ext_resource type="Texture2D" uid="uid://dhcwybhoxgwhe" path="res://icon.svg" id="2_onrkg"]
 [ext_resource type="Script" uid="uid://lycjpc02pyfa" path="res://player/ability_user.gd" id="3_g1dw6"]
 [ext_resource type="PackedScene" uid="uid://b84onmi6p6dgu" path="res://health/health.tscn" id="4_yw30f"]
+[ext_resource type="Texture2D" uid="uid://02shw622vdm0" path="res://sprites/dash.jpg" id="5_rgyib"]
+[ext_resource type="Texture2D" uid="uid://dpc1s630jjyk5" path="res://sprites/hurt.jpg" id="6_hg6s5"]
+[ext_resource type="Texture2D" uid="uid://dni7teexddimj" path="res://sprites/idle.jpg" id="7_8t03j"]
+[ext_resource type="Texture2D" uid="uid://cfeqtos6sscp5" path="res://sprites/run.jpg" id="8_2ieo8"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tmfgs"]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_a00k7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_rgyib")
+}],
+"loop": 1,
+"name": &"dash",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_hg6s5")
+}],
+"loop": 1,
+"name": &"hurt",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_8t03j")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_2ieo8")
+}],
+"loop": 1,
+"name": &"run",
+"speed": 5.0
+}]
+
 [node name="Player" type="CharacterBody2D" unique_id=133342377 node_paths=PackedStringArray("health")]
-collision_mask = 7
+collision_mask = 15
 script = ExtResource("1_4flbx")
 death_screen = "uid://comfb4xtpo4g2"
 health = NodePath("Health")
@@ -26,3 +65,9 @@ player = NodePath("..")
 health = NodePath("../Health")
 
 [node name="Health" parent="." unique_id=2054087400 instance=ExtResource("4_yw30f")]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=442554886]
+sprite_frames = SubResource("SpriteFrames_a00k7")
+animation = &"hurt"
+
+[connection signal="on_damage_taken" from="Health" to="." method="_on_health_on_damage_taken"]

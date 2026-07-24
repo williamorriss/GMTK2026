@@ -24,7 +24,6 @@ func stop_timer() -> void:
 func _ready() -> void:
 	var _x: int = get_tree().scene_changed.connect(_on_change_scene)
 	label.visible = false
-	await start_timer()
 	await _countdown()
 
 func _process(_delta: float) -> void:

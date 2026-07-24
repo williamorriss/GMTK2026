@@ -10,7 +10,7 @@ var spells: Array[Ability] = [null, null, null, null] # 4 entries always
 #test
 func _ready() -> void:
 	for i: int in range(spells.size()):
-		var ability: Ability = StateHolder.get_current_abilities(i, player)
+		var ability: Ability = StateHolder.get_current_ability(i, player)
 		add_ability(i, ability)
 
 func add_ability(pos: int, ability: Ability) -> void:

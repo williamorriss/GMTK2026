@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://dtcm1n77fw76u"]
 
 [ext_resource type="Script" uid="uid://r5pevfv0440x" path="res://UI/next_level/next_level.gd" id="1_evkxa"]
+[ext_resource type="Script" uid="uid://cgmcceruvyguu" path="res://UI/next_level/selection_data.gd" id="2_1pq78"]
+[ext_resource type="Texture2D" uid="uid://rjymeesnokfa" path="res://UI/menu/profile_pics/Horse.png" id="2_gsfvk"]
 [ext_resource type="Script" uid="uid://bavinw7cxhx6a" path="res://abilities/chromatic_orb/chromatic_orb.gd" id="2_omq8s"]
 [ext_resource type="Script" uid="uid://bw53m261idgxc" path="res://abilities/conjure_weapon/conjure_weapon.gd" id="3_r4fcw"]
 [ext_resource type="Script" uid="uid://pmdx1ska3kh6" path="res://abilities/magic_missile/magic_missile.gd" id="4_1pq78"]
@@ -12,8 +14,406 @@
 [ext_resource type="Resource" uid="uid://dxywjkufn5udm" path="res://abilities/conjure_weapon/weapons_data/axe.tres" id="10_g0eof"]
 [ext_resource type="Resource" uid="uid://b1x3jnshfo2b6" path="res://abilities/conjure_weapon/weapons_data/dagger.tres" id="11_ipv34"]
 [ext_resource type="Resource" uid="uid://bbll1opty84nl" path="res://abilities/conjure_weapon/weapons_data/sword.tres" id="12_27ke8"]
+[ext_resource type="FontFile" uid="uid://qvjbjulrm5fs" path="res://UI/Fonts/upheaval/upheavtt.ttf" id="13_omq8s"]
+[ext_resource type="Texture2D" uid="uid://d0oy3xmhr6tnq" path="res://UI/menu/profile_pics/NotAHuman.png" id="14_r4fcw"]
 
-[node name="NextScene" type="CanvasLayer" unique_id=1847358530]
+[sub_resource type="Resource" id="Resource_r4fcw"]
+script = ExtResource("2_1pq78")
+symbol = NodePath("MarginContainer/VBoxContainer/Control/Choices/Spell1/MarginContainer/Symbol")
+name = NodePath("MarginContainer/VBoxContainer/Control/Choices/Spell1/Name")
+description = NodePath("MarginContainer/VBoxContainer/Control/Choices/Spell1/Description")
+metadata/_custom_type_script = "uid://cgmcceruvyguu"
+
+[sub_resource type="Resource" id="Resource_1pq78"]
+script = ExtResource("2_1pq78")
+symbol = NodePath("MarginContainer/VBoxContainer/Control/Choices/Spell2/MarginContainer/Symbol")
+name = NodePath("MarginContainer/VBoxContainer/Control/Choices/Spell2/Name")
+description = NodePath("MarginContainer/VBoxContainer/Control/Choices/Spell2/Description")
+metadata/_custom_type_script = "uid://cgmcceruvyguu"
+
+[sub_resource type="Resource" id="Resource_gsfvk"]
+script = ExtResource("2_1pq78")
+symbol = NodePath("MarginContainer/VBoxContainer/Control/Choices/Spell3/MarginContainer/Symbol")
+name = NodePath("MarginContainer/VBoxContainer/Control/Choices/Spell3/Name")
+description = NodePath("MarginContainer/VBoxContainer/Control/Choices/Spell3/Description")
+metadata/_custom_type_script = "uid://cgmcceruvyguu"
+
+[sub_resource type="Resource" id="Resource_50e2i"]
+script = ExtResource("2_1pq78")
+symbol = NodePath("MarginContainer/VBoxContainer/Control/Replace/Spell1/MarginContainer/Symbol")
+name = NodePath("MarginContainer/VBoxContainer/Control/Replace/Spell1/Name")
+description = NodePath("MarginContainer/VBoxContainer/Control/Replace/Spell1/Description")
+metadata/_custom_type_script = "uid://cgmcceruvyguu"
+
+[sub_resource type="Resource" id="Resource_epu0f"]
+script = ExtResource("2_1pq78")
+symbol = NodePath("MarginContainer/VBoxContainer/Control/Replace/Spell2/MarginContainer/Symbol")
+name = NodePath("MarginContainer/VBoxContainer/Control/Replace/Spell2/Name")
+description = NodePath("MarginContainer/VBoxContainer/Control/Replace/Spell2/Description")
+metadata/_custom_type_script = "uid://cgmcceruvyguu"
+
+[sub_resource type="Resource" id="Resource_3wkvj"]
+script = ExtResource("2_1pq78")
+symbol = NodePath("MarginContainer/VBoxContainer/Control/Replace/Spell3/MarginContainer/Symbol")
+name = NodePath("MarginContainer/VBoxContainer/Control/Replace/Spell3/Name")
+description = NodePath("MarginContainer/VBoxContainer/Control/Replace/Spell3/Description")
+metadata/_custom_type_script = "uid://cgmcceruvyguu"
+
+[sub_resource type="Resource" id="Resource_qxjmw"]
+script = ExtResource("2_1pq78")
+symbol = NodePath("MarginContainer/VBoxContainer/Control/Replace/Spell4/MarginContainer/Symbol")
+name = NodePath("MarginContainer/VBoxContainer/Control/Replace/Spell4/Name")
+description = NodePath("MarginContainer/VBoxContainer/Control/Replace/Spell4/Description")
+metadata/_custom_type_script = "uid://cgmcceruvyguu"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ln4xa"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="NextScene" type="CanvasLayer" unique_id=1847358530 node_paths=PackedStringArray("title", "choices_control", "replace_control")]
 script = ExtResource("1_evkxa")
+next_scene = "uid://cl06dcn5crx38"
+title = NodePath("MarginContainer/VBoxContainer/Title")
+choices_control = NodePath("MarginContainer/VBoxContainer/Control/Choices")
+replace_control = NodePath("MarginContainer/VBoxContainer/Control/Replace")
+none_texture = ExtResource("2_gsfvk")
+selections = Array[ExtResource("2_1pq78")]([SubResource("Resource_r4fcw"), SubResource("Resource_1pq78"), SubResource("Resource_gsfvk")])
+replacements = Array[ExtResource("2_1pq78")]([SubResource("Resource_50e2i"), SubResource("Resource_epu0f"), SubResource("Resource_3wkvj"), SubResource("Resource_qxjmw")])
 all_abilities = Array[GDScript]([ExtResource("2_omq8s"), ExtResource("3_r4fcw"), ExtResource("4_1pq78"), ExtResource("5_gsfvk"), ExtResource("6_3wkvj"), ExtResource("7_qxjmw"), ExtResource("8_50e2i")])
 all_weapons = Array[ExtResource("9_epu0f")]([ExtResource("10_g0eof"), ExtResource("11_ipv34"), ExtResource("12_27ke8")])
+
+[node name="Panel" type="Panel" parent="." unique_id=1342993268]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ln4xa")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1097348559]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=635455127]
+layout_mode = 2
+
+[node name="Title" type="RichTextLabel" parent="MarginContainer/VBoxContainer" unique_id=330597067]
+custom_minimum_size = Vector2(0, 75)
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("13_omq8s")
+theme_override_font_sizes/normal_font_size = 60
+text = "Pick a new spell"
+horizontal_alignment = 1
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer" unique_id=653470010]
+custom_minimum_size = Vector2(0, 500)
+layout_mode = 2
+
+[node name="Choices" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Control" unique_id=1188360095]
+visible = false
+custom_minimum_size = Vector2(0, 500)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Spell1" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Control/Choices" unique_id=1277526831]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/Control/Choices/Spell1" unique_id=1283440342]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_right = 25
+
+[node name="Symbol" type="TextureButton" parent="MarginContainer/VBoxContainer/Control/Choices/Spell1/MarginContainer" unique_id=13331977]
+layout_mode = 2
+texture_normal = ExtResource("14_r4fcw")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Name" type="RichTextLabel" parent="MarginContainer/VBoxContainer/Control/Choices/Spell1" unique_id=976904779]
+custom_minimum_size = Vector2(0, 35)
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("13_omq8s")
+theme_override_font_sizes/normal_font_size = 30
+text = "Placeholder"
+horizontal_alignment = 1
+
+[node name="Description" type="RichTextLabel" parent="MarginContainer/VBoxContainer/Control/Choices/Spell1" unique_id=409697674]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("13_omq8s")
+text = "Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. "
+horizontal_alignment = 1
+
+[node name="Spell2" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Control/Choices" unique_id=1925796754]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/Control/Choices/Spell2" unique_id=673296535]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_right = 25
+
+[node name="Symbol" type="TextureButton" parent="MarginContainer/VBoxContainer/Control/Choices/Spell2/MarginContainer" unique_id=1669723912]
+layout_mode = 2
+texture_normal = ExtResource("14_r4fcw")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Name" type="RichTextLabel" parent="MarginContainer/VBoxContainer/Control/Choices/Spell2" unique_id=1533416640]
+custom_minimum_size = Vector2(0, 35)
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("13_omq8s")
+theme_override_font_sizes/normal_font_size = 30
+text = "Placeholder"
+horizontal_alignment = 1
+
+[node name="Description" type="RichTextLabel" parent="MarginContainer/VBoxContainer/Control/Choices/Spell2" unique_id=2009674326]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("13_omq8s")
+text = "Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. "
+horizontal_alignment = 1
+
+[node name="Spell3" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Control/Choices" unique_id=1082357508]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/Control/Choices/Spell3" unique_id=851249348]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_right = 25
+
+[node name="Symbol" type="TextureButton" parent="MarginContainer/VBoxContainer/Control/Choices/Spell3/MarginContainer" unique_id=276673272]
+layout_mode = 2
+texture_normal = ExtResource("14_r4fcw")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Name" type="RichTextLabel" parent="MarginContainer/VBoxContainer/Control/Choices/Spell3" unique_id=1168639721]
+custom_minimum_size = Vector2(0, 35)
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("13_omq8s")
+theme_override_font_sizes/normal_font_size = 30
+text = "Placeholder"
+horizontal_alignment = 1
+
+[node name="Description" type="RichTextLabel" parent="MarginContainer/VBoxContainer/Control/Choices/Spell3" unique_id=644467245]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("13_omq8s")
+text = "Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. "
+horizontal_alignment = 1
+
+[node name="None" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Control/Choices" unique_id=146805858]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/Control/Choices/None" unique_id=414026475]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_right = 25
+
+[node name="Symbol" type="TextureButton" parent="MarginContainer/VBoxContainer/Control/Choices/None/MarginContainer" unique_id=1722856843]
+layout_mode = 2
+texture_normal = ExtResource("14_r4fcw")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Name" type="RichTextLabel" parent="MarginContainer/VBoxContainer/Control/Choices/None" unique_id=232676230]
+custom_minimum_size = Vector2(0, 35)
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("13_omq8s")
+theme_override_font_sizes/normal_font_size = 30
+text = "None"
+horizontal_alignment = 1
+
+[node name="Replace" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Control" unique_id=912307357]
+custom_minimum_size = Vector2(0, 500)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Spell1" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Control/Replace" unique_id=174404739]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+
+[node name="Slot" type="RichTextLabel" parent="MarginContainer/VBoxContainer/Control/Replace/Spell1" unique_id=1543980925]
+custom_minimum_size = Vector2(0, 35)
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("13_omq8s")
+theme_override_font_sizes/normal_font_size = 30
+text = "Slot 1"
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/Control/Replace/Spell1" unique_id=44657699]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_right = 25
+
+[node name="Symbol" type="TextureButton" parent="MarginContainer/VBoxContainer/Control/Replace/Spell1/MarginContainer" unique_id=1105895213]
+layout_mode = 2
+texture_normal = ExtResource("14_r4fcw")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Name" type="RichTextLabel" parent="MarginContainer/VBoxContainer/Control/Replace/Spell1" unique_id=1073033034]
+custom_minimum_size = Vector2(0, 35)
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("13_omq8s")
+theme_override_font_sizes/normal_font_size = 30
+text = "Placeholder"
+horizontal_alignment = 1
+
+[node name="Description" type="RichTextLabel" parent="MarginContainer/VBoxContainer/Control/Replace/Spell1" unique_id=748049523]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("13_omq8s")
+text = "Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. "
+horizontal_alignment = 1
+
+[node name="Spell2" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Control/Replace" unique_id=1747917402]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+
+[node name="Slot" type="RichTextLabel" parent="MarginContainer/VBoxContainer/Control/Replace/Spell2" unique_id=100667769]
+custom_minimum_size = Vector2(0, 35)
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("13_omq8s")
+theme_override_font_sizes/normal_font_size = 30
+text = "Slot 2"
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/Control/Replace/Spell2" unique_id=1210335066]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_right = 25
+
+[node name="Symbol" type="TextureButton" parent="MarginContainer/VBoxContainer/Control/Replace/Spell2/MarginContainer" unique_id=214307039]
+layout_mode = 2
+texture_normal = ExtResource("14_r4fcw")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Name" type="RichTextLabel" parent="MarginContainer/VBoxContainer/Control/Replace/Spell2" unique_id=2101502067]
+custom_minimum_size = Vector2(0, 35)
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("13_omq8s")
+theme_override_font_sizes/normal_font_size = 30
+text = "Placeholder"
+horizontal_alignment = 1
+
+[node name="Description" type="RichTextLabel" parent="MarginContainer/VBoxContainer/Control/Replace/Spell2" unique_id=1014119038]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("13_omq8s")
+text = "Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. "
+horizontal_alignment = 1
+
+[node name="Spell3" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Control/Replace" unique_id=1591118941]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+
+[node name="Slot" type="RichTextLabel" parent="MarginContainer/VBoxContainer/Control/Replace/Spell3" unique_id=1949623461]
+custom_minimum_size = Vector2(0, 35)
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("13_omq8s")
+theme_override_font_sizes/normal_font_size = 30
+text = "Slot 3"
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/Control/Replace/Spell3" unique_id=1142314093]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_right = 25
+
+[node name="Symbol" type="TextureButton" parent="MarginContainer/VBoxContainer/Control/Replace/Spell3/MarginContainer" unique_id=1477486597]
+layout_mode = 2
+texture_normal = ExtResource("14_r4fcw")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Name" type="RichTextLabel" parent="MarginContainer/VBoxContainer/Control/Replace/Spell3" unique_id=622722581]
+custom_minimum_size = Vector2(0, 35)
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("13_omq8s")
+theme_override_font_sizes/normal_font_size = 30
+text = "Placeholder"
+horizontal_alignment = 1
+
+[node name="Description" type="RichTextLabel" parent="MarginContainer/VBoxContainer/Control/Replace/Spell3" unique_id=548508477]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("13_omq8s")
+text = "Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. "
+horizontal_alignment = 1
+
+[node name="Spell4" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Control/Replace" unique_id=1221060099]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+
+[node name="Slot" type="RichTextLabel" parent="MarginContainer/VBoxContainer/Control/Replace/Spell4" unique_id=1512475824]
+custom_minimum_size = Vector2(0, 35)
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("13_omq8s")
+theme_override_font_sizes/normal_font_size = 30
+text = "Slot 4"
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/Control/Replace/Spell4" unique_id=2089592157]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_right = 25
+
+[node name="Symbol" type="TextureButton" parent="MarginContainer/VBoxContainer/Control/Replace/Spell4/MarginContainer" unique_id=1496190536]
+layout_mode = 2
+texture_normal = ExtResource("14_r4fcw")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Name" type="RichTextLabel" parent="MarginContainer/VBoxContainer/Control/Replace/Spell4" unique_id=1559795480]
+custom_minimum_size = Vector2(0, 35)
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("13_omq8s")
+theme_override_font_sizes/normal_font_size = 30
+text = "Placeholder"
+horizontal_alignment = 1
+
+[node name="Description" type="RichTextLabel" parent="MarginContainer/VBoxContainer/Control/Replace/Spell4" unique_id=654745847]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("13_omq8s")
+text = "Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. "
+horizontal_alignment = 1
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Control/Choices/Spell1/MarginContainer/Symbol" to="." method="_on_symbol_1_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Control/Choices/Spell2/MarginContainer/Symbol" to="." method="_on_symbol_2_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Control/Choices/Spell3/MarginContainer/Symbol" to="." method="_on_symbol_3_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Control/Choices/None/MarginContainer/Symbol" to="." method="_next_scene"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Control/Replace/Spell1/MarginContainer/Symbol" to="." method="_on_replace_1_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Control/Replace/Spell2/MarginContainer/Symbol" to="." method="_on_replace_2_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Control/Replace/Spell3/MarginContainer/Symbol" to="." method="_on_replace_3_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Control/Replace/Spell4/MarginContainer/Symbol" to="." method="_on_replace_4_pressed"]

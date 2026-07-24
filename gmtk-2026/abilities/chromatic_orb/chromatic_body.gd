@@ -27,6 +27,7 @@ static func create_orb(player: Node2D, is_evil: bool, target: Vector2) -> Chroma
 	var instance: ChromaticBody = preload("res://abilities/chromatic_orb/chromatic_body.tscn").instantiate()
 	instance._player = player
 	instance._target = target
+	instance._is_evil = is_evil
 	return instance
 
 func _ready() -> void:

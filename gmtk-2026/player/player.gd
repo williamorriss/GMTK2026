@@ -91,11 +91,12 @@ func animate(dir: Vector2) -> void:
 	
 
 # [NOTE] bullet can still get destoryed when hitting but wont deal damage
+# Will don't change the mask, even if you remove mask from abilities here, projectiles can still detect player
 func _i_frames(value: bool) -> void:
 	if value:
-		collision_mask = 1 | 2 | 4
+		collision_mask = 3
 	else:
-		collision_mask = 1 | 2 | 4 | 8
+		collision_mask = 2 | 3
 		
 	health.set_immunity(value)
 	

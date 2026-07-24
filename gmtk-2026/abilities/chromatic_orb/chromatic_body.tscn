@@ -4,9 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://dhcwybhoxgwhe" path="res://icon.svg" id="1_j8gav"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ln4xa"]
-radius = 175.28548
+radius = 92.65527
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tmfgs"]
+radius = 321.56183
 
 [node name="ChromaticBody" type="RigidBody2D" unique_id=1390675684 node_paths=PackedStringArray("area", "shape", "component")]
 collision_layer = 8

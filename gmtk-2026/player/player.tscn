@@ -47,7 +47,7 @@ animations = [{
 }]
 
 [node name="Player" type="CharacterBody2D" unique_id=133342377 node_paths=PackedStringArray("health")]
-collision_mask = 15
+collision_mask = 4
 script = ExtResource("1_4flbx")
 death_screen = "uid://comfb4xtpo4g2"
 health = NodePath("Health")

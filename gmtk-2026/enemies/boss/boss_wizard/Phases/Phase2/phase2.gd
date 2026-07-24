@@ -1,7 +1,23 @@
 class_name Phase2
 extends Phase
 
+@export var cooldown: Vector2 = Vector2(5.0, 10.0)
+
+var _target: Vector2
+
 func ready(boss: BossWizard) -> void:
 	super(boss)
 	
 	switch_action(actions.pick_random())
+	_target = _boss.get_random_point()
+
+func process(_delta: float) -> void:
+	_boss.set_new_target(_target)
+	
+	if _boss.global_position.distance_to(_target) <= 25:
+		_target = _boss.get_random_point()
+
+func _switcheroo() -> void:
+	while true:
+		await get_tree().create_timer(randf_range(cooldown.x, cooldown.y)).timeout
+		switch_action(actions.pick_random())

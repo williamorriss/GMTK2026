@@ -11,17 +11,20 @@
 [ext_resource type="Script" uid="uid://dvyhf6doho225" path="res://enemies/boss/boss_wizard/Phases/Phase1/Actions/teleport.gd" id="9_qtp87"]
 [ext_resource type="Script" uid="uid://bwe730krrm62p" path="res://enemies/boss/boss_wizard/Phases/Phase1/Actions/stroll_spawn.gd" id="10_co1hx"]
 [ext_resource type="Script" uid="uid://cy1iminwpbvu1" path="res://enemies/boss/boss_wizard/Phases/Phase1/Actions/normal_shoot.gd" id="11_cvrsx"]
+[ext_resource type="Script" uid="uid://b2f6vq7vjqpkn" path="res://enemies/boss/boss_wizard/Phases/Phase2/phase2.gd" id="12_wrxbn"]
+[ext_resource type="Script" uid="uid://cdks3jhajyil3" path="res://enemies/boss/boss_wizard/Phases/Phase2/Actions/chromatic_evil.gd" id="13_ougd6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ln4xa"]
 radius = 93.43447
 
-[node name="BossWizard" type="CharacterBody2D" unique_id=1921532289 node_paths=PackedStringArray("agent", "health", "phase1")]
-collision_layer = 2
-collision_mask = 13
+[node name="BossWizard" type="CharacterBody2D" unique_id=1921532289 node_paths=PackedStringArray("agent", "health", "phase1", "phase2")]
+collision_layer = 8
+collision_mask = 5
 script = ExtResource("1_gvpvq")
 agent = NodePath("NavigationAgent2D")
 health = NodePath("Health")
 phase1 = NodePath("Phases/Phase1")
+phase2 = NodePath("Phases/Phase2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1445703991]
 shape = SubResource("CircleShape2D_ln4xa")
@@ -33,6 +36,7 @@ texture = ExtResource("1_yv86f")
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=18353008]
 
 [node name="Health" parent="." unique_id=2054087400 instance=ExtResource("3_7r24g")]
+max_health = 1000.0
 
 [node name="Phases" type="Node2D" parent="." unique_id=2007382499]
 
@@ -63,4 +67,10 @@ script = ExtResource("10_co1hx")
 script = ExtResource("11_cvrsx")
 projectile = ExtResource("6_1x24s")
 
-[node name="Phase2" type="Node2D" parent="Phases" unique_id=1909016134]
+[node name="Phase2" type="Node2D" parent="Phases" unique_id=1909016134 node_paths=PackedStringArray("actions")]
+script = ExtResource("12_wrxbn")
+actions = [NodePath("ChromaticEvil")]
+
+[node name="ChromaticEvil" type="Node2D" parent="Phases/Phase2" unique_id=2025216100]
+script = ExtResource("13_ougd6")
+metadata/_custom_type_script = "uid://cdks3jhajyil3"

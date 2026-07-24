@@ -2,6 +2,9 @@ extends CanvasLayer
 
 @export_file("*.tscn") var next_scene: String
 
+@export_group("Audio")
+@export var select_audio: AudioStream
+
 @export_group("References")
 @export var title: RichTextLabel
 @export var choices_control: Control
@@ -35,6 +38,8 @@ func _ready() -> void:
 		_setup_selection(_choices[i], selections[i])
 
 func _setup_replace() -> void:
+	AudioManager.play_sfx(select_audio)
+	
 	choices_control.visible = false
 	replace_control.visible = true
 	
@@ -75,6 +80,7 @@ func _generate_potential() -> Array[Ability]: # This part kinda (very) stupid
 	return anz
 
 func _next_scene() -> void:
+	AudioManager.play_sfx(select_audio)
 	await SceneTransition.change_scene(next_scene)
 
 func _on_symbol_1_pressed() -> void:

@@ -1,7 +1,7 @@
 extends CanvasLayer
 
 @export_group("References")
-@export var next_scene: PackedScene
+@export_file("*.tscn") var next_scene: String
 @export var skip_button: Button
 @export var speaker_label: RichTextLabel
 @export var body_label: RichTextLabel
@@ -61,4 +61,4 @@ func _type(text: String) -> void:
 	_is_typing = false
 
 func _change_scene() -> void:
-	get_tree().change_scene_to_packed(next_scene)
+	get_tree().change_scene_to_file(next_scene)

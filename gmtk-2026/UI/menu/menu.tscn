@@ -37,6 +37,7 @@ corner_radius_bottom_left = 10
 
 [node name="Menu" type="CanvasLayer" unique_id=1265104891 node_paths=PackedStringArray("menuControl", "optionsControl", "creditsControl")]
 script = ExtResource("1_qlbuq")
+next_scene = "uid://bebwesl65sg0b"
 menuControl = NodePath("MainMenu")
 optionsControl = NodePath("OptionsMenu")
 creditsControl = NodePath("CreditsMenu")

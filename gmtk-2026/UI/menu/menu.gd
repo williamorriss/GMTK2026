@@ -1,6 +1,9 @@
 class_name Menu
 extends CanvasLayer
 
+@export_group("Scene")
+@export_file("*.tscn") var next_scene: String
+
 @export_group("Controls")
 @export var menuControl: Control
 @export var optionsControl: Control
@@ -12,7 +15,7 @@ func _ready() -> void:
 	creditsControl.visible = false
 
 func _on_start_button_pressed() -> void:
-	print("game starting")
+	get_tree().change_scene_to_file(next_scene)
 
 func _on_options_button_pressed() -> void:
 	menuControl.visible = false

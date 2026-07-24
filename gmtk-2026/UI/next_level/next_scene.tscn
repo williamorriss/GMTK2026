@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://dtcm1n77fw76u"]
+
+[ext_resource type="Script" uid="uid://r5pevfv0440x" path="res://UI/next_level/next_level.gd" id="1_evkxa"]
+[ext_resource type="Script" uid="uid://bavinw7cxhx6a" path="res://abilities/chromatic_orb/chromatic_orb.gd" id="2_omq8s"]
+[ext_resource type="Script" uid="uid://bw53m261idgxc" path="res://abilities/conjure_weapon/conjure_weapon.gd" id="3_r4fcw"]
+[ext_resource type="Script" uid="uid://pmdx1ska3kh6" path="res://abilities/magic_missile/magic_missile.gd" id="4_1pq78"]
+[ext_resource type="Script" uid="uid://b7jbed7gwd80m" path="res://abilities/mana_spikes/mana_spikes.gd" id="5_gsfvk"]
+[ext_resource type="Script" uid="uid://dflec4fbryg4h" path="res://abilities/sentry/sentry.gd" id="6_3wkvj"]
+[ext_resource type="Script" uid="uid://wrof0t55jyyl" path="res://abilities/slow_time/slow_time.gd" id="7_qxjmw"]
+[ext_resource type="Script" uid="uid://ieatiah48do6" path="res://abilities/thorns/thorns.gd" id="8_50e2i"]
+[ext_resource type="Script" uid="uid://dcpfkcthf4n7g" path="res://abilities/conjure_weapon/weapons_data/weapon_data.gd" id="9_epu0f"]
+[ext_resource type="Resource" uid="uid://dxywjkufn5udm" path="res://abilities/conjure_weapon/weapons_data/axe.tres" id="10_g0eof"]
+[ext_resource type="Resource" uid="uid://b1x3jnshfo2b6" path="res://abilities/conjure_weapon/weapons_data/dagger.tres" id="11_ipv34"]
+[ext_resource type="Resource" uid="uid://bbll1opty84nl" path="res://abilities/conjure_weapon/weapons_data/sword.tres" id="12_27ke8"]
+
+[node name="NextScene" type="CanvasLayer" unique_id=1847358530]
+script = ExtResource("1_evkxa")
+all_abilities = Array[GDScript]([ExtResource("2_omq8s"), ExtResource("3_r4fcw"), ExtResource("4_1pq78"), ExtResource("5_gsfvk"), ExtResource("6_3wkvj"), ExtResource("7_qxjmw"), ExtResource("8_50e2i")])
+all_weapons = Array[ExtResource("9_epu0f")]([ExtResource("10_g0eof"), ExtResource("11_ipv34"), ExtResource("12_27ke8")])

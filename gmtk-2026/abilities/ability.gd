@@ -17,6 +17,9 @@ func get_cost() -> float:
 	
 	return _ability_data.cost
 
+func get_ability_data() -> AbilityData:
+	return _ability_data
+
 func activate_ability() -> void:
 	pass
 

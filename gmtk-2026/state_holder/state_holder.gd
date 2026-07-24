@@ -12,14 +12,14 @@ func set_default_abilities() -> void:
 	_current_abilities[2] = Thorns.new(null)
 	_current_abilities[3] = null
 
-func set_current_abilities(pos: int, ability: Ability) -> void:
+func set_current_ability(pos: int, ability: Ability) -> void:
 	if pos < 0 or pos > 4:
 		push_error("Index out of range")
 		return
 	
 	_current_abilities[pos] = ability
 
-func get_current_abilities(pos: int, player: Node2D) -> Ability:
+func get_current_ability(pos: int, player: Node2D = null) -> Ability:
 	if pos < 0 or pos > 4:
 		push_error("Index out of range")
 		return
@@ -28,3 +28,6 @@ func get_current_abilities(pos: int, player: Node2D) -> Ability:
 		_current_abilities[pos].set_player(player)
 	
 	return _current_abilities[pos]
+
+func get_current_abilities() -> Array[Ability]:
+	return _current_abilities

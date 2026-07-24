@@ -17,6 +17,9 @@ func _init(player: Node2D, weapon_data: WeaponData) -> void:
 	_weapon_data = weapon_data
 	_ability_data = preload("res://abilities/conjure_weapon/conjure_data.tres")
 
+func get_weapon_data() -> WeaponData:
+	return _weapon_data
+
 func get_cost() -> float:
 	if not _ability_data:
 		push_warning("Data not set")

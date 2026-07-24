@@ -2,7 +2,10 @@ class_name BossWizard
 extends Enemy
 
 @export_group("References")
+@export var play_area: Polygon2D
 @export var agent: NavigationAgent2D
+@export var phase1: Phase
+@export var phase2: Phase
 
 @export_group("Movement")
 @export var acceleration: float = 2000.0
@@ -12,18 +15,17 @@ extends Enemy
 @export var dash_duration: float = 0.1
 @export var dash_cooldown: Vector2 = Vector2(3, 10)
 
-@export_group("Phase 1")
-
 var _target_position: Vector2
 var _is_dashing: bool 
 
-var _current_phase: int = 1 # Should make a state machine but I'm going to pull an Undertale
+var _current_phase: Phase
 
 func _ready() -> void:
+	_switch_phase(phase1)
 	await _dash_wait()
 
 func _process(_delta: float) -> void:
-	_dictate_state()
+	_current_phase.process(_delta)
 	
 	if not _closest_player:
 		calc_closest_player()
@@ -33,6 +35,35 @@ func get_closet_player() -> Node2D:
 
 func set_new_target(target: Vector2) -> void:
 	_target_position = target
+
+func in_play_area(point: Vector2) -> bool:
+	return Geometry2D.is_point_in_polygon(point, play_area.polygon)
+
+func get_random_point() -> Vector2:
+	var points: PackedVector2Array = play_area.polygon
+	
+	var min_x: float = points[0].x
+	var max_x: float = points[0].x
+	var min_y: float = points[0].y
+	var max_y: float = points[0].y
+	
+	for point: Vector2 in points:
+		min_x = min(min_x, point.x)
+		max_x = max(max_x, point.x)
+		min_y = min(min_y, point.y)
+		max_y = max(max_y, point.y)
+	
+	var random_point: Vector2
+	
+	while true:
+		random_point = Vector2(
+			randf_range(min_x, max_x),
+			randf_range(min_y, max_y)
+		)
+	
+		if Geometry2D.is_point_in_polygon(random_point, points):
+			return play_area.to_global(random_point)
+	return Vector2.ZERO
 
 func _physics_process(delta: float) -> void:
 	_move(delta)
@@ -52,17 +83,13 @@ func _move(delta: float) -> void:
 
 	var _x: bool = move_and_slide()
 
-func _dictate_state() -> void:
-	match _current_phase:
-		1: phase1()
-
-func phase1() -> void:
-	if _closest_player:
-		_target_position = _closest_player.global_position
-
 func _dash_wait() -> void:
 	while true:
 		_is_dashing = false
 		await get_tree().create_timer(randf_range(dash_cooldown.x, dash_cooldown.y)).timeout
 		_is_dashing = true
 		await get_tree().create_timer(dash_duration).timeout
+
+func _switch_phase(new_phase: Phase) -> void:
+	new_phase.ready(self)
+	_current_phase = new_phase

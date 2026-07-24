@@ -3,15 +3,24 @@
 [ext_resource type="Script" uid="uid://dinr6tglnnfth" path="res://enemies/boss/boss_wizard/boss_wizard.gd" id="1_gvpvq"]
 [ext_resource type="Texture2D" uid="uid://rjymeesnokfa" path="res://UI/menu/profile_pics/Horse.png" id="1_yv86f"]
 [ext_resource type="PackedScene" uid="uid://b84onmi6p6dgu" path="res://health/health.tscn" id="3_7r24g"]
+[ext_resource type="Script" uid="uid://b2ref0sbdlr48" path="res://enemies/boss/boss_wizard/Phases/Phase1/phase1.gd" id="4_xteoq"]
+[ext_resource type="Script" uid="uid://edjuo5o5eguq" path="res://enemies/boss/boss_wizard/Phases/Phase1/Actions/run.gd" id="5_1x24s"]
+[ext_resource type="PackedScene" uid="uid://dfht1g86wcgvw" path="res://enemies/boss/boss_wizard/projectile/boss_projectile.tscn" id="6_1x24s"]
+[ext_resource type="Script" uid="uid://bnxqpv7ifflmw" path="res://enemies/boss/boss_wizard/Phases/Phase1/Actions/charge_melee_spawn.gd" id="6_iafwb"]
+[ext_resource type="PackedScene" uid="uid://dreqr6x7m6bqr" path="res://enemies/melee enemies/grunt.tscn" id="8_iafwb"]
+[ext_resource type="Script" uid="uid://dvyhf6doho225" path="res://enemies/boss/boss_wizard/Phases/Phase1/Actions/teleport.gd" id="9_qtp87"]
+[ext_resource type="Script" uid="uid://bwe730krrm62p" path="res://enemies/boss/boss_wizard/Phases/Phase1/Actions/stroll_spawn.gd" id="10_co1hx"]
+[ext_resource type="Script" uid="uid://cy1iminwpbvu1" path="res://enemies/boss/boss_wizard/Phases/Phase1/Actions/normal_shoot.gd" id="11_cvrsx"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ln4xa"]
 radius = 93.43447
 
-[node name="BossWizard" type="CharacterBody2D" unique_id=1921532289 node_paths=PackedStringArray("agent")]
+[node name="BossWizard" type="CharacterBody2D" unique_id=1921532289 node_paths=PackedStringArray("agent", "phase1")]
 collision_layer = 2
 collision_mask = 13
 script = ExtResource("1_gvpvq")
 agent = NodePath("NavigationAgent2D")
+phase1 = NodePath("Phases/Phase1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1445703991]
 shape = SubResource("CircleShape2D_ln4xa")
@@ -26,4 +35,31 @@ texture = ExtResource("1_yv86f")
 
 [node name="Phases" type="Node2D" parent="." unique_id=2007382499]
 
-[node name="Phase1" type="Node2D" parent="Phases" unique_id=731236335]
+[node name="Phase1" type="Node2D" parent="Phases" unique_id=731236335 node_paths=PackedStringArray("starting_action", "actions")]
+script = ExtResource("4_xteoq")
+starting_action = NodePath("Charge")
+actions = [NodePath("Run"), NodePath("Charge"), NodePath("Teleport")]
+
+[node name="Run" type="Node2D" parent="Phases/Phase1" unique_id=2125979796]
+script = ExtResource("5_1x24s")
+projectile = ExtResource("6_1x24s")
+
+[node name="Charge" type="Node2D" parent="Phases/Phase1" unique_id=1732507785 node_paths=PackedStringArray("run_action", "teleport_action")]
+script = ExtResource("6_iafwb")
+spawn_enemies = ExtResource("8_iafwb")
+run_action = NodePath("../Run")
+teleport_action = NodePath("../Teleport")
+min_distance = 200.0
+enemy_amount = 0
+
+[node name="Teleport" type="Node2D" parent="Phases/Phase1" unique_id=642466500]
+script = ExtResource("9_qtp87")
+
+[node name="Stroll" type="Node2D" parent="Phases/Phase1" unique_id=456756099]
+script = ExtResource("10_co1hx")
+
+[node name="Shoot" type="Node2D" parent="Phases/Phase1" unique_id=550003312]
+script = ExtResource("11_cvrsx")
+projectile = ExtResource("6_1x24s")
+
+[node name="Phase2" type="Node2D" parent="Phases" unique_id=1909016134]

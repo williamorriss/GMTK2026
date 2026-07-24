@@ -1,0 +1,37 @@
+class_name RunAction
+extends Action
+
+@export_group("References")
+@export var projectile: PackedScene
+
+@export_group("Parameters")
+@export var fire_rate_range: Vector2 = Vector2(0.5, 1.5)
+@export var max_distance_range: Vector2 = Vector2(1000, 1500)
+@export var max_time_range: Vector2 = Vector2(3, 8)
+
+var _max_distance: float
+
+func ready(boss: BossWizard, phase: Phase) -> void:
+	super.ready(boss, phase)
+	
+	_max_distance = randf_range(max_distance_range.x, max_distance_range.y)
+	var _x: int = get_tree().create_timer(randf_range(max_time_range.x, max_time_range.y)).timeout.connect(_change_action)
+
+func process(_delta: float) -> void:
+	var player: Node2D = _boss.get_closet_player()
+	if not player:
+		return
+	
+	var _new_target: Vector2 =  _boss.global_position - _boss.position.direction_to(player.global_position)
+	_boss.set_new_target(_new_target)
+
+func _shoot() -> void:
+	while true:
+		await get_tree().create_timer(randf_range(fire_rate_range.x, fire_rate_range.y)).timeout
+		
+		var dir: Vector2 = _boss.global_position.direction_to(_boss.get_closet_player().global_position)
+		var instance: BossProjectile = BossProjectile.create(_boss.global_position, dir)
+		get_tree().current_scene.add_child(instance)
+
+func _change_action() -> void:
+	_phase.switch_action(_phase.get_actions().filter(func(f: Action) -> bool: return not f is RunAction).pick_random())

@@ -4,6 +4,7 @@ extends Action
 @export_group("References")
 @export var spawn_enemies: PackedScene
 @export var run_action: Action
+@export var teleport_action: Action
 
 @export_group("Parameters")
 @export var min_distance: float = 100
@@ -12,12 +13,15 @@ extends Action
 
 func process(_delta: float) -> void:
 	var player: Node2D = _boss.get_closet_player()
+	if not player:
+		return
 	
 	_boss.set_new_target(player.global_position)
 	
 	if player.global_position.distance_to(_boss.global_position) <= min_distance:
+		print("spawning")
 		_spawn_enemies()
-		_phase.switch_action(run_action)
+		_phase.switch_action(run_action if randf_range(0.0, 1.0) < 0.5 else teleport_action)
 
 func _spawn_enemies() -> void:
 	for i: int in range(enemy_amount):

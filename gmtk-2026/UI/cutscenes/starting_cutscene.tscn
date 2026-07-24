@@ -3,7 +3,8 @@
 [ext_resource type="FontFile" uid="uid://qvjbjulrm5fs" path="res://UI/Fonts/upheaval/upheavtt.ttf" id="1_abrgl"]
 [ext_resource type="Script" uid="uid://cbsylliq42bj6" path="res://UI/cutscenes/cutscene_manager.gd" id="1_got86"]
 [ext_resource type="Script" uid="uid://b01xvucl3mvta" path="res://UI/cutscenes/cutscene_data.gd" id="2_3yu11"]
-[ext_resource type="AudioStream" uid="uid://beu000mllpqaq" path="res://audio/raw/sfx/blipSelect.wav" id="2_wxb4a"]
+[ext_resource type="AudioStream" uid="uid://beu000mllpqaq" path="res://audio/sfx/blipSelect.wav" id="2_wxb4a"]
+
 
 [sub_resource type="Resource" id="Resource_got86"]
 script = ExtResource("2_3yu11")

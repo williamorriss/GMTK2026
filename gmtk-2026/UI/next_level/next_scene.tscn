@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://r5pevfv0440x" path="res://UI/next_level/next_level.gd" id="1_evkxa"]
 [ext_resource type="Script" uid="uid://cgmcceruvyguu" path="res://UI/next_level/selection_data.gd" id="2_1pq78"]
-[ext_resource type="AudioStream" uid="uid://beu000mllpqaq" path="res://audio/raw/sfx/blipSelect.wav" id="2_3wkvj"]
+[ext_resource type="AudioStream" uid="uid://beu000mllpqaq" path="res://audio/sfx/blipSelect.wav" id="2_3wkvj"]
 [ext_resource type="Texture2D" uid="uid://rjymeesnokfa" path="res://UI/menu/profile_pics/Horse.png" id="2_gsfvk"]
 [ext_resource type="Script" uid="uid://bavinw7cxhx6a" path="res://abilities/chromatic_orb/chromatic_orb.gd" id="2_omq8s"]
 [ext_resource type="Script" uid="uid://bw53m261idgxc" path="res://abilities/conjure_weapon/conjure_weapon.gd" id="3_r4fcw"]

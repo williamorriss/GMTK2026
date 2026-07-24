@@ -2,6 +2,7 @@ class_name Player
 extends CharacterBody2D
 
 @export_group("References")
+@export_file("*.tscn") var death_screen: String
 @export var health: Health
 
 @export_group("Movement")
@@ -58,5 +59,7 @@ func _move(delta: float) -> void:
 	
 	var _x: bool = move_and_slide()
 
-func _die() -> void:
+func _die() -> void: # should play death anim here
+	HealthTimer.stop_timer()
+	await SceneTransition.change_scene(death_screen)
 	queue_free()

@@ -9,6 +9,7 @@
 
 [node name="Player" type="CharacterBody2D" unique_id=133342377 node_paths=PackedStringArray("health")]
 script = ExtResource("1_4flbx")
+death_screen = "uid://comfb4xtpo4g2"
 health = NodePath("Health")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1392926206]

@@ -31,10 +31,13 @@ func get_cost() -> float:
 	return _ability_data.cost + _weapon_data.extra_cost
 
 func process(_delta: float) -> void:
-	if Input.is_action_just_pressed("ATTACK") and _can_attack:
+	if Input.is_action_just_pressed("ATTACK"):
 		await _attack()
 
 func _attack() -> void:
+	if not _can_attack:
+		return
+	
 	_can_attack = false
 	
 	var instance: SwingableWeapon = _weapon_data.swingable.instantiate()
@@ -59,4 +62,7 @@ func _throw() -> void:
 	instance.position = _player.position
 	
 	var direction: Vector2 = (_player.get_global_mouse_position() - _player.global_position).normalized()
+	if _is_evil:
+		direction = _player.global_position.direction_to(_target)
+	
 	instance.set_direction(direction)

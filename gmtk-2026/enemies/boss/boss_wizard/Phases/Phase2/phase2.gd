@@ -12,6 +12,8 @@ func ready(boss: BossWizard) -> void:
 	_target = _boss.get_random_point()
 
 func process(_delta: float) -> void:
+	super.process(_delta)
+	
 	_boss.set_new_target(_target)
 	
 	if _boss.global_position.distance_to(_target) <= 25:

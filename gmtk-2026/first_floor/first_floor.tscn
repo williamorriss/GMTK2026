@@ -154,7 +154,7 @@ tile_map_data = PackedByteArray("AAD+//z/AAABAAMAAAD+//3/AAAHAAAAAAD///3/AAAHAAA
 tile_set = SubResource("TileSet_dlicp")
 
 [node name="Player" parent="." unique_id=133342377 instance=ExtResource("2_tic6a")]
-position = Vector2(2279, 399)
+position = Vector2(2223.946, 136.17786)
 scale = Vector2(2, 2)
 collision_mask = 6
 speed = 1000.0

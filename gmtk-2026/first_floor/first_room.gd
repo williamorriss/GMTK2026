@@ -9,7 +9,7 @@ var ranged_grunt_scene = preload("res://enemies/ranged enemies/ranged_grunt.tscn
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	body_entered.connect(_on_body_entered)
-	print(enemies.size())
+
 
 	
 
@@ -19,8 +19,10 @@ func _process(delta: float) -> void:
 	open_doors()
 
 func _on_body_entered(body):
+	print("body entered: ", body.name, " groups: ", body.get_groups())
 	if enemies.is_empty() and !room_cleared and !enemies_spawned and body.is_in_group("players"):
 		var doors = find_doors(self,%tile_map)
+		print("doors:", doors)
 		for door in doors:
 			%tile_map.set_cell(door,0,Vector2i(4,3)) #change this to an open and close door scenario
 	
@@ -40,7 +42,7 @@ func find_doors(area : Area2D, tilemap : TileMapLayer):
 	
 	var search_area = Rect2(shape_node.global_position + shape.get_rect().position,shape.get_rect().size)
 	var top_left = tilemap.local_to_map(tilemap.to_local(search_area.position))
-	var bottom_right = tilemap.local_to_map(tilemap.to_local(search_area.position + shape.size))
+	var bottom_right = tilemap.local_to_map(tilemap.to_local(search_area.position + search_area.size))
 	
 	for x in range(top_left.x, bottom_right.x + 1):
 		for y in range(top_left.y, bottom_right.y + 1):

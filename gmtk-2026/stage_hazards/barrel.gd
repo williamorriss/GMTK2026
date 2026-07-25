@@ -37,4 +37,6 @@ func _on_health_on_dead(dealer: Health.Owner, taker: Health.Owner, _d: Vector2) 
 			# no collision in between
 			var target_health: Health = Health.get_health(body)
 			var direction: Vector2 = global_position.direction_to(body.global_position)
-			target_health.damage(damage, direction, Health.Owner.Neutral)
+			target_health.damage(damage, direction, Health.Owner.Enemy) # queued free somewhere else?
+			
+	queue_free()

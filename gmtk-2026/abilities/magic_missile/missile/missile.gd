@@ -76,7 +76,7 @@ func _on_body_entered(body: Node2D) -> void:
 	
 	var health: Health = Health.get_health(body)
 	if health:
-		health.damage(damage_rotating if _is_rotating else damage_fire)
+		health.damage(damage_rotating if _is_rotating else damage_fire, position.direction_to(_get_closest().position), Health.Owner.Enemy if _is_evil else Health.Owner.Player)
 	
 	if not _is_rotating:
 		queue_free()

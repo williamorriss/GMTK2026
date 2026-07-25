@@ -18,5 +18,5 @@ func _on_body_entered(body: Node2D) -> void:
 	
 	var health: Health = Health.get_health(body)
 	if health:
-		health.damage(damage)
+		health.damage(damage, global_position.direction_to(body.global_position), Health.Owner.Enemy if _is_evil else Health.Owner.Player)
 	queue_free()

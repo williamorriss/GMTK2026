@@ -31,7 +31,7 @@ static func create_orb(player: Player, is_evil: bool, target: Vector2) -> Chroma
 	return instance
 
 func _ready() -> void:
-	position = _player.casting_pivot.global_position
+	position = _player.global_position
 	
 	if _is_evil:
 		_direction = position.direction_to(_target)

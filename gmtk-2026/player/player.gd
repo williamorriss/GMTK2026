@@ -101,13 +101,13 @@ func animate(dir: Vector2) -> void:
 func _i_frames(value: bool) -> void:
 	health.set_immunity(value)
 
-func _die() -> void: # should play death anim here
+func _die(direction: Vector2) -> void: # should play death anim here
 	HealthTimer.stop_timer()
 	await SceneTransition.change_scene(death_screen)
 	queue_free()
 
 
-func _on_health_on_damage_taken(value: float, new_hp: float) -> void:
+func _on_health_on_damage_taken(deler: Health.Owner, taker: Health.Owner, value: float, new_hp: float) -> void:
 	_hit_intangible_timer = intagible_time
 	health.set_immunity(true)
 	_hit_intangible = true

@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://p121m2py2jmo"]
+
+[ext_resource type="Script" uid="uid://cw2bi2ljrjlcs" path="res://blood/blood.gd" id="1_ajck8"]
+[ext_resource type="PackedScene" uid="uid://b8iyu0lc1u70g" path="res://blood/blood_splatter.tscn" id="2_65uwb"]
+[ext_resource type="Texture2D" uid="uid://dhcwybhoxgwhe" path="res://icon.svg" id="3_jvisc"]
+
+[node name="Blood" type="Node2D" unique_id=105965957 node_paths=PackedStringArray("droplet_particles")]
+script = ExtResource("1_ajck8")
+droplet_particles = NodePath("CPUParticles2D")
+splatter_scene = ExtResource("2_65uwb")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=1553677227]
+scale = Vector2(0.99946046, 0.9985286)
+amount = 500
+texture = ExtResource("3_jvisc")
+randomness = 0.66
+lifetime_randomness = 0.43
+gravity = Vector2(0, 0)

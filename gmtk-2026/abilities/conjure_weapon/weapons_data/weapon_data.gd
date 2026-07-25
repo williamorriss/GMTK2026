@@ -3,6 +3,8 @@ extends Resource
 
 # [NOTE] damage type deponds on Suriya on how he does health
 
+@export var name: String
 @export var extra_cost: int
 @export var swingable: PackedScene
 @export var throwable: PackedScene
+@export var extra_disc: String

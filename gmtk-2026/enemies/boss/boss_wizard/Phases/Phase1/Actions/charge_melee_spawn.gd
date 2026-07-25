@@ -1,6 +1,8 @@
 class_name ChargeMeleeSpawn
 extends Action
 
+# [TODO] make it give up after certain time
+
 @export_group("References")
 @export var spawn_enemies: PackedScene
 @export var run_action: Action

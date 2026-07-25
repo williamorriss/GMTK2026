@@ -14,7 +14,7 @@ script = ExtResource("1_bhmnf")
 agent = NodePath("NavigationAgent2D")
 health = NodePath("Health")
 speed = 500.0
-max_distance = 1000.0
+atk = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1056552632]
 position = Vector2(0, 2.5000076)

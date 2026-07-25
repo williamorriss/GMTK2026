@@ -16,6 +16,7 @@ func ready(boss: BossWizard, phase: Phase) -> void:
 	
 	_max_distance = randf_range(max_distance_range.x, max_distance_range.y)
 	var _x: int = get_tree().create_timer(randf_range(max_time_range.x, max_time_range.y)).timeout.connect(_change_action)
+	await _shoot()
 
 func process(_delta: float) -> void:
 	var player: Node2D = _boss.get_closet_player()
@@ -32,6 +33,7 @@ func _shoot() -> void:
 		var dir: Vector2 = _boss.global_position.direction_to(_boss.get_closet_player().global_position)
 		var instance: BossProjectile = BossProjectile.create(_boss.global_position, dir)
 		get_tree().current_scene.add_child(instance)
+		print(instance)
 
 func _change_action() -> void:
 	_phase.switch_action(_phase.get_actions().filter(func(f: Action) -> bool: return not f is RunAction).pick_random())

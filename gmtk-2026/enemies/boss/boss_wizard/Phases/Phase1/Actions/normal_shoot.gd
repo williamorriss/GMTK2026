@@ -19,6 +19,7 @@ func ready(boss: BossWizard, phase: Phase) -> void:
 	_max_distance = randf_range(max_distance_range.x, max_distance_range.y)
 	_min_distance = randf_range(min_distance_range.x, min_distance_range.y)
 	var _x: int = get_tree().create_timer(randf_range(max_time_range.x, max_time_range.y)).timeout.connect(_change_action)
+	_shoot()
 
 func process(_delta: float) -> void:
 	var player: Node2D = _boss.get_closet_player()

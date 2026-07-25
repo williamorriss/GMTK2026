@@ -20,6 +20,10 @@ func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("players"):
 		var health: Health = Health.get_health(body)
 		if health:
-			health.damage(damage)
+			health.damage(damage, _direction, Health.Owner.Enemy)
+	
+	var instance: Node2D = preload("res://ParticleSystem/projectile_particle.tscn").instantiate()
+	instance.global_position = global_position
+	get_tree().current_scene.add_child(instance)
 	
 	queue_free()

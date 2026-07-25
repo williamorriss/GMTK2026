@@ -20,7 +20,7 @@ func _process(delta: float) -> void:
 
 func _on_area_entered(body: Node2D) -> void:
 	var health: Health = Health.get_health(body)
-	var dir = global_position.direction_to(body.global_position)
+	var dir: Vector2 = global_position.direction_to(body.global_position)
 	if health:
 		health.damage(damage, dir, Health.Owner.Enemy)
 	

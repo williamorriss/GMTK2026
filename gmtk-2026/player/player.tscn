@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://ciyk3l7p2kfjx"]
 
 [ext_resource type="Script" uid="uid://fr0yinnattdn" path="res://player/player.gd" id="1_4flbx"]
+[ext_resource type="PackedScene" uid="uid://ds8ssbo0o71xo" path="res://blood/blood_drop.tscn" id="2_hg6s5"]
 [ext_resource type="Texture2D" uid="uid://dhcwybhoxgwhe" path="res://icon.svg" id="2_onrkg"]
 [ext_resource type="Script" uid="uid://lycjpc02pyfa" path="res://player/ability_user.gd" id="3_g1dw6"]
 [ext_resource type="PackedScene" uid="uid://b84onmi6p6dgu" path="res://health/health.tscn" id="4_yw30f"]
@@ -53,6 +54,8 @@ script = ExtResource("1_4flbx")
 death_screen = "uid://comfb4xtpo4g2"
 health = NodePath("Health")
 speed = 500.0
+
+[node name="BloodDrop" parent="." unique_id=1139702540 instance=ExtResource("2_hg6s5")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1392926206]
 shape = SubResource("CircleShape2D_tmfgs")

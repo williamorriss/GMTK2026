@@ -45,6 +45,9 @@ func _ready() -> void:
 	
 
 func _physics_process(delta: float) -> void:
+	if Input.is_action_just_pressed("ui_up"):
+		$BloodDrop.orbulate(1000000)
+	
 	if _should_step and velocity.length() >= 1:
 		_should_step = false
 		var _x: bool = get_tree().create_timer(randf_range(step_length.x, step_length.y)).timeout.connect(func() -> void: _should_step = true)

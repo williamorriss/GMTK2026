@@ -43,6 +43,9 @@ func _physics_process(delta: float) -> void:
 		health.set_immunity(false)
 	_move(delta)
 
+func nav() -> void:
+	$NavigationObstacle2D.velocity = velocity
+
 
 func _move(delta: float) -> void:
 	var input_dir: Vector2 = Vector2(
@@ -97,7 +100,7 @@ func _i_frames(value: bool) -> void:
 	if value:
 		collision_mask = 4
 	else:
-		collision_mask = 2 | 4
+		collision_mask = 4 | 8
 		
 	health.set_immunity(value)
 	

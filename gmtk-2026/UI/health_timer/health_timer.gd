@@ -56,7 +56,7 @@ func _modify_health() -> void:
 	if _current_player:
 		var health: Health = Health.get_health(_current_player)
 		if health:
-			health.damage(1.0, true)
+			health.damage(1.0, Vector2.ZERO, Health.Owner.Neutral, true)
 	else:
 		_current_time -= 1.0
 

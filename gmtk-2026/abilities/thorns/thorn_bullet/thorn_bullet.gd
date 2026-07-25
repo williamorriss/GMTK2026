@@ -27,7 +27,11 @@ func _on_body_entered(body: Node2D) -> void:
 	
 	if body.is_in_group("enemies") or body.is_in_group("players"):
 		var health: Health = Health.get_health(body)
+		var dir = global_position.direction_to(body.global_position)
 		if health:
-			health.damage(damage)
+			if _is_evil:
+				health.damage(damage, dir, Health.Owner.Enemy)
+			else:
+				health.damage(damage, dir, Health.Owner.Player)
 
 	queue_free()

@@ -17,7 +17,6 @@ extends Enemy
 @export var attack_time: float = 0.2    # how long hit is "active" / recovery after
 
 @onready var animation: AnimatedSprite2D = $AnimatedSprite2D
-
 var _state: State = State.Running
 
 enum State {
@@ -118,8 +117,9 @@ func _do_hit() -> void:
 		return
 
 	var health_player: Health = Health.get_health(_closest_player)
-	if health_player and position.distance_to(_closest_player.position) <= max_distance:
-		health_player.damage(atk)
+	var direction = _closest_player.global_position - global_position
+	if health_player and direction.length() <= max_distance:
+		health_player.damage(atk, direction.normalized(), Health.Owner.Enemy)
 
 
 func _end_attack() -> void:
@@ -128,12 +128,9 @@ func _end_attack() -> void:
 	_cooldown_timer = attack_cooldown
 
 
-func _on_dead() -> void:
+func _on_dead(dealer: Health.Owner, taker: Health.Owner, direction: Vector2) -> void:
+	BloodFX.burst(direction , global_position)
 	queue_free()
-
-
-func _on_hurt_box_hit(damage: float) -> void:
-	health.damage(damage)
 
 
 func _on_navigation_agent_2d_velocity_computed(safe_velocity: Vector2) -> void:

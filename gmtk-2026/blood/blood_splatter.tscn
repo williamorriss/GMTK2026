@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://b8iyu0lc1u70g"]
+
+[ext_resource type="Texture2D" uid="uid://dhcwybhoxgwhe" path="res://icon.svg" id="1_f37x5"]
+
+[node name="BloodSplatter" type="Node2D" unique_id=118732786]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1832433740]
+texture = ExtResource("1_f37x5")

@@ -19,7 +19,7 @@ func _ready() -> void:
 	var _x: bool = StateHolder.camera_shake.connect(add_trauma)
 
 func _process(delta: float) -> void:
-	if _is_following:
+	if _is_following and player:
 		position = player.position
 	
 	_time += delta

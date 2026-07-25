@@ -8,6 +8,7 @@ extends RigidBody2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	add_to_group("enemies")
 	_animation.play("explode")
 
 
@@ -20,7 +21,7 @@ func _on_health_on_dead(dealer: Health.Owner, taker: Health.Owner, _d: Vector2) 
 			body.global_position
 		)
 		
-		query.collision_mask = 1 | 2 | 4  # bit 0, i.e. layer 1 — adjust as needed
+		query.collision_mask = 1 | 4  # bit 0, i.e. layer 1 — adjust as needed
 		
 		query.exclude = [_explosion]
 		

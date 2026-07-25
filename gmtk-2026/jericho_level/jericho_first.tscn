@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://ci8upnfj1ucdu"]
 
 [ext_resource type="Texture2D" uid="uid://dwnl8eou5lpvj" path="res://jericho_level/placeholder_art/2D Pixel Dungeon Asset Pack/Dungeon_Tileset_at.png" id="1_6vy7x"]
+[ext_resource type="PackedScene" uid="uid://bb8ss8f1ekffj" path="res://stage_hazards/line_trap.tscn" id="1_l7lxy"]
 [ext_resource type="PackedScene" uid="uid://ciyk3l7p2kfjx" path="res://player/player.tscn" id="2_5g432"]
 [ext_resource type="Script" uid="uid://b3v0dqtu4y87l" path="res://jericho_level/camera_controller.gd" id="2_7tmev"]
 [ext_resource type="PackedScene" uid="uid://lxqc6qi5a73" path="res://jericho_level/door/door.tscn" id="3_dors5"]
@@ -323,6 +324,13 @@ metadata/_custom_type_script = "uid://3qtp2f14y6k5"
 size = Vector2(575, 417)
 
 [node name="JerichoFirst" type="Node2D" unique_id=2038274911]
+
+[node name="LineTrap" parent="." unique_id=208241967 node_paths=PackedStringArray("t") instance=ExtResource("1_l7lxy")]
+position = Vector2(1694, -2509)
+t = NodePath("Target")
+
+[node name="Target" type="Node2D" parent="LineTrap" unique_id=1698126134]
+position = Vector2(-3454, 0)
 
 [node name="ranged_grunt" parent="." unique_id=2039192104 instance=ExtResource("7_rdr8v")]
 position = Vector2(-4678, -3523)

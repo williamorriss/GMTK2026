@@ -16,6 +16,9 @@ func _ready() -> void:
 	sfx_player.stream = AudioStreamPolyphonic.new()
 	sfx_player.play() 
 
+func get_sfx_player() -> AudioStreamPlayer:
+	return sfx_player
+
 func play_sfx(audio: AudioStream, volume: float = 0.0, pitch: float = 1.0) -> void:
 	var playback: AudioStreamPlaybackPolyphonic = sfx_player.get_stream_playback()
 	var _x: int = playback.play_stream(audio, 0.0, volume, pitch)

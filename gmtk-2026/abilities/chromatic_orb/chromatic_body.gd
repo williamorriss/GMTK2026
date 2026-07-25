@@ -49,6 +49,8 @@ func _physics_process(delta: float) -> void:
 		_direction = _direction.bounce(collision.get_normal())
 		
 		_current_bounces += 1
+		StateHolder.camera_shake.emit(5)
+		
 		if _current_bounces >= max_bounces:
 			queue_free()
 		

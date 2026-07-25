@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dwktrvmjqgd3r"
-path="res://.godot/imported/healthybossawlk-Sheet-export.png-e7860adc8fa373892fb4982230b07bf2.ctex"
+uid="uid://lufeauyij4uo"
+path="res://.godot/imported/injuredbosswalk.png-58b25a639b15eacc02b394e25581164e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://enemies/boss/boss_wizard/sprites/healthybossawlk-Sheet-export.png"
-dest_files=["res://.godot/imported/healthybossawlk-Sheet-export.png-e7860adc8fa373892fb4982230b07bf2.ctex"]
+source_file="res://enemies/boss/boss_wizard/sprites/injured/injuredbosswalk.png"
+dest_files=["res://.godot/imported/injuredbosswalk.png-58b25a639b15eacc02b394e25581164e.ctex"]
 
 [params]
 

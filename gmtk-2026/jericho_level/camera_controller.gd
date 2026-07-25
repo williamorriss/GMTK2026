@@ -2,8 +2,8 @@ class_name CameraController
 extends Camera2D
 
 @export var player: Node2D
-@export var max_strength: float = 8
-@export var falloff:float = 5.0
+@export var falloff: float = 5.0
+@export var strength: float = 50.0
 
 var _is_following: bool = true
 
@@ -27,8 +27,8 @@ func _process(delta: float) -> void:
 
 	var shake: float = _trauma * _trauma
 
-	offset.x = _noise.get_noise_2d(_time * 100, 0) * shake
-	offset.y = _noise.get_noise_2d(0, _time * 100) * shake
+	offset.x = _noise.get_noise_2d(_time * 100, 0) * shake * strength
+	offset.y = _noise.get_noise_2d(0, _time * 100) * shake * strength
 
 func set_target(pos: Vector2) -> void:
 	_is_following = false
@@ -37,5 +37,5 @@ func set_target(pos: Vector2) -> void:
 func reset_position() -> void:
 	_is_following = true
 
-func add_trauma(strength: float) -> void:
-	_trauma = min(_trauma + strength, max_strength)
+func add_trauma() -> void:
+	_trauma = 1

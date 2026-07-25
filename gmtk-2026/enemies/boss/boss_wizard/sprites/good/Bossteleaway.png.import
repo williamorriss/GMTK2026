@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c1igl7l21y2up"
-path="res://.godot/imported/Bossteleaway.png-04ed5c58b333bbbe492fe64a5b8f64dc.ctex"
+path="res://.godot/imported/Bossteleaway.png-a1f556e4cb16ba7293e97757d03bd3cc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://enemies/boss/boss_wizard/sprites/Bossteleaway.png"
-dest_files=["res://.godot/imported/Bossteleaway.png-04ed5c58b333bbbe492fe64a5b8f64dc.ctex"]
+source_file="res://enemies/boss/boss_wizard/sprites/good/Bossteleaway.png"
+dest_files=["res://.godot/imported/Bossteleaway.png-a1f556e4cb16ba7293e97757d03bd3cc.ctex"]
 
 [params]
 

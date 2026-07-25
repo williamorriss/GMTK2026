@@ -30,6 +30,8 @@ func _new_action() -> void:
 func _spawning() -> void:
 	if enemies.size() <= 0 or not _can_spawn:
 		return
+	if not _is_running:
+		return
 	_can_spawn = false
 	
 	_boss.animator.queue("summon")

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cp5j7sdugh83g"
-path="res://.godot/imported/bossteleappear-Sheet.png-37e8f95bb1112876d78d02d46dd95ffb.ctex"
+uid="uid://b34t18qipuv2w"
+path="res://.godot/imported/bossummon-Sheet.png-cd04403f56f0b8f29da6dbd245696092.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://enemies/boss/boss_wizard/sprites/bossteleappear-Sheet.png"
-dest_files=["res://.godot/imported/bossteleappear-Sheet.png-37e8f95bb1112876d78d02d46dd95ffb.ctex"]
+source_file="res://enemies/boss/boss_wizard/sprites/good/bossummon-Sheet.png"
+dest_files=["res://.godot/imported/bossummon-Sheet.png-cd04403f56f0b8f29da6dbd245696092.ctex"]
 
 [params]
 

@@ -22,6 +22,7 @@ extends Enemy
 
 var _target_position: Vector2
 var _is_dashing: bool 
+var _dying: bool = false
 
 var _current_phase: Phase
 
@@ -71,13 +72,22 @@ func _ready() -> void:
 	
 	add_to_group("enemies")
 	_switch_phase(phase1)
-	
+	health.damage(45, Vector2.ZERO, Health.Owner.Player)
 	await _dash_wait()
 
 func _process(_delta: float) -> void:
-	if _current_phase == phase1 and health.get_hp() <= health.max_health * phase_split:
+	if _current_phase == phase1 and health.get_hp() <= health.max_health * phase_split and not _dying:
+		_dying = true
 		print("Phase 2")
+		health.set_immunity(true)
+		animator.queue("death", true)
+		animator.set_pause(true)
+		await get_tree().create_timer(5.0).timeout
 		_switch_phase(phase2)
+		animator.queue("appear", true)
+		await animator.get_sprite().animation_finished
+		animator.set_pause(false)
+		_dying = false
 	
 	if not _is_dashing:
 		_current_phase.process(_delta)
@@ -86,7 +96,8 @@ func _process(_delta: float) -> void:
 		calc_closest_player()
 
 func _physics_process(delta: float) -> void:
-	_move(delta)
+	if not _dying:
+		_move(delta)
 
 func _move(delta: float) -> void:
 	agent.target_position = _target_position
@@ -101,7 +112,7 @@ func _move(delta: float) -> void:
 		velocity = velocity.move_toward(target_velocity, acceleration * delta)
 	else:
 		velocity = velocity.move_toward(Vector2.ZERO, friction * delta)
-
+	
 	var _x: bool = move_and_slide()
 
 func _dash_wait() -> void:

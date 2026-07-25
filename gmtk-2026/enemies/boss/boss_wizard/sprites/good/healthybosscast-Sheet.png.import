@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://wm8a6l3qtt6x"
-path="res://.godot/imported/healthybossdash.png-ca9e68eaa375d25d0dc6783d156c71e6.ctex"
+uid="uid://datepvoufo13a"
+path="res://.godot/imported/healthybosscast-Sheet.png-9aa599c67fe6282a5ce9cd1e7f0db2ec.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://enemies/boss/boss_wizard/sprites/healthybossdash.png"
-dest_files=["res://.godot/imported/healthybossdash.png-ca9e68eaa375d25d0dc6783d156c71e6.ctex"]
+source_file="res://enemies/boss/boss_wizard/sprites/good/healthybosscast-Sheet.png"
+dest_files=["res://.godot/imported/healthybosscast-Sheet.png-9aa599c67fe6282a5ce9cd1e7f0db2ec.ctex"]
 
 [params]
 

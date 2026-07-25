@@ -62,8 +62,6 @@ func get_random_point() -> Vector2:
 func _ready() -> void:
 	_switch_phase(phase1)
 	
-	health.damage(750)
-	
 	await _dash_wait()
 
 func _process(_delta: float) -> void:

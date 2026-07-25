@@ -10,6 +10,7 @@ func ready(boss: BossWizard) -> void:
 	
 	switch_action(actions.pick_random())
 	_target = _boss.get_random_point()
+	await _switcheroo()
 
 func process(_delta: float) -> void:
 	super.process(_delta)

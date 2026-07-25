@@ -18,6 +18,9 @@
 [ext_resource type="Resource" uid="uid://dxywjkufn5udm" path="res://abilities/conjure_weapon/weapons_data/axe.tres" id="16_ldjs3"]
 [ext_resource type="Resource" uid="uid://bbll1opty84nl" path="res://abilities/conjure_weapon/weapons_data/sword.tres" id="17_gldf1"]
 [ext_resource type="Resource" uid="uid://b1x3jnshfo2b6" path="res://abilities/conjure_weapon/weapons_data/dagger.tres" id="18_ptrxy"]
+[ext_resource type="Script" uid="uid://cpjdbycdmale" path="res://enemies/boss/boss_wizard/Phases/Phase2/Actions/missile_evil.gd" id="19_ldjs3"]
+[ext_resource type="Script" uid="uid://ir7bkqn467u2" path="res://enemies/boss/boss_wizard/Phases/Phase2/Actions/spike_evil.gd" id="20_gldf1"]
+[ext_resource type="Script" uid="uid://88c2ie4xvp3w" path="res://enemies/boss/boss_wizard/Phases/Phase2/Actions/thorn_evil.gd" id="21_ptrxy"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ln4xa"]
 radius = 93.43447
@@ -74,7 +77,7 @@ projectile = ExtResource("6_1x24s")
 
 [node name="Phase2" type="Node2D" parent="Phases" unique_id=1909016134 node_paths=PackedStringArray("actions")]
 script = ExtResource("12_wrxbn")
-actions = [NodePath("ConjureEvil")]
+actions = [NodePath("ChromaticEvil"), NodePath("ConjureEvil"), NodePath("MissileEvil"), NodePath("SpikeEvil"), NodePath("ThornEvil")]
 
 [node name="ChromaticEvil" type="Node2D" parent="Phases/Phase2" unique_id=2025216100]
 script = ExtResource("13_ougd6")
@@ -84,3 +87,15 @@ metadata/_custom_type_script = "uid://cdks3jhajyil3"
 script = ExtResource("14_ougd6")
 weapons = Array[ExtResource("15_fudb2")]([ExtResource("16_ldjs3"), ExtResource("17_gldf1"), ExtResource("18_ptrxy")])
 metadata/_custom_type_script = "uid://c2aflautrqjqy"
+
+[node name="MissileEvil" type="Node2D" parent="Phases/Phase2" unique_id=30677175]
+script = ExtResource("19_ldjs3")
+metadata/_custom_type_script = "uid://cpjdbycdmale"
+
+[node name="SpikeEvil" type="Node2D" parent="Phases/Phase2" unique_id=6154239]
+script = ExtResource("20_gldf1")
+metadata/_custom_type_script = "uid://ir7bkqn467u2"
+
+[node name="ThornEvil" type="Node2D" parent="Phases/Phase2" unique_id=1024046727]
+script = ExtResource("21_ptrxy")
+metadata/_custom_type_script = "uid://88c2ie4xvp3w"

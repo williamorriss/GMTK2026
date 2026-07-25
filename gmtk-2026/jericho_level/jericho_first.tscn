@@ -326,6 +326,8 @@ zoom = Vector2(0.15, 0.15)
 position_smoothing_enabled = true
 script = ExtResource("2_7tmev")
 player = NodePath("../Player")
+shake_strength = null
+shake_length = 1.0
 
 [node name="Player" parent="." unique_id=133342377 instance=ExtResource("2_5g432")]
 position = Vector2(2, 16)

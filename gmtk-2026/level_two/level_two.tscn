@@ -9,8 +9,11 @@
 [ext_resource type="PackedScene" uid="uid://dreqr6x7m6bqr" path="res://enemies/melee enemies/grunt.tscn" id="7_i5qm5"]
 [ext_resource type="PackedScene" uid="uid://swcxgbeey32e" path="res://enemies/beam_enemy/beam_enemy.tscn" id="8_l462i"]
 [ext_resource type="PackedScene" uid="uid://ciq5xxdrhat1g" path="res://enemies/ranged enemies/ranged_grunt.tscn" id="9_i5qm5"]
+[ext_resource type="PackedScene" uid="uid://dw220nn5hf68u" path="res://stage_hazards/spike.tscn" id="9_xosje"]
 [ext_resource type="Script" uid="uid://bcqi61pgsmrqu" path="res://jericho_level/level_end/level_end.gd" id="10_gvhay"]
+[ext_resource type="PackedScene" uid="uid://bb8ss8f1ekffj" path="res://stage_hazards/line_trap.tscn" id="11_jtx8l"]
 [ext_resource type="PackedScene" uid="uid://pcse4m0boi5d" path="res://UI/health_timer/timer_control/timer_control.tscn" id="11_p56ev"]
+[ext_resource type="PackedScene" uid="uid://gu8cs4u2qib1" path="res://stage_hazards/barrel.tscn" id="11_x2joy"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_vbklt"]
 vertices = PackedVector2Array(6525.258, -12031.797, 6530.547, -12298, 7221.797, -12770.398, 6962.172, 1534.2813, 6525.3594, -11786, -2434.539, -1654.2188, -2437.1016, -1782, -2432.2031, -1782, 1917.4609, -2166.2188, 1914.8984, -2294, 1917.0625, -2294, 2690.5469, -1290, 1922.5469, -2570, 1917.4609, -2570, 1922.1563, -2806, 2826, -2806, 2943.7969, -4618, 2941.461, -4618, 2946.5469, -4874, 3973.2969, -8694, -1400.1563, -4362, -2434.539, -4362, -2429.4531, -4618, -1402.7031, -4598, 2685.3594, -778, 2682.7969, -778, 2685.2578, -1023.7969, 5245.3594, -8458, 5242.797, -8458, 5245.258, -8703.797, 6522.797, -11786, 2685.3594, 1014, 2682.7969, 1014, 2685.3594, 758, 2682.7969, 758, 2685.3594, 502, 2682.7969, 502, 2685.3594, 246, 2682.7969, 246, 2685.3594, -10, 2682.7969, -10, 2685.3594, -266, 2682.7969, -266, 2685.3594, -522, 2682.7969, -522, 5245.3594, -3850, 5242.797, -3850, 5245.3594, -4106, 5242.797, -4106, 5245.3594, -4362, 5242.797, -4362, 5245.3594, -4618, 5242.797, -4618, 5245.3594, -4874, 5242.797, -4874, 5245.3594, -5130, 5242.797, -5130, 5245.3594, -5386, 5242.797, -5386, 5245.3594, -5642, 5242.797, -5642, 5245.3594, -5898, 5242.797, -5898, 5245.3594, -6154, 5242.797, -6154, 5245.3594, -6410, 5242.797, -6410, 5245.3594, -6666, 5242.797, -6666, 5245.3594, -6922, 5242.797, -6922, 5245.3594, -7178, 5242.797, -7178, 5245.3594, -7434, 5242.797, -7434, 5245.3594, -7690, 5242.797, -7690, 5245.3594, -7946, 5242.797, -7946, 5245.3594, -8202, 5242.797, -8202, 6525.3594, -10250, 6522.797, -10250, 6525.3594, -10506, 6522.797, -10506, 6525.3594, -10762, 6522.797, -10762, 6525.3594, -11018, 6522.797, -11018, 6525.3594, -11274, 6522.797, -11274, 6525.3594, -11530, 6522.797, -11530, 6522.703, -9984.203, 6525.461, -9846.219, 3850, -9848.453, 3850, -9850.992, 4086, -9848.641, 4086, -9718, 3973.2969, -8970, -758, -2936.4531, -758, -2938.9922, -522, -2936.6406, -522, -2806, 2314, 1415.5469, 2314, 1413, 2550, 1415.3516, 2550, 1420.7734, -1014, 1415.4531, -1014, 1413, -758, 1415.5469, -758, 1413, -502, 1415.5469, -502, 1413, -246, 1415.5469, -246, 1413, 10, 1415.5469, 10, 1413, 266, 1415.5469, 266, 1413, 522, 1415.5469, 522, 1413, 778, 1415.5469, 778, 1413, 1034, 1415.5469, 1034, 1413, 1290, 1415.5469, 1290, 1413, 1546, 1415.5469, 1546, 1413, 1802, 1415.5469, 1802, 1413, 2058, 1415.5469, 2058, 1413, 2826, -9848.547, 2826, -9850.992, 3082, -9848.453, 3082, -9850.992, 3338, -9848.453, 3338, -9850.992, 3594, -9848.453, 3594, -9850.992, -1270, -2936.5469, -1270, -2938.9922, -1014, -2936.4531, -378.5, -2314, -1014, -2938.9922, -376.15625, -2314, 2693.2969, -12022, 2695.8438, -12022, 2695.8438, -9994, 2693.5, -9994, 4231.8438, -9718, 4231.8438, -8970, 3975.8438, -8694, 3975.8438, -4362, 2943.7969, -4362, -1400.1563, -4598, -3574, -5622, -1402.7031, -4874, -3712.2031, -5622, -3712.2031, -4618, -3850, -4342, -2570, -4342, -2570, -4086, -1270, -4086, -1270, -4598, 2806, -4598, 2806, -4086, 4106, -4086, 4106, -8694, 4362, -8694, 5110, -3594, 4362, -9994, 2826, -9994, 2826, -12022, 6390, -12022, 6390, -9994, 4854, -9994, 4854, -8694, 5110, -8694, 2806, -3594, 2806, -3082, 1782, -3082, 1782, -2314, 1014, -2314, -246, -3082, 1014, -1014, 2550, -1014, 2550, 1270, -1014, 1270, -1014, -1014, 522, -1014, 522, -2314, -246, -2314, -1270, -3082, -1270, -3594, -2570, -3594, -2570, -1802, -5878, -1802, -5878, -4342, -4342, -4342, -4618, -5622, -4472.1563, -5622, -4472.1563, -4618, -6010.703, -4618, -6010.703, -4342, -6008.1563, -4342, -6008.1563, -4086, -6005.0234, -4086, -6005.0234, -1802, -6010.5, -1802, -6013.4688, -1656.5469, -5898, -1656.5469, -5898, -1526, -8493.656, 1998.6484, -2432.2031, -3318, -1400.1563, -3318, -1402.5, -3082, -1405.4688, -2936.5469, -1400.1563, -3082, -376.15625, -2806, -381.46875, -2168.5469, -266, -2168.5469, -266, -2038, -1146.7031, -1290, -2550, -1526, 391.84375, -2038, 391.84375, -1290, -1146.7031, -1014, -1144.1563, -1014, -1144.1563, 1270, -1146.5, 1270, 1151.7969, -1290, 1151.7969, -2038, 1802, -2038, 5250.547, -8970, 4991.797, -8970, 4991.797, -9718, 6410, -9718, 2941.461, -2934.2188, 2938.7031, -3072.2031, 2941.1563, -3318, 5130, -3318, 6410, -9843.656, 5242.703, -3584.2031, 5245.461, -3446.2188, -2550, -1651.6563, 1802, -2163.6563, 2826, -2931.6563, 5130, -3443.6563, -3574, -5898, 2682.7031, 1279.7969, 2685.461, 1417.7813, -1149.4688, 1415.4531, 2690.5313, -9848.547, -4618, -5898, -6799.0703, -11975.492, 2693.2969, -12298, -3850, -5898, -4342, -5898)
@@ -348,7 +351,6 @@ position = Vector2(782.15894, 4464.119)
 zoom = Vector2(0.2, 0.2)
 script = ExtResource("3_t5coh")
 player = NodePath("../Player")
-_shake_strength = 100.0
 
 [node name="doors" type="Node2D" parent="." unique_id=1626939883]
 position = Vector2(858, 4486)
@@ -397,6 +399,32 @@ position = Vector2(9.125977, 397.4812)
 color = Color(1, 1, 1, 0)
 polygon = PackedVector2Array(-1891.23, -1270.6655, 1893.77, -1260.6655, 1912.77, 26.334473, 911.77, 26.334473, 901.77, 817.3345, -766.23, 808.3345, -776.23, -2.6655273, -1911.23, -50.665527)
 
+[node name="spikes" type="Node2D" parent="Rooms/room1" unique_id=1971023635]
+
+[node name="Spikes" parent="Rooms/room1/spikes" unique_id=1629306272 instance=ExtResource("9_xosje")]
+position = Vector2(806.896, -328.18433)
+
+[node name="Spikes2" parent="Rooms/room1/spikes" unique_id=800712578 instance=ExtResource("9_xosje")]
+position = Vector2(1016.896, -328.18433)
+
+[node name="Spikes3" parent="Rooms/room1/spikes" unique_id=1029570360 instance=ExtResource("9_xosje")]
+position = Vector2(1016.896, -118.184326)
+
+[node name="Spikes4" parent="Rooms/room1/spikes" unique_id=354709905 instance=ExtResource("9_xosje")]
+position = Vector2(806.896, -118.184326)
+
+[node name="Spikes5" parent="Rooms/room1/spikes" unique_id=1906302400 instance=ExtResource("9_xosje")]
+position = Vector2(-1018.104, -328.18433)
+
+[node name="Spikes6" parent="Rooms/room1/spikes" unique_id=1414904025 instance=ExtResource("9_xosje")]
+position = Vector2(-813.104, -328.18433)
+
+[node name="Spikes7" parent="Rooms/room1/spikes" unique_id=955854214 instance=ExtResource("9_xosje")]
+position = Vector2(-1018.104, -118.184326)
+
+[node name="Spikes8" parent="Rooms/room1/spikes" unique_id=1544942335 instance=ExtResource("9_xosje")]
+position = Vector2(-813.104, -118.184326)
+
 [node name="room2" type="Node2D" parent="Rooms" unique_id=1020368191]
 position = Vector2(-3349.9556, 1293.4435)
 
@@ -408,9 +436,23 @@ camera = NodePath("../../../Camera2D")
 camera_focus = NodePath("..")
 spawn_data = Array[ExtResource("6_l462i")]([SubResource("Resource_ln4xa"), SubResource("Resource_25sw5"), SubResource("Resource_ny2g4")])
 
-[node name="Polygon2D" type="Polygon2D" parent="Rooms/room2" unique_id=452199241]
+[node name="Polygon2D" type="Polygon2D" parent="Rooms/room2" unique_id=1096083683]
 color = Color(1, 1, 1, 0)
-polygon = PackedVector2Array(-4876, 285, -1868, 294, -1824, 2569, -4890, 2537)
+polygon = PackedVector2Array(-1528.0444, -1034.4435, 1460.9556, -1002.4435, 1449.9556, 1241.5565, -1465.0444, 1241.5565)
+
+[node name="barrels" type="Node2D" parent="Rooms/room2" unique_id=1611579732]
+
+[node name="Barrel" parent="Rooms/room2/barrels" unique_id=799897172 instance=ExtResource("11_x2joy")]
+position = Vector2(966.95557, 754.5565)
+
+[node name="Barrel2" parent="Rooms/room2/barrels" unique_id=568508725 instance=ExtResource("11_x2joy")]
+position = Vector2(966.95557, -788.4435)
+
+[node name="Barrel3" parent="Rooms/room2/barrels" unique_id=193949438 instance=ExtResource("11_x2joy")]
+position = Vector2(-1254.0444, -788.4435)
+
+[node name="Barrel4" parent="Rooms/room2/barrels" unique_id=862019344 instance=ExtResource("11_x2joy")]
+position = Vector2(-1254.0444, 754.5565)
 
 [node name="room3" type="Node2D" parent="Rooms" unique_id=512532852]
 position = Vector2(-3129.0693, -3159.8057)
@@ -427,6 +469,33 @@ spawn_data = Array[ExtResource("6_l462i")]([SubResource("Resource_25sw5"), SubRe
 color = Color(1, 1, 1, 0)
 polygon = PackedVector2Array(-1752.9307, -971.19434, 2270.0693, -946.19434, 2296.0693, 906.80566, 265.06934, 919.80566, 253.06934, 1630.8057, -1764.9307, 1630.8057)
 
+[node name="lasers" type="Node2D" parent="Rooms/room3" unique_id=1354264406]
+
+[node name="LineTrap" parent="Rooms/room3/lasers" unique_id=208241967 node_paths=PackedStringArray("t") instance=ExtResource("11_jtx8l")]
+position = Vector2(-1048.3193, -1062.1104)
+t = NodePath("target")
+
+[node name="target" type="Node2D" parent="Rooms/room3/lasers/LineTrap" unique_id=1711194196]
+position = Vector2(0.38867188, 2870.916)
+
+[node name="LineTrap2" parent="Rooms/room3/lasers" unique_id=1007024770 node_paths=PackedStringArray("t") instance=ExtResource("11_jtx8l")]
+position = Vector2(1324.363, -1110.8276)
+t = NodePath("target")
+
+[node name="target" type="Node2D" parent="Rooms/room3/lasers/LineTrap2" unique_id=1269079242]
+position = Vector2(-0.29370117, 2111.6333)
+
+[node name="barrels" type="Node2D" parent="Rooms/room3" unique_id=1753135315]
+
+[node name="Barrel" parent="Rooms/room3/barrels" unique_id=775879357 instance=ExtResource("11_x2joy")]
+position = Vector2(128.06934, -573.19434)
+
+[node name="Barrel2" parent="Rooms/room3/barrels" unique_id=577622948 instance=ExtResource("11_x2joy")]
+position = Vector2(1948.0693, 694.80566)
+
+[node name="Barrel3" parent="Rooms/room3/barrels" unique_id=116465922 instance=ExtResource("11_x2joy")]
+position = Vector2(-1474.9307, 694.80566)
+
 [node name="room4" type="Node2D" parent="Rooms" unique_id=1483649521]
 position = Vector2(2164.6025, -3014.28)
 
@@ -441,6 +510,128 @@ spawn_data = Array[ExtResource("6_l462i")]([SubResource("Resource_ln4xa"), SubRe
 [node name="Polygon2D" type="Polygon2D" parent="Rooms/room4" unique_id=1933593365]
 color = Color(1, 1, 1, 0)
 polygon = PackedVector2Array(-1383.6025, -1839.72, 1345.3975, -1839.72, 1383.3975, 2043.28, -1421.6025, 2018.28)
+
+[node name="spikes" type="Node2D" parent="Rooms/room4" unique_id=502647854]
+
+[node name="Spikes" parent="Rooms/room4/spikes" unique_id=1399771925 instance=ExtResource("9_xosje")]
+position = Vector2(-899.60254, 1556.28)
+
+[node name="Spikes21" parent="Rooms/room4/spikes" unique_id=2005353730 instance=ExtResource("9_xosje")]
+position = Vector2(-899.60254, -1597.72)
+
+[node name="Spikes22" parent="Rooms/room4/spikes" unique_id=737881996 instance=ExtResource("9_xosje")]
+position = Vector2(-695.60254, -1597.72)
+
+[node name="Spikes23" parent="Rooms/room4/spikes" unique_id=1501960847 instance=ExtResource("9_xosje")]
+position = Vector2(-490.60254, -1597.72)
+
+[node name="Spikes24" parent="Rooms/room4/spikes" unique_id=1375600797 instance=ExtResource("9_xosje")]
+position = Vector2(-292.60254, -1597.72)
+
+[node name="Spikes25" parent="Rooms/room4/spikes" unique_id=1921292612 instance=ExtResource("9_xosje")]
+position = Vector2(-96.60254, -1597.72)
+
+[node name="Spikes26" parent="Rooms/room4/spikes" unique_id=261298187 instance=ExtResource("9_xosje")]
+position = Vector2(106.39746, -1597.72)
+
+[node name="Spikes27" parent="Rooms/room4/spikes" unique_id=1212958746 instance=ExtResource("9_xosje")]
+position = Vector2(317.39746, -1597.72)
+
+[node name="Spikes28" parent="Rooms/room4/spikes" unique_id=302395058 instance=ExtResource("9_xosje")]
+position = Vector2(527.39746, -1597.72)
+
+[node name="Spikes29" parent="Rooms/room4/spikes" unique_id=866493377 instance=ExtResource("9_xosje")]
+position = Vector2(696.39746, -1597.72)
+
+[node name="Spikes30" parent="Rooms/room4/spikes" unique_id=782359721 instance=ExtResource("9_xosje")]
+position = Vector2(909.39746, -1597.72)
+
+[node name="Spikes11" parent="Rooms/room4/spikes" unique_id=931949627 instance=ExtResource("9_xosje")]
+position = Vector2(-899.60254, 421.28003)
+
+[node name="Spikes12" parent="Rooms/room4/spikes" unique_id=1244082341 instance=ExtResource("9_xosje")]
+position = Vector2(-695.60254, 421.28003)
+
+[node name="Spikes13" parent="Rooms/room4/spikes" unique_id=1443729340 instance=ExtResource("9_xosje")]
+position = Vector2(-490.60254, 421.28003)
+
+[node name="Spikes14" parent="Rooms/room4/spikes" unique_id=1005741783 instance=ExtResource("9_xosje")]
+position = Vector2(-292.60254, 421.28003)
+
+[node name="Spikes15" parent="Rooms/room4/spikes" unique_id=374687466 instance=ExtResource("9_xosje")]
+position = Vector2(-96.60254, 421.28003)
+
+[node name="Spikes16" parent="Rooms/room4/spikes" unique_id=1802870972 instance=ExtResource("9_xosje")]
+position = Vector2(106.39746, 421.28003)
+
+[node name="Spikes17" parent="Rooms/room4/spikes" unique_id=563012201 instance=ExtResource("9_xosje")]
+position = Vector2(317.39746, 421.28003)
+
+[node name="Spikes18" parent="Rooms/room4/spikes" unique_id=1279098818 instance=ExtResource("9_xosje")]
+position = Vector2(527.39746, 421.28003)
+
+[node name="Spikes19" parent="Rooms/room4/spikes" unique_id=598580181 instance=ExtResource("9_xosje")]
+position = Vector2(696.39746, 421.28003)
+
+[node name="Spikes20" parent="Rooms/room4/spikes" unique_id=140309662 instance=ExtResource("9_xosje")]
+position = Vector2(909.39746, 421.28003)
+
+[node name="Spikes2" parent="Rooms/room4/spikes" unique_id=194952055 instance=ExtResource("9_xosje")]
+position = Vector2(-695.60254, 1556.28)
+
+[node name="Spikes3" parent="Rooms/room4/spikes" unique_id=73901051 instance=ExtResource("9_xosje")]
+position = Vector2(-292.60254, 1556.28)
+
+[node name="Spikes4" parent="Rooms/room4/spikes" unique_id=1822191636 instance=ExtResource("9_xosje")]
+position = Vector2(-490.60254, 1556.28)
+
+[node name="Spikes5" parent="Rooms/room4/spikes" unique_id=1929110650 instance=ExtResource("9_xosje")]
+position = Vector2(-96.60254, 1556.28)
+
+[node name="Spikes6" parent="Rooms/room4/spikes" unique_id=1707669254 instance=ExtResource("9_xosje")]
+position = Vector2(106.39746, 1556.28)
+
+[node name="Spikes7" parent="Rooms/room4/spikes" unique_id=1250955994 instance=ExtResource("9_xosje")]
+position = Vector2(299.39746, 1556.28)
+
+[node name="Spikes8" parent="Rooms/room4/spikes" unique_id=836475343 instance=ExtResource("9_xosje")]
+position = Vector2(495.39746, 1556.28)
+
+[node name="Spikes9" parent="Rooms/room4/spikes" unique_id=1213813448 instance=ExtResource("9_xosje")]
+position = Vector2(696.39746, 1556.28)
+
+[node name="Spikes10" parent="Rooms/room4/spikes" unique_id=2082313271 instance=ExtResource("9_xosje")]
+position = Vector2(909.39746, 1556.28)
+
+[node name="lasers" type="Node2D" parent="Rooms/room4" unique_id=2040740931]
+
+[node name="LineTrap" parent="Rooms/room4/lasers" unique_id=1470612696 node_paths=PackedStringArray("t") instance=ExtResource("11_jtx8l")]
+position = Vector2(-1462.6025, 957.28)
+t = NodePath("target")
+
+[node name="target" type="Node2D" parent="Rooms/room4/lasers/LineTrap" unique_id=560188491]
+position = Vector2(2939.5762, 37.667725)
+
+[node name="LineTrap2" parent="Rooms/room4/lasers" unique_id=1525944319 node_paths=PackedStringArray("t") instance=ExtResource("11_jtx8l")]
+position = Vector2(-1462.6025, -1116.72)
+t = NodePath("target")
+
+[node name="target" type="Node2D" parent="Rooms/room4/lasers/LineTrap2" unique_id=1334390769]
+position = Vector2(2939.5762, 37.667725)
+
+[node name="barrels" type="Node2D" parent="Rooms/room4" unique_id=659915870]
+
+[node name="Barrel" parent="Rooms/room4/barrels" unique_id=1836039337 instance=ExtResource("11_x2joy")]
+position = Vector2(1196.3975, -17.71997)
+
+[node name="Barrel4" parent="Rooms/room4/barrels" unique_id=68955725 instance=ExtResource("11_x2joy")]
+position = Vector2(106.39746, -718.72)
+
+[node name="Barrel2" parent="Rooms/room4/barrels" unique_id=1003522379 instance=ExtResource("11_x2joy")]
+position = Vector2(26.39746, 1021.28)
+
+[node name="Barrel3" parent="Rooms/room4/barrels" unique_id=1251223205 instance=ExtResource("11_x2joy")]
+position = Vector2(26.39746, 1021.28)
 
 [node name="room5" type="Node2D" parent="Rooms" unique_id=2039656498]
 position = Vector2(5490.7344, -1676.9248)
@@ -457,6 +648,29 @@ spawn_data = Array[ExtResource("6_l462i")]([SubResource("Resource_ln4xa"), SubRe
 color = Color(1, 1, 1, 0)
 polygon = PackedVector2Array(-432.73438, -2457.0752, 396.26563, -2457.0752, 409.26563, 2447.9248, -391.73438, 2466.9248)
 
+[node name="line_trap" type="Node2D" parent="Rooms/room5" unique_id=1246688484]
+
+[node name="LineTrap" parent="Rooms/room5/line_trap" unique_id=50234879 node_paths=PackedStringArray("t") instance=ExtResource("11_jtx8l")]
+position = Vector2(-500.73438, 1991.9248)
+t = NodePath("target")
+
+[node name="target" type="Node2D" parent="Rooms/room5/line_trap/LineTrap" unique_id=934007890]
+position = Vector2(910, 0)
+
+[node name="LineTrap2" parent="Rooms/room5/line_trap" unique_id=21757459 node_paths=PackedStringArray("t") instance=ExtResource("11_jtx8l")]
+position = Vector2(-534.6865, 155.13525)
+t = NodePath("target")
+
+[node name="target" type="Node2D" parent="Rooms/room5/line_trap/LineTrap2" unique_id=1565139002]
+position = Vector2(910, 0)
+
+[node name="LineTrap3" parent="Rooms/room5/line_trap" unique_id=1617234127 node_paths=PackedStringArray("t") instance=ExtResource("11_jtx8l")]
+position = Vector2(-470.73438, -1272.0752)
+t = NodePath("target")
+
+[node name="target" type="Node2D" parent="Rooms/room5/line_trap/LineTrap3" unique_id=1868377202]
+position = Vector2(910, 0)
+
 [node name="room6" type="Node2D" parent="Rooms" unique_id=1304136584]
 position = Vector2(5511.541, -6584.133)
 
@@ -471,6 +685,61 @@ spawn_data = Array[ExtResource("6_l462i")]([SubResource("Resource_ln4xa"), SubRe
 [node name="Polygon2D" type="Polygon2D" parent="Rooms/room6" unique_id=1792947920]
 color = Color(1, 1, 1, 0)
 polygon = PackedVector2Array(-1718.541, -878.8672, 1580.459, -855.8672, 1557.459, 990.1328, -1718.541, 944.1328)
+
+[node name="spikes" type="Node2D" parent="Rooms/room6" unique_id=972398142]
+
+[node name="Spikes" parent="Rooms/room6/spikes" unique_id=706636166 instance=ExtResource("9_xosje")]
+position = Vector2(-453.54102, -420.8672)
+
+[node name="Spikes2" parent="Rooms/room6/spikes" unique_id=1316531148 instance=ExtResource("9_xosje")]
+position = Vector2(-453.54102, 133.13281)
+
+[node name="Spikes3" parent="Rooms/room6/spikes" unique_id=1416892727 instance=ExtResource("9_xosje")]
+position = Vector2(-247.54102, -420.8672)
+
+[node name="Spikes6" parent="Rooms/room6/spikes" unique_id=513031924 instance=ExtResource("9_xosje")]
+position = Vector2(-51.541016, -420.8672)
+
+[node name="Spikes7" parent="Rooms/room6/spikes" unique_id=948230400 instance=ExtResource("9_xosje")]
+position = Vector2(152.45898, -420.8672)
+
+[node name="Spikes8" parent="Rooms/room6/spikes" unique_id=589103734 instance=ExtResource("9_xosje")]
+position = Vector2(354.45898, -420.8672)
+
+[node name="Spikes9" parent="Rooms/room6/spikes" unique_id=741685322 instance=ExtResource("9_xosje")]
+position = Vector2(354.45898, -241.86719)
+
+[node name="Spikes10" parent="Rooms/room6/spikes" unique_id=223924128 instance=ExtResource("9_xosje")]
+position = Vector2(354.45898, -58.867188)
+
+[node name="Spikes11" parent="Rooms/room6/spikes" unique_id=466038423 instance=ExtResource("9_xosje")]
+position = Vector2(354.45898, 133.13281)
+
+[node name="Spikes12" parent="Rooms/room6/spikes" unique_id=1509658847 instance=ExtResource("9_xosje")]
+position = Vector2(354.45898, 339.1328)
+
+[node name="Spikes13" parent="Rooms/room6/spikes" unique_id=941043326 instance=ExtResource("9_xosje")]
+position = Vector2(-453.54102, 339.1328)
+
+[node name="Spikes14" parent="Rooms/room6/spikes" unique_id=934206442 instance=ExtResource("9_xosje")]
+position = Vector2(-247.54102, 339.1328)
+
+[node name="Spikes15" parent="Rooms/room6/spikes" unique_id=1602569698 instance=ExtResource("9_xosje")]
+position = Vector2(-51.541016, 339.1328)
+
+[node name="Spikes16" parent="Rooms/room6/spikes" unique_id=1736119556 instance=ExtResource("9_xosje")]
+position = Vector2(152.45898, 339.1328)
+
+[node name="Spikes4" parent="Rooms/room6/spikes" unique_id=1621462764 instance=ExtResource("9_xosje")]
+position = Vector2(-453.54102, -58.867188)
+
+[node name="Spikes5" parent="Rooms/room6/spikes" unique_id=756173173 instance=ExtResource("9_xosje")]
+position = Vector2(-453.54102, -241.86719)
+
+[node name="barrels" type="Node2D" parent="Rooms/room6" unique_id=1636583717]
+
+[node name="Barrel" parent="Rooms/room6/barrels" unique_id=1944300502 instance=ExtResource("11_x2joy")]
+position = Vector2(-51.541016, -58.867188)
 
 [node name="EndLevel" type="Area2D" parent="." unique_id=519920891]
 position = Vector2(1622.1421, -5937.5073)

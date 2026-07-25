@@ -36,6 +36,7 @@ extends CharacterBody2D
 @onready var _flash_shader: Shader = preload("res://player/flash.gdshader")
 @onready var _flash: ShaderMaterial = ShaderMaterial.new()
 
+
 var _dash_timer: float = 0.0
 var _dash_cooldown_timer: float = 0.0
 var _dash_direction: Vector2 = Vector2.ZERO

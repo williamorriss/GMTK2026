@@ -38,6 +38,7 @@ var _can_attack: bool = true
 
 func _ready() -> void:
 	super._ready()
+	
 	add_to_group("enemies")
 	var _x: int = health.on_dead.connect(_on_dead)
 

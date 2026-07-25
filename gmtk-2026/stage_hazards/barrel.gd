@@ -8,10 +8,15 @@ extends RigidBody2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	add_to_group("enemies")
 	_animation.play("explode")
 
 
+func _process(delta) -> void:
+	print(_health.get_hp())
+	
 func _on_health_on_dead() -> void:
+	
 	_animation.play("explode")
 	for body: Node2D in _explosion.get_overlapping_bodies():
 		var space_state: PhysicsDirectSpaceState2D = get_world_2d().direct_space_state
@@ -20,7 +25,7 @@ func _on_health_on_dead() -> void:
 			body.global_position
 		)
 		
-		query.collision_mask = 1 | 2 | 4  # bit 0, i.e. layer 1 — adjust as needed
+		query.collision_mask = 1 | 4  # bit 0, i.e. layer 1 — adjust as needed
 		
 		query.exclude = [_explosion]
 		
@@ -30,9 +35,11 @@ func _on_health_on_dead() -> void:
 			# Line of sight
 			if result.collider == body:
 				var target_health: Health = Health.get_health(body)
-				target_health.damage(damage)
+				if target_health:
+					target_health.damage(damage)
 		else:
 			# no collision in between
 			var target_health: Health = Health.get_health(body)
-			target_health.damage(damage)
+			if target_health:
+				target_health.damage(damage)
 		

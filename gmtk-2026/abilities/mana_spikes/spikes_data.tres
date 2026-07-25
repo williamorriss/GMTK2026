@@ -1,7 +1,11 @@
 [gd_resource type="Resource" script_class="AbilityData" format=3 uid="uid://mvrniryum700"]
 
 [ext_resource type="Script" uid="uid://ddj5n2nhn7cnq" path="res://abilities/ability_data.gd" id="1_sg3q6"]
+[ext_resource type="Texture2D" uid="uid://bjcl1db54nlqq" path="res://UI/menu/profile_pics/Leo.png" id="2_7ly3k"]
 
 [resource]
 script = ExtResource("1_sg3q6")
+symbol = ExtResource("2_7ly3k")
+name = "Mana Spikes"
+cost = 2
 metadata/_custom_type_script = "uid://ddj5n2nhn7cnq"

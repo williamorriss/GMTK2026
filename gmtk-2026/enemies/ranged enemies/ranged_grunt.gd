@@ -18,7 +18,7 @@ var _can_attack: bool = true
 
 func _ready() -> void:
 	add_to_group("enemies")
-	health.on_dead.connect(_on_dead)
+	var _x: int = health.on_dead.connect(_on_dead)
 	
 	var rot: float = randf_range(0, 2 * PI)
 	_offset = Vector2(cos(rot), sin(rot)) * offset_distance
@@ -28,7 +28,7 @@ func _physics_process(_delta: float) -> void:
 		calc_closest_player()
 		return
 		
-	attack()
+	await attack()
 	
 	agent.target_position = _closest_player.position + _offset
 	
@@ -70,5 +70,5 @@ func _can_see(target: Vector2) -> bool:
 	
 	return result.is_empty()
 
-func _on_dead() -> void:
+func _on_dead(_dealer: Health.Owner, taker: Health.Owner, direction: Vector2) -> void:
 	queue_free()

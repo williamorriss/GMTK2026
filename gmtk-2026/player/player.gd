@@ -18,11 +18,15 @@ extends CharacterBody2D
 @export_group("Combat")
 @export var intagible_time: float = 0.5
 
+@export_group("Step")
+@export var step_pitch: Vector2 = Vector2(0.75, 1.25)
+@export var step_length: Vector2 = Vector2(0.25, 1.0)
+@export var step_audio: AudioStream
+
 @export_group("Animation")
 @onready var animation: AnimatedSprite2D = $AnimatedSprite2D
 @export var hit_frames: int = 5
 
-@onready var casting_pivot = $CastingPivot
 
 var _dashing: bool = false
 var _dash_timer: float = 0.0
@@ -32,6 +36,8 @@ var _dash_direction: Vector2 = Vector2.ZERO
 var _hit_intangible_timer: float = 0.0
 var _hit_intangible: bool = false
 
+var _should_step: bool = true
+
 func _ready() -> void:
 	add_to_group("players")
 	var _x: int = health.on_dead.connect(_die)
@@ -39,6 +45,11 @@ func _ready() -> void:
 	
 
 func _physics_process(delta: float) -> void:
+	if _should_step and velocity.length() >= 1:
+		_should_step = false
+		var _x: bool = get_tree().create_timer(randf_range(step_length.x, step_length.y)).timeout.connect(func() -> void: _should_step = true)
+		#AudioManager.play_sfx(step_audio, 0.0, randf_range())
+	
 	_hit_intangible_timer = max(0.0, _hit_intangible_timer - delta)
 	if _hit_intangible_timer <= 0.0 and _hit_intangible:
 		_hit_intangible = false
@@ -101,13 +112,13 @@ func animate(dir: Vector2) -> void:
 func _i_frames(value: bool) -> void:
 	health.set_immunity(value)
 
-func _die() -> void: # should play death anim here
+func _die(dealer: Health.Owner, taker: Health.Owner, direction: Vector2) -> void: # should play death anim here
 	HealthTimer.stop_timer()
 	await SceneTransition.change_scene(death_screen)
 	queue_free()
 
 
-func _on_health_on_damage_taken(value: float, new_hp: float) -> void:
+func _on_health_on_damage_taken(deler: Health.Owner, taker: Health.Owner, value: float, new_hp: float) -> void:
 	_hit_intangible_timer = intagible_time
 	health.set_immunity(true)
 	_hit_intangible = true

@@ -31,7 +31,7 @@ static func create_orb(player: Player, is_evil: bool, target: Vector2) -> Chroma
 	return instance
 
 func _ready() -> void:
-	position = _player.casting_pivot.global_position
+	position = _player.global_position
 	
 	if _is_evil:
 		_direction = position.direction_to(_target)
@@ -67,5 +67,9 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		return
 	
 	var health: Health = Health.get_health(body)
+	var dir: Vector2 = global_position.direction_to(body.global_position)
 	if health:
-		health.damage(damage)
+		if _is_evil:
+			health.damage(damage, dir, Health.Owner.Enemy)
+		else:
+			health.damage(damage, dir, Health.Owner.Player)

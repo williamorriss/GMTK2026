@@ -8,7 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://dpc1s630jjyk5" path="res://sprites/hurt.jpg" id="6_hg6s5"]
 [ext_resource type="Texture2D" uid="uid://dni7teexddimj" path="res://sprites/idle.jpg" id="7_8t03j"]
 [ext_resource type="Texture2D" uid="uid://cfeqtos6sscp5" path="res://sprites/run.jpg" id="8_2ieo8"]
-[ext_resource type="Script" uid="uid://b3cwt6nvrntqc" path="res://player/casting_pivot.gd" id="9_hg6s5"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tmfgs"]
 radius = 98.4124
@@ -75,13 +74,5 @@ animation = &"hurt"
 
 [node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="." unique_id=1452965748]
 radius = 40.0
-
-[node name="CastingPivot" type="Node2D" parent="." unique_id=1658283857]
-position = Vector2(133, 0)
-script = ExtResource("9_hg6s5")
-
-[node name="Sprite2D" type="Sprite2D" parent="CastingPivot" unique_id=921519262]
-scale = Vector2(0.1458062, 0.15277463)
-texture = ExtResource("2_onrkg")
 
 [connection signal="on_damage_taken" from="Health" to="." method="_on_health_on_damage_taken"]

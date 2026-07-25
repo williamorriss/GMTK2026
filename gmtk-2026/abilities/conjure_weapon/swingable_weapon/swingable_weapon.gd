@@ -14,6 +14,7 @@ extends Node2D
 
 var _player: Node2D
 var _angle: float
+var _evil: bool = false
 
 signal on_finished
 
@@ -22,9 +23,11 @@ func set_player(player: Node2D) -> void:
 
 func set_angle(value: float) -> void:
 	_angle = value
+	
 func set_evil() -> void:
 	collider.set_collision_mask_value(2, false)
 	collider.set_collision_mask_value(1, true)
+	_evil = true
 
 func _ready() -> void:
 	if not _player:
@@ -53,5 +56,9 @@ func _on_body_entered(body: Node2D) -> void:
 		return
 	
 	var health: Health = Health.get_health(body)
+	var direction = body.global_position - global_position
 	if health:
-		health.damage(damage)
+		if _evil:
+			health.damage(damage, direction.normalized(), Health.Owner.Enemy)
+		else:
+			health.damage(damage, direction.normalized(), Health.Owner.Player)

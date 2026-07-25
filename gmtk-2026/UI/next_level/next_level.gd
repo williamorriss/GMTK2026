@@ -98,13 +98,13 @@ func _on_replace_1_pressed() -> void:
 	await _next_scene()
 
 func _on_replace_2_pressed() -> void:
-	StateHolder.set_current_ability(0, _current_selection)
+	StateHolder.set_current_ability(1, _current_selection)
 	await _next_scene()
 
 func _on_replace_3_pressed() -> void:
-	StateHolder.set_current_ability(0, _current_selection)
+	StateHolder.set_current_ability(2, _current_selection)
 	await _next_scene()
 
 func _on_replace_4_pressed() -> void:
-	StateHolder.set_current_ability(0, _current_selection)
+	StateHolder.set_current_ability(3, _current_selection)
 	await _next_scene()

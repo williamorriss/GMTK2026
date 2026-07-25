@@ -6,6 +6,7 @@
 
 [resource]
 script = ExtResource("1_o8fiv")
+name = "Sword"
 extra_cost = 1
 swingable = ExtResource("2_1143o")
 throwable = ExtResource("2_ryvah")

@@ -12,10 +12,12 @@ extends Area2D
 @export var life_span: float = 2
 
 var _direction: Vector2
+var _evil: bool = false
 
 func set_evil() -> void:
 	set_collision_mask_value(2, false)
 	set_collision_mask_value(1, true)
+	_evil = true
 
 func set_direction(direction: Vector2) -> void:
 	_direction = direction
@@ -31,9 +33,13 @@ func _destroy() -> void:
 	queue_free()
 
 func _on_body_entered(body: Node2D) -> void:
-	if not body.is_in_group("enemies") and not not body.is_in_group("players"):
-		return
-	
+	print(body)
 	var health: Health = Health.get_health(body)
 	if health:
-		health.damage(throw_damage)
+		var dir = global_position.direction_to(body.global_position)
+		if _evil:
+			health.damage(throw_damage, dir, Health.Owner.Enemy)
+		else:
+			health.damage(throw_damage, dir, Health.Owner.Player)
+
+	_destroy()

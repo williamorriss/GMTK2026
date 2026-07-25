@@ -1,15 +1,24 @@
 class_name SentryBody
 extends Node2D
 
+@export var health: Health
 @export var cooldown: float = 0.5
+@export var max_time: float = 10
 
 var _can_shoot: bool = true
+
+func _ready() -> void:
+	add_to_group("players")
+	health.on_dead.connect(queue_free)
+	get_tree().create_timer(max_time).timeout.connect(queue_free)
 
 func _process(_delta: float) -> void:
 	if not _can_shoot:
 		return
 	
 	var closest: Node2D = _get_closest()
+	if not closest:
+		return
 	
 	if _can_see(closest):
 		_can_shoot = false
@@ -31,12 +40,11 @@ func _get_closest() -> Node2D:
 			closest = enemy
 	
 	return closest
-	
 
 func _can_see(target: Node2D) -> bool:
 	var space_state: PhysicsDirectSpaceState2D = get_world_2d().direct_space_state
 	
-	var query: PhysicsRayQueryParameters2D = PhysicsRayQueryParameters2D.create(position, target.position)
+	var query: PhysicsRayQueryParameters2D = PhysicsRayQueryParameters2D.create(global_position, target.global_position)
 	
 	var wall_layer: int = 3 # placeholder for the walls
 	query.collision_mask = 1 << (wall_layer - 1)

@@ -22,6 +22,8 @@ extends CharacterBody2D
 @onready var animation: AnimatedSprite2D = $AnimatedSprite2D
 @export var hit_frames: int = 5
 
+@onready var casting_pivot = $CastingPivot
+
 var _dashing: bool = false
 var _dash_timer: float = 0.0
 var _dash_cooldown_timer: float = 0.0
@@ -42,7 +44,11 @@ func _physics_process(delta: float) -> void:
 		_hit_intangible = false
 		health.set_immunity(false)
 	_move(delta)
+	nav()
 
+func nav() -> void:
+	$NavigationObstacle2D.velocity = velocity
+	
 
 func _move(delta: float) -> void:
 	var input_dir: Vector2 = Vector2(
@@ -93,14 +99,7 @@ func animate(dir: Vector2) -> void:
 # [NOTE] bullet can still get destoryed when hitting but wont deal damage
 # Will don't change the mask, even if you remove mask from abilities here, projectiles can still detect player
 func _i_frames(value: bool) -> void:
-	#powers of two
-	if value:
-		collision_mask = 4
-	else:
-		collision_mask = 2 | 4
-		
 	health.set_immunity(value)
-	
 
 func _die() -> void: # should play death anim here
 	HealthTimer.stop_timer()

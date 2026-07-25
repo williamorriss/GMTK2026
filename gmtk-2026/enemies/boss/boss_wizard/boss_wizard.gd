@@ -27,6 +27,9 @@ var _current_phase: Phase
 func get_closet_player() -> Node2D:
 	return _closest_player
 
+func get_current_phase() -> Phase:
+	return _current_phase
+
 func set_new_target(target: Vector2) -> void:
 	_target_position = target
 
@@ -63,11 +66,13 @@ func get_random_point() -> Vector2:
 	return Vector2.ZERO
 
 func _ready() -> void:
+	add_to_group("enemies")
 	_switch_phase(phase1)
 	
 	await _dash_wait()
 
 func _process(_delta: float) -> void:
+	print(health.get_hp())
 	if _current_phase == phase1 and health.get_hp() <= health.max_health * phase_split:
 		print("Phase 2")
 		_switch_phase(phase2)
@@ -103,5 +108,8 @@ func _dash_wait() -> void:
 		await get_tree().create_timer(dash_duration).timeout
 
 func _switch_phase(new_phase: Phase) -> void:
+	if _current_phase:
+		_current_phase.exit()
+	
 	new_phase.ready(self)
 	_current_phase = new_phase

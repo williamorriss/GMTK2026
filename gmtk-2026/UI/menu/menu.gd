@@ -11,8 +11,10 @@ extends CanvasLayer
 
 @export_group("Audio")
 @export var select_audio: AudioStream 
+@export var menu_music: AudioStream
 
 func _ready() -> void:
+	AudioManager.queue_music(menu_music)
 	menuControl.visible = true
 	optionsControl.visible = false
 	creditsControl.visible = false

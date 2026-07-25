@@ -2,6 +2,8 @@ extends Node2D
 
 var _current_abilities: Array[Ability] = [null, null, null, null]
 
+signal camera_shake(strength: float, length: float)
+
 # [NOTE] this is a test for now initial abilities will change
 func _init() -> void:
 	set_default_abilities()

@@ -21,6 +21,9 @@ func process(_delta: float) -> void:
 		_target = _boss.get_random_point()
 
 func _switcheroo() -> void:
-	while true:
+	while _is_running:
+		if not _boss._current_phase is Phase2:
+			return
+		
 		await get_tree().create_timer(randf_range(cooldown.x, cooldown.y)).timeout
 		switch_action(actions.pick_random())

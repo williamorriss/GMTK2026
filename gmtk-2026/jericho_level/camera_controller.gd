@@ -19,10 +19,10 @@ func _ready() -> void:
 	_noise.frequency = 20.0
 	
 	var _x: bool = StateHolder.camera_shake.connect(add_trauma)
-	StateHolder.camera_shake.emit(200, 2)
+	StateHolder.camera_shake.emit(100, 2)
 
 func _process(delta: float) -> void:
-	if _is_following:
+	if _is_following and player:
 		position = player.position
 	
 	_time += delta

@@ -8,7 +8,8 @@ func _ready() -> void:
 	
 	var health: Health = Health.get_health(self)
 	if health:
-		var _x: bool = health.on_damage_taken.connect(_damage_sound)
+		var _x: bool = health.on_dead.connect(_death)
+		var _y: bool = health.on_damage_taken.connect(_damage_sound)
 	
 	calc_closest_player()
 
@@ -24,6 +25,11 @@ static func force_recalc(tree: SceneTree) -> void:
 	var enemies: Array[Node] = tree.get_nodes_in_group("enemies")
 	for enemy: Enemy in enemies:
 		enemy.calc_closest_player()
+
+func _death(dealer: Health.Owner, taker: Health.Owner, direction: Vector2) -> void:
+	var instance: Node2D = preload("res://ParticleSystem/blood_particle.tscn").instantiate()
+	instance.global_position = global_position
+	get_tree().current_scene.add_child(instance)
 
 func _damage_sound(dealer: Health.Owner, taker: Health.Owner, value: float, new_hp: float) -> void:
 	AudioManager.play_sfx(preload("res://audio/sfx/hitEnemy.wav"))

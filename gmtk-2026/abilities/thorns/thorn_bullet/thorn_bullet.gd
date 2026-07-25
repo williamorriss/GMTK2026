@@ -33,5 +33,10 @@ func _on_body_entered(body: Node2D) -> void:
 				health.damage(damage, dir, Health.Owner.Enemy)
 			else:
 				health.damage(damage, dir, Health.Owner.Player)
-
+	
+	var instance: Node2D = preload("res://ParticleSystem/projectile_particle.tscn").instantiate()
+	instance.global_position = global_position
+	instance.global_position = global_position
+	get_tree().current_scene.add_child(instance)
+	
 	queue_free()

@@ -6,11 +6,10 @@ extends Action
 @export var enemies: Array[PackedScene]
 
 var _target: Vector2
-var _can_spawn: bool
+var _can_spawn: bool = true
 
 func ready(boss: BossWizard, phase: Phase) -> void:
 	super(boss, phase)
-	print("readied")
 	
 	_target = _boss.get_random_point()
 	_boss.set_new_target(_target)
@@ -32,6 +31,8 @@ func _spawning() -> void:
 	if enemies.size() <= 0 or not _can_spawn:
 		return
 	_can_spawn = false
+	
+	_boss.animator.queue("summon")
 	
 	var instance: Enemy = enemies.pick_random().instantiate()
 	instance.global_position = _boss.global_position

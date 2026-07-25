@@ -21,6 +21,7 @@ func ready(boss: BossWizard, phase: Phase) -> void:
 	
 	for i: int in range(teleport_amount.x, teleport_amount.y):
 		await get_tree().create_timer(randf_range(teleport_delay.x, teleport_delay.y)).timeout
+		_boss.animator.queue("summon")
 		_spawn_enemies()
 		await get_tree().create_timer(randf_range(spawn_delay.x, spawn_delay.y)).timeout
 		_boss.global_position = _boss.get_random_point()

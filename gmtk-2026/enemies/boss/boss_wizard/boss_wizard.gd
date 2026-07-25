@@ -5,6 +5,7 @@ extends Enemy
 @export var play_area: Polygon2D
 @export var agent: NavigationAgent2D
 @export var health: Health
+@export var animator: BossAnimator
 
 @export_group("Phase")
 @export var phase_split: float = 0.5
@@ -78,7 +79,8 @@ func _process(_delta: float) -> void:
 		print("Phase 2")
 		_switch_phase(phase2)
 	
-	_current_phase.process(_delta)
+	if not _is_dashing:
+		_current_phase.process(_delta)
 	
 	if not _closest_player:
 		calc_closest_player()
@@ -93,6 +95,7 @@ func _move(delta: float) -> void:
 	var target_velocity: Vector2 = direction * speed
 	
 	if _is_dashing:
+		animator.queue("dash")
 		velocity = direction * dash_speed
 	elif direction != Vector2.ZERO:
 		velocity = velocity.move_toward(target_velocity, acceleration * delta)
@@ -105,8 +108,10 @@ func _dash_wait() -> void:
 	while true:
 		_is_dashing = false
 		await get_tree().create_timer(randf_range(dash_cooldown.x, dash_cooldown.y)).timeout
+		animator.queue("dash_start")
 		_is_dashing = true
 		await get_tree().create_timer(dash_duration).timeout
+		animator.queue("dash_end")
 
 func _switch_phase(new_phase: Phase) -> void:
 	if _current_phase:

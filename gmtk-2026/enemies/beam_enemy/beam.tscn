@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://d0oy3xmhr6tnq" path="res://UI/menu/profile_pics/NotAHuman.png" id="2_4ehef"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ln4xa"]
-size = Vector2(10, 26)
+size = Vector2(4653, 125)
 
 [sub_resource type="Animation" id="Animation_4ehef"]
 length = 0.001
@@ -51,11 +51,13 @@ collision_layer = 8
 collision_mask = 15
 script = ExtResource("1_4ehef")
 animator = NodePath("AnimationPlayer")
-damage = 50.0
+damage = 2.0
+damage_timer = 1.0
 charging_time = 2.0
 lifetime = 2.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=246777872]
+position = Vector2(2248.5, -7.5)
 shape = SubResource("RectangleShape2D_ln4xa")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2052149251]

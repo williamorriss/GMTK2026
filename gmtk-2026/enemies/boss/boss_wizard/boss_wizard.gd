@@ -27,6 +27,9 @@ var _current_phase: Phase
 func get_closet_player() -> Node2D:
 	return _closest_player
 
+func get_current_phase() -> Phase:
+	return _current_phase
+
 func set_new_target(target: Vector2) -> void:
 	_target_position = target
 
@@ -103,5 +106,8 @@ func _dash_wait() -> void:
 		await get_tree().create_timer(dash_duration).timeout
 
 func _switch_phase(new_phase: Phase) -> void:
+	if _current_phase:
+		_current_phase.exit()
+	
 	new_phase.ready(self)
 	_current_phase = new_phase

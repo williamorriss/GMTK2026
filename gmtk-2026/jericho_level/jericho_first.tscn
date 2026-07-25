@@ -324,6 +324,9 @@ size = Vector2(575, 417)
 
 [node name="JerichoFirst" type="Node2D" unique_id=2038274911]
 
+[node name="ranged_grunt" parent="." unique_id=2039192104 instance=ExtResource("7_rdr8v")]
+position = Vector2(-4678, -3523)
+
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=1733079196]
 navigation_polygon = SubResource("NavigationPolygon_t5tom")
 

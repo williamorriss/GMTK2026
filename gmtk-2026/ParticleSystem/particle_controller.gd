@@ -1,3 +1,4 @@
+class_name ParticleController
 extends CPUParticles2D
 
 func _ready() -> void:

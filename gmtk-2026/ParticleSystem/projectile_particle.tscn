@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://dqwo5i74cgrbf" path="res://ParticleSystem/square/square.png" id="1_e0306"]
 [ext_resource type="Script" uid="uid://dv4fvgv16lueb" path="res://ParticleSystem/particle_controller.gd" id="2_3hqxv"]
 
-[node name="BloodParticle" type="CPUParticles2D" unique_id=1333719392]
+[node name="ProjectileParticle" type="CPUParticles2D" unique_id=1333719392]
 emitting = false
 amount = 25
 texture = ExtResource("1_e0306")
@@ -20,5 +20,5 @@ damping_min = 250.0
 damping_max = 500.0
 scale_amount_min = 0.1
 scale_amount_max = 0.25
-color = Color(0.6593202, 0.39652577, 0, 1)
+color = Color(0.97945577, 0.5986924, 4.235506e-06, 1)
 script = ExtResource("2_3hqxv")

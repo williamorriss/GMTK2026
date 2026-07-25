@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b4mf2r54r5iu0" path="res://abilities/magic_missile/missile/missile.gd" id="1_t3kqa"]
 [ext_resource type="Texture2D" uid="uid://dhcwybhoxgwhe" path="res://icon.svg" id="2_s53gk"]
+[ext_resource type="Texture2D" uid="uid://dqwo5i74cgrbf" path="res://ParticleSystem/square/square.png" id="3_s53gk"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ln4xa"]
 radius = 66.27216
@@ -23,5 +24,18 @@ shape = SubResource("CircleShape2D_ln4xa")
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1780088821]
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("2_s53gk")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=1319786694]
+z_index = -1
+amount = 25
+texture = ExtResource("3_s53gk")
+lifetime = 0.09999999999999999
+emission_shape = 1
+emission_sphere_radius = 66.25
+gravity = Vector2(0, 0)
+angular_velocity_max = 50.0
+scale_amount_min = 0.05
+scale_amount_max = 0.15
+color = Color(0.56837404, 0.10412686, 0.5118815, 1)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

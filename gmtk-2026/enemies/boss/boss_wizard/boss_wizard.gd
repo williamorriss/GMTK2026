@@ -74,7 +74,6 @@ func _ready() -> void:
 	await _dash_wait()
 
 func _process(_delta: float) -> void:
-	print(health.get_hp())
 	if _current_phase == phase1 and health.get_hp() <= health.max_health * phase_split:
 		print("Phase 2")
 		_switch_phase(phase2)
@@ -113,5 +112,5 @@ func _switch_phase(new_phase: Phase) -> void:
 	if _current_phase:
 		_current_phase.exit()
 	
-	new_phase.ready(self)
 	_current_phase = new_phase
+	_current_phase.ready(self)

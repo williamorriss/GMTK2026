@@ -6,6 +6,7 @@ extends Phase
 var _target: Vector2
 
 func ready(boss: BossWizard) -> void:
+	print(boss)
 	super(boss)
 	
 	switch_action(actions.pick_random())

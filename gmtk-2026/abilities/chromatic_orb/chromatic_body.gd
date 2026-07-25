@@ -14,7 +14,7 @@ extends RigidBody2D
 @export var size_multiplier: float
 @export var damage: float
 
-var _player: Player
+var _player: Node2D
 var _current_bounces: int = 0
 
 var _direction: Vector2 = Vector2.ZERO
@@ -23,7 +23,7 @@ var _current_speed: float = 0
 var _is_evil: bool = false
 var _target: Vector2 = Vector2.ZERO
 
-static func create_orb(player: Player, is_evil: bool, target: Vector2) -> ChromaticBody:
+static func create_orb(player: Node2D, is_evil: bool, target: Vector2) -> ChromaticBody:
 	var instance: ChromaticBody = preload("res://abilities/chromatic_orb/chromatic_body.tscn").instantiate()
 	instance._player = player
 	instance._target = target

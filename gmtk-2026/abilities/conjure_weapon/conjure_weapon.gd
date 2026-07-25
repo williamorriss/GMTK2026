@@ -68,6 +68,7 @@ func _throw() -> void:
 	
 	var direction: Vector2 = (_player.get_global_mouse_position() - _player.global_position).normalized()
 	if _is_evil:
+		instance.set_evil()
 		direction = _player.global_position.direction_to(_target)
 	
 	instance.set_direction(direction)

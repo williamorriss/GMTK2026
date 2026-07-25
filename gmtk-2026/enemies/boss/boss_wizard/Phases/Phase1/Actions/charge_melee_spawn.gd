@@ -30,6 +30,9 @@ func process(_delta: float) -> void:
 		_switch()
 
 func _switch() -> void:
+	if not _is_running:
+		return
+	
 	_spawn_enemies()
 	_phase.switch_action(run_action if randf_range(0.0, 1.0) < 0.5 else teleport_action)
 

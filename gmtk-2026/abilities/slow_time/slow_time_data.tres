@@ -1,8 +1,11 @@
 [gd_resource type="Resource" script_class="AbilityData" format=3 uid="uid://wfbki6ar11cc"]
 
 [ext_resource type="Script" uid="uid://ddj5n2nhn7cnq" path="res://abilities/ability_data.gd" id="1_pve3e"]
+[ext_resource type="Texture2D" uid="uid://d0oy3xmhr6tnq" path="res://UI/menu/profile_pics/NotAHuman.png" id="2_q1e10"]
 
 [resource]
 script = ExtResource("1_pve3e")
+symbol = ExtResource("2_q1e10")
+name = "Slow Time"
 cost = 1
 metadata/_custom_type_script = "uid://ddj5n2nhn7cnq"

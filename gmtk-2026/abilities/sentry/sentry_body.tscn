@@ -2,12 +2,14 @@
 
 [ext_resource type="Texture2D" uid="uid://dhcwybhoxgwhe" path="res://icon.svg" id="1_1l6od"]
 [ext_resource type="Script" uid="uid://ydljdxlb0vxu" path="res://abilities/sentry/sentry_body.gd" id="1_ln04t"]
+[ext_resource type="Script" uid="uid://cy400prbqdwwd" path="res://health/health.gd" id="3_hm7o7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ln4xa"]
 size = Vector2(128, 129)
 
-[node name="SentryBody" type="Node2D" unique_id=110357330]
+[node name="SentryBody" type="Node2D" unique_id=110357330 node_paths=PackedStringArray("health")]
 script = ExtResource("1_ln04t")
+health = NodePath("Health")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2143772662]
 texture = ExtResource("1_1l6od")
@@ -19,3 +21,7 @@ collision_mask = 6
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1086301004]
 position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_ln4xa")
+
+[node name="Health" type="Node2D" parent="." unique_id=694220687]
+script = ExtResource("3_hm7o7")
+metadata/_custom_type_script = "uid://cy400prbqdwwd"

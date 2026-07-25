@@ -6,6 +6,7 @@
 
 [resource]
 script = ExtResource("1_vdxmg")
+name = "Dagger"
 swingable = ExtResource("2_w4o62")
 throwable = ExtResource("3_thwym")
 metadata/_custom_type_script = "uid://dcpfkcthf4n7g"

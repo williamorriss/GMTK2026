@@ -4,6 +4,11 @@
 [ext_resource type="PackedScene" uid="uid://ciyk3l7p2kfjx" path="res://player/player.tscn" id="2_d62wt"]
 [ext_resource type="Script" uid="uid://b3v0dqtu4y87l" path="res://jericho_level/camera_controller.gd" id="3_t5coh"]
 [ext_resource type="PackedScene" uid="uid://lxqc6qi5a73" path="res://jericho_level/door/door.tscn" id="4_d62wt"]
+[ext_resource type="PackedScene" uid="uid://36uud2knwod6" path="res://jericho_level/room_manager/room_manager.tscn" id="5_2uo1b"]
+[ext_resource type="Script" uid="uid://3qtp2f14y6k5" path="res://jericho_level/room_manager/spawn_data.gd" id="6_l462i"]
+[ext_resource type="PackedScene" uid="uid://dreqr6x7m6bqr" path="res://enemies/melee enemies/grunt.tscn" id="7_i5qm5"]
+[ext_resource type="PackedScene" uid="uid://swcxgbeey32e" path="res://enemies/beam_enemy/beam_enemy.tscn" id="8_l462i"]
+[ext_resource type="PackedScene" uid="uid://ciq5xxdrhat1g" path="res://enemies/ranged enemies/ranged_grunt.tscn" id="9_i5qm5"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_vbklt"]
 vertices = PackedVector2Array(6525.258, -12031.797, 6530.547, -12298, 7221.797, -12770.398, 6962.172, 1534.2813, 6525.3594, -11786, -2434.539, -1654.2188, -2437.1016, -1782, -2432.2031, -1782, 1917.4609, -2166.2188, 1914.8984, -2294, 1917.0625, -2294, 2690.5469, -1290, 1922.5469, -2570, 1917.4609, -2570, 1922.1563, -2806, 2826, -2806, 2943.7969, -4618, 2941.461, -4618, 2946.5469, -4874, 3973.2969, -8694, -1400.1563, -4362, -2434.539, -4362, -2429.4531, -4618, -1402.7031, -4598, 2685.3594, -778, 2682.7969, -778, 2685.2578, -1023.7969, 5245.3594, -8458, 5242.797, -8458, 5245.258, -8703.797, 6522.797, -11786, 2685.3594, 1014, 2682.7969, 1014, 2685.3594, 758, 2682.7969, 758, 2685.3594, 502, 2682.7969, 502, 2685.3594, 246, 2682.7969, 246, 2685.3594, -10, 2682.7969, -10, 2685.3594, -266, 2682.7969, -266, 2685.3594, -522, 2682.7969, -522, 5245.3594, -3850, 5242.797, -3850, 5245.3594, -4106, 5242.797, -4106, 5245.3594, -4362, 5242.797, -4362, 5245.3594, -4618, 5242.797, -4618, 5245.3594, -4874, 5242.797, -4874, 5245.3594, -5130, 5242.797, -5130, 5245.3594, -5386, 5242.797, -5386, 5245.3594, -5642, 5242.797, -5642, 5245.3594, -5898, 5242.797, -5898, 5245.3594, -6154, 5242.797, -6154, 5245.3594, -6410, 5242.797, -6410, 5245.3594, -6666, 5242.797, -6666, 5245.3594, -6922, 5242.797, -6922, 5245.3594, -7178, 5242.797, -7178, 5245.3594, -7434, 5242.797, -7434, 5245.3594, -7690, 5242.797, -7690, 5245.3594, -7946, 5242.797, -7946, 5245.3594, -8202, 5242.797, -8202, 6525.3594, -10250, 6522.797, -10250, 6525.3594, -10506, 6522.797, -10506, 6525.3594, -10762, 6522.797, -10762, 6525.3594, -11018, 6522.797, -11018, 6525.3594, -11274, 6522.797, -11274, 6525.3594, -11530, 6522.797, -11530, 6522.703, -9984.203, 6525.461, -9846.219, 3850, -9848.453, 3850, -9850.992, 4086, -9848.641, 4086, -9718, 3973.2969, -8970, -758, -2936.4531, -758, -2938.9922, -522, -2936.6406, -522, -2806, 2314, 1415.5469, 2314, 1413, 2550, 1415.3516, 2550, 1420.7734, -1014, 1415.4531, -1014, 1413, -758, 1415.5469, -758, 1413, -502, 1415.5469, -502, 1413, -246, 1415.5469, -246, 1413, 10, 1415.5469, 10, 1413, 266, 1415.5469, 266, 1413, 522, 1415.5469, 522, 1413, 778, 1415.5469, 778, 1413, 1034, 1415.5469, 1034, 1413, 1290, 1415.5469, 1290, 1413, 1546, 1415.5469, 1546, 1413, 1802, 1415.5469, 1802, 1413, 2058, 1415.5469, 2058, 1413, 2826, -9848.547, 2826, -9850.992, 3082, -9848.453, 3082, -9850.992, 3338, -9848.453, 3338, -9850.992, 3594, -9848.453, 3594, -9850.992, -1270, -2936.5469, -1270, -2938.9922, -1014, -2936.4531, -378.5, -2314, -1014, -2938.9922, -376.15625, -2314, 2693.2969, -12022, 2695.8438, -12022, 2695.8438, -9994, 2693.5, -9994, 4231.8438, -9718, 4231.8438, -8970, 3975.8438, -8694, 3975.8438, -4362, 2943.7969, -4362, -1400.1563, -4598, -3574, -5622, -1402.7031, -4874, -3712.2031, -5622, -3712.2031, -4618, -3850, -4342, -2570, -4342, -2570, -4086, -1270, -4086, -1270, -4598, 2806, -4598, 2806, -4086, 4106, -4086, 4106, -8694, 4362, -8694, 5110, -3594, 4362, -9994, 2826, -9994, 2826, -12022, 6390, -12022, 6390, -9994, 4854, -9994, 4854, -8694, 5110, -8694, 2806, -3594, 2806, -3082, 1782, -3082, 1782, -2314, 1014, -2314, -246, -3082, 1014, -1014, 2550, -1014, 2550, 1270, -1014, 1270, -1014, -1014, 522, -1014, 522, -2314, -246, -2314, -1270, -3082, -1270, -3594, -2570, -3594, -2570, -1802, -5878, -1802, -5878, -4342, -4342, -4342, -4618, -5622, -4472.1563, -5622, -4472.1563, -4618, -6010.703, -4618, -6010.703, -4342, -6008.1563, -4342, -6008.1563, -4086, -6005.0234, -4086, -6005.0234, -1802, -6010.5, -1802, -6013.4688, -1656.5469, -5898, -1656.5469, -5898, -1526, -8493.656, 1998.6484, -2432.2031, -3318, -1400.1563, -3318, -1402.5, -3082, -1405.4688, -2936.5469, -1400.1563, -3082, -376.15625, -2806, -381.46875, -2168.5469, -266, -2168.5469, -266, -2038, -1146.7031, -1290, -2550, -1526, 391.84375, -2038, 391.84375, -1290, -1146.7031, -1014, -1144.1563, -1014, -1144.1563, 1270, -1146.5, 1270, 1151.7969, -1290, 1151.7969, -2038, 1802, -2038, 5250.547, -8970, 4991.797, -8970, 4991.797, -9718, 6410, -9718, 2941.461, -2934.2188, 2938.7031, -3072.2031, 2941.1563, -3318, 5130, -3318, 6410, -9843.656, 5242.703, -3584.2031, 5245.461, -3446.2188, -2550, -1651.6563, 1802, -2163.6563, 2826, -2931.6563, 5130, -3443.6563, -3574, -5898, 2682.7031, 1279.7969, 2685.461, 1417.7813, -1149.4688, 1415.4531, 2690.5313, -9848.547, -4618, -5898, -6799.0703, -11975.492, 2693.2969, -12298, -3850, -5898, -4342, -5898)
@@ -299,6 +304,24 @@ physics_layer_0/collision_mask = 11
 navigation_layer_0/layers = 1
 sources/0 = SubResource("TileSetAtlasSource_qmdem")
 
+[sub_resource type="Resource" id="Resource_ln4xa"]
+script = ExtResource("6_l462i")
+enemy = ExtResource("7_i5qm5")
+amount = 4
+metadata/_custom_type_script = "uid://3qtp2f14y6k5"
+
+[sub_resource type="Resource" id="Resource_25sw5"]
+script = ExtResource("6_l462i")
+enemy = ExtResource("8_l462i")
+amount = 1
+metadata/_custom_type_script = "uid://3qtp2f14y6k5"
+
+[sub_resource type="Resource" id="Resource_ny2g4"]
+script = ExtResource("6_l462i")
+enemy = ExtResource("9_i5qm5")
+amount = 3
+metadata/_custom_type_script = "uid://3qtp2f14y6k5"
+
 [node name="Level_two" type="Node2D" unique_id=1161217061]
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=2108602128]
@@ -317,7 +340,7 @@ scale = Vector2(2, 2)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=966347197 node_paths=PackedStringArray("player")]
 position = Vector2(782.15894, 4464.119)
-zoom = Vector2(0.3, 0.3)
+zoom = Vector2(0.2, 0.2)
 script = ExtResource("3_t5coh")
 player = NodePath("../Player")
 _shake_strength = 100.0
@@ -347,3 +370,96 @@ rotation = 1.5707964
 [node name="Door6" parent="doors" unique_id=1538745917 instance=ExtResource("4_d62wt")]
 position = Vector2(-858, -7719)
 rotation = 1.5707964
+
+[node name="Rooms" type="Node2D" parent="." unique_id=895178069]
+
+[node name="room1" type="Node2D" parent="Rooms" unique_id=818750249]
+position = Vector2(1595.104, 833.1843)
+
+[node name="RoomManager" parent="Rooms/room1" unique_id=1236107249 node_paths=PackedStringArray("player", "room_area", "doors", "camera", "camera_focus") instance=ExtResource("5_2uo1b")]
+player = NodePath("../../../Player")
+room_area = NodePath("../Polygon2D")
+doors = [NodePath("../../../doors/Door"), NodePath("../../../doors/Door2"), NodePath("../../../doors/Door3")]
+camera = NodePath("../../../Camera2D")
+camera_focus = NodePath("..")
+spawn_data = Array[ExtResource("6_l462i")]([SubResource("Resource_ln4xa"), SubResource("Resource_25sw5")])
+
+[node name="Polygon2D" type="Polygon2D" parent="Rooms/room1" unique_id=1387964262]
+position = Vector2(9.125977, 397.4812)
+color = Color(1, 1, 1, 0)
+polygon = PackedVector2Array(-1891.23, -1270.6655, 1893.77, -1260.6655, 1912.77, 26.334473, 911.77, 26.334473, 901.77, 817.3345, -766.23, 808.3345, -776.23, -2.6655273, -1911.23, -50.665527)
+
+[node name="room2" type="Node2D" parent="Rooms" unique_id=1020368191]
+position = Vector2(-3349.9556, 1293.4435)
+
+[node name="RoomManager" parent="Rooms/room2" unique_id=1242162769 node_paths=PackedStringArray("player", "room_area", "doors", "camera", "camera_focus") instance=ExtResource("5_2uo1b")]
+player = NodePath("../../../Player")
+room_area = NodePath("../Polygon2D")
+doors = [NodePath("../../../doors/Door4"), NodePath("../../../doors/Door5")]
+camera = NodePath("../../../Camera2D")
+camera_focus = NodePath("..")
+spawn_data = Array[ExtResource("6_l462i")]([SubResource("Resource_ln4xa"), SubResource("Resource_25sw5"), SubResource("Resource_ny2g4")])
+
+[node name="Polygon2D" type="Polygon2D" parent="Rooms/room2" unique_id=452199241]
+color = Color(1, 1, 1, 0)
+polygon = PackedVector2Array(-4876, 285, -1868, 294, -1824, 2569, -4890, 2537)
+
+[node name="room3" type="Node2D" parent="Rooms" unique_id=512532852]
+position = Vector2(-3129.0693, -3159.8057)
+
+[node name="RoomManager" parent="Rooms/room3" unique_id=1187031186 node_paths=PackedStringArray("player", "room_area", "doors", "camera", "camera_focus") instance=ExtResource("5_2uo1b")]
+player = NodePath("../../../Player")
+room_area = NodePath("../Polygon2D")
+doors = [NodePath("../../../doors/Door4"), NodePath("../../../doors/Door6")]
+camera = NodePath("../../../Camera2D")
+camera_focus = NodePath("..")
+spawn_data = Array[ExtResource("6_l462i")]([SubResource("Resource_25sw5"), SubResource("Resource_ny2g4")])
+
+[node name="Polygon2D" type="Polygon2D" parent="Rooms/room3" unique_id=736348855]
+color = Color(1, 1, 1, 0)
+polygon = PackedVector2Array(-1752.9307, -971.19434, 2270.0693, -946.19434, 2296.0693, 906.80566, 265.06934, 919.80566, 253.06934, 1630.8057, -1764.9307, 1630.8057)
+
+[node name="room4" type="Node2D" parent="Rooms" unique_id=1483649521]
+position = Vector2(2164.6025, -3014.28)
+
+[node name="RoomManager" parent="Rooms/room4" unique_id=1149479720 node_paths=PackedStringArray("player", "room_area", "doors", "camera", "camera_focus") instance=ExtResource("5_2uo1b")]
+player = NodePath("../../../Player")
+room_area = NodePath("../Polygon2D")
+doors = [NodePath("../../../doors/Door6")]
+camera = NodePath("../../../Camera2D")
+camera_focus = NodePath("..")
+spawn_data = Array[ExtResource("6_l462i")]([SubResource("Resource_ln4xa"), SubResource("Resource_25sw5"), SubResource("Resource_ny2g4")])
+
+[node name="Polygon2D" type="Polygon2D" parent="Rooms/room4" unique_id=1933593365]
+color = Color(1, 1, 1, 0)
+polygon = PackedVector2Array(-1383.6025, -1839.72, 1345.3975, -1839.72, 1383.3975, 2043.28, -1421.6025, 2018.28)
+
+[node name="room5" type="Node2D" parent="Rooms" unique_id=2039656498]
+position = Vector2(5490.7344, -1676.9248)
+
+[node name="RoomManager" parent="Rooms/room5" unique_id=58839214 node_paths=PackedStringArray("player", "room_area", "doors", "camera", "camera_focus") instance=ExtResource("5_2uo1b")]
+player = NodePath("../../../Player")
+room_area = NodePath("../Polygon2D")
+doors = [NodePath("../../../doors/Door2"), NodePath("../../../doors/Door3")]
+camera = NodePath("../../../Camera2D")
+camera_focus = NodePath("../../../Player")
+spawn_data = Array[ExtResource("6_l462i")]([SubResource("Resource_ln4xa"), SubResource("Resource_25sw5")])
+
+[node name="Polygon2D" type="Polygon2D" parent="Rooms/room5" unique_id=1747690029]
+color = Color(1, 1, 1, 0)
+polygon = PackedVector2Array(-432.73438, -2457.0752, 396.26563, -2457.0752, 409.26563, 2447.9248, -391.73438, 2466.9248)
+
+[node name="room6" type="Node2D" parent="Rooms" unique_id=1304136584]
+position = Vector2(5511.541, -6584.133)
+
+[node name="RoomManager" parent="Rooms/room6" unique_id=439748457 node_paths=PackedStringArray("player", "room_area", "doors", "camera", "camera_focus") instance=ExtResource("5_2uo1b")]
+player = NodePath("../../../Player")
+room_area = NodePath("../Polygon2D")
+doors = [NodePath("../../../doors/Door3")]
+camera = NodePath("../../../Camera2D")
+camera_focus = NodePath("..")
+spawn_data = Array[ExtResource("6_l462i")]([SubResource("Resource_ln4xa"), SubResource("Resource_ny2g4")])
+
+[node name="Polygon2D" type="Polygon2D" parent="Rooms/room6" unique_id=1792947920]
+color = Color(1, 1, 1, 0)
+polygon = PackedVector2Array(-1718.541, -878.8672, 1580.459, -855.8672, 1557.459, 990.1328, -1718.541, 944.1328)

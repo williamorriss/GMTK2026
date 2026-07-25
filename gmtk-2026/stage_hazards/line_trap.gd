@@ -45,7 +45,7 @@ func deploy() -> void:
 	enemy.position = position
 	
 	# graddient
-	var gradient = Gradient.new()
+	var gradient: Gradient = Gradient.new()
 	gradient.colors = [Color(1.0, 0.5, 0.0), Color(1.0, 0.0, 0.0)]  # orange -> red
 	gradient.offsets = [0.0, 1.0]
 	

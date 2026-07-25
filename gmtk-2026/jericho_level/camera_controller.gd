@@ -1,11 +1,9 @@
 class_name CameraController
 extends Camera2D
 
-@export_group("References")
 @export var player: Node2D
-
-@export var _shake_strength: float = 200.0
-@export var _shake_length: float = 2.0
+@export var max_strength: float = 8
+@export var falloff:float = 5.0
 
 var _is_following: bool = true
 
@@ -19,19 +17,18 @@ func _ready() -> void:
 	_noise.frequency = 20.0
 	
 	var _x: bool = StateHolder.camera_shake.connect(add_trauma)
-	StateHolder.camera_shake.emit(200, 2)
 
 func _process(delta: float) -> void:
-	if _is_following:
+	if _is_following and player:
 		position = player.position
 	
 	_time += delta
-	_trauma = max(_trauma - delta, 0)
+	_trauma = max(_trauma - delta * falloff, 0)
 
 	var shake: float = _trauma * _trauma
 
-	offset.x = _noise.get_noise_2d(_time * 100, 0) * _shake_strength * shake
-	offset.y = _noise.get_noise_2d(0, _time * 100) * _shake_strength * shake
+	offset.x = _noise.get_noise_2d(_time * 100, 0) * shake
+	offset.y = _noise.get_noise_2d(0, _time * 100) * shake
 
 func set_target(pos: Vector2) -> void:
 	_is_following = false
@@ -40,8 +37,5 @@ func set_target(pos: Vector2) -> void:
 func reset_position() -> void:
 	_is_following = true
 
-func add_trauma(strength: float, length: float) -> void:
-	_shake_length = length
-	_shake_strength = strength
-	
-	_trauma = _trauma + _shake_length
+func add_trauma(strength: float) -> void:
+	_trauma = min(_trauma + strength, max_strength)

@@ -19,9 +19,14 @@ extends CharacterBody2D
 @export var intagible_time: float = 0.5
 
 @export_group("Step")
+@export var step_volume: Vector2 = Vector2(-10, -9)
 @export var step_pitch: Vector2 = Vector2(0.75, 1.25)
-@export var step_length: Vector2 = Vector2(0.25, 1.0)
+@export var step_length: Vector2 = Vector2(0.25, 0.35)
 @export var step_audio: AudioStream
+
+@export_group("Audio")
+@export var hurt_audio: AudioStream
+@export var dash_audio: AudioStream
 
 @export_group("Animation")
 @onready var animation: AnimatedSprite2D = $AnimatedSprite2D
@@ -51,7 +56,7 @@ func _physics_process(delta: float) -> void:
 	if _should_step and velocity.length() >= 1:
 		_should_step = false
 		var _x: bool = get_tree().create_timer(randf_range(step_length.x, step_length.y)).timeout.connect(func() -> void: _should_step = true)
-		#AudioManager.play_sfx(step_audio, 0.0, randf_range())
+		AudioManager.play_sfx(step_audio, randf_range(step_volume.x, step_volume.y), randf_range(step_pitch.x, step_pitch.y))
 	
 	_hit_intangible_timer = max(0.0, _hit_intangible_timer - delta)
 	if _hit_intangible_timer <= 0.0 and _hit_intangible:
@@ -73,6 +78,7 @@ func _move(delta: float) -> void:
 	_dash_cooldown_timer = max(0.0, _dash_cooldown_timer - delta)
 	
 	if Input.is_action_just_pressed("DASH") and _dash_cooldown_timer <= 0.0 and input_dir != Vector2.ZERO:
+		AudioManager.play_sfx(dash_audio)
 		_dashing = true
 		_dash_timer = dash_duration
 		_dash_cooldown_timer = dash_cooldown
@@ -117,13 +123,18 @@ func _i_frames(value: bool) -> void:
 
 func _die(dealer: Health.Owner, taker: Health.Owner, direction: Vector2) -> void: # should play death anim here
 	HealthTimer.stop_timer()
+	
+	var instance: Node2D = preload("res://ParticleSystem/blood_particle.tscn").instantiate()
+	instance.global_position = global_position
+	get_tree().current_scene.add_child(instance)
+	
 	await SceneTransition.change_scene(death_screen)
 	queue_free()
 
-
-func _on_health_on_damage_taken(deler: Health.Owner, taker: Health.Owner, value: float, new_hp: float) -> void:
+func _on_health_on_damage_taken(dealer: Health.Owner, taker: Health.Owner, value: float, new_hp: float) -> void:
+	if dealer == Health.Owner.Enemy:
+		AudioManager.play_sfx(hurt_audio)
+	
 	_hit_intangible_timer = intagible_time
 	health.set_immunity(true)
 	_hit_intangible = true
-	animation.play("hurt")
-	print("HIT!")

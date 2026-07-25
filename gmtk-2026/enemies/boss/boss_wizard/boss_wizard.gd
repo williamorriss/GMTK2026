@@ -66,6 +66,8 @@ func get_random_point() -> Vector2:
 	return Vector2.ZERO
 
 func _ready() -> void:
+	super._ready()
+	
 	add_to_group("enemies")
 	_switch_phase(phase1)
 	

@@ -24,4 +24,9 @@ func _on_area_entered(body: Node2D) -> void:
 	if health:
 		health.damage(damage, dir, Health.Owner.Enemy)
 	
+	var instance: Node2D = preload("res://ParticleSystem/projectile_particle.tscn").instantiate()
+	instance.color = Color("#fa9900")
+	instance.global_position = global_position
+	get_tree().current_scene.add_child(instance)
+	
 	queue_free()

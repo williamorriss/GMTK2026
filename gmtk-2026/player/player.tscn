@@ -2,8 +2,11 @@
 
 [ext_resource type="Script" uid="uid://fr0yinnattdn" path="res://player/player.gd" id="1_4flbx"]
 [ext_resource type="PackedScene" uid="uid://ds8ssbo0o71xo" path="res://blood/blood_drop.tscn" id="2_hg6s5"]
+[ext_resource type="AudioStream" uid="uid://x7kyy77pcc78" path="res://audio/sfx/step.wav" id="2_8t03j"]
 [ext_resource type="Texture2D" uid="uid://dhcwybhoxgwhe" path="res://icon.svg" id="2_onrkg"]
+[ext_resource type="AudioStream" uid="uid://dooc6ubnw4l7" path="res://audio/sfx/hitHurt.wav" id="3_2ieo8"]
 [ext_resource type="Script" uid="uid://lycjpc02pyfa" path="res://player/ability_user.gd" id="3_g1dw6"]
+[ext_resource type="AudioStream" uid="uid://dpqpe1ehl06oc" path="res://audio/sfx/dash.wav" id="4_ebec5"]
 [ext_resource type="PackedScene" uid="uid://b84onmi6p6dgu" path="res://health/health.tscn" id="4_yw30f"]
 [ext_resource type="Texture2D" uid="uid://02shw622vdm0" path="res://sprites/dash.jpg" id="5_rgyib"]
 [ext_resource type="Texture2D" uid="uid://dpc1s630jjyk5" path="res://sprites/hurt.jpg" id="6_hg6s5"]
@@ -54,6 +57,9 @@ script = ExtResource("1_4flbx")
 death_screen = "uid://comfb4xtpo4g2"
 health = NodePath("Health")
 speed = 500.0
+step_audio = ExtResource("2_8t03j")
+hurt_audio = ExtResource("3_2ieo8")
+dash_audio = ExtResource("4_ebec5")
 
 [node name="BloodDrop" parent="." unique_id=1139702540 instance=ExtResource("2_hg6s5")]
 

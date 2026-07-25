@@ -12,14 +12,13 @@ signal finished_transition
 var _is_fading: bool = false
 var _using_a: float = true
 
-func get_sfx_player() -> AudioStreamPlayer:
-	return sfx_player
+func _ready() -> void:
+	sfx_player.stream = AudioStreamPolyphonic.new()
+	sfx_player.play() 
 
 func play_sfx(audio: AudioStream, volume: float = 0.0, pitch: float = 1.0) -> void:
-	sfx_player.volume_db = volume
-	sfx_player.pitch_scale = pitch
-	sfx_player.stream = audio
-	sfx_player.play()
+	var playback: AudioStreamPlaybackPolyphonic = sfx_player.get_stream_playback()
+	var _x: int = playback.play_stream(audio, 0.0, volume, pitch)
 
 func get_is_fading() -> bool:
 	return _is_fading

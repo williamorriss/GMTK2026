@@ -27,7 +27,7 @@ func process(_delta: float) -> void:
 	_boss.set_new_target(_new_target)
 
 func _shoot() -> void:
-	while true:
+	while _is_running:
 		await get_tree().create_timer(randf_range(fire_rate_range.x, fire_rate_range.y)).timeout
 		
 		var dir: Vector2 = _boss.global_position.direction_to(_boss.get_closet_player().global_position)

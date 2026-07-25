@@ -5,6 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://beu000mllpqaq" path="res://audio/sfx/blipSelect.wav" id="2_5xle5"]
 [ext_resource type="Texture2D" uid="uid://d0oy3xmhr6tnq" path="res://UI/menu/profile_pics/NotAHuman.png" id="3_2gq1s"]
 [ext_resource type="Script" uid="uid://dy0v5l1hqtv2r" path="res://UI/menu/option_menu.gd" id="3_7jt6j"]
+[ext_resource type="AudioStream" uid="uid://e4uwnqn5hnbp" path="res://audio/music/Title Screen Track.mp3" id="3_66jq7"]
 [ext_resource type="Script" uid="uid://fdlc3xgxt11x" path="res://UI/menu/audio_menu.gd" id="4_0poe0"]
 [ext_resource type="Texture2D" uid="uid://dv8a5bjlp20ak" path="res://UI/menu/profile_pics/Cashew.png" id="4_papuc"]
 [ext_resource type="Script" uid="uid://7yoy1vsbq6gt" path="res://UI/menu/keybinds.gd" id="5_5xle5"]
@@ -50,6 +51,7 @@ menuControl = NodePath("MainMenu")
 optionsControl = NodePath("OptionsMenu")
 creditsControl = NodePath("Credits")
 select_audio = ExtResource("2_5xle5")
+menu_music = ExtResource("3_66jq7")
 
 [node name="Panel" type="Panel" parent="." unique_id=477391393]
 modulate = Color(0, 0, 0, 1)

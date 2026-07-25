@@ -7,4 +7,5 @@ func _init(player: Node2D) -> void:
 
 func activate_ability() -> void:
 	var body: SentryBody = preload("res://abilities/sentry/sentry_body.tscn").instantiate()
+	body.position = _player.global_position
 	_player.get_tree().current_scene.add_child(body)

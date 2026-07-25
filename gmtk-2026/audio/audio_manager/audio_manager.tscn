@@ -9,7 +9,10 @@ music_player_a = NodePath("MusicPlayerA")
 music_player_b = NodePath("MusicPlayerB")
 
 [node name="SFXPlayer" type="AudioStreamPlayer" parent="." unique_id=1406706150]
+bus = &"SFX"
 
 [node name="MusicPlayerA" type="AudioStreamPlayer" parent="." unique_id=351734573]
+bus = &"Music"
 
 [node name="MusicPlayerB" type="AudioStreamPlayer" parent="." unique_id=537691910]
+bus = &"Music"

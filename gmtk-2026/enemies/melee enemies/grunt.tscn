@@ -7,13 +7,25 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ny2g4"]
 size = Vector2(106, 106)
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_1rwn8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_1rwn8")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="grunt" type="CharacterBody2D" unique_id=1002393870 node_paths=PackedStringArray("agent", "health")]
 collision_layer = 2
-collision_mask = 5
+collision_mask = 12
 script = ExtResource("1_bhmnf")
 agent = NodePath("NavigationAgent2D")
 health = NodePath("Health")
 speed = 500.0
+max_distance = 500.0
 atk = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1056552632]
@@ -25,8 +37,20 @@ position = Vector2(0, 2.499998)
 texture = ExtResource("2_1rwn8")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=388887617]
+path_desired_distance = 10.0
+target_desired_distance = 100.0
+avoidance_enabled = true
+radius = 150.0
+time_horizon_agents = 3.0
+time_horizon_obstacles = 3.0
+max_speed = 500.0
 debug_enabled = true
 debug_path_custom_color = Color(0.8521696, 0.0010696579, 0.9234679, 1)
 
 [node name="Health" parent="." unique_id=2054087400 instance=ExtResource("3_1rwn8")]
 max_health = 1.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=778895789]
+sprite_frames = SubResource("SpriteFrames_1rwn8")
+
+[connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]

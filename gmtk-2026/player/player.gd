@@ -49,7 +49,7 @@ func _physics_process(delta: float) -> void:
 	if _should_step and velocity.length() >= 1:
 		_should_step = false
 		var _x: bool = get_tree().create_timer(randf_range(step_length.x, step_length.y)).timeout.connect(func() -> void: _should_step = true)
-		AudioManager.play_sfx(step_audio, 0.0, randf_range())
+		#AudioManager.play_sfx(step_audio, 0.0, randf_range())
 	
 	_hit_intangible_timer = max(0.0, _hit_intangible_timer - delta)
 	if _hit_intangible_timer <= 0.0 and _hit_intangible:

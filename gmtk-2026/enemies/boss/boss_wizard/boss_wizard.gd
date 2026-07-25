@@ -66,11 +66,13 @@ func get_random_point() -> Vector2:
 	return Vector2.ZERO
 
 func _ready() -> void:
+	add_to_group("enemies")
 	_switch_phase(phase1)
 	
 	await _dash_wait()
 
 func _process(_delta: float) -> void:
+	print(health.get_hp())
 	if _current_phase == phase1 and health.get_hp() <= health.max_health * phase_split:
 		print("Phase 2")
 		_switch_phase(phase2)

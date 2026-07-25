@@ -1,3 +1,44 @@
 [gd_scene format=3 uid="uid://ct1xanr4ta16r"]
 
-[node name="BossBar" type="Node2D" unique_id=1925477068]
+[ext_resource type="Script" uid="uid://ld7xmcc702mm" path="res://enemies/boss/boss_wizard/boss_bar/boss_bar.gd" id="1_cqvqf"]
+
+[sub_resource type="DPITexture" id="DPITexture_segdq"]
+
+[sub_resource type="DPITexture" id="DPITexture_cqvqf"]
+
+[sub_resource type="DPITexture" id="DPITexture_klglv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w82ws"]
+content_margin_top = 20.0
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e6ydk"]
+bg_color = Color(0.712692, 2.9359758e-06, 5.7756904e-07, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7oo12"]
+content_margin_top = 10.0
+bg_color = Color(0, 0, 0, 1)
+
+[node name="BossBar" type="CanvasLayer" unique_id=2038177575 node_paths=PackedStringArray("health_bar")]
+script = ExtResource("1_cqvqf")
+health_bar = NodePath("MarginContainer/MasterSlider")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=2118873798]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 41.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 300
+theme_override_constants/margin_right = 300
+
+[node name="MasterSlider" type="HSlider" parent="MarginContainer" unique_id=1068470]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_icons/grabber = SubResource("DPITexture_segdq")
+theme_override_icons/grabber_highlight = SubResource("DPITexture_cqvqf")
+theme_override_icons/grabber_disabled = SubResource("DPITexture_klglv")
+theme_override_styles/slider = SubResource("StyleBoxFlat_w82ws")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_e6ydk")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_7oo12")
+step = 0.1

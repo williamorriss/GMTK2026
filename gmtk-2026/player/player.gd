@@ -25,7 +25,8 @@ extends CharacterBody2D
 @export var step_audio: AudioStream
 
 @export_group("Audio")
-@export var hurt_audio:AudioStream
+@export var hurt_audio: AudioStream
+@export var dash_audio: AudioStream
 
 @export_group("Animation")
 @onready var animation: AnimatedSprite2D = $AnimatedSprite2D
@@ -75,6 +76,7 @@ func _move(delta: float) -> void:
 	_dash_cooldown_timer = max(0.0, _dash_cooldown_timer - delta)
 	
 	if Input.is_action_just_pressed("DASH") and _dash_cooldown_timer <= 0.0 and input_dir != Vector2.ZERO:
+		AudioManager.play_sfx(dash_audio)
 		_dashing = true
 		_dash_timer = dash_duration
 		_dash_cooldown_timer = dash_cooldown
@@ -121,10 +123,6 @@ func _die(direction: Vector2) -> void: # should play death anim here
 	HealthTimer.stop_timer()
 	await SceneTransition.change_scene(death_screen)
 	queue_free()
-
-
-
-
 
 func _on_health_on_damage_taken(dealer: Health.Owner, taker: Health.Owner, value: float, new_hp: float) -> void:
 	if dealer == Health.Owner.Enemy:

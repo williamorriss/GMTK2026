@@ -33,13 +33,13 @@ func _destroy() -> void:
 	queue_free()
 
 func _on_body_entered(body: Node2D) -> void:
-	if not body.is_in_group("enemies") and not not body.is_in_group("players"):
-		return
-	
+	print(body)
 	var health: Health = Health.get_health(body)
-	var dir = global_position.direction_to(body.global_position)
 	if health:
+		var dir = global_position.direction_to(body.global_position)
 		if _evil:
 			health.damage(throw_damage, dir, Health.Owner.Enemy)
 		else:
 			health.damage(throw_damage, dir, Health.Owner.Player)
+
+	_destroy()

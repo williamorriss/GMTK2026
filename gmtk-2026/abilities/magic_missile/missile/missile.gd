@@ -75,8 +75,12 @@ func _on_body_entered(body: Node2D) -> void:
 		return
 	
 	var health: Health = Health.get_health(body)
+	var dir = global_position.direction_to(body.global_position)
 	if health:
-		health.damage(damage_rotating if _is_rotating else damage_fire)
+		if _is_evil:
+			health.damage(damage_rotating if _is_rotating else damage_fire, dir, Health.Owner.Enemy)
+		else:
+			health.damage(damage_rotating if _is_rotating else damage_fire, dir, Health.Owner.Player)
 	
 	if not _is_rotating:
 		queue_free()

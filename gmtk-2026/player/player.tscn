@@ -68,6 +68,7 @@ health = NodePath("../Health")
 [node name="Health" parent="." unique_id=2054087400 instance=ExtResource("4_yw30f")]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=442554886]
+visible = false
 sprite_frames = SubResource("SpriteFrames_a00k7")
 animation = &"hurt"
 

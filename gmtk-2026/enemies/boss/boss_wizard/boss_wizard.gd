@@ -30,8 +30,11 @@ func get_closet_player() -> Node2D:
 func set_new_target(target: Vector2) -> void:
 	_target_position = target
 
-func in_play_area(point: Vector2) -> bool:
-	return Geometry2D.is_point_in_polygon(point, play_area.polygon)
+func _in_room_area(point: Vector2) -> bool:
+	var global_points: PackedVector2Array = PackedVector2Array()
+	for p: Vector2 in play_area.polygon:
+		var _x: bool = global_points.append(play_area.to_global(p))
+	return Geometry2D.is_point_in_polygon(point, global_points)
 
 func get_random_point() -> Vector2:
 	var points: PackedVector2Array = play_area.polygon

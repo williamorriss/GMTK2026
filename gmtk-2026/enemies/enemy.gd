@@ -14,8 +14,7 @@ func calc_closest_player() -> void:
 		if position.distance_to(player.position) < distance:
 			distance = position.distance_to((player as Node2D).position)
 			_closest_player = player
-	print(_closest_player)
-	
+
 static func force_recalc(tree: SceneTree) -> void:
 	var enemies: Array[Node] = tree.get_nodes_in_group("enemies")
 	for enemy: Enemy in enemies:

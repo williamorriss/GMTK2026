@@ -62,8 +62,6 @@ func _change_properties() -> void:
 	_current_speed = speed_range.x + ((speed_range.y - speed_range.x) / (max_bounces - 1)) * _current_bounces
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	print("hit")
-	
 	if not body.is_in_group("enemies") and not body.is_in_group("players"):
 		return
 	

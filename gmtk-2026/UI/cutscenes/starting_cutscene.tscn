@@ -5,7 +5,6 @@
 [ext_resource type="Script" uid="uid://b01xvucl3mvta" path="res://UI/cutscenes/cutscene_data.gd" id="2_3yu11"]
 [ext_resource type="AudioStream" uid="uid://beu000mllpqaq" path="res://audio/sfx/blipSelect.wav" id="2_wxb4a"]
 
-
 [sub_resource type="Resource" id="Resource_got86"]
 script = ExtResource("2_3yu11")
 speaker = "Narrator"
@@ -45,7 +44,7 @@ corner_radius_bottom_left = 10
 
 [node name="StartingCutscene" type="CanvasLayer" unique_id=540931744 node_paths=PackedStringArray("skip_button", "speaker_label", "body_label", "image")]
 script = ExtResource("1_got86")
-next_scene = "uid://cl06dcn5crx38"
+next_scene = "uid://ci8upnfj1ucdu"
 skip_button = NodePath("TextPanel/MarginContainer/VBoxContainer/HBoxContainer/SkipButton")
 speaker_label = NodePath("TextPanel/MarginContainer/VBoxContainer/SpeakerLabel")
 body_label = NodePath("TextPanel/MarginContainer/VBoxContainer/BodyLabel")

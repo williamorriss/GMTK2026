@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://lxqc6qi5a73"]
+
+[ext_resource type="Texture2D" uid="uid://rjymeesnokfa" path="res://UI/menu/profile_pics/Horse.png" id="1_jb1xy"]
+[ext_resource type="Script" uid="uid://86l5g3bvow7n" path="res://jericho_level/door/door.gd" id="1_s13vh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ln4xa"]
+size = Vector2(110, 50)
+
+[node name="Door" type="StaticBody2D" unique_id=971088044 node_paths=PackedStringArray("sprite", "shape")]
+collision_layer = 4
+collision_mask = 11
+script = ExtResource("1_s13vh")
+sprite = NodePath("Sprite2D")
+shape = NodePath("CollisionShape2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1903704242]
+shape = SubResource("RectangleShape2D_ln4xa")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1237615895]
+scale = Vector2(0.85, 0.174)
+texture = ExtResource("1_jb1xy")

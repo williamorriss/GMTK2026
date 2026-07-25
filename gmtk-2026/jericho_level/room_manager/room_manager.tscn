@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://36uud2knwod6"]
+
+[ext_resource type="Script" uid="uid://clegb71p41gui" path="res://jericho_level/room_manager/room_manager.gd" id="1_hpe1t"]
+
+[node name="RoomManager" type="Node2D" unique_id=1236107249]
+script = ExtResource("1_hpe1t")

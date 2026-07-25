@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://ciyk3l7p2kfjx"]
 
 [ext_resource type="Script" uid="uid://fr0yinnattdn" path="res://player/player.gd" id="1_4flbx"]
+[ext_resource type="PackedScene" uid="uid://ds8ssbo0o71xo" path="res://blood/blood_drop.tscn" id="2_hg6s5"]
 [ext_resource type="AudioStream" uid="uid://x7kyy77pcc78" path="res://audio/sfx/step.wav" id="2_8t03j"]
 [ext_resource type="Texture2D" uid="uid://dhcwybhoxgwhe" path="res://icon.svg" id="2_onrkg"]
 [ext_resource type="AudioStream" uid="uid://dooc6ubnw4l7" path="res://audio/sfx/hitHurt.wav" id="3_2ieo8"]
@@ -59,6 +60,8 @@ speed = 500.0
 step_audio = ExtResource("2_8t03j")
 hurt_audio = ExtResource("3_2ieo8")
 dash_audio = ExtResource("4_ebec5")
+
+[node name="BloodDrop" parent="." unique_id=1139702540 instance=ExtResource("2_hg6s5")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1392926206]
 shape = SubResource("CircleShape2D_tmfgs")

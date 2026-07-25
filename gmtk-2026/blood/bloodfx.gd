@@ -6,13 +6,13 @@ extends Node
 
 var splatters: Array[Node2D] = []
 
-func burst(direction: Vector2, origin: Vector2):
+func burst(direction: Vector2, origin: Vector2) -> void:
 	var b = burst_scene.instantiate()
 	get_tree().current_scene.add_child(b)
 	b.burst(direction, origin)
 
 func spawn_splatter(pos: Vector2, normal: Vector2):
-	var s = splatter_scene.instantiate()
+	var s: Node = splatter_scene.instantiate()
 	get_tree().current_scene.add_child(s)
 	s.global_position = pos + normal * 1.0
 	s.rotation = normal.angle() + PI/2

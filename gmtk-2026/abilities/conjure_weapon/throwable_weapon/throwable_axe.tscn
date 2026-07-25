@@ -8,7 +8,7 @@ radius = 138.17743
 
 [node name="ThrowableAxe" type="Area2D" unique_id=1045993088 node_paths=PackedStringArray("sprite", "collider")]
 collision_layer = 8
-collision_mask = 2
+collision_mask = 6
 script = ExtResource("1_uef3m")
 sprite = NodePath("Sprite2D")
 collider = NodePath("CollisionShape2D")

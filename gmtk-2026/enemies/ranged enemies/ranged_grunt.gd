@@ -72,5 +72,5 @@ func _can_see(target: Vector2) -> bool:
 	
 	return result.is_empty()
 
-func _on_dead(_dealer: Health.Owner, taker: Health.Owner, direction: Vector2) -> void:
+func _on_dead(_dealer: Health.Owner, _taker: Health.Owner, _direction: Vector2) -> void:
 	queue_free()

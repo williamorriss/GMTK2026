@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b3kpcfjm3tikb" path="res://enemies/melee enemies/grunt.gd" id="1_bhmnf"]
 [ext_resource type="Texture2D" uid="uid://dhcwybhoxgwhe" path="res://icon.svg" id="2_1rwn8"]
+[ext_resource type="PackedScene" uid="uid://ds8ssbo0o71xo" path="res://blood/blood_drop.tscn" id="2_6a5jm"]
 [ext_resource type="PackedScene" uid="uid://b84onmi6p6dgu" path="res://health/health.tscn" id="3_1rwn8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ny2g4"]
@@ -27,6 +28,8 @@ health = NodePath("Health")
 speed = 500.0
 max_distance = 500.0
 atk = 1.0
+
+[node name="BloodDrop" parent="." unique_id=1139702540 instance=ExtResource("2_6a5jm")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1056552632]
 position = Vector2(0, 2.5000076)

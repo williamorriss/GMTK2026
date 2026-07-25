@@ -26,17 +26,23 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_tmfgs"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fnfqw"]
+radius = 8.205485
 
 [node name="Barrel" type="RigidBody2D" unique_id=799897172]
+collision_layer = 2
+collision_mask = 11
+mass = 10.0
+gravity_scale = 0.0
 script = ExtResource("1_0hnmm")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=6614822]
+scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_mcs6s")
-animation = &"explode"
-frame_progress = 0.21230789
+animation = &"rest"
 
 [node name="Health" type="Node2D" parent="." unique_id=1771372074]
 script = ExtResource("3_2aolp")
+max_health = 10.0
 metadata/_custom_type_script = "uid://cy400prbqdwwd"
 
 [node name="Explosion" type="Area2D" parent="." unique_id=872373432]
@@ -48,6 +54,7 @@ collision_mask = 15
 shape = SubResource("CircleShape2D_tmfgs")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1386173667]
+scale = Vector2(20, 20)
 shape = SubResource("CircleShape2D_fnfqw")
 
 [connection signal="on_dead" from="Health" to="." method="_on_health_on_dead"]

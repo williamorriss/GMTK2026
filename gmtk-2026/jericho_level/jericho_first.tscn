@@ -7,8 +7,10 @@
 [ext_resource type="PackedScene" uid="uid://36uud2knwod6" path="res://jericho_level/room_manager/room_manager.tscn" id="4_qcbyh"]
 [ext_resource type="Script" uid="uid://3qtp2f14y6k5" path="res://jericho_level/room_manager/spawn_data.gd" id="5_t5tom"]
 [ext_resource type="PackedScene" uid="uid://dreqr6x7m6bqr" path="res://enemies/melee enemies/grunt.tscn" id="6_7tmev"]
+[ext_resource type="PackedScene" uid="uid://dw220nn5hf68u" path="res://stage_hazards/spike.tscn" id="7_l7lxy"]
 [ext_resource type="PackedScene" uid="uid://ciq5xxdrhat1g" path="res://enemies/ranged enemies/ranged_grunt.tscn" id="7_rdr8v"]
 [ext_resource type="Script" uid="uid://bcqi61pgsmrqu" path="res://jericho_level/level_end/level_end.gd" id="8_qwhmn"]
+[ext_resource type="PackedScene" uid="uid://gu8cs4u2qib1" path="res://stage_hazards/barrel.tscn" id="8_tmijp"]
 [ext_resource type="PackedScene" uid="uid://pcse4m0boi5d" path="res://UI/health_timer/timer_control/timer_control.tscn" id="9_vmmnd"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_t5tom"]
@@ -363,6 +365,26 @@ spawn_data = Array[ExtResource("5_t5tom")]([SubResource("Resource_ln4xa")])
 color = Color(1, 1, 1, 0)
 polygon = PackedVector2Array(-1715, -1296, 1690, -1296, 1678, 1131, -1704, 1144)
 
+[node name="spike_traps" type="Node2D" parent="Rooms/Room1" unique_id=1080781770]
+
+[node name="Spikes" parent="Rooms/Room1/spike_traps" unique_id=1629306272 instance=ExtResource("7_l7lxy")]
+position = Vector2(1654, -22)
+
+[node name="Spikes4" parent="Rooms/Room1/spike_traps" unique_id=693677066 instance=ExtResource("7_l7lxy")]
+position = Vector2(-1685, -194)
+
+[node name="Spikes5" parent="Rooms/Room1/spike_traps" unique_id=1853973988 instance=ExtResource("7_l7lxy")]
+position = Vector2(-1691, -28)
+
+[node name="Spikes6" parent="Rooms/Room1/spike_traps" unique_id=919131408 instance=ExtResource("7_l7lxy")]
+position = Vector2(-1679, 173)
+
+[node name="Spikes2" parent="Rooms/Room1/spike_traps" unique_id=2102801498 instance=ExtResource("7_l7lxy")]
+position = Vector2(1660, -211)
+
+[node name="Spikes3" parent="Rooms/Room1/spike_traps" unique_id=1826858608 instance=ExtResource("7_l7lxy")]
+position = Vector2(1654, 185)
+
 [node name="Room2" type="Node2D" parent="Rooms" unique_id=1964592996]
 position = Vector2(-4609, -3593)
 
@@ -377,6 +399,10 @@ spawn_data = Array[ExtResource("5_t5tom")]([SubResource("Resource_ln4xa")])
 [node name="Polygon2D" type="Polygon2D" parent="Rooms/Room2" unique_id=1423592193]
 color = Color(1, 1, 1, 0)
 polygon = PackedVector2Array(-1717, -1204, 1714, -1210, 1714, 1212, -1717, 1193)
+
+[node name="barrels" type="Node2D" parent="Rooms/Room2" unique_id=1178875336]
+
+[node name="Barrel" parent="Rooms/Room2/barrels" unique_id=799897172 instance=ExtResource("8_tmijp")]
 
 [node name="Room3" type="Node2D" parent="Rooms" unique_id=140851978]
 position = Vector2(3795, -3758)

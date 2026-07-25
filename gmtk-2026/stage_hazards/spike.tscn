@@ -36,10 +36,14 @@ animations = [{
 collision_layer = 4
 collision_mask = 7
 script = ExtResource("1_gcpfk")
+change_interval = 2.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1500242788]
+scale = Vector2(10, 10)
 shape = SubResource("RectangleShape2D_tmfgs")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=866210180]
+z_index = -1
+scale = Vector2(10, 10)
 sprite_frames = SubResource("SpriteFrames_tmfgs")
 animation = &"up"

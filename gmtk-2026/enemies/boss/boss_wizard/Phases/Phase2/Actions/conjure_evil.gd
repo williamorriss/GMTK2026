@@ -23,7 +23,7 @@ func process(_delta: float) -> void:
 		_ability._attack() # I know im using a private function, I don't care at this point
 
 func _spell_casting() -> void:
-	while true:
+	while _is_running:
 		await get_tree().create_timer(randf_range(cooldown.x, cooldown.y)).timeout
 		var player: Node2D = _boss.get_closet_player()
 		if not player:

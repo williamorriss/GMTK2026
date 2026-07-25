@@ -26,7 +26,7 @@ func _spawning() -> void:
 	if enemies.size() <= 0:
 		return
 	
-	while true:
+	while _is_running:
 		await get_tree().create_timer(randf_range(spawn_rate.x, spawn_rate.y)).timeout
 		
 		var instance: Enemy = enemies.pick_random().instantiate()

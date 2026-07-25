@@ -21,16 +21,16 @@ var _is_typing: bool = false
 
 func _ready() -> void:
 	skip_button.pressed.connect(_change_scene)
-	_present_scene(_current_slide)
+	await _present_scene(_current_slide)
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventKey and event.pressed:
 		if event.keycode == KEY_SPACE:
-			_next()
+			await _next()
 	
 	elif event is InputEventMouseButton and event.pressed:
 		if event.button_index == MOUSE_BUTTON_LEFT:
-			_next()
+			await _next()
 
 func _next() -> void:
 	if _is_typing:
@@ -41,16 +41,16 @@ func _next() -> void:
 	_current_slide += 1
 	
 	if _current_slide >= cutscenes.size():
-		_change_scene()
+		await _change_scene()
 		return
 	
 	AudioManager.play_sfx(select_audio)
-	_present_scene(_current_slide)
+	await _present_scene(_current_slide)
 
 func _present_scene(slide_num: int) -> void:
 	image.texture = cutscenes[slide_num].image
 	speaker_label.text = cutscenes[slide_num].speaker
-	_type(cutscenes[slide_num].body)
+	await _type(cutscenes[slide_num].body)
 
 func _type(text: String) -> void:
 	body_label.text = ""

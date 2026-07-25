@@ -40,6 +40,11 @@ func _ready() -> void:
 func _setup_replace() -> void:
 	AudioManager.play_sfx(select_audio)
 	
+	if _current_selection is ConjureWeapon and StateHolder.get_current_abilities().any(func(f: Ability) -> bool: return f is ConjureWeapon):
+		StateHolder.set_current_ability(_find_index(StateHolder.get_current_abilities(), func(f: Ability) -> bool: return f is ConjureWeapon), _current_selection)
+		await _next_scene()
+		return
+	
 	choices_control.visible = false
 	replace_control.visible = true
 	
@@ -108,3 +113,9 @@ func _on_replace_3_pressed() -> void:
 func _on_replace_4_pressed() -> void:
 	StateHolder.set_current_ability(3, _current_selection)
 	await _next_scene()
+
+func _find_index(array: Array, predicate: Callable) -> int:
+	for i: int in array.size():
+		if predicate.call(array[i]):
+			return i
+	return -1

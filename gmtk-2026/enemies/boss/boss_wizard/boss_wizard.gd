@@ -5,6 +5,7 @@ extends Enemy
 @export var play_area: Polygon2D
 @export var agent: NavigationAgent2D
 @export var health: Health
+@export var animator: BossAnimator
 
 @export_group("Phase")
 @export var phase_split: float = 0.5
@@ -66,18 +67,20 @@ func get_random_point() -> Vector2:
 	return Vector2.ZERO
 
 func _ready() -> void:
+	super._ready()
+	
 	add_to_group("enemies")
 	_switch_phase(phase1)
 	
 	await _dash_wait()
 
 func _process(_delta: float) -> void:
-	print(health.get_hp())
 	if _current_phase == phase1 and health.get_hp() <= health.max_health * phase_split:
 		print("Phase 2")
 		_switch_phase(phase2)
 	
-	_current_phase.process(_delta)
+	if not _is_dashing:
+		_current_phase.process(_delta)
 	
 	if not _closest_player:
 		calc_closest_player()
@@ -92,6 +95,7 @@ func _move(delta: float) -> void:
 	var target_velocity: Vector2 = direction * speed
 	
 	if _is_dashing:
+		animator.queue("dash")
 		velocity = direction * dash_speed
 	elif direction != Vector2.ZERO:
 		velocity = velocity.move_toward(target_velocity, acceleration * delta)
@@ -104,12 +108,14 @@ func _dash_wait() -> void:
 	while true:
 		_is_dashing = false
 		await get_tree().create_timer(randf_range(dash_cooldown.x, dash_cooldown.y)).timeout
+		animator.queue("dash_start")
 		_is_dashing = true
 		await get_tree().create_timer(dash_duration).timeout
+		animator.queue("dash_end")
 
 func _switch_phase(new_phase: Phase) -> void:
 	if _current_phase:
 		_current_phase.exit()
 	
-	new_phase.ready(self)
 	_current_phase = new_phase
+	_current_phase.ready(self)

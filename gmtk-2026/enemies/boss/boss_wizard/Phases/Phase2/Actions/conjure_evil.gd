@@ -29,5 +29,6 @@ func _spell_casting() -> void:
 		if not player:
 			continue
 		
+		print(_ability._is_evil)
 		_ability.set_target(player.global_position)
 		_ability.activate_ability()

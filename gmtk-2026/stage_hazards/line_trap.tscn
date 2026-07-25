@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://bb8ss8f1ekffj"]
+
+[ext_resource type="Script" uid="uid://bd54ac3jslobb" path="res://stage_hazards/line_trap.gd" id="1_aq1kf"]
+[ext_resource type="Texture2D" uid="uid://dhcwybhoxgwhe" path="res://icon.svg" id="2_aq1kf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tmfgs"]
+size = Vector2(121, 126)
+
+[node name="LineTrap" type="StaticBody2D" unique_id=208241967]
+script = ExtResource("1_aq1kf")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1886889587]
+texture = ExtResource("2_aq1kf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1503705757]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_tmfgs")

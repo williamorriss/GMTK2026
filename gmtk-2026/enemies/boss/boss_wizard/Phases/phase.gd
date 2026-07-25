@@ -12,13 +12,19 @@ func ready(boss: BossWizard) -> void:
 	_is_running = true
 
 func exit() -> void:
-	_is_running = true
+	_is_running = false
+	if _current_action:
+		_current_action.exit()
+	_current_action = null
 
 func process(_delta: float) -> void:
 	if _current_action:
 		_current_action.process(_delta)
 
 func switch_action(new_action: Action) -> void:
+	if not new_action in _boss.get_current_phase().actions:
+		return
+	
 	if _current_action:
 		_current_action.exit()
 	

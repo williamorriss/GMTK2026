@@ -36,19 +36,19 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	_update_beam_length()
-
+	
 	_dmg_timer = max(0.0, _dmg_timer - delta)
 	if _dmg_timer > 0.0 or not monitoring:
 		return
-
+	
 	for body: Node2D in get_overlapping_bodies():
-		if body == caster:
+		if body == caster or body.is_in_group("enemies"):
 			continue
 		var health: Health = Health.get_health(body)
 		var direction = global_position.direction_to(body.global_position)
 		if health:
 			health.damage(damage, direction, Health.Owner.Enemy)
-
+	
 	_dmg_timer = damage_timer
 
 func _update_beam_length() -> void:

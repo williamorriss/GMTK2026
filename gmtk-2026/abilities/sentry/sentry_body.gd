@@ -24,7 +24,7 @@ func _process(_delta: float) -> void:
 		_can_shoot = false
 		
 		var direction: Vector2 = position.direction_to(closest.position)
-		var bullet: Bullet = Bullet.create_bullet(position, direction,Health.Owner.Friendly)
+		var bullet: Bullet = Bullet.create_bullet(position, direction, Health.Owner.Friendly)
 		get_tree().current_scene.add_child(bullet)
 		
 		await get_tree().create_timer(cooldown).timeout

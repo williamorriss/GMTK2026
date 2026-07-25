@@ -19,6 +19,8 @@ var _can_attack: bool = true
 var _shooting: bool = false
 
 func _ready() -> void:
+	super._ready()
+	
 	add_to_group("enemies")
 	var _x: int = health.on_dead.connect(_on_dead)
 	
@@ -61,5 +63,5 @@ func attack() -> void:
 	await get_tree().create_timer(attack_cooldown).timeout # why is not a delta timer/ child of this object o_o
 	_can_attack = true
 
-func _on_dead() -> void:
+func _on_dead(dealer: Health.Owner, taker: Health.Owner, direction: Vector2) -> void:
 	queue_free()

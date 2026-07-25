@@ -6,7 +6,7 @@ extends Node2D
 @export var max_distance := 120.0
 @export var collision_mask := 1
 
-func burst(direction: Vector2, origin: Vector2):
+func burst(direction: Vector2, origin: Vector2) -> void:
 	global_position = origin
 	droplet_particles.direction = direction
 	droplet_particles.restart()
@@ -15,8 +15,8 @@ func burst(direction: Vector2, origin: Vector2):
 	var space_state = get_world_2d().direct_space_state
 	for i in ray_count:
 		var spread_angle = direction.angle() + randf_range(-0.5, 0.5)
-		var ray_dir = Vector2.RIGHT.rotated(spread_angle)
-		var query = PhysicsRayQueryParameters2D.create(
+		var ray_dir: Vector2 = Vector2.RIGHT.rotated(spread_angle)
+		var query: PhysicsRayQueryParameters2D = PhysicsRayQueryParameters2D.create(
 			origin,
 			origin + ray_dir * randf_range(max_distance * 0.4, max_distance),
 			collision_mask

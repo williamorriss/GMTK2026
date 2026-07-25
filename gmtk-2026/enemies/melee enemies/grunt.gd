@@ -17,6 +17,8 @@ extends Enemy
 @export var attack_time: float = 0.2    # how long hit is "active" / recovery after
 
 @onready var animation: AnimatedSprite2D = $AnimatedSprite2D
+@onready var blood_drop: BloodDrop = $BloodDrop
+
 var _state: State = State.Running
 
 enum State {
@@ -38,6 +40,7 @@ var _can_attack: bool = true
 
 func _ready() -> void:
 	super._ready()
+	
 	add_to_group("enemies")
 	var _x: int = health.on_dead.connect(_on_dead)
 
@@ -128,8 +131,9 @@ func _end_attack() -> void:
 	_cooldown_timer = attack_cooldown
 
 
-func _on_dead(dealer: Health.Owner, taker: Health.Owner, direction: Vector2) -> void:
+func _on_dead(_dealer: Health.Owner, _taker: Health.Owner, direction: Vector2) -> void:
 	BloodFX.burst(direction , global_position)
+	blood_drop.orbulate(health.max_health)
 	queue_free()
 
 

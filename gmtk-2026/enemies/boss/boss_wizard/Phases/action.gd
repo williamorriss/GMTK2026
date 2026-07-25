@@ -3,7 +3,7 @@ extends Node2D
 
 var _boss: BossWizard
 var _phase: Phase
-var _is_running: bool
+var _is_running: bool = false
 
 func ready(boss: BossWizard, phase: Phase) -> void:
 	_boss = boss

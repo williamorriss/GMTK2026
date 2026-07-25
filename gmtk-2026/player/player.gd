@@ -22,7 +22,6 @@ extends CharacterBody2D
 @onready var animation: AnimatedSprite2D = $AnimatedSprite2D
 @export var hit_frames: int = 5
 
-@onready var casting_pivot = $CastingPivot
 
 var _dashing: bool = false
 var _dash_timer: float = 0.0
@@ -108,7 +107,7 @@ func _i_frames(value: bool) -> void:
 	health.set_immunity(value)
 	
 
-func _die(direction: Vector2) -> void: # should play death anim here
+func _die(dealer: Health.Owner, taker: Health.Owner, direction: Vector2) -> void: # should play death anim here
 	HealthTimer.stop_timer()
 	await SceneTransition.change_scene(death_screen)
 	queue_free()

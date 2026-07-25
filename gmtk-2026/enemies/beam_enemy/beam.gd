@@ -45,8 +45,9 @@ func _process(delta: float) -> void:
 		if body == caster:
 			continue
 		var health: Health = Health.get_health(body)
+		var direction = global_position.direction_to(body.global_position)
 		if health:
-			health.damage(damage)
+			health.damage(damage, direction, Health.Owner.Enemy)
 
 	_dmg_timer = damage_timer
 

@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://f4b0l3oi2ai" path="res://UI/game_over/game_over_screen.gd" id="1_qflxa"]
 [ext_resource type="AudioStream" uid="uid://beu000mllpqaq" path="res://audio/sfx/blipSelect.wav" id="2_vhr0d"]
 [ext_resource type="FontFile" uid="uid://qvjbjulrm5fs" path="res://UI/Fonts/upheaval/upheavtt.ttf" id="3_flghv"]
+[ext_resource type="PackedScene" uid="uid://pcse4m0boi5d" path="res://UI/health_timer/timer_control/timer_control.tscn" id="4_vhr0d"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ln4xa"]
 bg_color = Color(0, 0, 0, 1)
@@ -68,6 +69,9 @@ theme_override_fonts/font = ExtResource("3_flghv")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_d4tce")
 text = "Succumb to fate"
+
+[node name="TimerControl" parent="." unique_id=1567958905 instance=ExtResource("4_vhr0d")]
+state = 1
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Choices/Retry" to="." method="_on_retry_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Choices/Quit" to="." method="_on_quit_pressed"]

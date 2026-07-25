@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://pcse4m0boi5d"]
+
+[ext_resource type="Script" uid="uid://cp4b2ki5och5j" path="res://UI/health_timer/timer_control/timer_control.gd" id="1_r0ypy"]
+
+[node name="TimerControl" type="Node2D" unique_id=1567958905]
+script = ExtResource("1_r0ypy")

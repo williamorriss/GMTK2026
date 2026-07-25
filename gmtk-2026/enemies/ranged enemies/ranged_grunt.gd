@@ -25,6 +25,7 @@ func _ready() -> void:
 
 func _physics_process(_delta: float) -> void:
 	if not _closest_player:
+		calc_closest_player()
 		return
 		
 	attack()

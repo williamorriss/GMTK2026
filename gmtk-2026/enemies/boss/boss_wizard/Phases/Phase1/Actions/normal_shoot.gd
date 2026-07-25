@@ -40,4 +40,4 @@ func _shoot() -> void:
 		get_tree().current_scene.add_child(instance)
 
 func _change_action() -> void:
-	_phase.switch_action(_phase.get_actions().filter(func(f: Action) -> bool: return not f is RunAction).pick_random())
+	_phase.switch_action(_phase.get_actions().filter(func(f: Action) -> bool: return not f is ShootAction).pick_random())

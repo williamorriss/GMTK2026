@@ -58,6 +58,7 @@ actions = [NodePath("Run"), NodePath("Charge"), NodePath("Teleport"), NodePath("
 [node name="Run" type="Node2D" parent="Phases/Phase1" unique_id=2125979796]
 script = ExtResource("5_1x24s")
 projectile = ExtResource("6_1x24s")
+max_time_range = Vector2(1, 2)
 
 [node name="Charge" type="Node2D" parent="Phases/Phase1" unique_id=1732507785 node_paths=PackedStringArray("run_action", "teleport_action")]
 script = ExtResource("6_iafwb")
@@ -76,6 +77,7 @@ enemies = Array[PackedScene]([ExtResource("11_lijfk"), ExtResource("8_iafwb"), E
 [node name="Shoot" type="Node2D" parent="Phases/Phase1" unique_id=550003312]
 script = ExtResource("11_cvrsx")
 projectile = ExtResource("6_1x24s")
+max_time_range = Vector2(1, 2)
 
 [node name="Phase2" type="Node2D" parent="Phases" unique_id=1909016134 node_paths=PackedStringArray("actions")]
 script = ExtResource("12_wrxbn")

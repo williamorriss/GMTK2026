@@ -1,15 +1,40 @@
 [gd_scene format=3 uid="uid://boj0gebdcokjf"]
 
 [ext_resource type="Script" uid="uid://o8nr873qftjg" path="res://enemies/beam_enemy/beam.gd" id="1_4ehef"]
+[ext_resource type="Texture2D" uid="uid://d0oy3xmhr6tnq" path="res://UI/menu/profile_pics/NotAHuman.png" id="2_4ehef"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ln4xa"]
 size = Vector2(10, 26)
 
 [sub_resource type="Animation" id="Animation_4ehef"]
 length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_xuldq"]
 resource_name = "charging"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.5), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8kkwt"]
 _data = {
@@ -38,8 +63,13 @@ libraries/ = SubResource("AnimationLibrary_8kkwt")
 
 [node name="Line2D" type="Line2D" parent="." unique_id=1421345686]
 visible = false
-points = PackedVector2Array(0, 0, 100, 0)
+points = PackedVector2Array(0, 0, 4732, 4)
 width = 100.0
 gradient = SubResource("Gradient_p6ibq")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=973117743]
+position = Vector2(2248, -8.033328)
+scale = Vector2(6.4638886, 0.18611112)
+texture = ExtResource("2_4ehef")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

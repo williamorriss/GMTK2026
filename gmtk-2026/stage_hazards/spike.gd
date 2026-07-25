@@ -60,5 +60,5 @@ func _on_hit_timer_timeout() -> void:
 		var health: Health = Health.get_health(body) 
 		if health:
 			print(damage)
-			health.damage(damage, Vector2.ZERO, Health.Owner.Neutral)
+			health.damage(damage, Vector2.ZERO, Health.Owner.Enemy)
 		

@@ -8,11 +8,8 @@ sfx_player = NodePath("SFXPlayer")
 music_player_a = NodePath("MusicPlayerA")
 music_player_b = NodePath("MusicPlayerB")
 
-[node name="SFXPlayer" type="AudioStreamPlayer2D" parent="." unique_id=1061570079]
-bus = &"SFX"
+[node name="SFXPlayer" type="AudioStreamPlayer" parent="." unique_id=1406706150]
 
-[node name="MusicPlayerA" type="AudioStreamPlayer2D" parent="." unique_id=2007308873]
-bus = &"Music"
+[node name="MusicPlayerA" type="AudioStreamPlayer" parent="." unique_id=351734573]
 
-[node name="MusicPlayerB" type="AudioStreamPlayer2D" parent="." unique_id=615092399]
-bus = &"Music"
+[node name="MusicPlayerB" type="AudioStreamPlayer" parent="." unique_id=537691910]

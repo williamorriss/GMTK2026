@@ -7,7 +7,6 @@ extends CanvasLayer
 var _health: Health
 
 func _ready() -> void:
-	pass
 	_health = Health.get_health(boss)
 	health_bar.editable = false
 	
@@ -19,5 +18,4 @@ func _ready() -> void:
 	health_bar.max_value = _health.max_health
 
 func _process(_delta: float) -> void:
-	pass
 	health_bar.value = _health.get_hp()

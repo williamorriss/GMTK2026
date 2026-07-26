@@ -44,6 +44,7 @@ var _dash_direction: Vector2 = Vector2.ZERO
 var _hit_intangible_timer: float = 0.0
 var _hit_intangible: bool = false
 var _should_step: bool = true
+var _is_dying: bool = false
 
 var _current_state: State = State.Idle
 enum State {
@@ -66,6 +67,8 @@ func _ready() -> void:
 	
 
 func _physics_process(delta: float) -> void:
+	if _is_dying:
+		return
 	_dash_cooldown_timer = max(0.0, _dash_cooldown_timer - delta)
 	
 	# i frames on hit
@@ -170,15 +173,32 @@ func _i_frames(value: bool) -> void:
 	health.set_immunity(value)
 
 func _die(dealer: Health.Owner, taker: Health.Owner, direction: Vector2) -> void: # should play death anim here
+	if _is_dying:
+		return
+	_is_dying = true
 	HealthTimer.stop_timer()
+
 	
 	var instance: Node2D = preload("res://ParticleSystem/blood_particle.tscn").instantiate()
 	instance.global_position = global_position
 	get_tree().current_scene.add_child(instance)
+	_current_state = State.Dead
 	
-	var darkness: Rect2
-	
+	var darkness_rect :Rect2 = Rect2(global_position - Vector2(10000,10000),Vector2(20000,20000))
+	var darkness :ColorRect = ColorRect.new()
+	darkness.color = Color(0,0,0)
+	darkness.size = darkness_rect.size
+	darkness.position = darkness_rect.position
+	darkness.z_index = 0
+	$AnimatedSprite2D.z_index = 1
+	add_child(darkness)
+	animation.stop()
+	animation.play("death")
+	print(animation.animation)
+	await animation.animation_finished
+	print("finished")
 	await SceneTransition.change_scene(death_screen)
+	darkness.queue_free()
 	queue_free()
 
 func _animate_duration(anim_name: String, target_duration: float) -> void:
@@ -198,6 +218,8 @@ func _on_health_on_damage_taken(dealer: Health.Owner, taker: Health.Owner, value
 		_hit_intangible = true
 		
 func start_cast() -> void:
+	if _is_dying:
+		return
 	_current_state = State.Casting
 	animation.play("cast")
 

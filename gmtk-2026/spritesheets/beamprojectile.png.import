@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dni7teexddimj"
-path="res://.godot/imported/idle.jpg-908f178960630da275594a196b759c16.ctex"
+uid="uid://dnsxgpec8mmuh"
+path="res://.godot/imported/beamprojectile.png-959568fcc5cb47083f2e26fe5350bcf1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/idle.jpg"
-dest_files=["res://.godot/imported/idle.jpg-908f178960630da275594a196b759c16.ctex"]
+source_file="res://spritesheets/beamprojectile.png"
+dest_files=["res://.godot/imported/beamprojectile.png-959568fcc5cb47083f2e26fe5350bcf1.ctex"]
 
 [params]
 

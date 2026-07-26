@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cfeqtos6sscp5"
-path="res://.godot/imported/run.jpg-244b555ffdadde5fc24709b655014a8c.ctex"
+uid="uid://dgj5yx4y4txin"
+path="res://.godot/imported/beamerwalk.png-26c29ab2caec84ae839e70792e46cc8c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/run.jpg"
-dest_files=["res://.godot/imported/run.jpg-244b555ffdadde5fc24709b655014a8c.ctex"]
+source_file="res://spritesheets/beamerwalk.png"
+dest_files=["res://.godot/imported/beamerwalk.png-26c29ab2caec84ae839e70792e46cc8c.ctex"]
 
 [params]
 

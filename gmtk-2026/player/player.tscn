@@ -242,9 +242,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_uw77l")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"cast",
-"speed": 5.0
+"speed": 16.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -412,7 +412,9 @@ max_health = 1000.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=442554886]
 sprite_frames = SubResource("SpriteFrames_a00k7")
-animation = &"idle"
+animation = &"cast"
+frame = 8
+frame_progress = 1.0
 
 [node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="." unique_id=1452965748]
 radius = 40.0

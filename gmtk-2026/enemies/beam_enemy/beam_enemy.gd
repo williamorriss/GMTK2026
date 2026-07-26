@@ -18,7 +18,6 @@ extends Enemy
 @onready var _animation: AnimatedSprite2D = $AnimatedSprite2D
 
 var _offset: Vector2 = Vector2.ZERO
-var _can_attack: bool = true
 var _shooting: bool = false
 
 func _ready() -> void:
@@ -44,7 +43,11 @@ func _move(delta: float) -> void:
 	if not _closest_player:
 		calc_closest_player()
 		return
-
+		
+	if _shooting:
+		return
+	
+	_animation.speed_scale = 1.0
 	_animation.play("walk")
 	agent.target_position = _closest_player.global_position + _offset
 
@@ -57,26 +60,27 @@ func _move(delta: float) -> void:
 	agent.set_velocity(direction * speed)
 
 func _attack() -> void:
-	if not _can_attack or not _closest_player:
+	if _shooting or not _closest_player:
 		return
 
-	_can_attack = false
 	_shooting = true
 
 	var dir: Vector2 = global_position.direction_to(_closest_player.global_position)
 	var pos: Vector2 = global_position + dir * beam_offset
 
 	var beam: Beam = Beam.create_beam(self, dir, pos)
-	var charge_time: float = beam.charging_time
-
 	get_tree().current_scene.add_child(beam)
-	beam.on_finish_charge.connect(func () -> void: _animate_duration("attack", beam.damage_timer))
-	_animate_duration("charging", beam.charging_time)
 	
-	get_tree().create_timer(attack_cooldown).timeout.connect(func () -> void: _can_attack = true)
-
-	beam.on_finish_beam.connect(func () -> void: _shooting = false)
-
+	beam.activate.call_deferred(charging_time)
+	_animate_duration("charging", charging_time)
+	await _animation.animation_finished
+	print("finished charging")
+	beam.fire.call_deferred(beam_lifetime)
+	_animate_duration("attack", beam_lifetime)
+	await _animation.animation_finished
+	print("finished attacking")
+	await get_tree().create_timer(attack_cooldown).timeout
+	_shooting = false
 
 func _animate_duration(anim_name: String, target_duration: float) -> void:
 	var sf: SpriteFrames = _animation.sprite_frames
@@ -86,7 +90,9 @@ func _animate_duration(anim_name: String, target_duration: float) -> void:
 	_animation.play(anim_name)
 
 func _on_dead(dealer: Health.Owner, taker: Health.Owner, direction: Vector2) -> void:
+	_animation.speed_scale = 1.0
 	_animation.play("death")
+	await _animation.animation_finished
 	queue_free()
 
 

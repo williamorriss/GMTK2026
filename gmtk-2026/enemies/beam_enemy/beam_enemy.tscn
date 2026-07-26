@@ -7,9 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://dgj5yx4y4txin" path="res://spritesheets/beamerwalk.png" id="5_olstc"]
 [ext_resource type="Texture2D" uid="uid://3sb3rywy1qyr" path="res://spritesheets/beamercharget.png" id="5_t8tpx"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_olstc"]
-radius = 12.0
-height = 36.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q1e10"]
+size = Vector2(87, 195)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_olstc"]
 atlas = ExtResource("4_vw8j5")
@@ -93,79 +92,87 @@ region = Rect2(440, 0, 40, 40)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vw8j5"]
 atlas = ExtResource("4_62eat")
-region = Rect2(0, 0, 42, 40)
+region = Rect2(0, 0, 40, 40)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t8tpx"]
 atlas = ExtResource("4_62eat")
-region = Rect2(42, 0, 42, 40)
+region = Rect2(40, 0, 40, 40)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qq4hq"]
 atlas = ExtResource("4_62eat")
-region = Rect2(84, 0, 42, 40)
+region = Rect2(80, 0, 40, 40)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_81cg7"]
 atlas = ExtResource("4_62eat")
-region = Rect2(126, 0, 42, 40)
+region = Rect2(120, 0, 40, 40)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tjjop"]
 atlas = ExtResource("4_62eat")
-region = Rect2(168, 0, 42, 40)
+region = Rect2(160, 0, 40, 40)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j5h6w"]
 atlas = ExtResource("4_62eat")
-region = Rect2(210, 0, 42, 40)
+region = Rect2(200, 0, 40, 40)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fhpua"]
 atlas = ExtResource("4_62eat")
-region = Rect2(252, 0, 42, 40)
+region = Rect2(240, 0, 40, 40)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kfexq"]
 atlas = ExtResource("4_62eat")
-region = Rect2(294, 0, 42, 40)
+region = Rect2(280, 0, 40, 40)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_42jt1"]
 atlas = ExtResource("4_62eat")
-region = Rect2(336, 0, 42, 40)
+region = Rect2(320, 0, 40, 40)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8aku5"]
 atlas = ExtResource("4_62eat")
-region = Rect2(378, 0, 42, 40)
+region = Rect2(360, 0, 40, 40)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_b8ief"]
 atlas = ExtResource("4_62eat")
-region = Rect2(420, 0, 42, 40)
+region = Rect2(400, 0, 40, 40)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j1o03"]
 atlas = ExtResource("4_62eat")
-region = Rect2(462, 0, 42, 40)
+region = Rect2(440, 0, 40, 40)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qjvi8"]
 atlas = ExtResource("4_62eat")
-region = Rect2(504, 0, 42, 40)
+region = Rect2(480, 0, 40, 40)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_53di3"]
 atlas = ExtResource("4_62eat")
-region = Rect2(546, 0, 42, 40)
+region = Rect2(520, 0, 40, 40)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dutwv"]
 atlas = ExtResource("4_62eat")
-region = Rect2(588, 0, 42, 40)
+region = Rect2(560, 0, 40, 40)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kmhwv"]
 atlas = ExtResource("4_62eat")
-region = Rect2(630, 0, 42, 40)
+region = Rect2(600, 0, 40, 40)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2me87"]
 atlas = ExtResource("4_62eat")
-region = Rect2(672, 0, 42, 40)
+region = Rect2(640, 0, 40, 40)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_763kq"]
 atlas = ExtResource("4_62eat")
-region = Rect2(714, 0, 42, 40)
+region = Rect2(680, 0, 40, 40)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_82vuy"]
 atlas = ExtResource("4_62eat")
-region = Rect2(756, 0, 42, 40)
+region = Rect2(720, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u1l82"]
+atlas = ExtResource("4_62eat")
+region = Rect2(760, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ut20d"]
+atlas = ExtResource("4_62eat")
+region = Rect2(800, 0, 40, 40)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p11om"]
 atlas = ExtResource("5_olstc")
@@ -230,9 +237,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_tg2il")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"attack",
-"speed": 5.0
+"speed": 20.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -271,9 +278,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_d3tic")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"charging",
-"speed": 5.0
+"speed": 20.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -332,10 +339,16 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_82vuy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u1l82")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ut20d")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"death",
-"speed": 5.0
+"speed": 20.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -367,7 +380,7 @@ animations = [{
 }],
 "loop": 1,
 "name": &"walk",
-"speed": 5.0
+"speed": 10.0
 }]
 
 [node name="BeamEnemy" type="CharacterBody2D" unique_id=1624300625 node_paths=PackedStringArray("agent", "health")]
@@ -378,18 +391,19 @@ agent = NodePath("NavigationAgent2D")
 health = NodePath("Health")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=313939928]
-shape = SubResource("CapsuleShape2D_olstc")
+position = Vector2(5.5, -22.5)
+shape = SubResource("RectangleShape2D_q1e10")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1069392954]
 avoidance_enabled = true
-debug_enabled = true
 debug_use_custom = true
 
 [node name="Health" parent="." unique_id=2054087400 instance=ExtResource("3_67ugg")]
 max_health = 10.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2016756548]
-position = Vector2(-1, -6)
+position = Vector2(-15, -78)
+scale = Vector2(9, 9)
 sprite_frames = SubResource("SpriteFrames_tmfgs")
 animation = &"charging"
 frame_progress = 0.7241898

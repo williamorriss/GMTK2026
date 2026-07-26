@@ -149,7 +149,8 @@ func _walk(delta: float, input_dir: Vector2) -> void:
 	if _current_state != State.Casting:
 		animation.play("walk")
 	
-	velocity = velocity.move_toward(target_velocity, acceleration * delta)
+	var overspeed_factor = pow(max(1.0, velocity.length() / speed), 2.0)
+	velocity = velocity.move_toward(target_velocity, acceleration * overspeed_factor * delta)
 	var _x: int = move_and_slide()
 	
 func _idle(delta: float) -> void:

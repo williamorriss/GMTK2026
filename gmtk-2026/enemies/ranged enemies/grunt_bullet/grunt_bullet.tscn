@@ -2,19 +2,73 @@
 
 [ext_resource type="Script" uid="uid://d3bufi14xkb26" path="res://enemies/ranged enemies/grunt_bullet/grunt_bullet.gd" id="1_d7x1r"]
 [ext_resource type="Texture2D" uid="uid://dhcwybhoxgwhe" path="res://icon.svg" id="2_mgajd"]
+[ext_resource type="Texture2D" uid="uid://ctcay35rpusuw" path="res://enemies/ranged enemies/grunt_bullet/rangerprojectilet.png" id="3_rej4v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ln4xa"]
-size = Vector2(32, 32)
+size = Vector2(40, 32)
 
-[node name="GruntBullet" type="Area2D" unique_id=470132796]
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ljn8"]
+atlas = ExtResource("3_rej4v")
+region = Rect2(0, 0, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_14cnv"]
+atlas = ExtResource("3_rej4v")
+region = Rect2(20, 0, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vr2wf"]
+atlas = ExtResource("3_rej4v")
+region = Rect2(40, 0, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vqkjb"]
+atlas = ExtResource("3_rej4v")
+region = Rect2(60, 0, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2j4sv"]
+atlas = ExtResource("3_rej4v")
+region = Rect2(80, 0, 20, 20)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ln4xa"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ljn8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_14cnv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vr2wf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vqkjb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2j4sv")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="GruntBullet" type="Area2D" unique_id=470132796 node_paths=PackedStringArray("sprite")]
 collision_layer = 8
 collision_mask = 5
 script = ExtResource("1_d7x1r")
 speed = 2500.0
+sprite = NodePath("AnimatedSprite2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2064587554]
+visible = false
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("2_mgajd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=571729409]
+position = Vector2(-3, 0)
 shape = SubResource("RectangleShape2D_ln4xa")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=671605448]
+position = Vector2(-17.999998, -3)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_ln4xa")
+frame_progress = 0.54182595
+flip_h = true

@@ -260,7 +260,6 @@ radius = 150.0
 time_horizon_agents = 3.0
 time_horizon_obstacles = 3.0
 max_speed = 500.0
-debug_enabled = true
 debug_path_custom_color = Color(0.8521696, 0.0010696579, 0.9234679, 1)
 
 [node name="Health" parent="." unique_id=2054087400 instance=ExtResource("3_1rwn8")]

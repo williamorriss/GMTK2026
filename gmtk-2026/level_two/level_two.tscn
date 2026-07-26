@@ -347,7 +347,7 @@ scale = Vector2(2, 2)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=966347197 node_paths=PackedStringArray("player")]
 position = Vector2(782.15894, 4464.119)
-zoom = Vector2(0.2, 0.2)
+zoom = Vector2(0.175, 0.175)
 position_smoothing_enabled = true
 script = ExtResource("3_t5coh")
 player = NodePath("../Player")

@@ -18,7 +18,7 @@ _data = {
 
 [node name="Beam" type="Line2D" unique_id=1445765932 node_paths=PackedStringArray("animator")]
 points = PackedVector2Array(0, 0, 1, 0)
-width = 100.0
+width = 200.0
 texture = ExtResource("2_xuldq")
 texture_mode = 1
 script = ExtResource("1_4ehef")
@@ -26,10 +26,11 @@ animator = NodePath("AnimationPlayer")
 damage = 2.0
 damage_timer = 1.0
 charging_time = 2.0
-lifetime = 2.0
+lifetime = 1.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2052149251]
 libraries/ = SubResource("AnimationLibrary_8kkwt")
 
 [node name="BeamEnd" type="Sprite2D" parent="." unique_id=2094293617]
+scale = Vector2(2, 2)
 texture = ExtResource("3_xuldq")

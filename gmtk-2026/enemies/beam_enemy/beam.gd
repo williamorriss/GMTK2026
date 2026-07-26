@@ -28,6 +28,7 @@ static func create_beam(caster: Enemy, direction: Vector2, pos: Vector2) -> Beam
 func _ready() -> void:
 	animator.speed_scale = 1 / charging_time
 	animator.play("charging")
+	animator.animation_finished.connect(func (_x: Variant) -> void: _draw_beam(), CONNECT_ONE_SHOT)
 	await animator.animation_finished
 	on_finish_charge.emit()
 	await get_tree().create_timer(lifetime).timeout
@@ -35,8 +36,10 @@ func _ready() -> void:
 	queue_free()
 	
 func _process(delta: float) -> void:
+	if not animator.animation_finished:
+		return
+		
 	_dmg_timer = max(0.0, _dmg_timer - delta)
-	_draw_beam()
 	if _dmg_timer <= 0.0:
 		_hit()
 		_dmg_timer = damage_timer
@@ -86,4 +89,4 @@ func _draw_beam() -> void:
 	
 	_line_end.visible = true
 	_line_end.global_position = to_global(end_local)
-	_line_end.global_rotation = global_rotation
+	_line_end.global_rotation = global_rotation + PI

@@ -14,6 +14,8 @@ extends Enemy
 @export var attack_range: float = 1000.0
 @export var attack_cooldown: float = 2.0
 @export var beam_offset: float = 100
+@export var charging_time: float = 2.0
+@export var beam_lifetime: float = 3.0
 
 @onready var _animation: AnimatedSprite2D = $AnimatedSprite2D
 
@@ -35,7 +37,7 @@ func _physics_process(delta: float) -> void:
 		return
 		
 	if global_position.distance_to(_closest_player.global_position) < attack_range and not _shooting:
-		await _attack()
+		_attack.call_deferred()
 	else:
 		_move(delta)
 
@@ -43,11 +45,14 @@ func _move(delta: float) -> void:
 	if not _closest_player:
 		calc_closest_player()
 		return
+		
+	if _shooting:
+		return
 
 	_animation.play("walk")
 	agent.target_position = _closest_player.global_position + _offset
 
-	if agent.is_navigation_finished() or global_position.distance_to(_closest_player.global_position) < max_distance or _shooting:
+	if agent.is_navigation_finished() or global_position.distance_to(_closest_player.global_position) < max_distance:
 		agent.set_velocity(Vector2.ZERO)
 		return
 
@@ -64,14 +69,17 @@ func _attack() -> void:
 	var pos: Vector2 = global_position + dir * beam_offset
 
 	var beam: Beam = Beam.create_beam(self, dir, pos)
-	var charge_time: float = beam.charging_time
-	beam.on_beam_fail.connect(_reset_state)
-
 	get_tree().current_scene.add_child(beam)
-	beam.on_finish_charge.connect(func () -> void: _animate_duration("attack", beam.damage_timer))
-	_animate_duration("charging", beam.charging_time)
-	await beam.on_finish_beam
-	await get_tree().create_timer(attack_cooldown).timeout.connect
+	
+	beam.activate.call_deferred(charging_time)
+	_animate_duration("charging", charging_time)
+	await _animation.animation_finished
+	print("finished charging")
+	beam.fire.call_deferred(beam_lifetime)
+	_animate_duration("attack", beam_lifetime)
+	await _animation.animation_finished
+	print("finished attacking")
+	await get_tree().create_timer(attack_cooldown).timeout
 	_shooting = false
 
 func _animate_duration(anim_name: String, target_duration: float) -> void:
@@ -82,10 +90,11 @@ func _animate_duration(anim_name: String, target_duration: float) -> void:
 	_animation.play(anim_name)
 
 func _reset_state() -> void:
-	var _shooting: bool = false
+	_shooting = false
 
 func _on_dead(dealer: Health.Owner, taker: Health.Owner, direction: Vector2) -> void:
 	_animation.play("death")
+	await _animation.animation_finished
 	queue_free()
 
 

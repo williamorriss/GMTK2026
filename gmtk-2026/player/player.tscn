@@ -13,8 +13,8 @@
 [ext_resource type="Texture2D" uid="uid://0e73bt15w2k" path="res://spritesheets/playeridle.png" id="11_ebec5"]
 [ext_resource type="Texture2D" uid="uid://7jjoo2iduryp" path="res://spritesheets/walk.png" id="11_yllr7"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_tmfgs"]
-radius = 98.4124
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_olstc"]
+radius = 5.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2ieo8"]
 atlas = ExtResource("10_2ieo8")
@@ -400,7 +400,8 @@ dash_audio = ExtResource("4_ebec5")
 [node name="BloodDrop" parent="." unique_id=1139702540 instance=ExtResource("2_hg6s5")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1392926206]
-shape = SubResource("CircleShape2D_tmfgs")
+position = Vector2(0, 3)
+shape = SubResource("CapsuleShape2D_olstc")
 
 [node name="AbilityUser" type="Node2D" parent="." unique_id=1044070561 node_paths=PackedStringArray("player", "health")]
 script = ExtResource("3_g1dw6")
@@ -415,6 +416,6 @@ sprite_frames = SubResource("SpriteFrames_a00k7")
 animation = &"idle"
 
 [node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="." unique_id=1452965748]
-radius = 40.0
+radius = 35.54
 
 [connection signal="on_damage_taken" from="Health" to="." method="_on_health_on_damage_taken"]

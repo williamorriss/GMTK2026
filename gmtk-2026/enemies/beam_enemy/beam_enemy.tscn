@@ -230,7 +230,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_tg2il")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"attack",
 "speed": 5.0
 }, {
@@ -271,7 +271,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_d3tic")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"charging",
 "speed": 5.0
 }, {
@@ -333,7 +333,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_82vuy")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"death",
 "speed": 5.0
 }, {
@@ -382,7 +382,6 @@ shape = SubResource("CapsuleShape2D_olstc")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1069392954]
 avoidance_enabled = true
-debug_enabled = true
 debug_use_custom = true
 
 [node name="Health" parent="." unique_id=2054087400 instance=ExtResource("3_67ugg")]
@@ -391,7 +390,6 @@ max_health = 10.0
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2016756548]
 position = Vector2(-1, -6)
 sprite_frames = SubResource("SpriteFrames_tmfgs")
-animation = &"charging"
-frame_progress = 0.7241898
+animation = &"attack"
 
 [connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]

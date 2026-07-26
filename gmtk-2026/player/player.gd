@@ -100,6 +100,7 @@ func _decide_state(delta: float) -> State:
 		
 	var state: State = State.Idle
 	
+	
 	if _current_state == State.Casting:
 		_walk(delta, input_dir)
 		return State.Casting

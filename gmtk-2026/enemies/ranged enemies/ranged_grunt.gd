@@ -37,7 +37,7 @@ func _physics_process(_delta: float) -> void:
 		calc_closest_player()
 		return
 	
-	attack() # naughty boy to the one that added await
+	attack.call_deferred() # naughty boy to the one that added await (I'm sowy :3) ((not sorry use deferred ;-;))
 	
 	agent.target_position = _closest_player.position + _offset
 	
@@ -62,11 +62,11 @@ func attack() -> void:
 	if not _closest_player:
 		return
 		
-	if not _can_attack or not _can_see(_closest_player.position):
+	if not _can_attack or not _can_see(_closest_player.global_position):
 		return
 	_can_attack = false
 	
-	var bullet: GruntBullet = GruntBullet.create_bullet(position, position.direction_to(_closest_player.position))
+	var bullet: GruntBullet = GruntBullet.create_bullet(global_position, global_position.direction_to(_closest_player.global_position))
 	get_tree().current_scene.add_child(bullet)
 	
 	_is_firing = true
@@ -80,7 +80,7 @@ func attack() -> void:
 func _can_see(target: Vector2) -> bool:
 	var space_state: PhysicsDirectSpaceState2D = get_world_2d().direct_space_state
 	
-	var query: PhysicsRayQueryParameters2D = PhysicsRayQueryParameters2D.create(position, target)
+	var query: PhysicsRayQueryParameters2D = PhysicsRayQueryParameters2D.create(global_position, target)
 	
 	var wall_layer: int = 3 # placeholder for the walls
 	query.collision_mask = 1 << (wall_layer - 1)

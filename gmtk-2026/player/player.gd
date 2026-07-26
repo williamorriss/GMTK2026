@@ -175,6 +175,8 @@ func _die(dealer: Health.Owner, taker: Health.Owner, direction: Vector2) -> void
 	instance.global_position = global_position
 	get_tree().current_scene.add_child(instance)
 	
+	var darkness: Rect2
+	
 	await SceneTransition.change_scene(death_screen)
 	queue_free()
 

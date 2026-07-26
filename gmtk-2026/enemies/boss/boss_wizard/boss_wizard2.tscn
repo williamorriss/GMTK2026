@@ -720,6 +720,7 @@ shape = SubResource("CircleShape2D_ln4xa")
 
 [node name="Phase2" type="Node2D" parent="." unique_id=1909016134 node_paths=PackedStringArray("actions")]
 script = ExtResource("20_cd6le")
+next_scene = "uid://c6we134heeisf"
 actions = [NodePath("ConjureEvil"), NodePath("ChromaticEvil"), NodePath("MissileEvil"), NodePath("SpikeEvil"), NodePath("ThornEvil")]
 
 [node name="ChromaticEvil" type="Node2D" parent="Phase2" unique_id=2025216100]

@@ -4,33 +4,41 @@
 [ext_resource type="Script" uid="uid://cbsylliq42bj6" path="res://UI/cutscenes/cutscene_manager.gd" id="1_got86"]
 [ext_resource type="Script" uid="uid://b01xvucl3mvta" path="res://UI/cutscenes/cutscene_data.gd" id="2_3yu11"]
 [ext_resource type="AudioStream" uid="uid://beu000mllpqaq" path="res://audio/sfx/blipSelect.wav" id="2_wxb4a"]
+[ext_resource type="Texture2D" uid="uid://blq4vn7lpinii" path="res://UI/cutscenes/images/openingscene.png" id="4_6oyhc"]
+[ext_resource type="Texture2D" uid="uid://0jhultefg22f" path="res://UI/cutscenes/images/boz.png" id="5_n1p3r"]
+[ext_resource type="Texture2D" uid="uid://dms0pfv7wydxo" path="res://UI/cutscenes/images/wiz.png" id="6_76hwu"]
 
 [sub_resource type="Resource" id="Resource_got86"]
 script = ExtResource("2_3yu11")
+image = ExtResource("4_6oyhc")
 speaker = "Narrator"
 body = "A long time ago, in the magical kingdom of Slough, there were two powerful wizards: joe wizard and john wizard. For centuries, they had a bitter feud, until one day, John Wizard found a powerful spell..."
 metadata/_custom_type_script = "uid://b01xvucl3mvta"
 
 [sub_resource type="Resource" id="Resource_wxb4a"]
 script = ExtResource("2_3yu11")
+image = ExtResource("5_n1p3r")
 speaker = "John Wizard"
 body = "HAHAHAHA, finally... this spell will put Joe Wizard in his place, and i'll be the most powerful wizard in Slough that has a name starting with J!"
 metadata/_custom_type_script = "uid://b01xvucl3mvta"
 
 [sub_resource type="Resource" id="Resource_6oyhc"]
 script = ExtResource("2_3yu11")
+image = ExtResource("4_6oyhc")
 speaker = "Narrator"
 body = "And so one day, while Joe Wizard was sleeping, John Wizard placed a spell on him, such that he would age rapidly if he doesn't get blood from someone else."
 metadata/_custom_type_script = "uid://b01xvucl3mvta"
 
 [sub_resource type="Resource" id="Resource_tu1um"]
 script = ExtResource("2_3yu11")
+image = ExtResource("6_76hwu")
 speaker = "Joe Wizard"
 body = "Nooooo! John Wizard has placed a spell on me that I age rapidly if I don't get blood from someone else! I must ascend his tower and kill him to remove  this spell!"
 metadata/_custom_type_script = "uid://b01xvucl3mvta"
 
 [sub_resource type="Resource" id="Resource_yk36w"]
 script = ExtResource("2_3yu11")
+image = ExtResource("4_6oyhc")
 speaker = "Narrator"
 body = "So now, Joe Wizard must climb John Wizard's tower and face him, to remove his spell."
 metadata/_custom_type_script = "uid://b01xvucl3mvta"
@@ -128,4 +136,6 @@ theme_override_constants/margin_bottom = 10
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer" unique_id=2114927603]
 layout_mode = 2
-expand_mode = 5
+texture = ExtResource("6_76hwu")
+expand_mode = 3
+stretch_mode = 5

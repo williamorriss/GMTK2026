@@ -3,16 +3,20 @@
 [ext_resource type="Script" uid="uid://cbsylliq42bj6" path="res://UI/cutscenes/cutscene_manager.gd" id="1_jomck"]
 [ext_resource type="AudioStream" uid="uid://beu000mllpqaq" path="res://audio/sfx/blipSelect.wav" id="2_hjdlo"]
 [ext_resource type="Script" uid="uid://b01xvucl3mvta" path="res://UI/cutscenes/cutscene_data.gd" id="3_ly1lv"]
+[ext_resource type="Texture2D" uid="uid://dms0pfv7wydxo" path="res://UI/cutscenes/images/wiz.png" id="4_ly1lv"]
 [ext_resource type="FontFile" uid="uid://qvjbjulrm5fs" path="res://UI/Fonts/upheaval/upheavtt.ttf" id="4_qnp62"]
+[ext_resource type="Texture2D" uid="uid://dirwpu2kt0yg" path="res://UI/cutscenes/images/hat.png" id="5_qnp62"]
 
 [sub_resource type="Resource" id="Resource_got86"]
 script = ExtResource("3_ly1lv")
+image = ExtResource("4_ly1lv")
 speaker = "Joe Wizard"
 body = "Finally...It's over, I've won! The spell has been lifted, and i'm now the most powerful wizard with a name that starts with the letter J in Slough!"
 metadata/_custom_type_script = "uid://b01xvucl3mvta"
 
 [sub_resource type="Resource" id="Resource_wxb4a"]
 script = ExtResource("3_ly1lv")
+image = ExtResource("5_qnp62")
 speaker = "Narrator"
 body = "And so, with John Wizard defeated, Joe Wizard was finally free, and he returned home to sleep. The end."
 metadata/_custom_type_script = "uid://b01xvucl3mvta"
@@ -110,4 +114,6 @@ theme_override_constants/margin_bottom = 10
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer" unique_id=2114927603]
 layout_mode = 2
-expand_mode = 5
+texture = ExtResource("5_qnp62")
+expand_mode = 3
+stretch_mode = 5

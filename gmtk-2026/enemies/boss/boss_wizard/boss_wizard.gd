@@ -117,5 +117,8 @@ func _switch_phase(new_phase: Phase) -> void:
 	if _current_phase:
 		_current_phase.exit()
 	
-	_current_phase = new_phase
-	_current_phase.ready(self)
+	_dying = true
+	animator.set_pause(true)
+	animator.queue("death", true)
+	await get_tree().create_timer(death_delay).timeout
+	current_phase.exit()

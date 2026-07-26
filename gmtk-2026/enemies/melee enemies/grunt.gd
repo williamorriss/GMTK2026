@@ -4,11 +4,13 @@ extends Enemy
 @export_group("References")
 @export var agent: NavigationAgent2D
 @export var health: Health
+@export var sprite: AnimatedSprite2D
 
 @export_group("Movement")
 @export var speed: float = 750.0
 @export var max_distance: float = 250
 @export var offset_distance: float = 100
+@export var death_delay: float = 1
 
 @export_group("Attack")
 @export var atk: float = 10.0
@@ -20,6 +22,7 @@ extends Enemy
 @onready var blood_drop: BloodDrop = $BloodDrop
 
 var _state: State = State.Running
+var _is_dying: bool = false
 
 enum State {
 	Running,
@@ -49,6 +52,10 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
+	if _is_dying:
+		print(velocity)
+		return
+	
 	# cooldown always ticks, regardless of state
 	if not _can_attack:
 		_cooldown_timer = max(0.0, _cooldown_timer - delta)
@@ -57,10 +64,18 @@ func _physics_process(delta: float) -> void:
 
 	match _state:
 		State.Running:
+			if velocity.length() >= 10:
+				sprite.play("walk")
+				if velocity.x > 0:
+					sprite.flip_h = true
+				else:
+					sprite.flip_h = false
+			
 			move(delta)
 			try_start_attack()
 
 		State.Attacking:
+			sprite.play("hit")
 			velocity = Vector2.ZERO
 			var _z: bool = move_and_slide()  # stop in place, still applies physics
 			update_attack(delta)
@@ -132,8 +147,18 @@ func _end_attack() -> void:
 
 
 func _on_dead(_dealer: Health.Owner, _taker: Health.Owner, direction: Vector2) -> void:
+	if _is_dying:
+		return
+	
+	_is_dying = true
+	
 	BloodFX.burst(direction , global_position)
 	blood_drop.orbulate(health.max_health)
+	
+	agent.queue_free()
+	sprite.play("death")
+	await sprite.animation_finished
+	await get_tree().create_timer(death_delay).timeout
 	queue_free()
 
 

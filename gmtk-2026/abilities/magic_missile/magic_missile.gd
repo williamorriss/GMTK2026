@@ -2,17 +2,21 @@ class_name MagicMissile
 extends Ability
 
 var missile_amount: int = 3
-var _can_activate: bool = true
+var _can_activate2: bool = true
 
 func _init(player: Node2D) -> void:
 	super._init(player)
 	_ability_data = preload("res://abilities/magic_missile/magic_missile_data.tres")
 
 func activate_ability() -> void:
+	super.activate_ability()
 	if not _can_activate:
 		return
 	
-	_can_activate = false
+	if not _can_activate2:
+		return
+	
+	_can_activate2 = false
 	var looksie: Array[Missile] = []
 	
 	for amt: int in range(missile_amount):
@@ -25,4 +29,4 @@ func activate_ability() -> void:
 		return
 	
 	await looksie[0].on_finish_rotating
-	_can_activate = true
+	_can_activate2 = true

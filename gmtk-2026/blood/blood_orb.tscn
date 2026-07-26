@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cfcmfgjqlk2v3"]
 
 [ext_resource type="Script" uid="uid://cfcaoughagfp1" path="res://blood/blood_orb.gd" id="1_jdqym"]
-[ext_resource type="Texture2D" uid="uid://dhcwybhoxgwhe" path="res://icon.svg" id="1_yyyr6"]
+[ext_resource type="Texture2D" uid="uid://do3hat7tgb2gi" path="res://jericho_level/square.png" id="2_jdqym"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tmfgs"]
 radius = 7.130403
@@ -10,8 +10,9 @@ radius = 7.130403
 script = ExtResource("1_jdqym")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=817190631]
-scale = Vector2(-0.18408537, 0.12552285)
-texture = ExtResource("1_yyyr6")
+modulate = Color(0.88431424, 3.200695e-06, 1.1551381e-06, 1)
+scale = Vector2(0.5, -0.342)
+texture = ExtResource("2_jdqym")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1721629730]
 scale = Vector2(1.0054214, 0.7428255)

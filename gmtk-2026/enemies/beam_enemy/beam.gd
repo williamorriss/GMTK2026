@@ -2,9 +2,9 @@ class_name Beam
 extends Line2D
 
 @export var animator: AnimationPlayer
-@export var damage: float
-@export var damage_timer: float = 0.5
-@export var max_length: float = 2000.0
+@export var damage: float = 3.0
+@export var damage_timer: float = 0.1
+@export var max_length: float = 20000.0
 
 @onready var _line_end: Sprite2D = $BeamEnd
 
@@ -30,19 +30,6 @@ static func create_beam(caster_owner: Enemy, direction: Vector2, pos: Vector2) -
 	instance.on_ready.emit()
 	instance.visible = false
 	return instance
-
-#func _ready() -> void:
-	#animator.speed_scale = 1 / charging_time
-	#_current_state = State.Charging
-	#animator.play("charging")
-	#await animator.animation_finished
-	#on_finish_charge.emit()
-	#_current_state = State.Firing
-	#
-	#
-	#await get_tree().create_timer(lifetime).timeout
-	#on_finish_beam.emit()
-	#queue_free()
 	
 func activate(charging_duration: float) -> void:
 	_animate_duration("charging", charging_duration)
@@ -66,11 +53,19 @@ func _physics_process(delta: float) -> void:
 		
 func _process(delta: float) -> void:
 	if _current_state == State.Charging:
+		_target_player()
 		_draw_follow_beam()
 	elif _current_state == State.Firing:
-	
 		_draw_beam()
+		_target_player()
 		_current_state = State.Fired
+
+func _target_player() -> void:
+	var player: Player = get_player()
+	if not player:
+		return
+	
+	look_at(player.global_position)
 
 func _hit() -> void:
 	var space_state: PhysicsDirectSpaceState2D = get_world_2d().direct_space_state
@@ -88,7 +83,9 @@ func _hit() -> void:
 		return
 		
 	var health: Health = Health.get_health(result.collider)
-	health.damage(damage, global_position.direction_to(result.position), Health.Owner.Enemy)
+	if health:
+		print("hit")
+		health.damage(damage, global_position.direction_to(result.position), Health.Owner.Enemy)
 
 
 func get_player() -> Player:
@@ -98,6 +95,8 @@ func get_player() -> Player:
 		return null
 	return player_array[0]
 		
+
+
 
 func _draw_follow_beam() -> void:
 	visible = true
@@ -128,12 +127,12 @@ func _local_draw_line(result: Dictionary, ray: Vector2) -> void:
 		end_local = to_local(result.position)
 		
 	points = PackedVector2Array([
-		Vector2(0,0),
+		to_local(caster.global_position),
 		end_local
 	])
 	
 	_line_end.global_position = to_global(end_local)
-	_line_end.global_rotation = global_rotation + PI
+	_line_end.global_rotation = global_rotation
 	
 	
 func _draw_beam() -> void:

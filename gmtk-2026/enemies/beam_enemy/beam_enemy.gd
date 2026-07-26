@@ -18,6 +18,7 @@ extends Enemy
 @export var beam_lifetime: float = 3.0
 
 @onready var _animation: AnimatedSprite2D = $AnimatedSprite2D
+@onready var _casting_point: Node2D = $CastingPoint
 
 var _offset: Vector2 = Vector2.ZERO
 var _shooting: bool = false

@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://dq8245vhys8fd"]
+
+[sub_resource type="GDScript" id="GDScript_qp2hl"]
+script/source = "extends Node2D
+
+@export var music: AudioStream
+
+func _ready() -> void:
+	await AudioManager.queue_music(music)
+"
+
+[node name="PlayMusic" type="Node2D" unique_id=354320584]
+script = SubResource("GDScript_qp2hl")

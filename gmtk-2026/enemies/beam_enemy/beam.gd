@@ -120,6 +120,9 @@ func _draw_follow_beam() -> void:
 	
 	
 func _local_draw_line(result: Dictionary, ray: Vector2) -> void:
+	if not caster:
+		return
+	
 	var end_local: Vector2
 	if result.is_empty():
 		end_local = ray * max_length

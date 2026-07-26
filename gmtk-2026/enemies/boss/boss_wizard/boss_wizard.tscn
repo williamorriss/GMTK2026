@@ -625,7 +625,7 @@ max_time_range = Vector2(1, 2)
 
 [node name="Charge" type="Node2D" parent="Phase1" unique_id=1732507785 node_paths=PackedStringArray("run_action", "teleport_action")]
 script = ExtResource("6_iafwb")
-spawn_enemies = ExtResource("12_a04r5")
+spawn_enemies = ExtResource("11_lijfk")
 run_action = NodePath("../Run")
 teleport_action = NodePath("../Teleport")
 min_distance = 400.0

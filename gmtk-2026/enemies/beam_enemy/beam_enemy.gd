@@ -49,7 +49,8 @@ func _move(delta: float) -> void:
 		
 	if _shooting:
 		return
-
+	
+	_animation.speed_scale = 1.0
 	_animation.play("walk")
 	agent.target_position = _closest_player.global_position + _offset
 
@@ -94,6 +95,7 @@ func _reset_state() -> void:
 	_shooting = false
 
 func _on_dead(dealer: Health.Owner, taker: Health.Owner, direction: Vector2) -> void:
+	_animation.speed_scale = 1.0
 	_animation.play("death")
 	await _animation.animation_finished
 	queue_free()

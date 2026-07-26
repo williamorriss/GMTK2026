@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://wyx7nxyitu7b"]
 
 [ext_resource type="Script" uid="uid://3gslje7u8p11" path="res://abilities/conjure_weapon/swingable_weapon/swingable_weapon.gd" id="1_0bbp8"]
-[ext_resource type="Texture2D" uid="uid://dhcwybhoxgwhe" path="res://icon.svg" id="2_g050b"]
+[ext_resource type="Texture2D" uid="uid://bi8yv7egb2l5p" path="res://abilities/conjure_weapon/swingable_weapon/sprites/sword.png" id="2_0bbp8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ln4xa"]
-size = Vector2(66, 259)
+size = Vector2(66, 236)
 
 [sub_resource type="Animation" id="Animation_jg18m"]
 length = 0.001
@@ -50,6 +50,7 @@ sprite = NodePath("Weapon/Pivot/Sprite2D")
 damage = 0.5
 swing_time = 0.1
 swing_delay = 0.0
+swing_distance = 150.0
 
 [node name="Weapon" type="Node2D" parent="." unique_id=406609725]
 rotation = 1.5707964
@@ -62,12 +63,13 @@ collision_layer = 8
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Weapon/Pivot/Area2D" unique_id=128063949]
-position = Vector2(6.82121e-13, -0.5)
+position = Vector2(0, 11)
 shape = SubResource("RectangleShape2D_ln4xa")
 
 [node name="Sprite2D" type="Sprite2D" parent="Weapon/Pivot" unique_id=1610427032]
-scale = Vector2(0.5, 2)
-texture = ExtResource("2_g050b")
+position = Vector2(-1.0927847e-05, 8)
+scale = Vector2(6, 6)
+texture = ExtResource("2_0bbp8")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=631951576]
 libraries/ = SubResource("AnimationLibrary_rx7yb")

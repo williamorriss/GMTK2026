@@ -113,6 +113,9 @@ func _dash_wait() -> void:
 		animator.queue("dash_end")
 
 func _boss_death(_dealer: Health.Owner, _taker: Health.Owner, _direction: Vector2) -> void:
+	if _dying:
+		return
+	
 	_dying = true
 	animator.set_pause(true)
 	animator.queue("death", true)

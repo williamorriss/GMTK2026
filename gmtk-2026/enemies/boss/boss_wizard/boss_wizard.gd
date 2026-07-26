@@ -92,16 +92,17 @@ func _move(delta: float) -> void:
 	var next_point: Vector2 = agent.get_next_path_position()
 	var direction: Vector2 = global_position.direction_to(next_point)
 	var target_velocity: Vector2 = direction * speed
+	var _new_velocity: Vector2 = Vector2.ZERO
 	
 	if _is_dashing:
 		animator.queue("dash")
-		velocity = direction * dash_speed
+		_new_velocity = direction * dash_speed
 	elif direction != Vector2.ZERO:
-		velocity = velocity.move_toward(target_velocity, acceleration * delta)
+		_new_velocity = velocity.move_toward(target_velocity, acceleration * delta)
 	else:
-		velocity = velocity.move_toward(Vector2.ZERO, friction * delta)
+		_new_velocity = velocity.move_toward(Vector2.ZERO, friction * delta)
 	
-	var _x: bool = move_and_slide()
+	agent.set_velocity(direction * speed)
 
 func _dash_wait() -> void:
 	while true:
@@ -122,3 +123,7 @@ func _boss_death(_dealer: Health.Owner, _taker: Health.Owner, _direction: Vector
 	await get_tree().create_timer(death_delay).timeout
 	current_phase.exit()
 	queue_free()
+
+func _on_navigation_agent_2d_velocity_computed(safe_velocity: Vector2) -> void:
+	velocity = safe_velocity
+	move_and_slide()

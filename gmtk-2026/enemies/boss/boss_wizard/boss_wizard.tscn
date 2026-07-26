@@ -16,7 +16,7 @@
 [ext_resource type="Script" uid="uid://dvyhf6doho225" path="res://enemies/boss/boss_wizard/Phases/Phase1/Actions/teleport.gd" id="9_qtp87"]
 [ext_resource type="Script" uid="uid://bwe730krrm62p" path="res://enemies/boss/boss_wizard/Phases/Phase1/Actions/stroll_spawn.gd" id="10_co1hx"]
 [ext_resource type="Script" uid="uid://cy1iminwpbvu1" path="res://enemies/boss/boss_wizard/Phases/Phase1/Actions/normal_shoot.gd" id="11_cvrsx"]
-[ext_resource type="PackedScene" uid="uid://swcxgbeey32e" path="res://enemies/beam_enemy/beam_enemy.tscn" id="11_lijfk"]
+[ext_resource type="PackedScene" uid="uid://swcxgbeey32e" path="res://stage_hazards/line_trap/line_trap.tscn" id="11_lijfk"]
 [ext_resource type="PackedScene" uid="uid://ciq5xxdrhat1g" path="res://enemies/ranged enemies/ranged_grunt.tscn" id="12_a04r5"]
 [ext_resource type="Script" uid="uid://dl7adyy4ntef3" path="res://enemies/boss/boss_wizard/Phases/Phase1/Actions/teleport_spawn.gd" id="20_ptrxy"]
 [ext_resource type="Texture2D" uid="uid://dwktrvmjqgd3r" path="res://enemies/boss/boss_wizard/sprites/good/healthybossawlk-Sheet-export.png" id="24_a04r5"]
@@ -610,6 +610,9 @@ sprite_frames = SubResource("SpriteFrames_rt2ho")
 animation = &"death"
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=18353008]
+avoidance_enabled = true
+radius = 150.0
+max_speed = 500.0
 
 [node name="Health" parent="." unique_id=2054087400 instance=ExtResource("3_7r24g")]
 
@@ -656,3 +659,5 @@ script = ExtResource("30_6731r")
 sprite = NodePath("../AnimatedSprite2D")
 player = NodePath("..")
 metadata/_custom_type_script = "uid://jwtcmat5tduk"
+
+[connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]

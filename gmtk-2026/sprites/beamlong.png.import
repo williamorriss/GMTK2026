@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dpc1s630jjyk5"
-path="res://.godot/imported/hurt.jpg-4ac0ee092bbedda677615667f788a6b0.ctex"
+uid="uid://b8r1up0xxa8as"
+path="res://.godot/imported/beamlong.png-785abadf5bb492fe2ae0646681560d50.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/hurt.jpg"
-dest_files=["res://.godot/imported/hurt.jpg-4ac0ee092bbedda677615667f788a6b0.ctex"]
+source_file="res://sprites/beamlong.png"
+dest_files=["res://.godot/imported/beamlong.png-785abadf5bb492fe2ae0646681560d50.ctex"]
 
 [params]
 

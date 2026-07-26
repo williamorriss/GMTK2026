@@ -10,6 +10,7 @@ var _is_counting: bool = false
 var _is_finding: bool = false
 
 func start_timer() -> void:
+	print("starting timer")
 	_is_counting = true
 	label.visible = true
 	await get_tree().process_frame

@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://ciq5xxdrhat1g" path="res://enemies/ranged enemies/ranged_grunt.tscn" id="9_i5qm5"]
 [ext_resource type="PackedScene" uid="uid://dw220nn5hf68u" path="res://stage_hazards/spike.tscn" id="9_xosje"]
 [ext_resource type="Script" uid="uid://bcqi61pgsmrqu" path="res://jericho_level/level_end/level_end.gd" id="10_gvhay"]
-[ext_resource type="PackedScene" uid="uid://bb8ss8f1ekffj" path="res://stage_hazards/line_trap.tscn" id="11_jtx8l"]
+[ext_resource type="PackedScene" path="res://stage_hazards/line_trap.tscn" id="11_jtx8l"]
 [ext_resource type="PackedScene" uid="uid://pcse4m0boi5d" path="res://UI/health_timer/timer_control/timer_control.tscn" id="11_p56ev"]
 [ext_resource type="PackedScene" uid="uid://gu8cs4u2qib1" path="res://stage_hazards/barrel.tscn" id="11_x2joy"]
 
@@ -750,5 +750,3 @@ next_scene = "uid://b67rnjx613kdh"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EndLevel" unique_id=715105559]
 position = Vector2(-0.14208984, -0.49267578)
 shape = SubResource("RectangleShape2D_xosje")
-
-[node name="TimerControl" parent="." unique_id=1567958905 instance=ExtResource("11_p56ev")]

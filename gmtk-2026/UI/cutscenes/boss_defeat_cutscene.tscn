@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dms0pfv7wydxo" path="res://UI/cutscenes/images/wiz.png" id="4_ly1lv"]
 [ext_resource type="FontFile" uid="uid://qvjbjulrm5fs" path="res://UI/Fonts/upheaval/upheavtt.ttf" id="4_qnp62"]
 [ext_resource type="Texture2D" uid="uid://dirwpu2kt0yg" path="res://UI/cutscenes/images/hat.png" id="5_qnp62"]
+[ext_resource type="PackedScene" uid="uid://pcse4m0boi5d" path="res://UI/health_timer/timer_control/timer_control.tscn" id="7_qnp62"]
 
 [sub_resource type="Resource" id="Resource_got86"]
 script = ExtResource("3_ly1lv")
@@ -117,3 +118,6 @@ layout_mode = 2
 texture = ExtResource("5_qnp62")
 expand_mode = 3
 stretch_mode = 5
+
+[node name="TimerControl" parent="." unique_id=1567958905 instance=ExtResource("7_qnp62")]
+state = 1

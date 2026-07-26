@@ -649,7 +649,7 @@ shape = SubResource("RectangleShape2D_ln4xa")
 
 [node name="TimerControl" parent="." unique_id=1567958905 instance=ExtResource("9_vmmnd")]
 
-[node name="Node2D" type="Node2D" parent="LineTrap" unique_id=1749064608]
+[node name="LineTrap#Node2D" type="Node2D" parent="." unique_id=1749064608]
 position = Vector2(2022, -263)
 
 [node name="PlayMusic" parent="." unique_id=354320584 instance=ExtResource("13_71geq")]

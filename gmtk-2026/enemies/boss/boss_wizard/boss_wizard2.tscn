@@ -721,6 +721,7 @@ radius = 150.0
 max_speed = 500.0
 
 [node name="Health" parent="." unique_id=2054087400 instance=ExtResource("9_vrpkl")]
+max_health = 2500.0
 
 [node name="Phase2" type="Node2D" parent="." unique_id=1909016134 node_paths=PackedStringArray("actions")]
 script = ExtResource("20_cd6le")
@@ -729,28 +730,28 @@ actions = [NodePath("ConjureEvil"), NodePath("ChromaticEvil"), NodePath("Missile
 
 [node name="ChromaticEvil" type="Node2D" parent="Phase2" unique_id=2025216100]
 script = ExtResource("21_2kevr")
-cooldown = Vector2(0.75, 1.5)
+cooldown = Vector2(0.5, 1)
 metadata/_custom_type_script = "uid://cdks3jhajyil3"
 
 [node name="ConjureEvil" type="Node2D" parent="Phase2" unique_id=1668634620]
 script = ExtResource("22_04btw")
-cooldown = Vector2(0.5, 1.5)
+cooldown = Vector2(0.5, 1)
 weapons = Array[ExtResource("23_ehlyw")]([ExtResource("24_xxtuq"), ExtResource("25_6yaju"), ExtResource("26_dng7i")])
 metadata/_custom_type_script = "uid://c2aflautrqjqy"
 
 [node name="MissileEvil" type="Node2D" parent="Phase2" unique_id=30677175]
 script = ExtResource("27_8fxb4")
-cooldown = Vector2(0.5, 1.5)
+cooldown = Vector2(0.5, 1)
 metadata/_custom_type_script = "uid://cpjdbycdmale"
 
 [node name="SpikeEvil" type="Node2D" parent="Phase2" unique_id=6154239]
 script = ExtResource("28_xfbve")
-cooldown = Vector2(0.5, 1.5)
+cooldown = Vector2(0.5, 1)
 metadata/_custom_type_script = "uid://ir7bkqn467u2"
 
 [node name="ThornEvil" type="Node2D" parent="Phase2" unique_id=1024046727]
 script = ExtResource("29_nslui")
-cooldown = Vector2(0.5, 1.5)
+cooldown = Vector2(0.5, 1)
 metadata/_custom_type_script = "uid://88c2ie4xvp3w"
 
 [node name="TeleportAction" type="Node2D" parent="Phase2" unique_id=1063373246]

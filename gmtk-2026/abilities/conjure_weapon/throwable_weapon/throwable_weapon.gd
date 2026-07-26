@@ -2,7 +2,7 @@ class_name ThrowableWeapon
 extends Area2D
 
 @export_group("References")
-@export var sprite: Sprite2D
+@export var sprite: AnimatedSprite2D
 @export var collider: CollisionShape2D
 
 @export_group("Parameters")
@@ -23,6 +23,7 @@ func set_direction(direction: Vector2) -> void:
 	_direction = direction
 
 func _ready() -> void:
+	sprite.play("default")
 	get_tree().create_timer(life_span).timeout.connect(_destroy)
 
 func _process(delta: float) -> void:

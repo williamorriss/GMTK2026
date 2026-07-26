@@ -8,7 +8,7 @@ extends CharacterBody2D
 @export_group("Movement")
 @export var speed: float = 300.0
 @export var acceleration: float = 2000.0
-@export var friction: float = 2000.0
+@export var friction: float = 4000.0
 
 @export_group("Dashing")
 @export var dash_speed: float = 900.0

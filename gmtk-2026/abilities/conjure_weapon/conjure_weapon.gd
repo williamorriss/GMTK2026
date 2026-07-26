@@ -10,6 +10,10 @@ var _weapon_data: WeaponData
 var _can_attack: bool = true
 
 func activate_ability() -> void:
+	super.activate_ability()
+	if not _can_activate:
+		return
+	
 	_throw()
 
 func _init(player: Node2D, weapon_data: WeaponData) -> void:

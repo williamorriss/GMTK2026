@@ -4,9 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://b8r1up0xxa8as" path="res://sprites/beamlong.png" id="2_xuldq"]
 [ext_resource type="Texture2D" uid="uid://cbo6lx20i8n52" path="res://sprites/beamprojectile1.png" id="3_xuldq"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ln4xa"]
-size = Vector2(18.625, 16.25)
-
 [sub_resource type="Animation" id="Animation_4ehef"]
 length = 0.001
 
@@ -19,31 +16,20 @@ _data = {
 &"charging": SubResource("Animation_xuldq")
 }
 
-[node name="Beam" type="Area2D" unique_id=2147251531 node_paths=PackedStringArray("animator")]
-collision_layer = 8
-collision_mask = 5
+[node name="Beam" type="Line2D" unique_id=1445765932 node_paths=PackedStringArray("animator")]
+points = PackedVector2Array(0, 0, 1, 0)
+width = 100.0
+texture = ExtResource("2_xuldq")
+texture_mode = 1
 script = ExtResource("1_4ehef")
 animator = NodePath("AnimationPlayer")
 damage = 2.0
 damage_timer = 1.0
 charging_time = 2.0
 lifetime = 2.0
-beam_width = 20.0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=246777872]
-shape = SubResource("RectangleShape2D_ln4xa")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2052149251]
 libraries/ = SubResource("AnimationLibrary_8kkwt")
 
-[node name="Line2D" type="Line2D" parent="." unique_id=1421345686]
-scale = Vector2(1.9611492, 1.1203572)
-points = PackedVector2Array(0, 0, 0, 0)
-width = 100.0
-texture = ExtResource("2_xuldq")
-texture_mode = 1
-
 [node name="BeamEnd" type="Sprite2D" parent="." unique_id=2094293617]
 texture = ExtResource("3_xuldq")
-
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -69,10 +69,10 @@ func _attack() -> void:
 	var beam: Beam = Beam.create_beam(self, dir, pos)
 	var charge_time: float = beam.charging_time
 
-
-
 	get_tree().current_scene.add_child(beam)
-	_animate_duration("attack", charge_time)
+	beam.on_finish_charge.connect(func () -> void: _animate_duration("attack", beam.damage_timer))
+	_animate_duration("charging", beam.charging_time)
+	
 	get_tree().create_timer(attack_cooldown).timeout.connect(func () -> void: _can_attack = true)
 
 	beam.on_finish_beam.connect(func () -> void: _shooting = false)

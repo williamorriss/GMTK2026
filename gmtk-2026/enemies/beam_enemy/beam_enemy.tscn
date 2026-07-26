@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://swcxgbeey32e"]
 
-[ext_resource type="Script" uid="uid://cprld04rjtono" path="res://enemies/beam_enemy/beam_enemy.gd" id="1_8aite"]
+[ext_resource type="Script" uid="uid://cprld04rjtono" path="res://stage_hazards/line_trap/line_trap.gd" id="1_8aite"]
 [ext_resource type="PackedScene" uid="uid://b84onmi6p6dgu" path="res://health/health.tscn" id="3_67ugg"]
 [ext_resource type="Texture2D" uid="uid://snxqh7p6gq6l" path="res://spritesheets/beamerdeath.png" id="4_62eat"]
 [ext_resource type="Texture2D" uid="uid://drt8m2j35w185" path="res://spritesheets/beamerfire.png" id="4_vw8j5"]

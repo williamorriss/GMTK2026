@@ -8,4 +8,5 @@ script = ExtResource("1_pve3e")
 symbol = ExtResource("2_q1e10")
 name = "Slow Time"
 cost = 1
+description = "Slow down time for all enemies"
 metadata/_custom_type_script = "uid://ddj5n2nhn7cnq"

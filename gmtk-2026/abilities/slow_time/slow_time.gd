@@ -12,6 +12,10 @@ func _init(player: Node2D) -> void:
 	_ability_data = preload("res://abilities/slow_time/slow_time_data.tres")
 
 func activate_ability() -> void:
+	super.activate_ability()
+	if not _can_activate:
+		return
+	
 	if Engine.time_scale != 1:
 		return
 	

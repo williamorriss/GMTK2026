@@ -3,15 +3,11 @@
 [ext_resource type="FontFile" uid="uid://qvjbjulrm5fs" path="res://UI/Fonts/upheaval/upheavtt.ttf" id="1_1xyc7"]
 [ext_resource type="Script" uid="uid://cjdyntviqr8nx" path="res://UI/menu/menu.gd" id="1_qlbuq"]
 [ext_resource type="AudioStream" uid="uid://beu000mllpqaq" path="res://audio/sfx/blipSelect.wav" id="2_5xle5"]
-[ext_resource type="Texture2D" uid="uid://d0oy3xmhr6tnq" path="res://UI/menu/profile_pics/NotAHuman.png" id="3_2gq1s"]
 [ext_resource type="Script" uid="uid://dy0v5l1hqtv2r" path="res://UI/menu/option_menu.gd" id="3_7jt6j"]
 [ext_resource type="AudioStream" uid="uid://e4uwnqn5hnbp" path="res://audio/music/Title Screen Track.mp3" id="3_66jq7"]
 [ext_resource type="Script" uid="uid://fdlc3xgxt11x" path="res://UI/menu/audio_menu.gd" id="4_0poe0"]
-[ext_resource type="Texture2D" uid="uid://dv8a5bjlp20ak" path="res://UI/menu/profile_pics/Cashew.png" id="4_papuc"]
 [ext_resource type="Script" uid="uid://7yoy1vsbq6gt" path="res://UI/menu/keybinds.gd" id="5_5xle5"]
-[ext_resource type="Texture2D" uid="uid://rjymeesnokfa" path="res://UI/menu/profile_pics/Horse.png" id="5_7jt6j"]
-[ext_resource type="Texture2D" uid="uid://bkdy5mtwmjagq" path="res://UI/menu/profile_pics/Crackenyu.png" id="6_0poe0"]
-[ext_resource type="Texture2D" uid="uid://bjcl1db54nlqq" path="res://UI/menu/profile_pics/Leo.png" id="7_5xle5"]
+[ext_resource type="Texture2D" uid="uid://bvef10jwmujtm" path="res://sprites/wacky wizards.png" id="8_0poe0"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qlbuq"]
 bg_color = Color(0.5568013, 0.15226546, 4.813075e-08, 1)
@@ -44,6 +40,26 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_tmfgs"]
+atlas = ExtResource("8_0poe0")
+region = Rect2(90, 8, 27, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fnfqw"]
+atlas = ExtResource("8_0poe0")
+region = Rect2(53, 8, 32, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_btoyi"]
+atlas = ExtResource("8_0poe0")
+region = Rect2(18, 8, 29, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_infh7"]
+atlas = ExtResource("8_0poe0")
+region = Rect2(155, 8, 30, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ypmii"]
+atlas = ExtResource("8_0poe0")
+region = Rect2(124, 8, 24, 42)
+
 [node name="Menu" type="CanvasLayer" unique_id=1265104891 node_paths=PackedStringArray("menuControl", "optionsControl", "creditsControl")]
 script = ExtResource("1_qlbuq")
 next_scene = "uid://bebwesl65sg0b"
@@ -65,15 +81,16 @@ grow_vertical = 2
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -276.0
-offset_right = 283.0
-offset_bottom = 187.0
+offset_left = -324.0
+offset_top = 3.0
+offset_right = 323.0
+offset_bottom = 142.0
 grow_horizontal = 2
 theme_override_fonts/normal_font = ExtResource("1_1xyc7")
 theme_override_fonts/bold_font = ExtResource("1_1xyc7")
 theme_override_font_sizes/normal_font_size = 80
 theme_override_font_sizes/bold_font_size = 16
-text = "Game Name Pending"
+text = "Joeovertime"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -114,6 +131,7 @@ text = "Credits
 "
 
 [node name="OptionsMenu" type="VBoxContainer" parent="." unique_id=63981455 node_paths=PackedStringArray("bind_button", "audio_button", "audio_control", "bind_control")]
+visible = false
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
@@ -518,12 +536,14 @@ text = "Audio
 "
 
 [node name="Credits" type="VBoxContainer" parent="." unique_id=207946831]
-visible = false
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -474.0
+offset_left = 3.0
+offset_top = -549.0
+offset_right = 3.0
+offset_bottom = -1.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_constants/separation = 50
@@ -537,99 +557,126 @@ theme_override_constants/margin_left = 25
 custom_minimum_size = Vector2(0, 300)
 layout_mode = 2
 
-[node name="NotAHuman" type="HBoxContainer" parent="Credits/ProfileMargin/Profiles" unique_id=1711267702]
+[node name="John Gmail" type="HBoxContainer" parent="Credits/ProfileMargin/Profiles" unique_id=1711267702]
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="Credits/ProfileMargin/Profiles/NotAHuman" unique_id=901393858]
+[node name="TextureRect" type="TextureRect" parent="Credits/ProfileMargin/Profiles/John Gmail" unique_id=901393858]
 layout_mode = 2
-texture = ExtResource("3_2gq1s")
+texture = SubResource("AtlasTexture_tmfgs")
 expand_mode = 3
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Credits/ProfileMargin/Profiles/NotAHuman" unique_id=2004327220]
+[node name="RichTextLabel" type="RichTextLabel" parent="Credits/ProfileMargin/Profiles/John Gmail" unique_id=2004327220]
 custom_minimum_size = Vector2(600, 0)
 layout_mode = 2
 theme_override_fonts/normal_font = ExtResource("1_1xyc7")
 theme_override_fonts/bold_italics_font = ExtResource("1_1xyc7")
 theme_override_font_sizes/normal_font_size = 30
-text = "NotAHuman (Programmer)"
+text = " NotAHuman (Programmer)"
 vertical_alignment = 1
 
-[node name="Cashew" type="HBoxContainer" parent="Credits/ProfileMargin/Profiles" unique_id=447143044]
+[node name="Haskell" type="HBoxContainer" parent="Credits/ProfileMargin/Profiles" unique_id=447143044]
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="Credits/ProfileMargin/Profiles/Cashew" unique_id=736836965]
+[node name="TextureRect" type="TextureRect" parent="Credits/ProfileMargin/Profiles/Haskell" unique_id=736836965]
 layout_mode = 2
-texture = ExtResource("4_papuc")
+texture = SubResource("AtlasTexture_fnfqw")
 expand_mode = 3
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Credits/ProfileMargin/Profiles/Cashew" unique_id=1150969733]
+[node name="RichTextLabel" type="RichTextLabel" parent="Credits/ProfileMargin/Profiles/Haskell" unique_id=1150969733]
 custom_minimum_size = Vector2(600, 0)
 layout_mode = 2
 theme_override_fonts/normal_font = ExtResource("1_1xyc7")
 theme_override_fonts/bold_italics_font = ExtResource("1_1xyc7")
 theme_override_font_sizes/normal_font_size = 30
-text = "Cashew (Programmer)"
+text = " Cashew (Programmer)"
 vertical_alignment = 1
 
-[node name="NotAHuman3" type="HBoxContainer" parent="Credits/ProfileMargin/Profiles" unique_id=594637423]
+[node name="Voltage" type="HBoxContainer" parent="Credits/ProfileMargin/Profiles" unique_id=594637423]
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="Credits/ProfileMargin/Profiles/NotAHuman3" unique_id=1412702370]
+[node name="TextureRect" type="TextureRect" parent="Credits/ProfileMargin/Profiles/Voltage" unique_id=1412702370]
 layout_mode = 2
-texture = ExtResource("5_7jt6j")
+texture = SubResource("AtlasTexture_btoyi")
 expand_mode = 3
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Credits/ProfileMargin/Profiles/NotAHuman3" unique_id=1640038643]
+[node name="RichTextLabel" type="RichTextLabel" parent="Credits/ProfileMargin/Profiles/Voltage" unique_id=1640038643]
 custom_minimum_size = Vector2(600, 0)
 layout_mode = 2
 theme_override_fonts/normal_font = ExtResource("1_1xyc7")
 theme_override_fonts/bold_italics_font = ExtResource("1_1xyc7")
 theme_override_font_sizes/normal_font_size = 30
-text = "Horse (Programmer)"
+text = " Horse (Programmer)"
 vertical_alignment = 1
 
-[node name="NotAHuman4" type="HBoxContainer" parent="Credits/ProfileMargin/Profiles" unique_id=1400402644]
+[node name="Kubus" type="HBoxContainer" parent="Credits/ProfileMargin/Profiles" unique_id=1400402644]
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="Credits/ProfileMargin/Profiles/NotAHuman4" unique_id=734415448]
+[node name="TextureRect" type="TextureRect" parent="Credits/ProfileMargin/Profiles/Kubus" unique_id=734415448]
 layout_mode = 2
-texture = ExtResource("6_0poe0")
+texture = SubResource("AtlasTexture_infh7")
 expand_mode = 3
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Credits/ProfileMargin/Profiles/NotAHuman4" unique_id=1695566020]
+[node name="RichTextLabel" type="RichTextLabel" parent="Credits/ProfileMargin/Profiles/Kubus" unique_id=1695566020]
 custom_minimum_size = Vector2(600, 0)
 layout_mode = 2
 theme_override_fonts/normal_font = ExtResource("1_1xyc7")
 theme_override_fonts/bold_italics_font = ExtResource("1_1xyc7")
 theme_override_font_sizes/normal_font_size = 30
-text = "Crackenyu (Artisit)"
+text = " Crackenyu (Artisit)"
 vertical_alignment = 1
 
-[node name="NotAHuman5" type="HBoxContainer" parent="Credits/ProfileMargin/Profiles" unique_id=194311369]
+[node name="Beat" type="HBoxContainer" parent="Credits/ProfileMargin/Profiles" unique_id=194311369]
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="Credits/ProfileMargin/Profiles/NotAHuman5" unique_id=1239162527]
+[node name="TextureRect" type="TextureRect" parent="Credits/ProfileMargin/Profiles/Beat" unique_id=1239162527]
 layout_mode = 2
-texture = ExtResource("7_5xle5")
+texture = SubResource("AtlasTexture_ypmii")
 expand_mode = 3
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Credits/ProfileMargin/Profiles/NotAHuman5" unique_id=419331227]
+[node name="RichTextLabel" type="RichTextLabel" parent="Credits/ProfileMargin/Profiles/Beat" unique_id=419331227]
 custom_minimum_size = Vector2(600, 0)
 layout_mode = 2
 theme_override_fonts/normal_font = ExtResource("1_1xyc7")
 theme_override_fonts/bold_italics_font = ExtResource("1_1xyc7")
 theme_override_font_sizes/normal_font_size = 30
-text = "Leo Mcfayden Production (Musician)"
+text = " Leo Mcfayden Production (Musician)"
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Credits/ProfileMargin/Profiles" unique_id=833254262]
+layout_mode = 2
+
+[node name="Thank you for playing!" type="RichTextLabel" parent="Credits/ProfileMargin/Profiles/HBoxContainer" unique_id=1956383395]
+layout_mode = 2
+offset_transform_enabled = true
+theme_override_fonts/normal_font = ExtResource("1_1xyc7")
+theme_override_fonts/bold_italics_font = ExtResource("1_1xyc7")
+theme_override_font_sizes/normal_font_size = 30
+text = "Thank you for playing!"
+
+[node name="Beat2" type="HBoxContainer" parent="Credits/ProfileMargin/Profiles" unique_id=490297379]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Credits/ProfileMargin/Profiles/Beat2" unique_id=932231264]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("1_1xyc7")
+theme_override_fonts/bold_italics_font = ExtResource("1_1xyc7")
+theme_override_font_sizes/normal_font_size = 30
+text = "Thank you for playing!!!"
+scroll_active = false
+horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="BackMargin" type="MarginContainer" parent="Credits" unique_id=687542465]

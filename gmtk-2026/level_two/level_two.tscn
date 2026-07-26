@@ -7,11 +7,11 @@
 [ext_resource type="PackedScene" uid="uid://36uud2knwod6" path="res://jericho_level/room_manager/room_manager.tscn" id="5_2uo1b"]
 [ext_resource type="Script" uid="uid://3qtp2f14y6k5" path="res://jericho_level/room_manager/spawn_data.gd" id="6_l462i"]
 [ext_resource type="PackedScene" uid="uid://dreqr6x7m6bqr" path="res://enemies/melee enemies/grunt.tscn" id="7_i5qm5"]
-[ext_resource type="PackedScene" uid="uid://swcxgbeey32e" path="res://enemies/beam_enemy/beam_enemy.tscn" id="8_l462i"]
+[ext_resource type="PackedScene" uid="uid://swcxgbeey32e" path="res://stage_hazards/line_trap/line_trap.tscn" id="8_l462i"]
 [ext_resource type="PackedScene" uid="uid://ciq5xxdrhat1g" path="res://enemies/ranged enemies/ranged_grunt.tscn" id="9_i5qm5"]
 [ext_resource type="PackedScene" uid="uid://dw220nn5hf68u" path="res://stage_hazards/spike.tscn" id="9_xosje"]
 [ext_resource type="Script" uid="uid://bcqi61pgsmrqu" path="res://jericho_level/level_end/level_end.gd" id="10_gvhay"]
-[ext_resource type="PackedScene" uid="uid://bb8ss8f1ekffj" path="res://stage_hazards/line_trap.tscn" id="11_jtx8l"]
+[ext_resource type="PackedScene" path="res://stage_hazards/line_trap.tscn" id="11_jtx8l"]
 [ext_resource type="PackedScene" uid="uid://pcse4m0boi5d" path="res://UI/health_timer/timer_control/timer_control.tscn" id="11_p56ev"]
 [ext_resource type="PackedScene" uid="uid://gu8cs4u2qib1" path="res://stage_hazards/barrel.tscn" id="11_x2joy"]
 

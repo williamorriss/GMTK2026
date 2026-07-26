@@ -58,6 +58,7 @@ enum State {
 func _ready() -> void:
 	_flash.shader = _flash_shader
 	animation.material = _flash
+	add_to_group("player")
 	add_to_group("players")
 	var _x: int = health.on_dead.connect(_die)
 	Enemy.force_recalc(get_tree())
@@ -175,7 +176,9 @@ func _die(dealer: Health.Owner, taker: Health.Owner, direction: Vector2) -> void
 	var instance: Node2D = preload("res://ParticleSystem/blood_particle.tscn").instantiate()
 	instance.global_position = global_position
 	get_tree().current_scene.add_child(instance)
-	animation.play("death")
+	
+	var darkness: Rect2
+	
 	await SceneTransition.change_scene(death_screen)
 	queue_free()
 

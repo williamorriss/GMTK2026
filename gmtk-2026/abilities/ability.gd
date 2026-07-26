@@ -7,6 +7,9 @@ var _ability_data: AbilityData
 var _is_evil: bool = false
 var _target: Vector2
 
+var _can_activate: bool = true
+var _is_waiting: bool = false
+
 func _init(player: Node2D) -> void:
 	_player = player
 
@@ -28,8 +31,20 @@ func get_cost() -> float:
 func get_ability_data() -> AbilityData:
 	return _ability_data
 
+func set_can_activate(value: bool) -> void:
+	_can_activate = value
+
 func activate_ability() -> void:
-	pass
+	if _is_evil:
+		_can_activate = true
+		return
+	
+	if not _can_activate and not _is_waiting:
+		_is_waiting = true
+		var _x: bool = _player.get_tree().create_timer(_ability_data.cooldown).timeout.connect(func() -> void:
+			_is_waiting = false
+			_can_activate = true
+		)
 
 func process(_delta: float) -> void:
 	pass

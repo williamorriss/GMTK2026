@@ -16,7 +16,7 @@
 [ext_resource type="Script" uid="uid://dvyhf6doho225" path="res://enemies/boss/boss_wizard/Phases/Phase1/Actions/teleport.gd" id="9_qtp87"]
 [ext_resource type="Script" uid="uid://bwe730krrm62p" path="res://enemies/boss/boss_wizard/Phases/Phase1/Actions/stroll_spawn.gd" id="10_co1hx"]
 [ext_resource type="Script" uid="uid://cy1iminwpbvu1" path="res://enemies/boss/boss_wizard/Phases/Phase1/Actions/normal_shoot.gd" id="11_cvrsx"]
-[ext_resource type="PackedScene" uid="uid://swcxgbeey32e" path="res://enemies/beam_enemy/beam_enemy.tscn" id="11_lijfk"]
+[ext_resource type="PackedScene" uid="uid://swcxgbeey32e" path="res://stage_hazards/line_trap/line_trap.tscn" id="11_lijfk"]
 [ext_resource type="PackedScene" uid="uid://ciq5xxdrhat1g" path="res://enemies/ranged enemies/ranged_grunt.tscn" id="12_a04r5"]
 [ext_resource type="Script" uid="uid://dl7adyy4ntef3" path="res://enemies/boss/boss_wizard/Phases/Phase1/Actions/teleport_spawn.gd" id="20_ptrxy"]
 [ext_resource type="Texture2D" uid="uid://dwktrvmjqgd3r" path="res://enemies/boss/boss_wizard/sprites/good/healthybossawlk-Sheet-export.png" id="24_a04r5"]
@@ -625,7 +625,7 @@ max_time_range = Vector2(1, 2)
 
 [node name="Charge" type="Node2D" parent="Phase1" unique_id=1732507785 node_paths=PackedStringArray("run_action", "teleport_action")]
 script = ExtResource("6_iafwb")
-spawn_enemies = ExtResource("8_iafwb")
+spawn_enemies = ExtResource("12_a04r5")
 run_action = NodePath("../Run")
 teleport_action = NodePath("../Teleport")
 min_distance = 400.0

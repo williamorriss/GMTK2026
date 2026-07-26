@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://boj0gebdcokjf"]
+
+[ext_resource type="Script" uid="uid://o8nr873qftjg" path="res://stage_hazards/line_trap/line_trap_beam.gd" id="1_4ehef"]
+[ext_resource type="Texture2D" uid="uid://b8r1up0xxa8as" path="res://sprites/beamlong.png" id="2_xuldq"]
+[ext_resource type="Texture2D" uid="uid://4y8rlfdvjm2v" path="res://sprites/beamend.png" id="3_xuldq"]
+
+[sub_resource type="Animation" id="Animation_4ehef"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_xuldq"]
+resource_name = "charging"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.01, 0.06666667, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(14.429214, 14.429214, 14.429214, 0.70980394)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BeamEnd:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.2, 1.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(14.429214, 14.429214, 14.429214, 0.70980394)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8kkwt"]
+_data = {
+&"RESET": SubResource("Animation_4ehef"),
+&"charging": SubResource("Animation_xuldq")
+}
+
+[node name="Beam" type="Line2D" unique_id=1445765932 node_paths=PackedStringArray("animator")]
+points = PackedVector2Array(0, 0, 1, 0)
+width = 400.0
+texture = ExtResource("2_xuldq")
+texture_mode = 1
+script = ExtResource("1_4ehef")
+animator = NodePath("AnimationPlayer")
+damage = 5.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2052149251]
+libraries/ = SubResource("AnimationLibrary_8kkwt")
+
+[node name="BeamEnd" type="Sprite2D" parent="." unique_id=2094293617]
+scale = Vector2(10, 10)
+texture = ExtResource("3_xuldq")

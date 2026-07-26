@@ -8,4 +8,5 @@ script = ExtResource("1_lduln")
 symbol = ExtResource("2_virst")
 name = "Conjure Weapon"
 cost = 1
+description = "Conjure a weapon to swing and throw at enemies"
 metadata/_custom_type_script = "uid://ddj5n2nhn7cnq"

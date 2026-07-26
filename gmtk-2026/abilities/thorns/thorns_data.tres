@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="AbilityData" format=3 uid="uid://bb6h1nn1a61u4"]
 
 [ext_resource type="Script" uid="uid://ddj5n2nhn7cnq" path="res://abilities/ability_data.gd" id="1_nomok"]
-[ext_resource type="Texture2D" uid="uid://dhcwybhoxgwhe" path="res://icon.svg" id="2_gpkln"]
+[ext_resource type="Texture2D" uid="uid://durhfgsgce5gr" path="res://abilities/ability_symbols/thornspngfile.png" id="2_gpkln"]
 
 [resource]
 script = ExtResource("1_nomok")

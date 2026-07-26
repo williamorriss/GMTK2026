@@ -163,4 +163,4 @@ func _fail() -> void:
 
 func _animate_duration(anim_name: String, target_duration: float) -> void:
 	animator.speed_scale = 1 / target_duration
-	animator.play(anim_name)	
+	animator.play(anim_name)

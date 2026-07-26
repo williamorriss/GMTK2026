@@ -151,7 +151,7 @@ select_audio = ExtResource("2_5xle5")
 custom_minimum_size = Vector2(0, 400)
 layout_mode = 2
 
-[node name="Audio" type="VBoxContainer" parent="OptionsMenu/Options" unique_id=1232840908]
+[node name="Audio" type="VBoxContainer" parent="OptionsMenu/Options" unique_id=1232840908 node_paths=PackedStringArray("master", "sfx", "music")]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -160,6 +160,9 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 script = ExtResource("4_0poe0")
+master = NodePath("Master/MasterSlider")
+sfx = NodePath("SFX/SFXSlider")
+music = NodePath("Music/MusicSlider")
 
 [node name="Master" type="HBoxContainer" parent="OptionsMenu/Options/Audio" unique_id=1766069205]
 custom_minimum_size = Vector2(0, 75)

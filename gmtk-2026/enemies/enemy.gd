@@ -27,6 +27,8 @@ static func force_recalc(tree: SceneTree) -> void:
 		enemy.calc_closest_player()
 
 func _death(dealer: Health.Owner, taker: Health.Owner, direction: Vector2) -> void:
+	StateHolder.camera_shake.emit()
+	
 	var instance: Node2D = preload("res://ParticleSystem/blood_particle.tscn").instantiate()
 	instance.global_position = global_position
 	get_tree().current_scene.add_child(instance)

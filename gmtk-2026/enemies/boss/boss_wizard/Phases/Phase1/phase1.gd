@@ -12,3 +12,4 @@ func exit() -> void:
 	instance.play_area = _boss.play_area
 	instance.global_position = _boss.global_position
 	get_tree().current_scene.add_child(instance)
+	_boss.queue_free()

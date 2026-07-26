@@ -3,6 +3,7 @@ extends Area2D
 
 @export var speed: float
 @export var damage: float = 3
+@export var sprite: AnimatedSprite2D
 
 var _direction: Vector2
 
@@ -17,6 +18,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	position += _direction * speed * delta
+	sprite.rotation = _direction.angle()
 
 func _on_area_entered(body: Node2D) -> void:
 	var health: Health = Health.get_health(body)

@@ -6,6 +6,7 @@ extends CanvasLayer
 var _health: Health
 
 func _ready() -> void:
+	await get_tree().process_frame
 	get_health()
 	health_bar.editable = false
 	

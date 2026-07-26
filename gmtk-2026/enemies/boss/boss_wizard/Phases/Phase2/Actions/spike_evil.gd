@@ -4,11 +4,11 @@ extends Action
 @export var cooldown: Vector2 = Vector2(1.0, 3.0)
 
 var _ability: ManaSpikes
-var _can_cast: bool
+var _can_cast: bool = true
 
 func ready(boss: BossWizard, phase: Phase) -> void:
 	super(boss, phase)
-	
+	print("spike action")
 	_ability = ManaSpikes.new(_boss)
 	_ability.set_evil(true)
 

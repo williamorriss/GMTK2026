@@ -3,7 +3,7 @@ extends Camera2D
 
 @export var player: Node2D
 @export var falloff: float = 5.0
-@export var strength: float = 50.0
+@export var strength: float = 30.0
 
 var _is_following: bool = true
 

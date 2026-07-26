@@ -27,7 +27,7 @@ content_margin_top = 20.0
 bg_color = Color(1, 1, 1, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oo15n"]
-bg_color = Color(0, 0, 0, 1)
+bg_color = Color(0.5137966, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ijto3"]
 content_margin_top = 10.0
@@ -131,7 +131,6 @@ text = "Credits
 "
 
 [node name="OptionsMenu" type="VBoxContainer" parent="." unique_id=63981455 node_paths=PackedStringArray("bind_button", "audio_button", "audio_control", "bind_control")]
-visible = false
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
@@ -152,8 +151,7 @@ select_audio = ExtResource("2_5xle5")
 custom_minimum_size = Vector2(0, 400)
 layout_mode = 2
 
-[node name="Audio" type="VBoxContainer" parent="OptionsMenu/Options" unique_id=1232840908]
-visible = false
+[node name="Audio" type="VBoxContainer" parent="OptionsMenu/Options" unique_id=1232840908 node_paths=PackedStringArray("master", "sfx", "music")]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -162,6 +160,9 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 script = ExtResource("4_0poe0")
+master = NodePath("Master/MasterSlider")
+sfx = NodePath("SFX/SFXSlider")
+music = NodePath("Music/MusicSlider")
 
 [node name="Master" type="HBoxContainer" parent="OptionsMenu/Options/Audio" unique_id=1766069205]
 custom_minimum_size = Vector2(0, 75)
@@ -251,6 +252,7 @@ max_value = 6.0
 step = 0.1
 
 [node name="Keybinding" type="HBoxContainer" parent="OptionsMenu/Options" unique_id=130047715 node_paths=PackedStringArray("up_button", "down_button", "left_button", "right_button", "attack_button", "dash_button", "spell1_button", "spell2_button", "spell3_button", "spell4_button")]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -536,6 +538,7 @@ text = "Audio
 "
 
 [node name="Credits" type="VBoxContainer" parent="." unique_id=207946831]
+visible = false
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0

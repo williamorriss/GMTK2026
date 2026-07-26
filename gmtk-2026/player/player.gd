@@ -79,9 +79,6 @@ func _physics_process(delta: float) -> void:
 	
 	_current_state = _decide_state(delta)
 		
-	
-	
-	
 	nav()
 
 func nav() -> void:
@@ -103,8 +100,7 @@ func _decide_state(delta: float) -> State:
 		
 	var state: State = State.Idle
 	
-	if _current_state == State.Casting:
-		return State.Casting
+	
 	
 	if Input.is_action_just_pressed("DASH") and _dash_cooldown_timer <= 0.0 and input_dir != Vector2.ZERO:
 		return _start_dash(delta, input_dir)
@@ -116,7 +112,7 @@ func _decide_state(delta: float) -> State:
 	else:
 		_idle(delta)
 		return State.Idle
-
+	
 func _start_dash(delta: float, input_dir: Vector2) -> State:
 	# start dash
 	AudioManager.play_sfx(dash_audio)

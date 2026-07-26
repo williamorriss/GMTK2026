@@ -18,7 +18,6 @@ extends Enemy
 @onready var _animation: AnimatedSprite2D = $AnimatedSprite2D
 
 var _offset: Vector2 = Vector2.ZERO
-var _can_attack: bool = true
 var _shooting: bool = false
 
 func _ready() -> void:
@@ -35,7 +34,7 @@ func _physics_process(delta: float) -> void:
 		calc_closest_player()
 		return
 		
-	if global_position.distance_to(_closest_player.global_position) < attack_range:
+	if global_position.distance_to(_closest_player.global_position) < attack_range and not _shooting:
 		await _attack()
 	else:
 		_move(delta)
@@ -57,26 +56,23 @@ func _move(delta: float) -> void:
 	agent.set_velocity(direction * speed)
 
 func _attack() -> void:
-	if not _can_attack or not _closest_player:
+	if _shooting or not _closest_player:
 		return
 
-	_can_attack = false
 	_shooting = true
-
 	var dir: Vector2 = global_position.direction_to(_closest_player.global_position)
 	var pos: Vector2 = global_position + dir * beam_offset
 
 	var beam: Beam = Beam.create_beam(self, dir, pos)
 	var charge_time: float = beam.charging_time
+	beam.on_beam_fail.connect(_reset_state)
 
 	get_tree().current_scene.add_child(beam)
 	beam.on_finish_charge.connect(func () -> void: _animate_duration("attack", beam.damage_timer))
 	_animate_duration("charging", beam.charging_time)
-	
-	get_tree().create_timer(attack_cooldown).timeout.connect(func () -> void: _can_attack = true)
-
-	beam.on_finish_beam.connect(func () -> void: _shooting = false)
-
+	await beam.on_finish_beam
+	await get_tree().create_timer(attack_cooldown).timeout.connect
+	_shooting = false
 
 func _animate_duration(anim_name: String, target_duration: float) -> void:
 	var sf: SpriteFrames = _animation.sprite_frames
@@ -84,6 +80,9 @@ func _animate_duration(anim_name: String, target_duration: float) -> void:
 	var target_fps: float = frame_count / target_duration
 	_animation.speed_scale = target_fps / sf.get_animation_speed(anim_name)
 	_animation.play(anim_name)
+
+func _reset_state() -> void:
+	var _shooting: bool = false
 
 func _on_dead(dealer: Health.Owner, taker: Health.Owner, direction: Vector2) -> void:
 	_animation.play("death")

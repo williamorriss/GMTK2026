@@ -58,6 +58,7 @@ enum State {
 func _ready() -> void:
 	_flash.shader = _flash_shader
 	animation.material = _flash
+	add_to_group("player")
 	add_to_group("players")
 	var _x: int = health.on_dead.connect(_die)
 	Enemy.force_recalc(get_tree())

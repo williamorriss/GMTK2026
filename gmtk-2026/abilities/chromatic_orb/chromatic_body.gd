@@ -13,6 +13,7 @@ extends RigidBody2D
 @export var max_bounces: int
 @export var size_multiplier: float
 @export var damage: float
+@export var rotation_speed = 360
 
 var _player: Node2D
 var _current_bounces: int = 0
@@ -44,6 +45,8 @@ func _ready() -> void:
 	
 
 func _physics_process(delta: float) -> void:
+	rotation_degrees += rotation_speed * delta
+	
 	var collision: KinematicCollision2D = move_and_collide(_direction * _current_speed * delta)
 	if collision:
 		_direction = _direction.bounce(collision.get_normal())

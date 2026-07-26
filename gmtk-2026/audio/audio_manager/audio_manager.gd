@@ -27,7 +27,6 @@ func get_is_fading() -> bool:
 	return _is_fading
 
 func queue_music(music_audio: AudioStream, volume: float = 0.0, pitch: float = 1.0) -> void:
-	print(music_audio)
 	_is_fading = true
 	
 	var using_player: AudioStreamPlayer = music_player_a if _using_a else music_player_b

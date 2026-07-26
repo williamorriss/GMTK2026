@@ -367,7 +367,6 @@ player = NodePath("../Player")
 [node name="Player" parent="." unique_id=133342377 instance=ExtResource("2_5g432")]
 position = Vector2(2, 16)
 scale = Vector2(2, 2)
-dash_speed = 1500.0
 
 [node name="Rooms" type="Node2D" parent="." unique_id=1390008153]
 

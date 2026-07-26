@@ -8,9 +8,8 @@ extends Enemy
 @export var animator: BossAnimator
 
 @export_group("Phase")
-@export var phase_split: float = 0.5
-@export var phase1: Phase
-@export var phase2: Phase
+@export var current_phase: Phase
+@export var death_delay: float = 3
 
 @export_group("Movement")
 @export var acceleration: float = 2000.0
@@ -24,13 +23,11 @@ var _target_position: Vector2
 var _is_dashing: bool 
 var _dying: bool = false
 
-var _current_phase: Phase
-
 func get_closet_player() -> Node2D:
 	return _closest_player
 
 func get_current_phase() -> Phase:
-	return _current_phase
+	return current_phase
 
 func set_new_target(target: Vector2) -> void:
 	_target_position = target
@@ -70,27 +67,19 @@ func get_random_point() -> Vector2:
 func _ready() -> void:
 	super._ready()
 	
+	var _x: bool = health.on_dead.connect(_boss_death)
+	
 	add_to_group("enemies")
-	_switch_phase(phase1)
 	health.damage(45, Vector2.ZERO, Health.Owner.Player)
+	await current_phase.ready(self)
 	await _dash_wait()
 
 func _process(_delta: float) -> void:
-	if _current_phase == phase1 and health.get_hp() <= health.max_health * phase_split and not _dying:
-		_dying = true
-		print("Phase 2")
-		health.set_immunity(true)
-		animator.queue("death", true)
-		animator.set_pause(true)
-		await get_tree().create_timer(5.0).timeout
-		_switch_phase(phase2)
-		animator.queue("appear", true)
-		await animator.get_sprite().animation_finished
-		animator.set_pause(false)
-		_dying = false
+	if _dying:
+		return
 	
 	if not _is_dashing:
-		_current_phase.process(_delta)
+		current_phase.process(_delta)
 	
 	if not _closest_player:
 		calc_closest_player()
@@ -124,9 +113,10 @@ func _dash_wait() -> void:
 		await get_tree().create_timer(dash_duration).timeout
 		animator.queue("dash_end")
 
-func _switch_phase(new_phase: Phase) -> void:
-	if _current_phase:
-		_current_phase.exit()
-	
-	_current_phase = new_phase
-	_current_phase.ready(self)
+func _boss_death(_dealer: Health.Owner, _taker: Health.Owner, _direction: Vector2) -> void:
+	_dying = true
+	animator.set_pause(true)
+	animator.queue("death", true)
+	await get_tree().create_timer(death_delay).timeout
+	current_phase.exit()
+	queue_free()

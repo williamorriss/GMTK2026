@@ -329,5 +329,4 @@ polygon = PackedVector2Array(-3023, -2510, 3294, -2537, 3308, 995, -3009, 975)
 position = Vector2(11, -1359)
 play_area = NodePath("../PlayArea")
 
-[node name="BossBar" parent="." unique_id=2038177575 node_paths=PackedStringArray("boss") instance=ExtResource("5_6bhxp")]
-boss = NodePath("../BossWizard")
+[node name="BossBar" parent="." unique_id=2038177575 instance=ExtResource("5_6bhxp")]

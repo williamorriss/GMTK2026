@@ -34,7 +34,7 @@ func _spell_casting() -> void:
 	if not player:
 		return
 		
-	_boss.animator.queue("cast", true)
+	_boss.animator.queue("cast")
 	_ability.set_target(player.global_position)
 	_ability.activate_ability()
 	

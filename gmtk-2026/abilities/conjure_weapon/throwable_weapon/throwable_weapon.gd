@@ -33,9 +33,6 @@ func _destroy() -> void:
 	queue_free()
 
 func _on_body_entered(body: Node2D) -> void:
-	if _evil:
-		print("hi")
-	
 	var health: Health = Health.get_health(body)
 	if health:
 		var dir = global_position.direction_to(body.global_position)

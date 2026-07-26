@@ -8,6 +8,7 @@ var _boss: BossWizard
 var _is_running: bool = false
 
 func ready(boss: BossWizard) -> void:
+	await get_tree().process_frame
 	_boss = boss
 	_is_running = true
 

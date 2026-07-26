@@ -4,17 +4,21 @@ extends Enemy
 @export_group("References")
 @export var agent: NavigationAgent2D
 @export var health: Health
+@export var sprite: AnimatedSprite2D
 
 @export_group("Movement")
 @export var speed: float = 750.0
 @export var max_distance: float = 250
 @export var offset_distance: float = 100
+@export var death_delay: float = 1
 
 @export_group("Attack")
 @export var attack_cooldown: float = 0.5
 
 var _offset: Vector2 = Vector2.ZERO
 var _can_attack: bool = true
+var _is_firing: bool = false
+var _is_dying: bool = false
 
 func _ready() -> void:
 	super._ready()
@@ -26,13 +30,24 @@ func _ready() -> void:
 	_offset = Vector2(cos(rot), sin(rot)) * offset_distance
 
 func _physics_process(_delta: float) -> void:
+	if _is_dying:
+		return
+	
 	if not _closest_player:
 		calc_closest_player()
 		return
-		
-	await attack()
+	
+	attack() # naughty boy to the one that added await
 	
 	agent.target_position = _closest_player.position + _offset
+	
+	if velocity.length() >= 10 and not _is_firing:
+		sprite.play("walk")
+	
+	if velocity.x > 0:
+		sprite.flip_h = true
+	else:
+		sprite.flip_h = false
 	
 	if agent.is_navigation_finished() or position.distance_to(_closest_player.position) < max_distance:
 		velocity = Vector2.ZERO
@@ -56,6 +71,11 @@ func attack() -> void:
 	var bullet: GruntBullet = GruntBullet.create_bullet(position, position.direction_to(_closest_player.position))
 	get_tree().current_scene.add_child(bullet)
 	
+	_is_firing = true
+	sprite.play("fire")
+	await sprite.animation_finished
+	_is_firing = false
+	
 	await get_tree().create_timer(attack_cooldown).timeout
 	_can_attack = true
 
@@ -73,4 +93,12 @@ func _can_see(target: Vector2) -> bool:
 	return result.is_empty()
 
 func _on_dead(_dealer: Health.Owner, _taker: Health.Owner, _direction: Vector2) -> void:
+	if _is_dying:
+		return
+	
+	_is_dying = true
+	agent.queue_free()
+	sprite.play("death")
+	await sprite.animation_finished
+	await get_tree().create_timer(death_delay).timeout
 	queue_free()

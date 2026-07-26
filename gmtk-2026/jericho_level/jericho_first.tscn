@@ -644,9 +644,5 @@ shape = SubResource("RectangleShape2D_ln4xa")
 
 [node name="TimerControl" parent="." unique_id=1567958905 instance=ExtResource("9_vmmnd")]
 
-[node name="LineTrap" parent="." unique_id=153221502 node_paths=PackedStringArray("target") instance=ExtResource("13_3ruiy")]
-position = Vector2(-1600, -932)
-target = NodePath("Node2D")
-
 [node name="Node2D" type="Node2D" parent="LineTrap" unique_id=1749064608]
 position = Vector2(2022, -263)

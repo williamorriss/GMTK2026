@@ -36,6 +36,7 @@ func _use_ability() -> void:
 			health.damage(spells[0].get_cost(), Vector2.ZERO, Health.Owner.Neutral)
 			player.start_cast()
 			spells[0].set_can_activate(false)
+			_gen()
 			
 	if Input.is_action_just_pressed("MAGIC_2"):
 		if spells[1]:
@@ -43,6 +44,7 @@ func _use_ability() -> void:
 			health.damage(spells[1].get_cost(), Vector2.ZERO, Health.Owner.Neutral)
 			player.start_cast()
 			spells[1].set_can_activate(false)
+			_gen()
 				
 	if Input.is_action_just_pressed("MAGIC_3"):
 		if spells[2]:
@@ -50,6 +52,7 @@ func _use_ability() -> void:
 			health.damage(spells[2].get_cost(), Vector2.ZERO, Health.Owner.Neutral)
 			player.start_cast()
 			spells[2].set_can_activate(false)
+			_gen()
 						
 	if Input.is_action_just_pressed("MAGIC_4"):
 		if spells[3]:
@@ -57,9 +60,16 @@ func _use_ability() -> void:
 			health.damage(spells[3].get_cost(), Vector2.ZERO, Health.Owner.Neutral)
 			player.start_cast()
 			spells[3].set_can_activate(false)
+			_gen()
 			
 func _process_ability(delta: float) -> void:
 	for spell: Ability in spells:
 		if spell:
 			spell.process(delta)
-			
+
+func _gen() -> void:
+	var instance: Node2D = preload("res://ParticleSystem/projectile_particle.tscn").instantiate()
+	instance.color = Color("#3477e3")
+	instance.scale *= 2
+	instance.global_position = global_position
+	get_tree().current_scene.add_child(instance)

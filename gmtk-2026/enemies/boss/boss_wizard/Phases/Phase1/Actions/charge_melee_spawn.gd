@@ -37,6 +37,9 @@ func _switch() -> void:
 	_phase.switch_action(run_action if randf_range(0.0, 1.0) < 0.5 else teleport_action)
 
 func _spawn_enemies() -> void:
+	if not _is_running:
+		return
+	
 	_boss.animator.queue("summon")
 	for i: int in range(enemy_amount):
 		var rot: float = randf_range(0.0, 2 * PI)

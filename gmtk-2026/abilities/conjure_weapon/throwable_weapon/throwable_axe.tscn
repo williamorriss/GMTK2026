@@ -1,16 +1,136 @@
 [gd_scene format=3 uid="uid://b3prj6tmf1rrp"]
 
 [ext_resource type="Script" uid="uid://ctjqo4067nacl" path="res://abilities/conjure_weapon/throwable_weapon/throwable_weapon.gd" id="1_uef3m"]
-[ext_resource type="Texture2D" uid="uid://dhcwybhoxgwhe" path="res://icon.svg" id="2_1gstc"]
+[ext_resource type="Texture2D" uid="uid://dp7t57i17j2x0" path="res://abilities/conjure_weapon/throwable_weapon/sprites/axedraw-Sheet.png" id="2_uef3m"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ln4xa"]
 radius = 138.17743
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1gstc"]
+atlas = ExtResource("2_uef3m")
+region = Rect2(0, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fy2y6"]
+atlas = ExtResource("2_uef3m")
+region = Rect2(40, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c1tqv"]
+atlas = ExtResource("2_uef3m")
+region = Rect2(80, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y6hyb"]
+atlas = ExtResource("2_uef3m")
+region = Rect2(120, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jc8og"]
+atlas = ExtResource("2_uef3m")
+region = Rect2(160, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jt1i6"]
+atlas = ExtResource("2_uef3m")
+region = Rect2(200, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q5skh"]
+atlas = ExtResource("2_uef3m")
+region = Rect2(240, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x3404"]
+atlas = ExtResource("2_uef3m")
+region = Rect2(280, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7qbp0"]
+atlas = ExtResource("2_uef3m")
+region = Rect2(320, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_12q21"]
+atlas = ExtResource("2_uef3m")
+region = Rect2(360, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_em8y3"]
+atlas = ExtResource("2_uef3m")
+region = Rect2(400, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fbvo8"]
+atlas = ExtResource("2_uef3m")
+region = Rect2(440, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ggl2b"]
+atlas = ExtResource("2_uef3m")
+region = Rect2(480, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nmdi0"]
+atlas = ExtResource("2_uef3m")
+region = Rect2(520, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_62jix"]
+atlas = ExtResource("2_uef3m")
+region = Rect2(560, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a6ekh"]
+atlas = ExtResource("2_uef3m")
+region = Rect2(600, 0, 40, 40)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ln4xa"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1gstc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fy2y6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c1tqv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y6hyb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jc8og")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jt1i6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q5skh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x3404")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7qbp0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_12q21")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_em8y3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fbvo8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ggl2b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nmdi0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_62jix")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a6ekh")
+}],
+"loop": 0,
+"name": &"default",
+"speed": 60.0
+}]
 
 [node name="ThrowableAxe" type="Area2D" unique_id=1045993088 node_paths=PackedStringArray("sprite", "collider")]
 collision_layer = 8
 collision_mask = 6
 script = ExtResource("1_uef3m")
-sprite = NodePath("Sprite2D")
+sprite = NodePath("AnimatedSprite2D")
 collider = NodePath("CollisionShape2D")
 throw_damage = 5
 throw_speed = 1500.0
@@ -20,8 +140,10 @@ life_span = 3.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=433471155]
 shape = SubResource("CircleShape2D_ln4xa")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=98011789]
-scale = Vector2(0.5, 2)
-texture = ExtResource("2_1gstc")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1533262132]
+scale = Vector2(7, 7)
+sprite_frames = SubResource("SpriteFrames_ln4xa")
+frame = 15
+frame_progress = 1.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -8,9 +8,8 @@ extends Enemy
 @export var animator: BossAnimator
 
 @export_group("Phase")
-@export var phase_split: float = 0.5
-@export var phase1: Phase
-@export var phase2: Phase
+@export var current_phase: Phase
+@export var death_delay: float = 3
 
 @export_group("Movement")
 @export var acceleration: float = 2000.0
@@ -22,14 +21,13 @@ extends Enemy
 
 var _target_position: Vector2
 var _is_dashing: bool 
-
-var _current_phase: Phase
+var _dying: bool = false
 
 func get_closet_player() -> Node2D:
 	return _closest_player
 
 func get_current_phase() -> Phase:
-	return _current_phase
+	return current_phase
 
 func set_new_target(target: Vector2) -> void:
 	_target_position = target
@@ -69,24 +67,25 @@ func get_random_point() -> Vector2:
 func _ready() -> void:
 	super._ready()
 	
-	add_to_group("enemies")
-	_switch_phase(phase1)
+	var _x: bool = health.on_dead.connect(_boss_death)
 	
+	add_to_group("enemies")
+	await current_phase.ready(self)
 	await _dash_wait()
 
 func _process(_delta: float) -> void:
-	if _current_phase == phase1 and health.get_hp() <= health.max_health * phase_split:
-		print("Phase 2")
-		_switch_phase(phase2)
+	if _dying:
+		return
 	
 	if not _is_dashing:
-		_current_phase.process(_delta)
+		current_phase.process(_delta)
 	
 	if not _closest_player:
 		calc_closest_player()
 
 func _physics_process(delta: float) -> void:
-	_move(delta)
+	if not _dying:
+		_move(delta)
 
 func _move(delta: float) -> void:
 	agent.target_position = _target_position
@@ -101,7 +100,7 @@ func _move(delta: float) -> void:
 		velocity = velocity.move_toward(target_velocity, acceleration * delta)
 	else:
 		velocity = velocity.move_toward(Vector2.ZERO, friction * delta)
-
+	
 	var _x: bool = move_and_slide()
 
 func _dash_wait() -> void:
@@ -113,12 +112,13 @@ func _dash_wait() -> void:
 		await get_tree().create_timer(dash_duration).timeout
 		animator.queue("dash_end")
 
-func _switch_phase(new_phase: Phase) -> void:
-	if _current_phase:
-		_current_phase.exit()
+func _boss_death(_dealer: Health.Owner, _taker: Health.Owner, _direction: Vector2) -> void:
+	if _dying:
+		return
 	
 	_dying = true
 	animator.set_pause(true)
 	animator.queue("death", true)
 	await get_tree().create_timer(death_delay).timeout
 	current_phase.exit()
+	queue_free()

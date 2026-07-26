@@ -4,7 +4,7 @@ extends Phase
 @export var starting_action: Action
 
 func ready(boss: BossWizard) -> void:
-	super.ready(boss)
+	await super.ready(boss)
 	switch_action(starting_action)
 
 func exit() -> void:

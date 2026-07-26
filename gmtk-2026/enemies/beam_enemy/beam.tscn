@@ -1,17 +1,15 @@
 [gd_scene format=3 uid="uid://boj0gebdcokjf"]
 
 [ext_resource type="Script" uid="uid://o8nr873qftjg" path="res://enemies/beam_enemy/beam.gd" id="1_4ehef"]
-[ext_resource type="Texture2D" uid="uid://d0oy3xmhr6tnq" path="res://UI/menu/profile_pics/NotAHuman.png" id="2_4ehef"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ln4xa"]
-size = Vector2(4653, 125)
+[ext_resource type="Texture2D" uid="uid://b8r1up0xxa8as" path="res://sprites/beamlong.png" id="2_xuldq"]
+[ext_resource type="Texture2D" uid="uid://4y8rlfdvjm2v" path="res://sprites/beamend.png" id="3_xuldq"]
 
 [sub_resource type="Animation" id="Animation_4ehef"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/path = NodePath(".:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -26,14 +24,26 @@ resource_name = "charging"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/path = NodePath(".:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.25, 0.5, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0.01, 0.06666667, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.5), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(14.429214, 14.429214, 14.429214, 0.70980394)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BeamEnd:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.2, 1.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(14.429214, 14.429214, 14.429214, 0.70980394)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8kkwt"]
@@ -42,36 +52,18 @@ _data = {
 &"charging": SubResource("Animation_xuldq")
 }
 
-[sub_resource type="Gradient" id="Gradient_p6ibq"]
-offsets = PackedFloat32Array(0.0028409092, 0.5738636)
-colors = PackedColorArray(0.26973972, 0.6935427, 0.35076928, 1, 0, 0, 0, 1)
-
-[node name="Beam" type="Area2D" unique_id=2147251531 node_paths=PackedStringArray("animator")]
-collision_layer = 8
-collision_mask = 15
+[node name="Beam" type="Line2D" unique_id=1445765932 node_paths=PackedStringArray("animator")]
+points = PackedVector2Array(0, 0, 1, 0)
+width = 400.0
+texture = ExtResource("2_xuldq")
+texture_mode = 1
 script = ExtResource("1_4ehef")
 animator = NodePath("AnimationPlayer")
-damage = 2.0
-damage_timer = 1.0
-charging_time = 2.0
-lifetime = 2.0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=246777872]
-position = Vector2(2248.5, -7.5)
-shape = SubResource("RectangleShape2D_ln4xa")
+damage = 5.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2052149251]
 libraries/ = SubResource("AnimationLibrary_8kkwt")
 
-[node name="Line2D" type="Line2D" parent="." unique_id=1421345686]
-visible = false
-points = PackedVector2Array(0, 0, 4732, 4)
-width = 100.0
-gradient = SubResource("Gradient_p6ibq")
-
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=973117743]
-position = Vector2(2248, -8.033328)
-scale = Vector2(6.4638886, 0.18611112)
-texture = ExtResource("2_4ehef")
-
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[node name="BeamEnd" type="Sprite2D" parent="." unique_id=2094293617]
+scale = Vector2(10, 10)
+texture = ExtResource("3_xuldq")

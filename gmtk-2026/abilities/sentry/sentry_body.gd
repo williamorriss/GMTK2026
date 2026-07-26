@@ -1,6 +1,7 @@
 class_name SentryBody
 extends Node2D
 
+@export var sprite: AnimatedSprite2D
 @export var health: Health
 @export var cooldown: float = 0.5
 @export var max_time: float = 10
@@ -23,12 +24,16 @@ func _process(_delta: float) -> void:
 	if _can_see(closest):
 		_can_shoot = false
 		
+		sprite.play("shoot")
+		
 		var direction: Vector2 = position.direction_to(closest.position)
 		var bullet: Bullet = Bullet.create_bullet(position, direction, Health.Owner.Friendly)
 		get_tree().current_scene.add_child(bullet)
 		
 		await get_tree().create_timer(cooldown).timeout
 		_can_shoot = true
+	else:
+		sprite.play("default")
 
 func _get_closest() -> Node2D:
 	var enemies: Array[Node] = get_tree().get_nodes_in_group("enemies")

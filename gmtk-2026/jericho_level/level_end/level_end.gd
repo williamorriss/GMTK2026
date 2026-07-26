@@ -7,4 +7,5 @@ func _ready() -> void:
 
 func _entered(body: Node2D) -> void:
 	if body is Player:
-		await SceneTransition.change_scene(next_scene)
+		StateHolder.set_next_level(next_scene)
+		await SceneTransition.change_scene("res://UI/next_level/next_scene.tscn")

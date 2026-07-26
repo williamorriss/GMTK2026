@@ -1,5 +1,5 @@
 class_name LineTrap
-extends StaticBody2D
+extends Enemy
 
 @export_group("References")
 @export var target: Node2D

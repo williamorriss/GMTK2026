@@ -52,6 +52,9 @@ func _locked_in(delta: float) -> void:
 func _rotating(delta: float) -> void:
 	_current_rotation = fmod((_current_rotation + (rotation_speed * delta)), (2 * PI))
 	position = _player.position + Vector2(cos(_current_rotation), sin(_current_rotation)) * rotation_distance
+	
+	var dir: float = _player.global_position.direction_to(global_position).angle()
+	rotation = dir
 
 func _get_closest() -> Node2D:
 	var enemies: Array[Node] = []

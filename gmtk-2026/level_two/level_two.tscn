@@ -349,6 +349,7 @@ scale = Vector2(2, 2)
 [node name="Camera2D" type="Camera2D" parent="." unique_id=966347197 node_paths=PackedStringArray("player")]
 position = Vector2(782.15894, 4464.119)
 zoom = Vector2(0.2, 0.2)
+position_smoothing_enabled = true
 script = ExtResource("3_t5coh")
 player = NodePath("../Player")
 
@@ -636,12 +637,11 @@ position = Vector2(26.39746, 1021.28)
 [node name="room5" type="Node2D" parent="Rooms" unique_id=2039656498]
 position = Vector2(5490.7344, -1676.9248)
 
-[node name="RoomManager" parent="Rooms/room5" unique_id=58839214 node_paths=PackedStringArray("player", "room_area", "doors", "camera", "camera_focus") instance=ExtResource("5_2uo1b")]
+[node name="RoomManager" parent="Rooms/room5" unique_id=58839214 node_paths=PackedStringArray("player", "room_area", "doors", "camera") instance=ExtResource("5_2uo1b")]
 player = NodePath("../../../Player")
 room_area = NodePath("../Polygon2D")
 doors = [NodePath("../../../doors/Door2"), NodePath("../../../doors/Door3")]
 camera = NodePath("../../../Camera2D")
-camera_focus = NodePath("../../../Player")
 spawn_data = Array[ExtResource("6_l462i")]([SubResource("Resource_ln4xa"), SubResource("Resource_25sw5")])
 
 [node name="Polygon2D" type="Polygon2D" parent="Rooms/room5" unique_id=1747690029]
@@ -745,7 +745,7 @@ position = Vector2(-51.541016, -58.867188)
 position = Vector2(1622.1421, -5937.5073)
 collision_layer = 16
 script = ExtResource("10_gvhay")
-next_scene = "uid://dtcm1n77fw76u"
+next_scene = "uid://b67rnjx613kdh"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EndLevel" unique_id=715105559]
 position = Vector2(-0.14208984, -0.49267578)

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://m22t1p8vpxma"
-path="res://.godot/imported/healthybossdeath-Sheet.png-e257a1d38bb155e998bd4c56c6773f9c.ctex"
+uid="uid://cm7ltbkrgjkwl"
+path="res://.godot/imported/slowtimepngfile.png-6c3475730714de87e9bf84de5a969874.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://enemies/boss/boss_wizard/sprites/healthybossdeath-Sheet.png"
-dest_files=["res://.godot/imported/healthybossdeath-Sheet.png-e257a1d38bb155e998bd4c56c6773f9c.ctex"]
+source_file="res://abilities/ability_symbols/slowtimepngfile.png"
+dest_files=["res://.godot/imported/slowtimepngfile.png-6c3475730714de87e9bf84de5a969874.ctex"]
 
 [params]
 

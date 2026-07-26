@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dwktrvmjqgd3r"
-path="res://.godot/imported/healthybossawlk-Sheet-export.png-e7860adc8fa373892fb4982230b07bf2.ctex"
+uid="uid://3hjmjxaiu8ml"
+path="res://.godot/imported/spiketrap.png-646a39a0c6f7d96d07fbbb8752d773a7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://enemies/boss/boss_wizard/sprites/healthybossawlk-Sheet-export.png"
-dest_files=["res://.godot/imported/healthybossawlk-Sheet-export.png-e7860adc8fa373892fb4982230b07bf2.ctex"]
+source_file="res://abilities/mana_spikes/sprites/spiketrap.png"
+dest_files=["res://.godot/imported/spiketrap.png-646a39a0c6f7d96d07fbbb8752d773a7.ctex"]
 
 [params]
 

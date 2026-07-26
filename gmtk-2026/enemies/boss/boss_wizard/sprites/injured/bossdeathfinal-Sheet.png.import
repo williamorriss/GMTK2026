@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://datepvoufo13a"
-path="res://.godot/imported/healthybosscast-Sheet.png-926b98cc16f0b28e0f3cb10fb51f9df8.ctex"
+uid="uid://c07d4vqu2jkx5"
+path="res://.godot/imported/bossdeathfinal-Sheet.png-653624c3d77d747e9d3ad7dcedc0be21.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://enemies/boss/boss_wizard/sprites/healthybosscast-Sheet.png"
-dest_files=["res://.godot/imported/healthybosscast-Sheet.png-926b98cc16f0b28e0f3cb10fb51f9df8.ctex"]
+source_file="res://enemies/boss/boss_wizard/sprites/injured/bossdeathfinal-Sheet.png"
+dest_files=["res://.godot/imported/bossdeathfinal-Sheet.png-653624c3d77d747e9d3ad7dcedc0be21.ctex"]
 
 [params]
 

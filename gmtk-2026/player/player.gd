@@ -62,6 +62,7 @@ func _ready() -> void:
 	add_to_group("players")
 	var _x: int = health.on_dead.connect(_die)
 	Enemy.force_recalc(get_tree())
+	animation.animation_finished.connect(_on_animation_finished)
 	
 
 func _physics_process(delta: float) -> void:
@@ -98,6 +99,9 @@ func _decide_state(delta: float) -> State:
 		
 		
 	var state: State = State.Idle
+	
+	if _current_state == State.Casting:
+		return State.Casting
 	
 	if Input.is_action_just_pressed("DASH") and _dash_cooldown_timer <= 0.0 and input_dir != Vector2.ZERO:
 		return _start_dash(delta, input_dir)
@@ -190,3 +194,11 @@ func _on_health_on_damage_taken(dealer: Health.Owner, taker: Health.Owner, value
 		_hit_flash(intagible_time)
 		health.set_immunity(true)
 		_hit_intangible = true
+		
+func start_cast() -> void:
+	_current_state = State.Casting
+	animation.play("cast")
+
+func _on_animation_finished() -> void:
+	if _current_state == State.Casting and animation.animation == "cast":
+		_current_state = State.Idle

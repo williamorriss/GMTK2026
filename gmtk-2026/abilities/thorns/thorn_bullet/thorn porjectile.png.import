@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://wm8a6l3qtt6x"
-path="res://.godot/imported/healthybossdash.png-ca9e68eaa375d25d0dc6783d156c71e6.ctex"
+uid="uid://dkg8hum3oth76"
+path="res://.godot/imported/thorn porjectile.png-b3fdc8cfc0ae898b7218296b998ebecb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://enemies/boss/boss_wizard/sprites/healthybossdash.png"
-dest_files=["res://.godot/imported/healthybossdash.png-ca9e68eaa375d25d0dc6783d156c71e6.ctex"]
+source_file="res://abilities/thorns/thorn_bullet/thorn porjectile.png"
+dest_files=["res://.godot/imported/thorn porjectile.png-b3fdc8cfc0ae898b7218296b998ebecb.ctex"]
 
 [params]
 

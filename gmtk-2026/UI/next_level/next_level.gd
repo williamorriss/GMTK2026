@@ -1,7 +1,5 @@
 extends CanvasLayer
 
-@export_file("*.tscn") var next_scene: String
-
 @export_group("Audio")
 @export var select_audio: AudioStream
 
@@ -86,7 +84,7 @@ func _generate_potential() -> Array[Ability]: # This part kinda (very) stupid
 
 func _next_scene() -> void:
 	AudioManager.play_sfx(select_audio)
-	await SceneTransition.change_scene(next_scene)
+	await SceneTransition.change_scene(StateHolder.get_next_level())
 
 func _on_symbol_1_pressed() -> void:
 	_current_selection = _choices[0]

@@ -17,22 +17,34 @@ func ready(boss: BossWizard, phase: Phase) -> void:
 	super(boss, phase)
 	
 	await get_tree().create_timer(randf_range(teleport_delay.x, teleport_delay.y)).timeout
-	_boss.global_position = _boss.get_random_point()
+	await _teleport()
 	
 	for i: int in range(teleport_amount.x, teleport_amount.y):
 		await get_tree().create_timer(randf_range(teleport_delay.x, teleport_delay.y)).timeout
+		if not _is_running:
+			return
+		
 		_boss.animator.queue("summon")
 		_spawn_enemies()
 		await get_tree().create_timer(randf_range(spawn_delay.x, spawn_delay.y)).timeout
-		_boss.global_position = _boss.get_random_point()
+		await _teleport()
 	
 	_phase.switch_action(_phase.get_actions().pick_random())
 
+func process(_delta: float) -> void:
+	_boss.set_new_target(_boss.position)
+
+func _teleport() -> void:
+	_boss.animator.queue("disappear", true)
+	await _boss.animator.get_sprite().animation_finished
+	_boss.global_position = _boss.get_random_point()
+	_boss.animator.queue("appear", true)
+	await _boss.animator.get_sprite().animation_finished
 
 func _spawn_enemies() -> void:
 	var enemy: PackedScene = enemies.pick_random()
 	
-	for i: int in range(enemy_amount):
+	for i: int in range(randi_range(enemy_amount.x, enemy_amount.y)):
 		var rot: float = randf_range(0.0, 2 * PI)
 		var dir: Vector2 = Vector2(cos(rot), sin(rot)) * randf_range(spawn_radius.x, spawn_radius.y)
 		

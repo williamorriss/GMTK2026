@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bi8yv7egb2l5p" path="res://abilities/conjure_weapon/swingable_weapon/sprites/sword.png" id="2_jg18m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ln4xa"]
-size = Vector2(66, 259)
+size = Vector2(156, 272)
 
 [sub_resource type="Animation" id="Animation_jg18m"]
 length = 0.001
@@ -63,7 +63,7 @@ collision_mask = 2
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Weapon/Pivot/Area2D" unique_id=128063949]
-position = Vector2(6.82121e-13, -0.5)
+position = Vector2(1.9999843, -7)
 shape = SubResource("RectangleShape2D_ln4xa")
 
 [node name="Sprite2D" type="Sprite2D" parent="Weapon/Pivot" unique_id=1717052236]

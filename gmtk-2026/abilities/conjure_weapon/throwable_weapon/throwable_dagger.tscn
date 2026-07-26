@@ -3,8 +3,8 @@
 [ext_resource type="Script" uid="uid://ctjqo4067nacl" path="res://abilities/conjure_weapon/throwable_weapon/throwable_weapon.gd" id="1_w67js"]
 [ext_resource type="Texture2D" uid="uid://bn51mtwmh017r" path="res://abilities/conjure_weapon/throwable_weapon/sprites/daggerdraw-Sheet.png" id="2_w67js"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_ln4xa"]
-radius = 52.17279
+[sub_resource type="CircleShape2D" id="CircleShape2D_uef3m"]
+radius = 64.03124
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_u4wfx"]
 atlas = ExtResource("2_w67js")
@@ -124,7 +124,8 @@ spin_speed = 720.0
 life_span = 10.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=433471155]
-shape = SubResource("CircleShape2D_ln4xa")
+position = Vector2(0, -8)
+shape = SubResource("CircleShape2D_uef3m")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=325442618]
 position = Vector2(0, -9)

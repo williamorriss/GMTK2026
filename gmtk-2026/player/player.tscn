@@ -14,7 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://7jjoo2iduryp" path="res://spritesheets/walk.png" id="11_yllr7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rirtf"]
-size = Vector2(47, 94)
+size = Vector2(30, 94)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2ieo8"]
 atlas = ExtResource("10_2ieo8")
@@ -403,7 +403,6 @@ dash_audio = ExtResource("4_ebec5")
 [node name="BloodDrop" parent="." unique_id=1139702540 instance=ExtResource("2_hg6s5")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1392926206]
-position = Vector2(-0.5, 7)
 shape = SubResource("RectangleShape2D_rirtf")
 
 [node name="AbilityUser" type="Node2D" parent="." unique_id=1044070561 node_paths=PackedStringArray("player", "health")]
@@ -418,9 +417,7 @@ max_health = 1000.0
 position = Vector2(0, -24)
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_a00k7")
-animation = &"death"
-frame = 15
-frame_progress = 1.0
+animation = &"dash"
 
 [node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="." unique_id=1452965748]
 radius = 83.86

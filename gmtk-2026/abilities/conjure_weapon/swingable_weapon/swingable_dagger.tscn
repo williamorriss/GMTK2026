@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://b7387ieowv18r" path="res://abilities/conjure_weapon/swingable_weapon/sprites/dagger.png" id="2_0bbp8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ln4xa"]
-size = Vector2(25, 96)
+size = Vector2(38, 107)
 
 [sub_resource type="Animation" id="Animation_jg18m"]
 length = 0.001
@@ -63,7 +63,7 @@ collision_layer = 8
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Weapon/Pivot/Area2D" unique_id=128063949]
-position = Vector2(-3.500008, 81)
+position = Vector2(-2.0000086, 75.5)
 shape = SubResource("RectangleShape2D_ln4xa")
 
 [node name="Sprite2D" type="Sprite2D" parent="Weapon/Pivot" unique_id=1610427032]

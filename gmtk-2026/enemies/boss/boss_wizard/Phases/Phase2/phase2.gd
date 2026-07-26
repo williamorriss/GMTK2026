@@ -21,7 +21,6 @@ func exit() -> void:
 
 func process(_delta: float) -> void:
 	super.process(_delta)
-	print(_current_action)
 	_boss.set_new_target(_target)
 	
 	if _boss.global_position.distance_to(_target) <= 25:

@@ -1,7 +1,6 @@
 extends Node2D
 
 var _current_abilities: Array[Ability] = [null, null, null, null]
-
 var next_level: String
 
 signal camera_shake
@@ -12,9 +11,7 @@ func _init() -> void:
 
 func set_default_abilities() -> void:
 	_current_abilities[0] = ConjureWeapon.new(null, preload("res://abilities/conjure_weapon/weapons_data/sword.tres"))
-	_current_abilities[1] = ChromaticOrb.new(null)
-	_current_abilities[2] = Thorns.new(null)
-	_current_abilities[3] = ManaSpikes.new(null)
+
 func set_current_ability(pos: int, ability: Ability) -> void:
 	if pos < 0 or pos > 4:
 		push_error("Index out of range")

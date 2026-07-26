@@ -78,9 +78,6 @@ func _physics_process(delta: float) -> void:
 		health.set_immunity(false)
 	
 	_current_state = _decide_state(delta)
-		
-	
-	
 	
 	nav()
 
@@ -104,6 +101,7 @@ func _decide_state(delta: float) -> State:
 	var state: State = State.Idle
 	
 	if _current_state == State.Casting:
+		_walk(delta, input_dir)
 		return State.Casting
 	
 	if Input.is_action_just_pressed("DASH") and _dash_cooldown_timer <= 0.0 and input_dir != Vector2.ZERO:
@@ -146,7 +144,10 @@ func _walk(delta: float, input_dir: Vector2) -> void:
 		
 	_i_frames(false)
 	var target_velocity: Vector2 = input_dir * speed
-	animation.play("walk")
+	
+	if _current_state != State.Casting:
+		animation.play("walk")
+	
 	velocity = velocity.move_toward(target_velocity, acceleration * delta)
 	var _x: int = move_and_slide()
 	
@@ -176,6 +177,7 @@ func _die(dealer: Health.Owner, taker: Health.Owner, direction: Vector2) -> void
 	if _is_dying:
 		return
 	_is_dying = true
+	health.set_immunity(true)
 	HealthTimer.stop_timer()
 
 	
@@ -195,8 +197,8 @@ func _die(dealer: Health.Owner, taker: Health.Owner, direction: Vector2) -> void
 	add_child(darkness)
 	animation.stop()
 	animation.play("death")
-	print(animation.animation)
 	await animation.animation_finished
+	await get_tree().create_timer(1.0).timeout
 	print("finished")
 	await SceneTransition.change_scene(death_screen)
 	darkness.queue_free()
@@ -221,8 +223,10 @@ func _on_health_on_damage_taken(dealer: Health.Owner, taker: Health.Owner, value
 func start_cast() -> void:
 	if _is_dying:
 		return
-	_current_state = State.Casting
-	animation.play("cast")
+	
+	if _current_state != State.Dashing:
+		_current_state = State.Casting
+		animation.play("cast")
 
 func _on_animation_finished() -> void:
 	if _current_state == State.Casting and animation.animation == "cast":

@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://dhcwybhoxgwhe" path="res://icon.svg" id="1_f37x5"]
 
 [node name="BloodSplatter" type="Node2D" unique_id=118732786]
+visible = false
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1832433740]
 visible = false

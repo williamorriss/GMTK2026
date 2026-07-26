@@ -53,7 +53,6 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	if _is_dying:
-		print(velocity)
 		return
 	
 	# cooldown always ticks, regardless of state

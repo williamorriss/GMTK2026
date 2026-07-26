@@ -10,6 +10,7 @@ radius = 7.130403
 script = ExtResource("1_jdqym")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=817190631]
+visible = false
 modulate = Color(0.88431424, 3.200695e-06, 1.1551381e-06, 1)
 scale = Vector2(0.5, -0.342)
 texture = ExtResource("2_jdqym")

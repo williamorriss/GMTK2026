@@ -5,6 +5,7 @@ extends Node2D
 @onready var blood_drop: PackedScene = preload("res://blood/blood_orb.tscn")
 
 func orbulate(hp: float) -> void:
+	return
 	print("orbulation commencing")
 	var root: Node = get_tree().current_scene
 	var total: float = hp

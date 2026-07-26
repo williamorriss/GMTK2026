@@ -8,5 +8,5 @@ func _on_body_entered(body: Node2D) -> void:
 	if not health:
 		return
 	
-	health.heal(100)
+	health.heal(0)
 	queue_free()

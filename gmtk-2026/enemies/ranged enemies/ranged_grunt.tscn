@@ -315,6 +315,8 @@ shape = SubResource("RectangleShape2D_ny2g4")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1604336359]
 avoidance_enabled = true
+radius = 150.0
+max_speed = 500.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1416140732]
 visible = false

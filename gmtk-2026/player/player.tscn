@@ -416,6 +416,8 @@ position = Vector2(0, -24)
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_a00k7")
 animation = &"death"
+frame = 15
+frame_progress = 1.0
 
 [node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="." unique_id=1452965748]
 radius = 83.86

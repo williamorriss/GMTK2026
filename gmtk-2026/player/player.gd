@@ -170,10 +170,12 @@ func _i_frames(value: bool) -> void:
 
 func _die(dealer: Health.Owner, taker: Health.Owner, direction: Vector2) -> void: # should play death anim here
 	HealthTimer.stop_timer()
+
 	
 	var instance: Node2D = preload("res://ParticleSystem/blood_particle.tscn").instantiate()
 	instance.global_position = global_position
 	get_tree().current_scene.add_child(instance)
+	animation.play("death")
 	
 	var darkness: Rect2
 	

@@ -415,9 +415,9 @@ max_health = 1000.0
 position = Vector2(0, -24)
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_a00k7")
-animation = &"cast"
-frame = 8
-frame_progress = 1.0
+animation = &"death"
+frame = 11
+frame_progress = 0.34166187
 
 [node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="." unique_id=1452965748]
 radius = 83.86

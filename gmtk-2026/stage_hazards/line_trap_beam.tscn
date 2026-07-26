@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://b0p0sie6bsloe"]
+
+[ext_resource type="Script" path="res://stage_hazards/line_trap_beam.gd" id="1_ek1ec"]
+[ext_resource type="Texture2D" uid="uid://b8r1up0xxa8as" path="res://sprites/beamlong.png" id="1_g2ksn"]
+[ext_resource type="Texture2D" uid="uid://cbo6lx20i8n52" path="res://sprites/beamprojectile1.png" id="3_ycvww"]
+
+[sub_resource type="Animation" id="Animation_g2ksn"]
+resource_name = "charging"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ycvww"]
+_data = {
+&"charging": SubResource("Animation_g2ksn")
+}
+
+[node name="LineTrapBeam" type="Line2D" unique_id=1778166079]
+texture = ExtResource("1_g2ksn")
+texture_mode = 1
+script = ExtResource("1_ek1ec")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2117896956]
+libraries/ = SubResource("AnimationLibrary_ycvww")
+
+[node name="BeamEnd" type="Sprite2D" parent="." unique_id=541697504]
+texture = ExtResource("3_ycvww")

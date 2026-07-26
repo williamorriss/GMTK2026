@@ -78,7 +78,7 @@ func _physics_process(delta: float) -> void:
 		health.set_immunity(false)
 	
 	_current_state = _decide_state(delta)
-	
+		
 	nav()
 
 func nav() -> void:
@@ -114,7 +114,7 @@ func _decide_state(delta: float) -> State:
 	else:
 		_idle(delta)
 		return State.Idle
-
+	
 func _start_dash(delta: float, input_dir: Vector2) -> State:
 	# start dash
 	AudioManager.play_sfx(dash_audio)

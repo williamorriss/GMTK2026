@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://wm8a6l3qtt6x" path="res://enemies/boss/boss_wizard/sprites/good/healthybossdash.png" id="4_w6spi"]
 [ext_resource type="Texture2D" uid="uid://m22t1p8vpxma" path="res://enemies/boss/boss_wizard/sprites/good/healthybossdeath-Sheet.png" id="5_nkfdy"]
 [ext_resource type="PackedScene" uid="uid://b84onmi6p6dgu" path="res://health/health.tscn" id="9_vrpkl"]
+[ext_resource type="Script" uid="uid://dvyhf6doho225" path="res://enemies/boss/boss_wizard/Phases/Phase1/Actions/teleport.gd" id="15_grg58"]
 [ext_resource type="Script" uid="uid://b2f6vq7vjqpkn" path="res://enemies/boss/boss_wizard/Phases/Phase2/phase2.gd" id="20_cd6le"]
 [ext_resource type="Script" uid="uid://cdks3jhajyil3" path="res://enemies/boss/boss_wizard/Phases/Phase2/Actions/chromatic_evil.gd" id="21_2kevr"]
 [ext_resource type="Script" uid="uid://c2aflautrqjqy" path="res://enemies/boss/boss_wizard/Phases/Phase2/Actions/conjure_evil.gd" id="22_04btw"]
@@ -721,7 +722,7 @@ shape = SubResource("CircleShape2D_ln4xa")
 [node name="Phase2" type="Node2D" parent="." unique_id=1909016134 node_paths=PackedStringArray("actions")]
 script = ExtResource("20_cd6le")
 next_scene = "uid://c6we134heeisf"
-actions = [NodePath("ConjureEvil"), NodePath("ChromaticEvil"), NodePath("MissileEvil"), NodePath("SpikeEvil"), NodePath("ThornEvil")]
+actions = [NodePath("ConjureEvil"), NodePath("ChromaticEvil"), NodePath("MissileEvil"), NodePath("SpikeEvil"), NodePath("ThornEvil"), NodePath("TeleportAction")]
 
 [node name="ChromaticEvil" type="Node2D" parent="Phase2" unique_id=2025216100]
 script = ExtResource("21_2kevr")
@@ -743,6 +744,10 @@ metadata/_custom_type_script = "uid://ir7bkqn467u2"
 [node name="ThornEvil" type="Node2D" parent="Phase2" unique_id=1024046727]
 script = ExtResource("29_nslui")
 metadata/_custom_type_script = "uid://88c2ie4xvp3w"
+
+[node name="TeleportAction" type="Node2D" parent="Phase2" unique_id=1063373246]
+script = ExtResource("15_grg58")
+metadata/_custom_type_script = "uid://dvyhf6doho225"
 
 [node name="BossAnimator" type="Node2D" parent="." unique_id=2044527843 node_paths=PackedStringArray("sprite", "player")]
 script = ExtResource("30_jos5c")

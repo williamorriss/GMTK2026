@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://02shw622vdm0"
-path="res://.godot/imported/dash.jpg-5991fd6836c9596e331ec37106956623.ctex"
+uid="uid://cbo6lx20i8n52"
+path="res://.godot/imported/beamprojectile1.png-7e6251d09c8de7e37da6455d8d983b53.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/dash.jpg"
-dest_files=["res://.godot/imported/dash.jpg-5991fd6836c9596e331ec37106956623.ctex"]
+source_file="res://sprites/beamprojectile1.png"
+dest_files=["res://.godot/imported/beamprojectile1.png-7e6251d09c8de7e37da6455d8d983b53.ctex"]
 
 [params]
 

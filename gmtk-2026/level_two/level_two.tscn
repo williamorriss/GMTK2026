@@ -471,16 +471,16 @@ polygon = PackedVector2Array(-1752.9307, -971.19434, 2270.0693, -946.19434, 2296
 
 [node name="lasers" type="Node2D" parent="Rooms/room3" unique_id=1354264406]
 
-[node name="LineTrap" parent="Rooms/room3/lasers" unique_id=208241967 node_paths=PackedStringArray("t") instance=ExtResource("11_jtx8l")]
+[node name="LineTrap" parent="Rooms/room3/lasers" unique_id=208241967 node_paths=PackedStringArray("target") instance=ExtResource("11_jtx8l")]
 position = Vector2(-1048.3193, -1062.1104)
-t = NodePath("target")
+target = NodePath("target")
 
 [node name="target" type="Node2D" parent="Rooms/room3/lasers/LineTrap" unique_id=1711194196]
 position = Vector2(0.38867188, 2870.916)
 
-[node name="LineTrap2" parent="Rooms/room3/lasers" unique_id=1007024770 node_paths=PackedStringArray("t") instance=ExtResource("11_jtx8l")]
+[node name="LineTrap2" parent="Rooms/room3/lasers" unique_id=1007024770 node_paths=PackedStringArray("target") instance=ExtResource("11_jtx8l")]
 position = Vector2(1324.363, -1110.8276)
-t = NodePath("target")
+target = NodePath("target")
 
 [node name="target" type="Node2D" parent="Rooms/room3/lasers/LineTrap2" unique_id=1269079242]
 position = Vector2(-0.29370117, 2111.6333)
@@ -605,16 +605,16 @@ position = Vector2(909.39746, 1556.28)
 
 [node name="lasers" type="Node2D" parent="Rooms/room4" unique_id=2040740931]
 
-[node name="LineTrap" parent="Rooms/room4/lasers" unique_id=1470612696 node_paths=PackedStringArray("t") instance=ExtResource("11_jtx8l")]
+[node name="LineTrap" parent="Rooms/room4/lasers" unique_id=1470612696 node_paths=PackedStringArray("target") instance=ExtResource("11_jtx8l")]
 position = Vector2(-1462.6025, 957.28)
-t = NodePath("target")
+target = NodePath("target")
 
 [node name="target" type="Node2D" parent="Rooms/room4/lasers/LineTrap" unique_id=560188491]
 position = Vector2(2939.5762, 37.667725)
 
-[node name="LineTrap2" parent="Rooms/room4/lasers" unique_id=1525944319 node_paths=PackedStringArray("t") instance=ExtResource("11_jtx8l")]
+[node name="LineTrap2" parent="Rooms/room4/lasers" unique_id=1525944319 node_paths=PackedStringArray("target") instance=ExtResource("11_jtx8l")]
 position = Vector2(-1462.6025, -1116.72)
-t = NodePath("target")
+target = NodePath("target")
 
 [node name="target" type="Node2D" parent="Rooms/room4/lasers/LineTrap2" unique_id=1334390769]
 position = Vector2(2939.5762, 37.667725)
@@ -649,23 +649,23 @@ polygon = PackedVector2Array(-432.73438, -2457.0752, 396.26563, -2457.0752, 409.
 
 [node name="line_trap" type="Node2D" parent="Rooms/room5" unique_id=1246688484]
 
-[node name="LineTrap" parent="Rooms/room5/line_trap" unique_id=50234879 node_paths=PackedStringArray("t") instance=ExtResource("11_jtx8l")]
+[node name="LineTrap" parent="Rooms/room5/line_trap" unique_id=50234879 node_paths=PackedStringArray("target") instance=ExtResource("11_jtx8l")]
 position = Vector2(-500.73438, 1991.9248)
-t = NodePath("target")
+target = NodePath("target")
 
 [node name="target" type="Node2D" parent="Rooms/room5/line_trap/LineTrap" unique_id=934007890]
 position = Vector2(910, 0)
 
-[node name="LineTrap2" parent="Rooms/room5/line_trap" unique_id=21757459 node_paths=PackedStringArray("t") instance=ExtResource("11_jtx8l")]
+[node name="LineTrap2" parent="Rooms/room5/line_trap" unique_id=21757459 node_paths=PackedStringArray("target") instance=ExtResource("11_jtx8l")]
 position = Vector2(-534.6865, 155.13525)
-t = NodePath("target")
+target = NodePath("target")
 
 [node name="target" type="Node2D" parent="Rooms/room5/line_trap/LineTrap2" unique_id=1565139002]
 position = Vector2(910, 0)
 
-[node name="LineTrap3" parent="Rooms/room5/line_trap" unique_id=1617234127 node_paths=PackedStringArray("t") instance=ExtResource("11_jtx8l")]
+[node name="LineTrap3" parent="Rooms/room5/line_trap" unique_id=1617234127 node_paths=PackedStringArray("target") instance=ExtResource("11_jtx8l")]
 position = Vector2(-470.73438, -1272.0752)
-t = NodePath("target")
+target = NodePath("target")
 
 [node name="target" type="Node2D" parent="Rooms/room5/line_trap/LineTrap3" unique_id=1868377202]
 position = Vector2(910, 0)

@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://ci8upnfj1ucdu"]
 
 [ext_resource type="Texture2D" uid="uid://dwnl8eou5lpvj" path="res://jericho_level/placeholder_art/2D Pixel Dungeon Asset Pack/Dungeon_Tileset_at.png" id="1_6vy7x"]
+[ext_resource type="PackedScene" uid="uid://swcxgbeey32e" path="res://enemies/beam_enemy/beam_enemy.tscn" id="1_oawk6"]
 [ext_resource type="PackedScene" uid="uid://ciyk3l7p2kfjx" path="res://player/player.tscn" id="2_5g432"]
 [ext_resource type="Script" uid="uid://b3v0dqtu4y87l" path="res://jericho_level/camera_controller.gd" id="2_7tmev"]
 [ext_resource type="PackedScene" uid="uid://lxqc6qi5a73" path="res://jericho_level/door/door.tscn" id="3_dors5"]
@@ -329,6 +330,9 @@ size = Vector2(575, 417)
 
 [node name="JerichoFirst" type="Node2D" unique_id=2038274911]
 script = SubResource("GDScript_5ph32")
+
+[node name="BeamEnemy" parent="." unique_id=1624300625 instance=ExtResource("1_oawk6")]
+position = Vector2(-1346, -503)
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=1733079196]
 navigation_polygon = SubResource("NavigationPolygon_t5tom")

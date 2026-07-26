@@ -2,6 +2,8 @@ extends Node2D
 
 var _current_abilities: Array[Ability] = [null, null, null, null]
 
+var next_level: String
+
 signal camera_shake
 
 # [NOTE] this is a test for now initial abilities will change
@@ -32,3 +34,8 @@ func get_current_ability(pos: int, player: Node2D = null) -> Ability:
 
 func get_current_abilities() -> Array[Ability]:
 	return _current_abilities
+
+func set_next_level(value: String) -> void:
+	next_level = value
+func get_next_level() -> String:
+	return next_level

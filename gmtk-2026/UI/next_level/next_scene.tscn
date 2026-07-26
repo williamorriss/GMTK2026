@@ -72,7 +72,6 @@ bg_color = Color(0, 0, 0, 1)
 
 [node name="NextScene" type="CanvasLayer" unique_id=1847358530 node_paths=PackedStringArray("title", "choices_control", "replace_control")]
 script = ExtResource("1_evkxa")
-next_scene = "uid://cl06dcn5crx38"
 select_audio = ExtResource("2_3wkvj")
 title = NodePath("MarginContainer/VBoxContainer/Title")
 choices_control = NodePath("MarginContainer/VBoxContainer/Control/Choices")

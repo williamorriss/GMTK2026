@@ -91,7 +91,6 @@ func _can_see(target: Vector2) -> bool:
 	return result.is_empty()
 
 func _on_navigation_agent_2d_velocity_computed(safe_velocity: Vector2) -> void:
-	print(safe_velocity)
 	velocity = safe_velocity
 	move_and_slide()
 

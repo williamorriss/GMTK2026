@@ -375,7 +375,6 @@ player = NodePath("../Player")
 [node name="Player" parent="." unique_id=133342377 instance=ExtResource("3_b4x1b")]
 position = Vector2(49, 850)
 scale = Vector2(2, 2)
-speed = 1000.0
 dash_speed = 1500.0
 
 [node name="PlayArea" type="Polygon2D" parent="." unique_id=539585027]

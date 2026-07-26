@@ -4,6 +4,7 @@
 [ext_resource type="FontFile" uid="uid://qvjbjulrm5fs" path="res://UI/Fonts/upheaval/upheavtt.ttf" id="2_fjph4"]
 
 [node name="HealthTimer" type="CanvasLayer" unique_id=240449515 node_paths=PackedStringArray("label")]
+layer = 100
 script = ExtResource("1_1523m")
 initial_time = 600.0
 label = NodePath("RichTextLabel")

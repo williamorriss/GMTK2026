@@ -16,6 +16,8 @@ static func create_bullet(pos: Vector2, direction: Vector2, owner: Health.Owner)
 
 func _ready() -> void:
 	body_entered.connect(_on_body_entered)
+	
+	global_rotation = _direction.angle()
 
 func _process(delta: float) -> void:
 	position += _direction * speed * delta

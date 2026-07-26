@@ -37,7 +37,8 @@ func _room_cleared() -> void:
 		door.open()
 
 func _spawn_enemies() -> void:
-	camera.set_target(camera_focus.global_position)
+	if camera_focus:
+		camera.set_target(camera_focus.global_position)
 	_is_waiting = false
 	
 	for door: Door in doors:

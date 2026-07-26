@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b34t18qipuv2w"
-path="res://.godot/imported/bossummon-Sheet.png-49862dd753efcac7140e6b135c76a881.ctex"
+uid="uid://brcab6ctrpwph"
+path="res://.godot/imported/injuredbossteleappeart-export.png-17b6b66aeeac353e5a98533e1248b190.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://enemies/boss/boss_wizard/sprites/bossummon-Sheet.png"
-dest_files=["res://.godot/imported/bossummon-Sheet.png-49862dd753efcac7140e6b135c76a881.ctex"]
+source_file="res://enemies/boss/boss_wizard/sprites/injured/injuredbossteleappeart-export.png"
+dest_files=["res://.godot/imported/injuredbossteleappeart-export.png-17b6b66aeeac353e5a98533e1248b190.ctex"]
 
 [params]
 

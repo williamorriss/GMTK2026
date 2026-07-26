@@ -1,16 +1,129 @@
 [gd_scene format=3 uid="uid://bopnagloil2hi"]
 
-[ext_resource type="Texture2D" uid="uid://dhcwybhoxgwhe" path="res://icon.svg" id="1_hjpcg"]
 [ext_resource type="Script" uid="uid://ctjqo4067nacl" path="res://abilities/conjure_weapon/throwable_weapon/throwable_weapon.gd" id="1_qaqm5"]
+[ext_resource type="Texture2D" uid="uid://c8ei3svysoyd4" path="res://abilities/conjure_weapon/throwable_weapon/sprites/sworddraw-Sheet.png" id="2_qaqm5"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ln4xa"]
 radius = 138.17743
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yykfa"]
+atlas = ExtResource("2_qaqm5")
+region = Rect2(0, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kjuqi"]
+atlas = ExtResource("2_qaqm5")
+region = Rect2(40, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0eytk"]
+atlas = ExtResource("2_qaqm5")
+region = Rect2(80, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8csf1"]
+atlas = ExtResource("2_qaqm5")
+region = Rect2(120, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_116wd"]
+atlas = ExtResource("2_qaqm5")
+region = Rect2(160, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p00l1"]
+atlas = ExtResource("2_qaqm5")
+region = Rect2(200, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jbrxr"]
+atlas = ExtResource("2_qaqm5")
+region = Rect2(240, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j8ock"]
+atlas = ExtResource("2_qaqm5")
+region = Rect2(280, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0qv5k"]
+atlas = ExtResource("2_qaqm5")
+region = Rect2(320, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6vlcq"]
+atlas = ExtResource("2_qaqm5")
+region = Rect2(360, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ewrkh"]
+atlas = ExtResource("2_qaqm5")
+region = Rect2(400, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4dott"]
+atlas = ExtResource("2_qaqm5")
+region = Rect2(440, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a4s6c"]
+atlas = ExtResource("2_qaqm5")
+region = Rect2(480, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hyyag"]
+atlas = ExtResource("2_qaqm5")
+region = Rect2(520, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jlj3r"]
+atlas = ExtResource("2_qaqm5")
+region = Rect2(560, 0, 40, 40)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ln4xa"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yykfa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kjuqi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0eytk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8csf1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_116wd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p00l1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jbrxr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j8ock")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0qv5k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6vlcq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ewrkh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4dott")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a4s6c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hyyag")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jlj3r")
+}],
+"loop": 0,
+"name": &"default",
+"speed": 60.0
+}]
 
 [node name="ThrowableSword" type="Area2D" unique_id=1045993088 node_paths=PackedStringArray("sprite", "collider")]
 collision_layer = 8
 collision_mask = 6
 script = ExtResource("1_qaqm5")
-sprite = NodePath("Sprite2D")
+sprite = NodePath("AnimatedSprite2D")
 collider = NodePath("CollisionShape2D")
 throw_speed = 2500.0
 spin_speed = 360.0
@@ -19,8 +132,10 @@ life_span = 3.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=433471155]
 shape = SubResource("CircleShape2D_ln4xa")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=98011789]
-scale = Vector2(0.5, 2)
-texture = ExtResource("1_hjpcg")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2005485193]
+scale = Vector2(6, 6)
+sprite_frames = SubResource("SpriteFrames_ln4xa")
+frame = 14
+frame_progress = 1.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

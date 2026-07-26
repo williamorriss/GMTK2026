@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cp5j7sdugh83g"
-path="res://.godot/imported/bossteleappear-Sheet.png-37e8f95bb1112876d78d02d46dd95ffb.ctex"
+uid="uid://1ssfi17nffmj"
+path="res://.godot/imported/bosstilemapreal.png-fea5ec33732918776ec7b9c1d78ac840.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://enemies/boss/boss_wizard/sprites/bossteleappear-Sheet.png"
-dest_files=["res://.godot/imported/bossteleappear-Sheet.png-37e8f95bb1112876d78d02d46dd95ffb.ctex"]
+source_file="res://tilemaps/bosstilemapreal.png"
+dest_files=["res://.godot/imported/bosstilemapreal.png-fea5ec33732918776ec7b9c1d78ac840.ctex"]
 
 [params]
 

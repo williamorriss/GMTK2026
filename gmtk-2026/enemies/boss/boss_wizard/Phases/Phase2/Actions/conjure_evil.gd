@@ -6,13 +6,13 @@ extends Action
 @export var weapons: Array[WeaponData]
 
 var _ability: ConjureWeapon
+var _can_cast: bool = true
 
 func ready(boss: BossWizard, phase: Phase) -> void:
 	super(boss, phase)
 	
 	_ability = ConjureWeapon.new(_boss, weapons.pick_random())
 	_ability.set_evil(true)
-	await _spell_casting()
 
 func process(_delta: float) -> void:
 	var player: Node2D = _boss.get_closet_player()
@@ -21,14 +21,21 @@ func process(_delta: float) -> void:
 	
 	if _boss.global_position.distance_to(player.global_position) <= min_distance:
 		_ability._attack() # I know im using a private function, I don't care at this point
+	
+	_spell_casting()
 
 func _spell_casting() -> void:
-	while _is_running:
-		await get_tree().create_timer(randf_range(cooldown.x, cooldown.y)).timeout
-		var player: Node2D = _boss.get_closet_player()
-		if not player:
-			continue
+	if not _can_cast:
+		return
+	_can_cast = false
+	
+	await get_tree().create_timer(randf_range(cooldown.x, cooldown.y)).timeout
+	var player: Node2D = _boss.get_closet_player()
+	if not player:
+		return
 		
-		print(_ability._is_evil)
-		_ability.set_target(player.global_position)
-		_ability.activate_ability()
+	_boss.animator.queue("cast")
+	_ability.set_target(player.global_position)
+	_ability.activate_ability()
+	
+	_can_cast = true

@@ -13,8 +13,8 @@
 [ext_resource type="Texture2D" uid="uid://0e73bt15w2k" path="res://spritesheets/playeridle.png" id="11_ebec5"]
 [ext_resource type="Texture2D" uid="uid://7jjoo2iduryp" path="res://spritesheets/walk.png" id="11_yllr7"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_tmfgs"]
-radius = 98.4124
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rirtf"]
+size = Vector2(47, 94)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2ieo8"]
 atlas = ExtResource("10_2ieo8")
@@ -400,7 +400,8 @@ dash_audio = ExtResource("4_ebec5")
 [node name="BloodDrop" parent="." unique_id=1139702540 instance=ExtResource("2_hg6s5")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1392926206]
-shape = SubResource("CircleShape2D_tmfgs")
+position = Vector2(-0.5, 7)
+shape = SubResource("RectangleShape2D_rirtf")
 
 [node name="AbilityUser" type="Node2D" parent="." unique_id=1044070561 node_paths=PackedStringArray("player", "health")]
 script = ExtResource("3_g1dw6")
@@ -411,12 +412,14 @@ health = NodePath("../Health")
 max_health = 1000.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=442554886]
+position = Vector2(0, -24)
+scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_a00k7")
 animation = &"cast"
 frame = 8
 frame_progress = 1.0
 
 [node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="." unique_id=1452965748]
-radius = 40.0
+radius = 83.86
 
 [connection signal="on_damage_taken" from="Health" to="." method="_on_health_on_damage_taken"]

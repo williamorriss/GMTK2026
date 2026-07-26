@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cjd5u65ul331a"]
 
 [ext_resource type="Script" uid="uid://6166fdpbw8i0" path="res://abilities/mana_spikes/spike_trap.gd" id="1_ae6pu"]
-[ext_resource type="Texture2D" uid="uid://dhcwybhoxgwhe" path="res://icon.svg" id="1_husgc"]
+[ext_resource type="Texture2D" uid="uid://3hjmjxaiu8ml" path="res://abilities/mana_spikes/sprites/spiketrap.png" id="2_ae6pu"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ln4xa"]
 radius = 85.146935
@@ -16,6 +16,38 @@ spike_distance = 150.0
 shape = SubResource("CircleShape2D_ln4xa")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2077830847]
-texture = ExtResource("1_husgc")
+position = Vector2(0, -1.0000162)
+scale = Vector2(5, 5)
+texture = ExtResource("2_ae6pu")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=301748626]
+position = Vector2(0, -21.000015)
+scale = Vector2(5, 5)
+texture = ExtResource("2_ae6pu")
+
+[node name="Sprite2D3" type="Sprite2D" parent="." unique_id=1995437832]
+position = Vector2(-0.49999997, -41.00001)
+scale = Vector2(5, 5)
+texture = ExtResource("2_ae6pu")
+
+[node name="Sprite2D4" type="Sprite2D" parent="." unique_id=526491022]
+position = Vector2(-0.49999997, -61.000015)
+scale = Vector2(5, 5)
+texture = ExtResource("2_ae6pu")
+
+[node name="Sprite2D5" type="Sprite2D" parent="." unique_id=1904741941]
+position = Vector2(-0.99999994, -81.00001)
+scale = Vector2(5, 5)
+texture = ExtResource("2_ae6pu")
+
+[node name="Sprite2D6" type="Sprite2D" parent="." unique_id=2137755629]
+position = Vector2(-0.99999994, -101.00001)
+scale = Vector2(5, 5)
+texture = ExtResource("2_ae6pu")
+
+[node name="Sprite2D7" type="Sprite2D" parent="." unique_id=87643943]
+position = Vector2(-1.4999999, -121)
+scale = Vector2(5, 5)
+texture = ExtResource("2_ae6pu")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

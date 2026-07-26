@@ -637,7 +637,7 @@ rotation = 1.5707964
 position = Vector2(3836, -9994)
 collision_layer = 16
 script = ExtResource("8_qwhmn")
-next_scene = "uid://dtcm1n77fw76u"
+next_scene = "uid://cedyagguut4ot"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EndLevel" unique_id=1183968341]
 position = Vector2(-9.5, -149.5)

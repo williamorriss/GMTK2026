@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c1igl7l21y2up"
-path="res://.godot/imported/Bossteleaway.png-04ed5c58b333bbbe492fe64a5b8f64dc.ctex"
+uid="uid://datepvoufo13a"
+path="res://.godot/imported/healthybosscast-Sheet.png-9aa599c67fe6282a5ce9cd1e7f0db2ec.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://enemies/boss/boss_wizard/sprites/Bossteleaway.png"
-dest_files=["res://.godot/imported/Bossteleaway.png-04ed5c58b333bbbe492fe64a5b8f64dc.ctex"]
+source_file="res://enemies/boss/boss_wizard/sprites/good/healthybosscast-Sheet.png"
+dest_files=["res://.godot/imported/healthybosscast-Sheet.png-9aa599c67fe6282a5ce9cd1e7f0db2ec.ctex"]
 
 [params]
 

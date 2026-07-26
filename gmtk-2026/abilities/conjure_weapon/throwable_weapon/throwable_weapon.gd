@@ -25,6 +25,12 @@ func set_direction(direction: Vector2) -> void:
 func _ready() -> void:
 	sprite.play("default")
 	get_tree().create_timer(life_span).timeout.connect(_destroy)
+	set_collision_mask_value(3, false)
+	
+	var timer := get_tree().create_timer(0.1)
+	timer.timeout.connect(func():
+		set_collision_mask_value(3, true)
+	)
 
 func _process(delta: float) -> void:
 	sprite.rotation_degrees += spin_speed * delta

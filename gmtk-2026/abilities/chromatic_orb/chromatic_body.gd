@@ -33,6 +33,12 @@ static func create_orb(player: Node2D, is_evil: bool, target: Vector2) -> Chroma
 
 func _ready() -> void:
 	position = _player.global_position
+	set_collision_mask_value(3, false)
+	
+	var timer := get_tree().create_timer(0.1)
+	timer.timeout.connect(func():
+		set_collision_mask_value(3, true)
+	)
 	
 	if _is_evil:
 		_direction = position.direction_to(_target)

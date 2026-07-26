@@ -324,7 +324,7 @@ position = Vector2(0, 2)
 texture = ExtResource("2_oubo3")
 
 [node name="Health" parent="." unique_id=2054087400 instance=ExtResource("3_oubo3")]
-max_health = 5.0
+max_health = 75.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1589735347]
 position = Vector2(-15, -83)

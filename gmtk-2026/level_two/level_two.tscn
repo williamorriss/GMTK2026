@@ -367,7 +367,7 @@ position = Vector2(4636, -9425)
 rotation = -6.2831855
 
 [node name="Door4" parent="doors" unique_id=332182828 instance=ExtResource("4_d62wt")]
-position = Vector2(-4012, -5101)
+position = Vector2(-4081, -5101)
 rotation = -6.2831855
 
 [node name="Door5" parent="doors" unique_id=1064431915 instance=ExtResource("4_d62wt")]

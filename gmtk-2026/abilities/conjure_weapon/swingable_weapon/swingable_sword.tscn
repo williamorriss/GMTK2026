@@ -47,6 +47,7 @@ script = ExtResource("1_jg18m")
 collider = NodePath("Weapon/Pivot/Area2D")
 animator = NodePath("AnimationPlayer")
 sprite = NodePath("Weapon/Pivot/Sprite2D")
+damage = 50.0
 swing_time = 0.25
 swing_delay = 0.25
 swing_distance = 150.0

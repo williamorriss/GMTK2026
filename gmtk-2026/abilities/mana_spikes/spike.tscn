@@ -132,6 +132,7 @@ collision_layer = 8
 collision_mask = 3
 script = ExtResource("1_5a5iw")
 animator = NodePath("AnimatedSprite2D")
+damage = 50.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=657105916]
 shape = SubResource("CircleShape2D_ln4xa")

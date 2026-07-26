@@ -399,7 +399,7 @@ avoidance_enabled = true
 debug_use_custom = true
 
 [node name="Health" parent="." unique_id=2054087400 instance=ExtResource("3_67ugg")]
-max_health = 10.0
+max_health = 150.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2016756548]
 position = Vector2(-15, -78)

@@ -88,6 +88,7 @@ animations = [{
 script = ExtResource("1_ln04t")
 sprite = NodePath("AnimatedSprite2D")
 health = NodePath("Health")
+cooldown = 1.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2143772662]
 visible = false

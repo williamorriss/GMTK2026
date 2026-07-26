@@ -7,6 +7,6 @@
 script = ExtResource("1_cc5jk")
 symbol = ExtResource("2_yk36w")
 name = "Sentry"
-cost = 2
+cost = 5
 description = "Summon a sentry to shoot bullets at enemies"
 metadata/_custom_type_script = "uid://ddj5n2nhn7cnq"

@@ -5,7 +5,7 @@
 
 [node name="HealthTimer" type="CanvasLayer" unique_id=240449515 node_paths=PackedStringArray("label")]
 script = ExtResource("1_1523m")
-initial_time = 300.0
+initial_time = 600.0
 label = NodePath("RichTextLabel")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1667187169]

@@ -7,6 +7,7 @@
 [resource]
 script = ExtResource("1_vdxmg")
 name = "Dagger"
+extra_cost = 1
 swingable = ExtResource("2_w4o62")
 throwable = ExtResource("3_thwym")
 extra_disc = "Deals less damage,  but is faster in swinging and throwing"

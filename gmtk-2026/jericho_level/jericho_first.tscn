@@ -1,7 +1,6 @@
 [gd_scene format=4 uid="uid://ci8upnfj1ucdu"]
 
 [ext_resource type="Texture2D" uid="uid://dwnl8eou5lpvj" path="res://jericho_level/placeholder_art/2D Pixel Dungeon Asset Pack/Dungeon_Tileset_at.png" id="1_6vy7x"]
-[ext_resource type="PackedScene" uid="uid://swcxgbeey32e" path="res://enemies/beam_enemy/beam_enemy.tscn" id="1_oawk6"]
 [ext_resource type="PackedScene" uid="uid://ciyk3l7p2kfjx" path="res://player/player.tscn" id="2_5g432"]
 [ext_resource type="Script" uid="uid://b3v0dqtu4y87l" path="res://jericho_level/camera_controller.gd" id="2_7tmev"]
 [ext_resource type="PackedScene" uid="uid://lxqc6qi5a73" path="res://jericho_level/door/door.tscn" id="3_dors5"]
@@ -311,7 +310,25 @@ sources/0 = SubResource("TileSetAtlasSource_tmijp")
 [sub_resource type="Resource" id="Resource_ln4xa"]
 script = ExtResource("5_t5tom")
 enemy = ExtResource("6_7tmev")
-amount = 4
+amount = 6
+metadata/_custom_type_script = "uid://3qtp2f14y6k5"
+
+[sub_resource type="Resource" id="Resource_71geq"]
+script = ExtResource("5_t5tom")
+enemy = ExtResource("7_rdr8v")
+amount = 3
+metadata/_custom_type_script = "uid://3qtp2f14y6k5"
+
+[sub_resource type="Resource" id="Resource_oawk6"]
+script = ExtResource("5_t5tom")
+enemy = ExtResource("7_rdr8v")
+amount = 3
+metadata/_custom_type_script = "uid://3qtp2f14y6k5"
+
+[sub_resource type="Resource" id="Resource_5ph32"]
+script = ExtResource("5_t5tom")
+enemy = ExtResource("7_rdr8v")
+amount = 2
 metadata/_custom_type_script = "uid://3qtp2f14y6k5"
 
 [sub_resource type="Resource" id="Resource_tmijp"]
@@ -330,9 +347,6 @@ size = Vector2(575, 417)
 
 [node name="JerichoFirst" type="Node2D" unique_id=2038274911]
 script = SubResource("GDScript_5ph32")
-
-[node name="BeamEnemy" parent="." unique_id=1624300625 instance=ExtResource("1_oawk6")]
-position = Vector2(-1346, -503)
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=1733079196]
 navigation_polygon = SubResource("NavigationPolygon_t5tom")
@@ -353,7 +367,6 @@ player = NodePath("../Player")
 [node name="Player" parent="." unique_id=133342377 instance=ExtResource("2_5g432")]
 position = Vector2(2, 16)
 scale = Vector2(2, 2)
-speed = 1000.0
 dash_speed = 1500.0
 
 [node name="Rooms" type="Node2D" parent="." unique_id=1390008153]
@@ -402,7 +415,7 @@ room_area = NodePath("../Polygon2D")
 doors = [NodePath("../../../Doors/Door2")]
 camera = NodePath("../../../Camera2D")
 camera_focus = NodePath("..")
-spawn_data = Array[ExtResource("5_t5tom")]([SubResource("Resource_ln4xa")])
+spawn_data = Array[ExtResource("5_t5tom")]([SubResource("Resource_ln4xa"), SubResource("Resource_71geq")])
 
 [node name="Polygon2D" type="Polygon2D" parent="Rooms/Room2" unique_id=1423592193]
 color = Color(1, 1, 1, 0)
@@ -428,7 +441,7 @@ room_area = NodePath("../Polygon2D")
 doors = [NodePath("../../../Doors/Door3"), NodePath("../../../Doors/Door4")]
 camera = NodePath("../../../Camera2D")
 camera_focus = NodePath("..")
-spawn_data = Array[ExtResource("5_t5tom")]([SubResource("Resource_ln4xa")])
+spawn_data = Array[ExtResource("5_t5tom")]([SubResource("Resource_ln4xa"), SubResource("Resource_oawk6")])
 
 [node name="Polygon2D" type="Polygon2D" parent="Rooms/Room3" unique_id=1639230029]
 color = Color(1, 1, 1, 0)
@@ -535,7 +548,7 @@ room_area = NodePath("../Polygon2D")
 doors = [NodePath("../../../Doors/Door5"), NodePath("../../../Doors/Door4")]
 camera = NodePath("../../../Camera2D")
 camera_focus = NodePath("..")
-spawn_data = Array[ExtResource("5_t5tom")]([SubResource("Resource_ln4xa")])
+spawn_data = Array[ExtResource("5_t5tom")]([SubResource("Resource_ln4xa"), SubResource("Resource_5ph32")])
 
 [node name="Polygon2D" type="Polygon2D" parent="Rooms/Room4" unique_id=1018399384]
 color = Color(1, 1, 1, 0)
@@ -652,9 +665,6 @@ position = Vector2(-9.5, -149.5)
 shape = SubResource("RectangleShape2D_ln4xa")
 
 [node name="TimerControl" parent="." unique_id=1567958905 instance=ExtResource("9_vmmnd")]
-
-[node name="LineTrap#Node2D" type="Node2D" parent="." unique_id=1749064608]
-position = Vector2(2022, -263)
 
 [node name="PlayMusic" parent="." unique_id=354320584 instance=ExtResource("13_71geq")]
 music = ExtResource("14_oawk6")

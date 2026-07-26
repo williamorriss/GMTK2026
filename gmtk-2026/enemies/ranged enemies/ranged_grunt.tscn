@@ -307,7 +307,6 @@ agent = NodePath("NavigationAgent2D")
 health = NodePath("Health")
 sprite = NodePath("AnimatedSprite2D")
 speed = 500.0
-max_distance = 1000.0
 attack_cooldown = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1477722998]
@@ -329,3 +328,5 @@ position = Vector2(-15, -83)
 scale = Vector2(9, 9)
 sprite_frames = SubResource("SpriteFrames_ln4xa")
 animation = &"walk"
+
+[connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]

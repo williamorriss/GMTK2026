@@ -33,90 +33,133 @@ extends CharacterBody2D
 @export var hit_frames: int = 5
 
 
-var _dashing: bool = false
+@onready var _flash_shader: Shader = preload("res://player/flash.gdshader")
+@onready var _flash: ShaderMaterial = ShaderMaterial.new()
+
+
 var _dash_timer: float = 0.0
 var _dash_cooldown_timer: float = 0.0
 var _dash_direction: Vector2 = Vector2.ZERO
 
 var _hit_intangible_timer: float = 0.0
 var _hit_intangible: bool = false
-
 var _should_step: bool = true
 
+var _current_state: State = State.Idle
+enum State {
+	Walking,
+	Running,
+	Dashing,
+	Casting,
+	Idle,
+	Dead
+}
+
 func _ready() -> void:
+	_flash.shader = _flash_shader
+	animation.material = _flash
 	add_to_group("players")
 	var _x: int = health.on_dead.connect(_die)
 	Enemy.force_recalc(get_tree())
 	
 
 func _physics_process(delta: float) -> void:
-	if Input.is_action_just_pressed("ui_up"):
-		$BloodDrop.orbulate(1000000)
+	_dash_cooldown_timer = max(0.0, _dash_cooldown_timer - delta)
 	
-	if _should_step and velocity.length() >= 1:
-		_should_step = false
-		var _x: bool = get_tree().create_timer(randf_range(step_length.x, step_length.y)).timeout.connect(func() -> void: _should_step = true)
-		AudioManager.play_sfx(step_audio, randf_range(step_volume.x, step_volume.y), randf_range(step_pitch.x, step_pitch.y))
-	
+	# i frames on hit
 	_hit_intangible_timer = max(0.0, _hit_intangible_timer - delta)
 	if _hit_intangible_timer <= 0.0 and _hit_intangible:
 		_hit_intangible = false
 		health.set_immunity(false)
-	_move(delta)
+	
+	_current_state = _decide_state(delta)
+		
+	
+	
+	
 	nav()
 
 func nav() -> void:
 	$NavigationObstacle2D.velocity = velocity
 	
 
-func _move(delta: float) -> void:
+func _decide_state(delta: float) -> State:
 	var input_dir: Vector2 = Vector2(
 		Input.get_axis("LEFT", "RIGHT"),
 		Input.get_axis("UP", "DOWN")
 	).normalized()
 	
-	_dash_cooldown_timer = max(0.0, _dash_cooldown_timer - delta)
+	# flip sprite
+	if input_dir.x > 0.0:
+		animation.flip_h = false
+	elif input_dir.x < 0.0:
+		animation.flip_h = true
+		
+		
+	var state: State = State.Idle
 	
 	if Input.is_action_just_pressed("DASH") and _dash_cooldown_timer <= 0.0 and input_dir != Vector2.ZERO:
-		AudioManager.play_sfx(dash_audio)
-		_dashing = true
-		_dash_timer = dash_duration
-		_dash_cooldown_timer = dash_cooldown
-		_dash_direction = input_dir
-	
-	if _dashing:
-		_i_frames(true)
-		velocity = _dash_direction * dash_speed
-		_dash_timer -= delta
-		if _dash_timer <= 0.0:
-			collision_layer = 1
-			_dashing = false
+		return _start_dash(delta, input_dir)
+	elif _current_state == State.Dashing and _dash_timer > 0.0:
+		return _dash(delta)
+	elif input_dir != Vector2.ZERO:
+		_walk(delta, input_dir)
+		return State.Walking
 	else:
-		_i_frames(false)
-		
-		var target_velocity: Vector2 = input_dir * speed
-	
-		if input_dir != Vector2.ZERO:
-			velocity = velocity.move_toward(target_velocity, acceleration * delta)
-		else:
-			velocity = velocity.move_toward(Vector2.ZERO, friction * delta)
-	
-	var _x: bool = move_and_slide()
-	animate(input_dir)
-	
-	
-func animate(dir: Vector2) -> void:
-	if _dashing:
-		animation.play("dash")
-	elif _hit_intangible:
-		animation.play("hurt")
-	elif dir != Vector2.ZERO:
-		animation.play("run")
-	else:
-		animation.play("idle")
-	
+		_idle(delta)
+		return State.Idle
 
-# [NOTE] bullet can still get destoryed when hitting but wont deal damage
+func _start_dash(delta: float, input_dir: Vector2) -> State:
+	# start dash
+	AudioManager.play_sfx(dash_audio)
+	_animate_duration("dash", dash_duration)
+	_dash_timer = dash_duration
+	_dash_cooldown_timer = dash_cooldown
+	_dash_direction = input_dir
+	return _dash(delta)
+
+func _dash(delta: float) -> State:
+	# currently dashing
+	_i_frames(true)
+	velocity = _dash_direction * dash_speed
+	_dash_timer -= delta
+	var _x: int = move_and_slide()
+	if _dash_timer <= 0.0:
+		collision_layer = 1
+		return State.Idle
+	return State.Dashing
+
+		
+func _walk(delta: float, input_dir: Vector2) -> void:
+	if _should_step and velocity.length() >= 1:
+		_should_step = false
+		var _x: bool = get_tree().create_timer(randf_range(step_length.x, step_length.y)).timeout.connect(func() -> void: _should_step = true)
+		AudioManager.play_sfx(step_audio, randf_range(step_volume.x, step_volume.y), randf_range(step_pitch.x, step_pitch.y))
+		
+	_i_frames(false)
+	var target_velocity: Vector2 = input_dir * speed
+	animation.play("walk")
+	velocity = velocity.move_toward(target_velocity, acceleration * delta)
+	var _x: int = move_and_slide()
+	
+func _idle(delta: float) -> void:
+	animation.play("idle")
+	velocity = velocity.move_toward(Vector2.ZERO, friction * delta)
+	var _x: int = move_and_slide()
+	
+	
+func _hit_flash(duration: float) -> void:
+	var tween: Tween = create_tween()
+	_flash.set_shader_parameter("flash_amount", 1.0)
+	var flash_tween: MethodTweener = tween.tween_method(
+			func(v: float) -> void: _flash.set_shader_parameter("flash_amount", v),
+			1.0, 0.0, duration * 0.7
+	)
+	flash_tween.set_ease(Tween.EASE_OUT)
+	flash_tween.set_trans(Tween.TRANS_EXPO)
+
+
+# [NOTE] bullet can still get destroyed when hitting but wont deal damage
 # Will don't change the mask, even if you remove mask from abilities here, projectiles can still detect player
 func _i_frames(value: bool) -> void:
 	health.set_immunity(value)
@@ -131,10 +174,18 @@ func _die(dealer: Health.Owner, taker: Health.Owner, direction: Vector2) -> void
 	await SceneTransition.change_scene(death_screen)
 	queue_free()
 
+func _animate_duration(anim_name: String, target_duration: float) -> void:
+	var sf: SpriteFrames = animation.sprite_frames
+	var frame_count: int = sf.get_frame_count(anim_name)
+	var target_fps: float = frame_count / target_duration
+	animation.speed_scale = target_fps / sf.get_animation_speed(anim_name)
+	animation.play(anim_name)
+
+
 func _on_health_on_damage_taken(dealer: Health.Owner, taker: Health.Owner, value: float, new_hp: float) -> void:
 	if dealer == Health.Owner.Enemy:
 		AudioManager.play_sfx(hurt_audio)
-	
-	_hit_intangible_timer = intagible_time
-	health.set_immunity(true)
-	_hit_intangible = true
+		_hit_intangible_timer = intagible_time
+		_hit_flash(intagible_time)
+		health.set_immunity(true)
+		_hit_intangible = true

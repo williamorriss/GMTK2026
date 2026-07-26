@@ -7,26 +7,72 @@
 
 [sub_resource type="Resource" id="Resource_got86"]
 script = ExtResource("3_ohb0d")
-speaker = "Narrator"
-body = "This is the story of a man named Stanley. Stanley worked for a company in a big building where he was employee #427. Employee #427’s job was simple: he sat at his desk in room 427 and he pushed buttons on a keyboard. Orders came to him through a monitor on his desk, telling him what buttons to push, how long to push them, and in what order. "
+speaker = "Joe Wizard"
+body = "JOHN WIZARD! IT IS I, JOE WIZARD. I HAVE COME TO REMOVE THE SPELL YOU PLACED ON ME, AND END OUR FEUD ONCE AND FOR ALL!"
 metadata/_custom_type_script = "uid://b01xvucl3mvta"
 
 [sub_resource type="Resource" id="Resource_wxb4a"]
 script = ExtResource("3_ohb0d")
-speaker = "Narrator"
-body = "This is what Employee #427 did every day of every month of every year, and although others might have considered it soul rending, Stanley relished every moment that the orders came in, as though he had been made exactly for this job. And Stanley was happy."
+speaker = "John Wizard"
+body = "Ah, Joe Wizard, I see that you have finally made it to the top of my tower, using what little precious time you have remaining."
 metadata/_custom_type_script = "uid://b01xvucl3mvta"
 
 [sub_resource type="Resource" id="Resource_6oyhc"]
 script = ExtResource("3_ohb0d")
-speaker = "Narrator"
-body = "And then one day, something very peculiar happened, something that would forever change Stanley, something he would never quite forget. He had been at his desk for nearly an hour when he realized that not one, single order had arrived on the monitor for him to follow."
+speaker = "John Wizard"
+body = "But! You don't have the power to defeat me, and this will be your doom instead!"
 metadata/_custom_type_script = "uid://b01xvucl3mvta"
 
 [sub_resource type="Resource" id="Resource_tu1um"]
 script = ExtResource("3_ohb0d")
-speaker = "Narrator"
-body = "No one had shown up to give him instructions, call a meeting, or even say hi. Never in all his years at the company had this happened, this complete isolation. Something was very clearly wrong. Shocked, frozen solid, Stanley found himself unable to move for the longest time, but as he came to his wits and regained his senses, he got up from his desk and stepped out of his office."
+speaker = "John Wizard"
+body = "For you see, while you have been climbing my tower, I have been studying the mystic arts, reading lost tomes from the likes of Dr. Weird and Gondolph the Green! But most importantly, I've studied your spells!"
+metadata/_custom_type_script = "uid://b01xvucl3mvta"
+
+[sub_resource type="Resource" id="Resource_krmq4"]
+script = ExtResource("3_ohb0d")
+speaker = "John Wizard"
+body = "For you see, as you ascended my stronghold, I studied your every move, your every spell and your every misstep. I know all of your strengths and weaknesses!"
+metadata/_custom_type_script = "uid://b01xvucl3mvta"
+
+[sub_resource type="Resource" id="Resource_lihep"]
+script = ExtResource("3_ohb0d")
+speaker = "John Wizard"
+body = "For you see, just before you entered my castle, I purchased a lifelong subscription to Alexa, and have secretly placed it everywhere, so it can report everything that you were doing, and I managed to comb through all the data provided in the matter of a few minutes."
+metadata/_custom_type_script = "uid://b01xvucl3mvta"
+
+[sub_resource type="Resource" id="Resource_ohb0d"]
+script = ExtResource("3_ohb0d")
+speaker = "John Wizard"
+body = "For you see, after our 71st duel, I decided to buy Gemini Pro, and asked it to go through the data given, and make a PowerPoint presentation on how to kill you! And I knew this was about to work"
+metadata/_custom_type_script = "uid://b01xvucl3mvta"
+
+[sub_resource type="Resource" id="Resource_n1p3r"]
+script = ExtResource("3_ohb0d")
+speaker = "John Wizard"
+body = "For you see... ok you know what, I'm really suprised you haven't skipped through my dialogue yet, like you know that you're actively dying right? Or are you that interested in me speaking? Well in that case, let me read you one of my favourite monologues I found recently."
+metadata/_custom_type_script = "uid://b01xvucl3mvta"
+
+[sub_resource type="Resource" id="Resource_76hwu"]
+script = ExtResource("3_ohb0d")
+speaker = "John Wizard"
+body = " I know what’s going on here. I know what’s going on here. Okay? I do. And if you want me to wander backstage to spill the beans... I’m the only one out of the loop, it would seem... and if we check my point total here— I don’t NEED to walk to the front, because I know what it is. It’s a big ol’ GOOSE EGG, GANG. It’s a FAT ZERO. HELLO!! A little LATE ADDITION to the numerical symbol chart brought to us from our friends in Arabia, a little bit of trivia that I happen to know about the history of numbers. That kind of little tidbit would serve me well in most trivia games, unless it had been RIGGED FROM THE BEGINNING! Oh, I’ve only just BEGUN to pull the thread on this sweater, friends. You would THINK in a game where there are only TWO possible correct choices, that one would STUMBLE INTO the right answer every so often, wouldn’t you? In fact, the probability of NEVER guessing right in the full game is a STATISTICAL WONDER, and yet, HERE WE ARE. Introduced at the top of the game as a champion, what do you think that means? Icarus, flying too close to the sun. But it seems Daedalus, our little master crafter over here, had some wax wings of his own, didn’t he? Wanted to see his son fall. Fall from the sky. Oh, how CLOSE TO THE SUN he flew! Well I’m NOT HAVING IT. I solved your labyrinth, puzzle master! The minotaur‘s escaped and you’re gonna get the horns, buddy!
+
+I CANNOT WIN! 
+
+The monologue I recreated was from Game Changer's episode \"Yes or no\", which aired on May 8 2020, available on Dropout.tv"
+metadata/_custom_type_script = "uid://b01xvucl3mvta"
+
+[sub_resource type="Resource" id="Resource_3x671"]
+script = ExtResource("3_ohb0d")
+speaker = "Joe Wizard"
+body = "SHUT UP AND FACE ME!"
+metadata/_custom_type_script = "uid://b01xvucl3mvta"
+
+[sub_resource type="Resource" id="Resource_fuefm"]
+script = ExtResource("3_ohb0d")
+speaker = "John Wizard"
+body = "Very well! Have at thee!"
 metadata/_custom_type_script = "uid://b01xvucl3mvta"
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ln4xa"]
@@ -51,7 +97,7 @@ body_label = NodePath("TextPanel/MarginContainer/VBoxContainer/BodyLabel")
 image = NodePath("MarginContainer/TextureRect")
 typing_delay = 0.001
 select_audio = ExtResource("2_lihep")
-cutscenes = Array[ExtResource("3_ohb0d")]([SubResource("Resource_got86"), SubResource("Resource_wxb4a"), SubResource("Resource_6oyhc"), SubResource("Resource_tu1um")])
+cutscenes = Array[ExtResource("3_ohb0d")]([SubResource("Resource_got86"), SubResource("Resource_wxb4a"), SubResource("Resource_6oyhc"), SubResource("Resource_tu1um"), SubResource("Resource_krmq4"), SubResource("Resource_lihep"), SubResource("Resource_ohb0d"), SubResource("Resource_n1p3r"), SubResource("Resource_76hwu"), SubResource("Resource_3x671"), SubResource("Resource_fuefm")])
 
 [node name="Background" type="Panel" parent="." unique_id=94816429]
 anchors_preset = 15

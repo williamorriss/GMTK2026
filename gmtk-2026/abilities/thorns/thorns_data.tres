@@ -8,4 +8,5 @@ script = ExtResource("1_nomok")
 symbol = ExtResource("2_gpkln")
 name = "Thorns"
 cost = 2
+description = "Shoot out thorns in all directions."
 metadata/_custom_type_script = "uid://ddj5n2nhn7cnq"

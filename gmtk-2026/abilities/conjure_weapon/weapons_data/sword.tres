@@ -10,4 +10,5 @@ name = "Sword"
 extra_cost = 1
 swingable = ExtResource("2_1143o")
 throwable = ExtResource("2_ryvah")
+extra_disc = "The standard weapon"
 metadata/_custom_type_script = "uid://dcpfkcthf4n7g"

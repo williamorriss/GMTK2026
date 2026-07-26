@@ -18,6 +18,7 @@
 [ext_resource type="Script" uid="uid://cy1iminwpbvu1" path="res://enemies/boss/boss_wizard/Phases/Phase1/Actions/normal_shoot.gd" id="11_cvrsx"]
 [ext_resource type="PackedScene" uid="uid://swcxgbeey32e" path="res://enemies/beam_enemy/beam_enemy.tscn" id="11_lijfk"]
 [ext_resource type="PackedScene" uid="uid://ciq5xxdrhat1g" path="res://enemies/ranged enemies/ranged_grunt.tscn" id="12_a04r5"]
+[ext_resource type="Script" uid="uid://dl7adyy4ntef3" path="res://enemies/boss/boss_wizard/Phases/Phase1/Actions/teleport_spawn.gd" id="20_ptrxy"]
 [ext_resource type="Texture2D" uid="uid://dwktrvmjqgd3r" path="res://enemies/boss/boss_wizard/sprites/good/healthybossawlk-Sheet-export.png" id="24_a04r5"]
 [ext_resource type="Script" uid="uid://jwtcmat5tduk" path="res://enemies/boss/boss_wizard/boss_animator.gd" id="30_6731r"]
 
@@ -596,6 +597,8 @@ agent = NodePath("NavigationAgent2D")
 health = NodePath("Health")
 animator = NodePath("BossAnimator")
 current_phase = NodePath("Phase1")
+speed = 600.0
+dash_speed = 2500.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1445703991]
 shape = SubResource("CircleShape2D_ln4xa")
@@ -613,7 +616,7 @@ animation = &"death"
 [node name="Phase1" type="Node2D" parent="." unique_id=731236335 node_paths=PackedStringArray("starting_action", "actions")]
 script = ExtResource("4_xteoq")
 starting_action = NodePath("Charge")
-actions = [NodePath("Run"), NodePath("Charge"), NodePath("Teleport"), NodePath("Stroll"), NodePath("Shoot")]
+actions = [NodePath("Run"), NodePath("Charge"), NodePath("Teleport"), NodePath("Stroll"), NodePath("Shoot"), NodePath("TeleportSpawnAction")]
 
 [node name="Run" type="Node2D" parent="Phase1" unique_id=2125979796]
 script = ExtResource("5_1x24s")
@@ -638,6 +641,15 @@ enemies = Array[PackedScene]([ExtResource("11_lijfk"), ExtResource("8_iafwb"), E
 script = ExtResource("11_cvrsx")
 projectile = ExtResource("6_1x24s")
 max_time_range = Vector2(1, 2)
+
+[node name="TeleportSpawnAction" type="Node2D" parent="Phase1" unique_id=1847600871]
+script = ExtResource("20_ptrxy")
+teleport_amount = Vector2i(2, 5)
+teleport_delay = Vector2(1, 2)
+spawn_delay = Vector2(1, 2)
+enemy_amount = Vector2i(2, 5)
+enemies = Array[PackedScene]([ExtResource("11_lijfk"), ExtResource("8_iafwb"), ExtResource("12_a04r5")])
+metadata/_custom_type_script = "uid://dl7adyy4ntef3"
 
 [node name="BossAnimator" type="Node2D" parent="." unique_id=2044527843 node_paths=PackedStringArray("sprite", "player")]
 script = ExtResource("30_6731r")

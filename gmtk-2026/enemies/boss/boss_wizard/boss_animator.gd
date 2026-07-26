@@ -41,8 +41,7 @@ func queue(anim_name: StringName, forced: bool = false) -> void:
 	
 	if forced:
 		sprite.stop()
-		_queue = []
-		sprite.play(anim_name)
+		_queue = [anim_name]
 		return
 	
 	_queue.append(anim_name)

@@ -70,7 +70,6 @@ func _ready() -> void:
 	var _x: bool = health.on_dead.connect(_boss_death)
 	
 	add_to_group("enemies")
-	health.damage(45, Vector2.ZERO, Health.Owner.Player)
 	await current_phase.ready(self)
 	await _dash_wait()
 

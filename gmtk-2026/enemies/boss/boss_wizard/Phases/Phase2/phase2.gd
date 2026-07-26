@@ -1,6 +1,7 @@
 class_name Phase2
 extends Phase
 
+@export_file("*.tscn") var next_scene: String
 @export var cooldown: Vector2 = Vector2(5.0, 10.0)
 
 var _target: Vector2
@@ -14,6 +15,9 @@ func ready(boss: BossWizard) -> void:
 	switch_action(actions.pick_random())
 	_target = _boss.get_random_point()
 	await _switcheroo()
+
+func exit() -> void:
+	await SceneTransition.change_scene(next_scene)
 
 func process(_delta: float) -> void:
 	super.process(_delta)

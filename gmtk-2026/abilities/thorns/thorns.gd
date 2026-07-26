@@ -8,6 +8,10 @@ func _init(player: Node2D) -> void:
 	_ability_data = preload("res://abilities/thorns/thorns_data.tres")
 
 func activate_ability() -> void:
+	super.activate_ability()
+	if not _can_activate:
+		return
+	
 	for i: int in range(amount):
 		var rot: float = (2 * PI) * (float(i) / float(amount))
 		var dir: Vector2 = Vector2(cos(rot), sin(rot))

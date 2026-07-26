@@ -49,16 +49,14 @@ func _physics_process(_delta: float) -> void:
 	else:
 		sprite.flip_h = false
 	
-	if agent.is_navigation_finished() or position.distance_to(_closest_player.position) < max_distance:
-		velocity = Vector2.ZERO
-		move_and_slide()
+	if agent.is_navigation_finished() or global_position.distance_to(_closest_player.global_position) < max_distance:
+		agent.set_velocity(Vector2.ZERO)
 		return
 	
 	var next_point: Vector2 = agent.get_next_path_position()
 	var direction: Vector2 = global_position.direction_to(next_point)
 	
-	velocity = direction * speed
-	move_and_slide()
+	agent.set_velocity(direction * speed)
 
 func attack() -> void:
 	if not _closest_player:
@@ -91,6 +89,11 @@ func _can_see(target: Vector2) -> bool:
 	var result: Dictionary = space_state.intersect_ray(query)
 	
 	return result.is_empty()
+
+func _on_navigation_agent_2d_velocity_computed(safe_velocity: Vector2) -> void:
+	print(safe_velocity)
+	velocity = safe_velocity
+	move_and_slide()
 
 func _on_dead(_dealer: Health.Owner, _taker: Health.Owner, _direction: Vector2) -> void:
 	if _is_dying:

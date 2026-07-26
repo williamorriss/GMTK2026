@@ -22,9 +22,12 @@ func _init(player: Node2D, weapon_data: WeaponData) -> void:
 	_ability_data = preload("res://abilities/conjure_weapon/conjure_data.tres")
 
 func get_ability_data() -> AbilityData:
-	_ability_data.name = "Conjure " + _weapon_data.name
-	_ability_data.description += _weapon_data.extra_disc
-	return _ability_data
+	var new_ability: AbilityData = preload("res://abilities/ability_data.gd").new()
+	new_ability = _ability_data.duplicate()
+	
+	new_ability.name = "Conjure " + _weapon_data.name
+	new_ability.description = _ability_data.description + "\n" + _weapon_data.extra_disc
+	return new_ability
 
 func get_weapon_data() -> WeaponData:
 	return _weapon_data

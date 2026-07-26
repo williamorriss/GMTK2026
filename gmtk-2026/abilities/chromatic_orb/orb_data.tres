@@ -8,4 +8,5 @@ script = ExtResource("1_s2fi5")
 symbol = ExtResource("2_2iuln")
 name = "Chromatic Orb"
 cost = 2
+description = "Fire an orb that barrels through enemies, bouncing off walls and getting smaller"
 metadata/_custom_type_script = "uid://ddj5n2nhn7cnq"

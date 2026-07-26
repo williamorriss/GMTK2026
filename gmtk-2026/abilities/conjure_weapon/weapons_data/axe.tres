@@ -10,4 +10,5 @@ name = "Axe"
 extra_cost = 3
 swingable = ExtResource("2_6kppg")
 throwable = ExtResource("3_0jgd3")
+extra_disc = "Swings and is thrown slower, but does more damage"
 metadata/_custom_type_script = "uid://dcpfkcthf4n7g"

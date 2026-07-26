@@ -3,15 +3,94 @@
 [ext_resource type="Texture2D" uid="uid://dhcwybhoxgwhe" path="res://icon.svg" id="1_1l6od"]
 [ext_resource type="Script" uid="uid://ydljdxlb0vxu" path="res://abilities/sentry/sentry_body.gd" id="1_ln04t"]
 [ext_resource type="Script" uid="uid://cy400prbqdwwd" path="res://health/health.gd" id="3_hm7o7"]
+[ext_resource type="Texture2D" uid="uid://df3juvb2tswyl" path="res://abilities/sentry/sprites/sentryfire-Sheet.png" id="4_oo3g6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ln4xa"]
-size = Vector2(128, 129)
+size = Vector2(128, 179)
 
-[node name="SentryBody" type="Node2D" unique_id=110357330 node_paths=PackedStringArray("health")]
+[sub_resource type="AtlasTexture" id="AtlasTexture_oo3g6"]
+atlas = ExtResource("4_oo3g6")
+region = Rect2(0, 0, 30, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_civ21"]
+atlas = ExtResource("4_oo3g6")
+region = Rect2(0, 0, 30, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d2f53"]
+atlas = ExtResource("4_oo3g6")
+region = Rect2(30, 0, 30, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6qcu7"]
+atlas = ExtResource("4_oo3g6")
+region = Rect2(60, 0, 30, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ymfev"]
+atlas = ExtResource("4_oo3g6")
+region = Rect2(90, 0, 30, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jcsph"]
+atlas = ExtResource("4_oo3g6")
+region = Rect2(120, 0, 30, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a0gr5"]
+atlas = ExtResource("4_oo3g6")
+region = Rect2(150, 0, 30, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i4txd"]
+atlas = ExtResource("4_oo3g6")
+region = Rect2(180, 0, 30, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_weiao"]
+atlas = ExtResource("4_oo3g6")
+region = Rect2(210, 0, 30, 30)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ln4xa"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oo3g6")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_civ21")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d2f53")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6qcu7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ymfev")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jcsph")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a0gr5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i4txd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_weiao")
+}],
+"loop": 0,
+"name": &"shoot",
+"speed": 10.0
+}]
+
+[node name="SentryBody" type="Node2D" unique_id=110357330 node_paths=PackedStringArray("sprite", "health")]
 script = ExtResource("1_ln04t")
+sprite = NodePath("AnimatedSprite2D")
 health = NodePath("Health")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2143772662]
+visible = false
 texture = ExtResource("1_1l6od")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=438814614]
@@ -19,9 +98,14 @@ collision_layer = 8
 collision_mask = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1086301004]
-position = Vector2(0, -0.5)
+position = Vector2(0, -17.5)
 shape = SubResource("RectangleShape2D_ln4xa")
 
 [node name="Health" type="Node2D" parent="." unique_id=694220687]
 script = ExtResource("3_hm7o7")
 metadata/_custom_type_script = "uid://cy400prbqdwwd"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2126936243]
+position = Vector2(1.1920929e-07, -75)
+scale = Vector2(10, 10)
+sprite_frames = SubResource("SpriteFrames_ln4xa")
